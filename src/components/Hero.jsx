@@ -17,7 +17,7 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <span className="prefix-dot">.portfolio</span>
+          <span className="prefix-dot">.PORTFOLIO</span>
           <span style={{ color: 'var(--text-muted)' }}>/ </span>
         </motion.p>
 
@@ -26,7 +26,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.5 }}
         >
-          <TypingEffect text="Ahnaf Rasheed" speed={90} startDelay={600} />
+          <TypingEffect text="AHNAF RASHEED" speed={120} startDelay={600} />
         </motion.div>
 
         <motion.p

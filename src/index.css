@@ -252,12 +252,8 @@ section {
 .name-typing { color: var(--text-main); }
 
 .name-complete {
-  background: var(--name-grad);
-  background-size: 250% 250%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: name-flow 5s ease infinite;
+  color: #6cf702; /* Saturated, vivid solid green */
+  transition: color 0.5s ease;
 }
 
 @keyframes name-flow {
