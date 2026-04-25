@@ -35,7 +35,7 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
     <div className="typing-wrapper">
       <h1 className={`hero-name ${isComplete ? 'name-complete' : 'name-typing'}`}>
         <span>{displayedText}</span>
-        {!isComplete && <span className="cursor-blink">|</span>}
+        <span className="cursor-blink">_</span>
       </h1>
     </div>
   );

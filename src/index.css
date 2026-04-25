@@ -98,7 +98,7 @@ section {
   background: var(--bg-editor);
   border: 1px solid var(--border);
   border-radius: 10px;
-  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(255,255,255,0.04);
+  box-shadow: 0 0 60px rgba(0, 212, 245, 0.08), var(--glass-shadow), 0 0 0 1px rgba(255,255,255,0.04);
   overflow: hidden;
 }
 
@@ -192,7 +192,7 @@ section {
 
 .nav-logo {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--text-main);
 }
@@ -208,8 +208,8 @@ section {
 
 .nav-links a {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.95rem;
+  color: var(--text-main);
   transition: color 0.2s;
 }
 
@@ -365,20 +365,25 @@ section {
 
 @media (min-width: 900px) {
   .about-layout {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
   }
 }
 
-.about-bio {
+.about-bio-card {
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  padding: 2.5rem;
+  border-radius: 10px;
+  background: var(--bg-editor);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 60px rgba(199, 146, 234, 0.08), var(--glass-shadow), 0 0 0 1px rgba(255,255,255,0.04);
 }
 
-.about-bio p { margin-bottom: 1.25rem; }
+.about-bio-card p { margin-bottom: 1.5rem; }
 
-.about-bio strong { color: var(--text-main); }
+.about-bio-card strong { color: var(--text-main); font-weight: 600; }
 
 /* ============================================
    PROJECTS — CODE ARRAY STYLE
