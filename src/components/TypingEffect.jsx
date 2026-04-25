@@ -1,37 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import GlitchText from './GlitchText';
+import React, { useState, useEffect, useRef } from 'react';
 
-const TypingEffect = ({ text, speed = 100, className = '' }) => {
+const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
+  const indexRef = useRef(0);
+  const intervalRef = useRef(null);
+  const delayRef = useRef(null);
 
   useEffect(() => {
-    let index = 0;
+    // Reset state on mount
+    indexRef.current = 0;
     setDisplayedText('');
     setIsComplete(false);
-    
-    const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + text.charAt(index));
-      index++;
-      if (index === text.length) {
-        clearInterval(interval);
-        setIsComplete(true);
-      }
-    }, speed);
 
-    return () => clearInterval(interval);
-  }, [text, speed]);
+    delayRef.current = setTimeout(() => {
+      intervalRef.current = setInterval(() => {
+        if (indexRef.current < text.length) {
+          indexRef.current += 1;
+          setDisplayedText(text.slice(0, indexRef.current));
+        } else {
+          clearInterval(intervalRef.current);
+          setIsComplete(true);
+        }
+      }, speed);
+    }, startDelay);
+
+    return () => {
+      clearTimeout(delayRef.current);
+      clearInterval(intervalRef.current);
+    };
+  }, [text, speed, startDelay]);
 
   return (
-    <div className={`typing-effect-container ${className}`}>
-      {isComplete ? (
-        <GlitchText text={text} as="h1" className="hero-title" />
-      ) : (
-        <h1 className="hero-title glitch-text" data-text={displayedText}>
-          {displayedText}
-          <span className="typing-cursor"></span>
-        </h1>
-      )}
+    <div className="typing-wrapper">
+      <h1 className={`hero-name ${isComplete ? 'name-complete' : 'name-typing'}`}>
+        <span>{displayedText}</span>
+        {!isComplete && <span className="cursor-blink">|</span>}
+      </h1>
     </div>
   );
 };

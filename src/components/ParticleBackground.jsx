@@ -43,8 +43,9 @@ const ParticleBackground = () => {
         const angle = Math.random() * Math.PI * 2;
         this.vx = Math.cos(angle) * speed * (Math.random() * 0.8 + 0.2);
         this.vy = Math.sin(angle) * speed * (Math.random() * 0.8 + 0.2);
-        // Colour: mix of cyan (#06b6d4) and purple (#8b5cf6)
-        this.hue = Math.random() > 0.5 ? 192 : 262; // cyan or purple hue
+        // 3 colours: cyan (192), purple (270), pink (320)
+        const hues = [192, 270, 320];
+        this.hue = hues[Math.floor(Math.random() * hues.length)];
         this.alpha = Math.random() * 0.5 + 0.3;
       }
 
