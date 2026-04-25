@@ -5,31 +5,31 @@ import { FiExternalLink } from 'react-icons/fi';
 
 const projects = [
   {
-    name: 'StudentManagementSystem',
-    description: '// Full-stack student portal with JWT-based role auth,\n// dashboard analytics, and PostgreSQL backend.',
-    tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
-    github: 'https://github.com/ah-nd-naf',
-    live: '#',
-  },
-  {
     name: 'SocialMediaApp',
-    description: '// Dynamic social platform with nested comments,\n// real-time feeds, and glassmorphic premium UI.',
-    tech: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
+    description: '// Full-stack social media platform with JWT authentication,\n// real-time interactions, and RESTful APIs.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     github: 'https://github.com/ah-nd-naf',
     live: '#',
   },
   {
-    name: 'MERNAuthSystem',
-    description: '// Complete authentication flow with OTP email\n// verification, JWT refresh tokens, and role-based access.',
-    tech: ['React', 'Express', 'MongoDB', 'Nodemailer'],
+    name: 'PetCare',
+    description: '// Interactive and responsive web application built with MERN stack.\n// Features comprehensive REST API integration.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     github: 'https://github.com/ah-nd-naf',
     live: '#',
   },
   {
-    name: 'PortfolioWebsite',
-    description: '// This very portfolio — IDE-themed, animated particle\n// background, smooth typing effect, deployed on Vercel.',
-    tech: ['React', 'Vite', 'Framer Motion', 'CSS'],
-    github: 'https://github.com/ah-nd-naf/Portfolio_Ahnaf',
+    name: 'AestheticRestaurant',
+    description: '// Web-based restaurant system with ordering and reservation features.\n// Includes user-friendly interfaces and robust backend logic.',
+    tech: ['Django', 'Python', 'SQL', 'HTML/CSS'],
+    github: 'https://github.com/ah-nd-naf',
+    live: '#',
+  },
+  {
+    name: 'PetSite',
+    description: '// Responsive frontend application featuring a pet gallery,\n// adoption flow, dynamic sliders, and interactive forms.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/ah-nd-naf',
     live: '#',
   },
 ];

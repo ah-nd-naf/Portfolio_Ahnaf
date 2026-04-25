@@ -3,39 +3,36 @@ import { motion } from 'framer-motion';
 
 const skillset = [
   {
-    category: '// Frontend',
+    category: '// Languages',
     skills: [
-      { icon: '⚛️', name: 'React.js' },
-      { icon: '⚡', name: 'Vite' },
-      { icon: '🎨', name: 'CSS3 / Tailwind' },
-      { icon: '🌀', name: 'Framer Motion' },
-      { icon: '🟨', name: 'JavaScript (ES6+)' },
+      { icon: '🟨', name: 'JavaScript' },
+      { icon: '🐍', name: 'Python' },
+      { icon: '💾', name: 'SQL' },
     ],
   },
   {
-    category: '// Backend',
+    category: '// Frontend',
+    skills: [
+      { icon: '⚛️', name: 'React (Basic)' },
+      { icon: '🌐', name: 'HTML/CSS' },
+      { icon: '📱', name: 'Responsive Design' },
+    ],
+  },
+  {
+    category: '// Backend & API',
     skills: [
       { icon: '🟩', name: 'Node.js' },
       { icon: '🚂', name: 'Express.js' },
-      { icon: '🔐', name: 'JWT Auth' },
-      { icon: '📧', name: 'Nodemailer' },
+      { icon: '🎸', name: 'Django' },
+      { icon: '🔌', name: 'RESTful APIs' },
     ],
   },
   {
-    category: '// Databases',
+    category: '// Databases & Tools',
     skills: [
-      { icon: '🍃', name: 'MongoDB' },
-      { icon: '🐘', name: 'PostgreSQL' },
-      { icon: '🔴', name: 'Redis' },
-    ],
-  },
-  {
-    category: '// Tools & Platforms',
-    skills: [
+      { icon: '🍃', name: 'MongoDB (Basic)' },
+      { icon: '🐬', name: 'MySQL' },
       { icon: '🐙', name: 'Git & GitHub' },
-      { icon: '▲', name: 'Vercel' },
-      { icon: '🐳', name: 'Docker (basics)' },
-      { icon: '📮', name: 'Postman' },
       { icon: '🖥️', name: 'Linux' },
     ],
   },

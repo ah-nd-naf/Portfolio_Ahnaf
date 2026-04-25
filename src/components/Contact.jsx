@@ -20,10 +20,14 @@ const Contact = () => (
           {`// I'm currently open to new opportunities`}
         </p>
 
-        <div>
-          <a href="mailto:ahnafrasheed@gmail.com" className="contact-email">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', alignItems: 'center' }}>
+          <a href="mailto:ahnaf.rasheed.zaki@gmail.com" className="contact-email">
             <FiMail style={{ marginRight: '0.4rem', verticalAlign: 'middle' }} />
-            ahnafrasheed@gmail.com
+            ahnaf.rasheed.zaki@gmail.com
+          </a>
+          <a href="tel:+8801715539677" className="contact-email" style={{ fontSize: '1.2rem' }}>
+            <span style={{ marginRight: '0.6rem', verticalAlign: 'middle' }}>📞</span>
+            +880-1715539677
           </a>
         </div>
 
