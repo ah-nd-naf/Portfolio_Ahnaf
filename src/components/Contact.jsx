@@ -1,46 +1,64 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 
-const Contact = () => {
-  return (
-    <section id="contact" className="contact-section">
-      <div className="container">
-        <motion.div
-          className="contact-content glass-panel"
-          style={{ padding: '3rem' }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="section-title text-gradient" style={{ marginBottom: '1.5rem' }}>
-            Get In Touch
-          </h2>
-          
-          <p className="contact-text">
-            I'm currently open to new opportunities! Whether you have a question, a project idea, or just want to say hi, feel free to drop a message.
-          </p>
-          
-          <a href="mailto:hello@example.com" className="btn btn-primary">
-            <FaEnvelope size={20} /> Say Hello
+const Contact = () => (
+  <section id="contact" className="contact-section">
+    <div className="container">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="contact-heading">
+          <span className="ch-accent">$ </span>
+          get_in_touch<span className="ch-accent">()</span>
+        </h2>
+        <p className="contact-sub">
+          {`// I'm currently open to new opportunities`}
+        </p>
+
+        <div>
+          <a href="mailto:ahnafrasheed@gmail.com" className="contact-email">
+            <FiMail style={{ marginRight: '0.4rem', verticalAlign: 'middle' }} />
+            ahnafrasheed@gmail.com
           </a>
-          
-          <div className="social-links">
-            <a href="https://github.com/ahnafrasheed" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
-              <FaGithub size={28} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-              <FaLinkedin size={28} />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Twitter">
-              <FaTwitter size={28} />
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+        </div>
+
+        <div className="social-links">
+          <a
+            href="https://github.com/ah-nd-naf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="Twitter"
+          >
+            <FaTwitter />
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Contact;

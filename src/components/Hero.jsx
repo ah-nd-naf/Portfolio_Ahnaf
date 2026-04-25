@@ -1,71 +1,74 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
+import { FaGithub } from 'react-icons/fa';
+import { FiDownload } from 'react-icons/fi';
 
 const Hero = () => {
-  // "Ahnaf Rasheed" = 13 chars, speed=90ms, startDelay=600ms → completes at ~1770ms
-  const typingDoneAt = 2.0; // seconds — when subtitle + rest fade in
+  // "Ahnaf Rasheed" = 13 chars × 90ms + 600ms delay ≈ 1.77s total
+  const afterTyping = 2.1;
 
   return (
     <section id="hero" className="hero-section">
-      <div className="container hero-content">
+      <div>
         <motion.p
-          className="hero-greeting"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          className="hero-path-prefix"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Hello, I'm
+          <span className="prefix-dot">.portfolio</span>
+          <span style={{ color: 'var(--text-muted)' }}>/ </span>
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
         >
           <TypingEffect text="Ahnaf Rasheed" speed={90} startDelay={600} />
         </motion.div>
 
         <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: typingDoneAt, duration: 0.8 }}
-        >
-          Full-Stack <span className="subtitle-accent">Web Developer</span>
-        </motion.p>
-
-        <motion.p
-          className="hero-description"
+          className="hero-tagline"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: typingDoneAt + 0.4, duration: 0.8 }}
+          transition={{ delay: afterTyping, duration: 0.8 }}
         >
-          I craft scalable, visually stunning web experiences — from robust backends to polished frontends.
+          Web Developer
+          <span className="tag-sep">·</span>
+          Full-Stack Builder
         </motion.p>
 
         <motion.div
           className="hero-actions"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: typingDoneAt + 0.8, duration: 0.8 }}
+          transition={{ delay: afterTyping + 0.3, duration: 0.7 }}
         >
-          <a href="#projects" className="btn btn-primary" id="btn-view-work">View My Work</a>
-          <a href="#contact" className="btn btn-secondary" id="btn-contact">Contact Me</a>
+          <a
+            href="https://github.com/ah-nd-naf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            id="btn-github"
+          >
+            <FaGithub /> View GitHub
+          </a>
+          <a href="#contact" className="btn btn-secondary" id="btn-contact">
+            <FiDownload /> Get In Touch
+          </a>
         </motion.div>
       </div>
 
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
-        animate={{ opacity: [0, 1, 0.5, 1], y: [0, 8, 0] }}
-        transition={{ delay: typingDoneAt + 1.2, duration: 2, repeat: Infinity }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: afterTyping + 1, duration: 0.8 }}
       >
-        <a href="#about" aria-label="Scroll down">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </a>
+        <span style={{ color: 'var(--syn-purple)' }}>// </span>
+        <a href="#about" style={{ color: 'var(--syn-comment)' }}>scroll to explore</a>
       </motion.div>
     </section>
   );

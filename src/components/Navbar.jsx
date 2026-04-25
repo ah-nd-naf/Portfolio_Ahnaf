@@ -1,24 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Navbar = () => {
-  return (
-    <motion.nav 
-      className="navbar"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <div className="nav-logo text-gradient">
-        AR.
-      </div>
-      <div className="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </motion.nav>
-  );
-};
+const Navbar = () => (
+  <motion.nav
+    className="navbar"
+    initial={{ y: -80, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.6, ease: 'easeOut' }}
+  >
+    <div className="nav-logo">
+      <span className="logo-path">./</span>
+      <span className="logo-name">ahnaf</span>
+      <span className="logo-path">/portfolio</span>
+    </div>
+
+    <nav className="nav-links" aria-label="Primary navigation">
+      <a href="#about">about</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+      <a
+        href="https://github.com/ah-nd-naf"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: 'var(--syn-cyan)' }}
+      >
+        GitHub →
+      </a>
+    </nav>
+  </motion.nav>
+);
 
 export default Navbar;
