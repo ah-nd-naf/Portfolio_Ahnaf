@@ -72,18 +72,50 @@ const Projects = () => {
     <section id="projects" className="projects-section">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          style={{
+            display: 'inline-block',
+            position: 'relative',
+            background: 'linear-gradient(90deg, rgba(22,27,34,0.95) 0%, rgba(13,17,23,0) 100%)',
+            padding: '1.25rem 2.5rem 1.25rem 2rem',
+            borderLeft: '4px solid var(--syn-cyan)',
+            borderRadius: '0 12px 12px 0',
+            marginBottom: '3rem',
+            marginLeft: '-2rem', // Pulls it slightly to the edge for a cool bleed effect
+            boxShadow: '-10px 0 30px rgba(0, 212, 245, 0.05)',
+            overflow: 'hidden'
+          }}
         >
-          <h2 className="section-code-header">
-            <span className="syn-keyword">const </span>
-            <span className="syn-fn">projects </span>
-            <span style={{ color: 'var(--text-muted)' }}>= </span>
-            <span className="syn-yellow">[</span>
-          </h2>
-          <p className="section-sub">// Exploring the repositories of ah-nd-naf</p>
+          {/* Subtle tech background pattern */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(rgba(0, 212, 245, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 245, 0.05) 1px, transparent 1px)', backgroundSize: '15px 15px', opacity: 0.6, pointerEvents: 'none', zIndex: 0 }} />
+
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            {/* Terminal execution metadata */}
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--syn-comment)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.8, display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <span><span style={{ color: 'var(--syn-pink)' }}>●</span> sys.init</span>
+              <span><span style={{ color: 'var(--syn-cyan)' }}>○</span> fetch_repos</span>
+              <span style={{ background: 'rgba(78, 201, 176, 0.1)', color: 'var(--syn-green)', padding: '2px 6px', borderRadius: '4px' }}>200 OK</span>
+            </div>
+
+            <h2 className="section-code-header" style={{ margin: 0, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>
+              <span className="syn-keyword">export const </span>
+              <span className="syn-fn" style={{ textShadow: '0 0 25px rgba(0, 212, 245, 0.5)' }}>projects </span>
+              <span style={{ color: 'var(--text-muted)' }}>= </span>
+              <span className="syn-yellow" style={{ textShadow: '0 0 25px rgba(248, 197, 85, 0.5)' }}>[</span>
+              <motion.span 
+                 animate={{ opacity: [1, 0, 1] }} 
+                 transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
+                 style={{ color: 'var(--syn-cyan)', fontWeight: '300', marginLeft: '6px' }}
+              >_</motion.span>
+            </h2>
+            <p className="section-sub" style={{ margin: '0.75rem 0 0 0', fontSize: '1rem', letterSpacing: '0.5px' }}>
+              <span style={{ color: 'var(--syn-purple)', marginRight: '8px' }}>&gt;</span> 
+              <span style={{ color: 'var(--syn-comment)' }}>// Exploring the repositories of ah-nd-naf</span>
+            </p>
+          </div>
         </motion.div>
 
         <div className="slider-container">
@@ -170,14 +202,41 @@ const Projects = () => {
 
         <motion.div
           className="section-code-footer"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+          style={{
+            display: 'inline-block',
+            position: 'relative',
+            background: 'linear-gradient(270deg, rgba(22,27,34,0.95) 0%, rgba(13,17,23,0) 100%)',
+            padding: '1.25rem 2rem 1.25rem 3rem',
+            borderRight: '4px solid var(--syn-yellow)',
+            borderRadius: '12px 0 0 12px',
+            marginTop: '2rem',
+            float: 'right',
+            marginRight: '-2rem',
+            boxShadow: '10px 0 30px rgba(248, 197, 85, 0.05)',
+            overflow: 'hidden'
+          }}
         >
-          <span className="syn-yellow">]</span>
-          <span style={{ color: 'var(--text-muted)' }}>;</span>
+          {/* Subtle tech background pattern */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'linear-gradient(rgba(248, 197, 85, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(248, 197, 85, 0.05) 1px, transparent 1px)', backgroundSize: '15px 15px', opacity: 0.6, pointerEvents: 'none', zIndex: 0 }} />
+
+          <div style={{ position: 'relative', zIndex: 1, textAlign: 'right' }}>
+            <span className="syn-yellow" style={{ textShadow: '0 0 25px rgba(248, 197, 85, 0.5)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>]</span>
+            <span style={{ color: 'var(--text-muted)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>;</span>
+            
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--syn-comment)', letterSpacing: '2px', textTransform: 'uppercase', marginTop: '0.5rem', opacity: 0.8, display: 'flex', gap: '1rem', justifyContent: 'flex-end', alignItems: 'center' }}>
+              <span>EOF</span> 
+              <span style={{ color: 'var(--syn-green)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--syn-green)', boxShadow: '0 0 8px var(--syn-green)' }}></span>
+                {projects.length} items loaded
+              </span>
+            </div>
+          </div>
         </motion.div>
+        <div style={{ clear: 'both' }}></div>
       </div>
     </section>
   );
