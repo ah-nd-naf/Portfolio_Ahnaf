@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Aesthetic-Restaurant",
+    "description": "Welcome to the Aesthetic Restaurant Website repository! This project represents the online presence of Aesthetic Restaurant, designed to offer visitors an immersive and visually appealing experience that reflects the restaurant's values, journey, and philosophy.",
+    "language": "HTML",
+    "html_url": "https://github.com/ah-nd-naf/Aesthetic-Restaurant",
+    "homepage": null
+  },
+  {
+    "name": "Authentication-System",
+    "description": "A professional MERN stack authentication boilerplate featuring JWT, protected routes, real-time activity logging, and a premium glassmorphism dashboard.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/Authentication-System",
+    "homepage": "https://authentication-system-six-teal.vercel.app"
+  },
+  {
+    "name": "mern-project",
+    "description": "A Pet Rescue, Adoption & Care Platform ",
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/mern-project",
+    "homepage": null
+  },
+  {
+    "name": "PetSite",
+    "description": "Responsive pet adoption website featuring a gallery, adoption process guide, live application form, and family testimonials — deployed on Vercel.",
+    "language": "HTML",
+    "html_url": "https://github.com/ah-nd-naf/PetSite",
+    "homepage": "https://pet-site-pi.vercel.app"
+  },
+  {
+    "name": "Portfolio_Ahnaf",
+    "description": null,
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/Portfolio_Ahnaf",
+    "homepage": null
+  },
+  {
+    "name": "social-media-app",
+    "description": "Full-stack social networking app allowing users to securely sign up, share thoughts instantly, interact with live likes and nested comments, and personalize their profiles with avatars.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/social-media-app",
+    "homepage": "https://social-media-app-amber-eight-47.vercel.app"
+  },
+  {
+    "name": "Student-Management-System",
+    "description": null,
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/Student-Management-System",
+    "homepage": null
+  }
+]
