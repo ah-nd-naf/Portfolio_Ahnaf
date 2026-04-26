@@ -95,9 +95,9 @@ const Projects = () => {
           <div style={{ position: 'relative', zIndex: 1 }}>
             {/* Terminal execution metadata */}
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--syn-comment)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.8, display: 'flex', gap: '1rem', alignItems: 'center' }}>
-              <span><span style={{ color: 'var(--syn-pink)' }}>●</span> sys.init</span>
-              <span><span style={{ color: 'var(--syn-cyan)' }}>○</span> fetch_repos</span>
-              <span style={{ background: 'rgba(78, 201, 176, 0.1)', color: 'var(--syn-green)', padding: '2px 6px', borderRadius: '4px' }}>200 OK</span>
+              <span><span style={{ color: 'var(--syn-pink)' }}>●</span> <b>sys.init</b></span>
+              <span><span style={{ color: 'var(--syn-cyan)' }}>○</span> <b>fetch_repos</b></span>
+              <span style={{ background: 'rgba(78, 201, 176, 0.1)', color: 'var(--syn-green)', padding: '2px 6px', borderRadius: '4px' }}><b>200 OK</b></span>
             </div>
 
             <h2 className="section-code-header" style={{ margin: 0, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}>

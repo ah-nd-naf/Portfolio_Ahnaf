@@ -35,9 +35,9 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: afterTyping, duration: 0.8 }}
         >
-          Web Developer
-          <span className="tag-sep">·</span>
-          Full-Stack Builder
+          <b>Web Developer</b>
+          <span className="tag-sep"><b>.</b></span>
+          <b>Full-Stack Builder</b>
         </motion.p>
 
         <motion.div
