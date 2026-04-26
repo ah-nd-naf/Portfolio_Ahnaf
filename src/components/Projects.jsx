@@ -156,9 +156,22 @@ const Projects = () => {
               {/* Content Area */}
               <div className="project-content">
                 <div className="project-card-header">
-                  <div className="project-title-code">
-                    <span className="syn-keyword">let </span>
-                    <span className="syn-fn">{project.name}</span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '1rem' }}>
+                    <div className="project-title-code">
+                      <span className="syn-keyword">let </span>
+                      <span className="syn-fn">{project.name}</span>
+                    </div>
+                    {project.live !== '#' ? (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(78, 201, 176, 0.1)', padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(78, 201, 176, 0.2)' }}>
+                        <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--syn-green)', boxShadow: '0 0 8px var(--syn-green)', animation: 'pulse 2s infinite' }}></span>
+                        <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--syn-green)', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: 'bold' }}>Live</span>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255, 95, 87, 0.1)', padding: '3px 8px', borderRadius: '4px', border: '1px solid rgba(255, 95, 87, 0.2)' }}>
+                        <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: '#ff5f57', boxShadow: '0 0 8px #ff5f57' }}></span>
+                        <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: '#ff5f57', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: 'bold' }}>Offline</span>
+                      </div>
+                    )}
                   </div>
                   <div className="project-icons">
                     {project.github !== '#' && (
