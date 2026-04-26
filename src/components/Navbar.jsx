@@ -10,8 +10,8 @@ const Navbar = () => (
   >
     <div className="nav-logo">
       <span className="logo-path">./</span>
-      <span className="logo-name">ahnaf</span>
-      <span className="logo-path">/portfolio</span>
+      <span className="logo-name">AHNAF</span>
+      <span className="logo-path">/PORTFOLIO</span>
     </div>
 
     <nav className="nav-links" aria-label="Primary navigation">

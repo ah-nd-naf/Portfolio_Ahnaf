@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
+import GlitchText from './GlitchText';
+
 const codeLines = [
-  { num: 1, content: <><span className="syn-keyword">const</span> <span className="syn-fn">profile</span> <span style={{color:'var(--text-muted)'}}>= {'{'}</span></> },
+  { num: 1, content: <><span className="syn-keyword">const</span> <span className="syn-fn">developer</span> <span style={{color:'var(--text-muted)'}}>= {'{'}</span></> },
   { num: 2, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">name</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Ahnaf Rasheed"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 3, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">role</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Full-Stack Web Developer"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
+  { num: 3, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">role</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Full-Stack Engineer"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
   { num: 4, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">location</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Bangladesh 🇧🇩"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 5, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">focus</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Scalable & beautiful web apps"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 6, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">available</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-number">true</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 7, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
+  { num: 5, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">passion</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Crafting beautiful UI/UX"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
+  { num: 6, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">skills</span><span style={{color:'var(--text-muted)'}}>:</span> <span style={{color:'var(--text-muted)'}}>['</span><span className="syn-cyan">React</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-green">Node.js</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">Express</span><span style={{color:'var(--text-muted)'}}>']</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
+  { num: 7, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">availableForHire</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-number">true</span></span></> },
+  { num: 8, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
 ];
 
 const About = () => {
@@ -46,18 +49,22 @@ const About = () => {
       <div 
         style={{
           position: 'absolute',
-          top: '10%',
-          left: '-5%',
+          top: '5%',
+          left: '0',
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
           fontSize: '15vw',
           fontWeight: 900,
-          color: 'rgba(255,255,255,0.015)',
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
           fontFamily: 'var(--font-sans)',
-          zIndex: 0
+          zIndex: -1,
+          opacity: 0.4
         }}
       >
-        ABOUT ME
+        <GlitchText text="ABOUT ME" as="div" />
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
@@ -149,7 +156,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT: Borderless Floating Glass Code Block */}
+          {/* RIGHT: Professional Floating IDE Block */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}
             whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
@@ -157,62 +164,53 @@ const About = () => {
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             style={{ perspective: '1000px' }}
           >
-            <div style={{
-              background: 'linear-gradient(145deg, rgba(22,27,34,0.8) 0%, rgba(13,17,23,0.4) 100%)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.05)',
-              borderRadius: '24px',
-              padding: '3rem 2.5rem',
-              boxShadow: '0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              {/* Internal subtle glow */}
-              <div style={{
-                position: 'absolute',
-                top: '-50%',
-                right: '-50%',
-                width: '100%',
-                height: '100%',
-                background: 'radial-gradient(circle, rgba(199,146,234,0.15) 0%, transparent 70%)',
-                pointerEvents: 'none'
-              }} />
+            <div className="premium-code-block">
+              <div className="premium-code-glow"></div>
+              
+              <div className="premium-code-header">
+                <div className="premium-mac-buttons">
+                  <div className="premium-mac-btn mac-close"></div>
+                  <div className="premium-mac-btn mac-min"></div>
+                  <div className="premium-mac-btn mac-max"></div>
+                </div>
+                <div className="premium-code-title">developer.config.js</div>
+                <div style={{ width: '44px' }}></div> {/* Spacer to center title */}
+              </div>
 
-              <div style={{ 
-                fontFamily: 'var(--font-mono)', 
-                fontSize: '1.05rem', 
-                lineHeight: 2,
-                position: 'relative',
-                zIndex: 1
-              }}>
-                {codeLines.map((line, index) => (
-                  <div
-                    key={line.num}
-                    style={{
-                      display: 'flex',
-                      gap: '1.5rem',
-                      opacity: index < visibleLines ? 1 : 0,
-                      transform: index < visibleLines ? 'translateY(0)' : 'translateY(10px)',
-                      transition: 'opacity 0.3s ease, transform 0.3s ease',
-                    }}
-                  >
-                    <span style={{ color: 'rgba(255,255,255,0.15)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
-                      {line.num}
-                    </span>
-                    <span style={{ flex: 1 }}>{line.content}</span>
-                  </div>
-                ))}
-                {visibleLines < codeLines.length && (
-                  <div style={{ display: 'flex', gap: '1.5rem' }}>
-                    <span style={{ color: 'rgba(255,255,255,0.15)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
-                      {visibleLines + 1}
-                    </span>
-                    <span style={{ flex: 1 }}>
-                      <span className="cursor-blink" style={{ color: 'var(--syn-cyan)' }}>_</span>
-                    </span>
-                  </div>
-                )}
+              <div className="premium-code-content">
+                <div style={{ 
+                  fontFamily: 'var(--font-mono)', 
+                  fontSize: '1rem', 
+                  lineHeight: 1.8,
+                }}>
+                  {codeLines.map((line, index) => (
+                    <div
+                      key={line.num}
+                      style={{
+                        display: 'flex',
+                        gap: '1.25rem',
+                        opacity: index < visibleLines ? 1 : 0,
+                        transform: index < visibleLines ? 'translateY(0)' : 'translateY(10px)',
+                        transition: 'opacity 0.3s ease, transform 0.3s ease',
+                      }}
+                    >
+                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
+                        {line.num}
+                      </span>
+                      <span style={{ flex: 1 }}>{line.content}</span>
+                    </div>
+                  ))}
+                  {visibleLines < codeLines.length && (
+                    <div style={{ display: 'flex', gap: '1.25rem' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
+                        {visibleLines + 1}
+                      </span>
+                      <span style={{ flex: 1 }}>
+                        <span className="cursor-blink" style={{ color: 'var(--syn-cyan)' }}>_</span>
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>

@@ -33,10 +33,21 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
 
   return (
     <div className="typing-wrapper">
-      <h1 className={`hero-name ${isComplete ? 'name-complete' : 'name-typing'}`}>
-        <span>{displayedText}</span>
-        <span className="cursor-blink">_</span>
-      </h1>
+      {isComplete ? (
+        <h1 
+          className="hero-name name-complete glitch-text" 
+          data-text={displayedText}
+          style={{ color: '#6cf702' }} // Ensure color is maintained overriding glitch-text base
+        >
+          {displayedText}
+          <span className="cursor-blink">_</span>
+        </h1>
+      ) : (
+        <h1 className="hero-name name-typing">
+          <span>{displayedText}</span>
+          <span className="cursor-blink">_</span>
+        </h1>
+      )}
     </div>
   );
 };
