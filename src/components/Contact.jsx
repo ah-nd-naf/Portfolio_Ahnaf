@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" style={{ padding: '80px 5vw 120px', position: 'relative', display: 'flex', justifyContent: 'center', minHeight: '60vh', alignItems: 'center' }}>
+    <section id="contact" style={{ padding: '100px 5vw 60px', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '80vh', alignItems: 'center' }}>
       {/* Ambient Glow */}
       <div style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, background: 'radial-gradient(circle at 50% 100%, rgba(199, 146, 234, 0.15) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
       
@@ -136,14 +136,15 @@ const Contact = () => {
         
         {/* Terminal Snippet */}
         <div style={{ 
-          marginTop: '3.5rem', padding: '0.8rem 1.5rem', 
+          marginTop: '3.5rem', padding: '0.8rem 1.2rem', 
           background: 'rgba(13, 17, 23, 0.8)', borderRadius: '8px', 
-          border: '1px solid rgba(255,255,255,0.05)', display: 'inline-flex', 
-          gap: '0.6rem', alignItems: 'center', fontFamily: 'var(--font-mono)', fontSize: '0.85rem',
-          boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)'
+          border: '1px solid rgba(255,255,255,0.05)', display: 'block', 
+          textAlign: 'left', wordBreak: 'break-all', fontFamily: 'var(--font-mono)', fontSize: '0.85rem',
+          boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)',
+          maxWidth: '100%'
         }}>
           <span style={{ color: 'var(--syn-pink)' }}>ahnaf@portfolio<span style={{ color: 'var(--text-main)' }}>:</span><span style={{ color: 'var(--syn-cyan)' }}>~$</span></span>
-          <span style={{ color: 'var(--text-main)' }}>ping <span style={{ color: 'var(--syn-string)' }}>ahnaf.rasheed.zaki@gmail.com</span></span>
+          <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>ping <span style={{ color: 'var(--syn-string)' }}>ahnaf.rasheed.zaki@gmail.com</span></span>
           <motion.span 
             animate={{ opacity: [1, 0, 1] }} 
             transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
@@ -157,11 +158,9 @@ const Contact = () => {
         onViewportEnter={startTyping}
         viewport={{ once: true, amount: 0.1 }}
         style={{ 
-          position: 'absolute', 
-          bottom: '20px', 
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '90%',
+          position: 'relative',
+          marginTop: '3rem',
+          width: '100%',
           maxWidth: '600px',
           background: 'rgba(13, 17, 23, 0.7)',
           backdropFilter: 'blur(12px)',
