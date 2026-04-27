@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss } from 'react-icons/si';
 
 const skillset = [
   {
@@ -15,7 +15,9 @@ const skillset = [
   {
     category: '// Frontend',
     skills: [
-      { icon: <FaReact color="#61dafb" size={16} />, name: 'React (Basic)' },
+      { icon: <FaReact color="#61dafb" size={16} />, name: 'React' },
+      { icon: <SiFramer color="#0055FF" size={16} />, name: 'Framer Motion' },
+      { icon: <SiTailwindcss color="#38bdf8" size={16} />, name: 'Tailwind CSS' },
       { icon: <FaHtml5 color="#e34f26" size={16} />, name: 'HTML/CSS' },
       { icon: <FaMobileAlt color="#c792ea" size={16} />, name: 'Responsive Design' },
     ],
@@ -35,6 +37,7 @@ const skillset = [
       { icon: <SiMongodb color="#47a248" size={16} />, name: 'MongoDB (Basic)' },
       { icon: <SiMysql color="#4479a1" size={16} />, name: 'MySQL' },
       { icon: <FaGitAlt color="#f05032" size={16} />, name: 'Git & GitHub' },
+      { icon: <SiVite color="#646CFF" size={16} />, name: 'Vite' },
       { icon: <FaLinux color="#fcc624" size={16} />, name: 'Linux' },
     ],
   },
