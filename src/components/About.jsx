@@ -53,19 +53,20 @@ const About = () => {
       <div 
         style={{
           position: 'absolute',
-          top: '5%',
+          top: '12%',
           left: '0',
           width: '100%',
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
-          fontSize: '15vw',
+          fontSize: 'clamp(5rem, 15vw, 12rem)',
           fontWeight: 900,
           pointerEvents: 'none',
           whiteSpace: 'nowrap',
           fontFamily: 'var(--font-sans)',
           zIndex: -1,
-          opacity: 0.4
+          opacity: 0.15, /* Lowered opacity for a cleaner background accent */
+          letterSpacing: '10px'
         }}
       >
         <GlitchText text="ABOUT ME" as="div" />
