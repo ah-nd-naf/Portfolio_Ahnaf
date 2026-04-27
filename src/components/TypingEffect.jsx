@@ -37,14 +37,14 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
         <h1 
           className="hero-name name-complete glitch-text" 
           data-text={displayedText}
-          style={{ color: '#6cf702' }} // Ensure color is maintained overriding glitch-text base
+          style={{ color: '#6cf702', whiteSpace: 'nowrap' }} // Ensure color is maintained overriding glitch-text base
         >
           {displayedText}
           <span className="cursor-blink">_</span>
         </h1>
       ) : (
-        <h1 className="hero-name name-typing">
-          <span>{displayedText}</span>
+        <h1 className="hero-name name-typing" style={{ whiteSpace: 'nowrap' }}>
+          {displayedText}
           <span className="cursor-blink">_</span>
         </h1>
       )}

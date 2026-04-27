@@ -100,7 +100,7 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }) => {
 };
 
 const Skills = () => (
-  <section id="skills" className="skills-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+  <section id="skills" className="skills-section">
     <div className="container" style={{ maxWidth: '1400px', padding: '0' }}>
       
       <motion.div 

@@ -23,7 +23,7 @@ const Navbar = () => (
         href="https://github.com/ah-nd-naf"
         target="_blank"
         rel="noopener noreferrer"
-        style={{ color: 'var(--syn-cyan)' }}
+        className="nav-github"
       >
         GitHub →
       </a>
