@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,6 +8,14 @@ import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 
 function App() {
+  useEffect(() => {
+    // Force scroll to top on every fresh load to prevent browser scroll memory
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div style={{ position: 'relative' }}>
       <ParticleBackground />

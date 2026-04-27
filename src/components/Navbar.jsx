@@ -8,11 +8,18 @@ const Navbar = () => (
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.6, ease: 'easeOut' }}
   >
-    <div className="nav-logo">
+    <a 
+      href="#"
+      className="nav-logo"
+      onClick={(e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }}
+    >
       <span className="logo-path">./</span>
       <span className="logo-name">AHNAF</span>
       <span className="logo-path">/PORTFOLIO</span>
-    </div>
+    </a>
 
     <nav className="nav-links" aria-label="Primary navigation">
       <a href="#about">about</a>
