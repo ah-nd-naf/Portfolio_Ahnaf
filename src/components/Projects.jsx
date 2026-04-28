@@ -50,8 +50,8 @@ const projects = [
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const [direction, setDirection] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
 
   const goToSlide = (idx) => {
     setDirection(idx > currentIndex ? 1 : -1);
@@ -59,12 +59,14 @@ const Projects = () => {
   };
 
   useEffect(() => {
+    if (isHovered) return; // Pause slider on hover
+
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % projects.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isHovered]);
 
   const project = projects[currentIndex];
 
@@ -118,7 +120,11 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        <div className="slider-container">
+        <div 
+          className="slider-container"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <AnimatePresence initial={false} mode="popLayout" custom={direction}>
             <motion.div
               key={currentIndex}
