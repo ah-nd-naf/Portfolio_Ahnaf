@@ -43,7 +43,7 @@ const projects = [
     name: 'Student-Management-System',
     description: 'Comprehensive backend system for managing students, teachers, and admins. Includes role-based access control and secure JWT authentication.',
     tech: ['Node.js', 'Express', 'MongoDB'],
-    github: 'https://github.com/ah-nd-naf/Student-Management-System',
+    github: 'https://github.com/ah-nd-naf/STD_MS',
     live: '#',
   }
 ];
