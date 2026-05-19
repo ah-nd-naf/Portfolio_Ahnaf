@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss } from 'react-icons/si';
+import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman } from 'react-icons/si';
 
 const skillset = [
   {
@@ -20,6 +20,7 @@ const skillset = [
       { icon: <SiTailwindcss color="#38bdf8" size={16} />, name: 'Tailwind CSS' },
       { icon: <FaHtml5 color="#e34f26" size={16} />, name: 'HTML/CSS' },
       { icon: <FaMobileAlt color="#c792ea" size={16} />, name: 'Responsive Design' },
+      { icon: <FaLayerGroup color="#f2a60c" size={16} />, name: 'State Management' },
     ],
   },
   {
@@ -29,16 +30,23 @@ const skillset = [
       { icon: <SiExpress color="#8b949e" size={16} />, name: 'Express.js' },
       { icon: <SiDjango color="#44b78b" size={16} />, name: 'Django' },
       { icon: <FaServer color="#f92aad" size={16} />, name: 'RESTful APIs' },
+      { icon: <SiJsonwebtokens color="#000000" size={16} />, name: 'JWT' },
+      { icon: <FaLock color="#4479a1" size={16} />, name: 'Bcrypt' },
+      { icon: <SiPostman color="#FF6C37" size={16} />, name: 'Postman' },
     ],
   },
   {
     category: '// Databases & Tools',
     skills: [
-      { icon: <SiMongodb color="#47a248" size={16} />, name: 'MongoDB (Basic)' },
+      { icon: <SiMongodb color="#47a248" size={16} />, name: 'MongoDB' },
       { icon: <SiMysql color="#4479a1" size={16} />, name: 'MySQL' },
+      { icon: <SiPostgresql color="#336791" size={16} />, name: 'PostgreSQL' },
+      { icon: <SiPrisma color="#2D3748" size={16} />, name: 'Prisma ORM' },
       { icon: <FaGitAlt color="#f05032" size={16} />, name: 'Git & GitHub' },
       { icon: <SiVite color="#646CFF" size={16} />, name: 'Vite' },
       { icon: <FaLinux color="#fcc624" size={16} />, name: 'Linux' },
+      { icon: <SiVercel color="#ffffff" size={16} />, name: 'Vercel' },
+      { icon: <SiRender color="#000000" size={16} />, name: 'Render' },
     ],
   },
 ];
