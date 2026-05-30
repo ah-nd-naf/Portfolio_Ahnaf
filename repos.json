@@ -1,5 +1,12 @@
 [
   {
+    "name": "Aurae-Ecommerce",
+    "description": "A full-stack premium e-commerce platform built with React, Node.js, Express, Prisma and MongoDB — featuring multi-tenant support, product catalog, cart, authentication, and a sleek modern UI.",
+    "language": "JavaScript",
+    "html_url": "https://github.com/ah-nd-naf/Aurae-Ecommerce",
+    "homepage": null
+  },
+  {
     "name": "Aesthetic-Restaurant",
     "description": "Welcome to the Aesthetic Restaurant Website repository! This project represents the online presence of Aesthetic Restaurant, designed to offer visitors an immersive and visually appealing experience that reflects the restaurant's values, journey, and philosophy.",
     "language": "HTML",

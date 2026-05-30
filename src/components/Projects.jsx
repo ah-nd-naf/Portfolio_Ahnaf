@@ -7,6 +7,15 @@ const SLIDE_DURATION = 6000;
 
 const projects = [
   {
+    name: 'Aurae-Ecommerce',
+    label: 'Aurae E-Commerce',
+    description: 'A full-stack premium e-commerce platform built with React, Node.js, Express, Prisma & MongoDB — featuring multi-tenant support, dynamic product catalog, cart system, JWT authentication, and a sleek modern storefront UI.',
+    tech: ['React', 'Node.js', 'Express', 'Prisma', 'MongoDB'],
+    github: 'https://github.com/ah-nd-naf/Aurae-Ecommerce',
+    live: '#',
+    accent: '#f0a500',
+  },
+  {
     name: 'social-media-app',
     label: 'Social Media App',
     description: 'Full-stack social networking app allowing users to securely sign up, share thoughts instantly, interact with live likes and nested comments, and personalize their profiles with avatars.',
@@ -61,6 +70,7 @@ const projects = [
     accent: '#b5cea8',
   },
 ];
+
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -166,16 +176,12 @@ const Projects = () => {
               {/* Image Panel */}
               <div className="projects-card-image-panel">
                 <div className="projects-card-image-overlay" style={{ '--accent': project.accent }} />
-                {project.live !== '#' ? (
-                  <img
+                <img
                     src={`/${project.name}.png`}
                     alt={project.label}
                     className="projects-card-img"
                     onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }}
                   />
-                ) : (
-                  <img src="/placeholder.png" alt={project.label} className="projects-card-img" />
-                )}
                 {/* Project number badge */}
                 <div className="projects-card-number">
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '2px' }}>PROJECT</span>
