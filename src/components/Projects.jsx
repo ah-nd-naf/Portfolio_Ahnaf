@@ -9,10 +9,10 @@ const projects = [
   {
     name: 'Aurae-Ecommerce',
     label: 'Aurae E-Commerce',
-    description: 'A full-stack premium e-commerce platform built with React, Node.js, Express, Prisma & MongoDB — featuring multi-tenant support, dynamic product catalog, cart system, JWT authentication, and a sleek modern storefront UI.',
-    tech: ['React', 'Node.js', 'Express', 'Prisma', 'MongoDB'],
+    description: 'A full-stack luxury fashion e-commerce platform with OTP-based JWT authentication, SSLCommerz payment integration, verified purchaser reviews, admin inventory panel, and a minimalist high-contrast storefront UI.',
+    tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'Prisma', 'PostgreSQL'],
     github: 'https://github.com/ah-nd-naf/Aurae-Ecommerce',
-    live: '#',
+    live: 'https://aurae-ecommerce.vercel.app',
     accent: '#f0a500',
   },
   {

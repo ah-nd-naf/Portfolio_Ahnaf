@@ -1,10 +1,10 @@
 [
   {
     "name": "Aurae-Ecommerce",
-    "description": "A full-stack premium e-commerce platform built with React, Node.js, Express, Prisma and MongoDB — featuring multi-tenant support, product catalog, cart, authentication, and a sleek modern UI.",
+    "description": "A full-stack luxury fashion e-commerce platform with OTP-based JWT auth, SSLCommerz payment integration, verified purchaser reviews, admin inventory panel, and a minimalist storefront built with React, Vite, Tailwind CSS, Node.js, Prisma & PostgreSQL.",
     "language": "JavaScript",
     "html_url": "https://github.com/ah-nd-naf/Aurae-Ecommerce",
-    "homepage": null
+    "homepage": "https://aurae-ecommerce.vercel.app"
   },
   {
     "name": "Aesthetic-Restaurant",
