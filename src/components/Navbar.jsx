@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 
@@ -31,6 +31,7 @@ const Navbar = () => {
         <a href="#about">about</a>
         <a href="#projects">projects</a>
         <a href="#skills">skills</a>
+        <a href="#qualification">education</a>
         <a href="#contact">contact</a>
         <a
           href="https://github.com/ah-nd-naf"
@@ -64,6 +65,7 @@ const Navbar = () => {
             <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>about</a>
             <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>projects</a>
             <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>skills</a>
+            <a href="#qualification" onClick={() => setIsMobileMenuOpen(false)}>education</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>contact</a>
             <a
               href="https://github.com/ah-nd-naf"
