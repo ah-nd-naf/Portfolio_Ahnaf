@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaPhoneAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaPhoneAlt } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 
 const Contact = () => {
@@ -100,6 +100,7 @@ const Contact = () => {
             {[
               { icon: <FaGithub size={20} />, href: "https://github.com/ah-nd-naf", color: "var(--syn-cyan)" },
               { icon: <FaLinkedin size={20} />, href: "https://linkedin.com/in/ahnafrasheed/", color: "var(--syn-purple)" },
+              { icon: <FaFacebook size={20} />, href: "https://www.facebook.com/share/192K2vokxv/", color: "#1877F2" },
               { icon: <FaPhoneAlt size={16} />, href: "tel:+8801715539677", color: "var(--syn-green)" }
             ].map((social, idx) => (
               <a 
