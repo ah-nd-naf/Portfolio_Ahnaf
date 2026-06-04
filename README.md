@@ -1,6 +1,6 @@
 # Ahnaf Rasheed | Full-Stack Developer Portfolio
 
-A high-performance, premium portfolio built with **React**, **Vite**, and **Framer Motion**. This project features a sophisticated **IDE-themed** aesthetic, blending modern glassmorphism with classic developer terminal elements.
+A high-performance, premium portfolio built with **React 19**, **Vite**, and **Framer Motion**. This project features a sophisticated **IDE-themed** aesthetic, blending modern glassmorphism with classic developer terminal elements.
 
 ![Portfolio Preview](public/ahnaf-dp.png)
 
@@ -14,19 +14,21 @@ Check out the live site: [portfolio-ahnaf-xi.vercel.app](https://portfolio-ahnaf
 - 🖥️ **IDE-Themed UI**: A unique asymmetric layout inspired by modern code editors (VS Code / JetBrains).
 - ⌨️ **Terminal Typing Effects**: Interactive terminal-style components with custom blinking cursors and realistic typing logic.
 - 🌫️ **Premium Glassmorphism**: High-end frosted glass effects with dynamic blurs and hardware-accelerated animations.
+- 🎡 **Dynamic Projects Slider**: Auto-advancing slider with progress indicators, pause-on-hover capability, and custom tech tags.
+- 🌿 **Git-Log Qualifications Timeline**: Educational timeline styled exactly like Git CLI outputs (`git log --oneline --graph`), featuring branch paths and commit nodes.
+- 🌌 **Interactive Particle Canvas**: A high-performance canvas-based particle background that responds dynamically to user movement.
+- 🎢 **Infinite Tech Marquees**: Dual-direction, hardware-accelerated scrolling rows showcasing technical proficiencies.
 - 📱 **Fully Responsive**: Optimized for all devices with a custom-built mobile hamburger menu and scroll-stabilization.
-- ⚡ **Lightning Fast**: Built on Vite for near-instant load times and optimized production bundles.
-- 🎨 **Dynamic Animations**: Smooth scroll-reveals, hover-states, and entrance animations powered by Framer Motion.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [React 18](https://reactjs.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vite.dev/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [React Icons](https://react-icons.github.io/react-icons/) & [Lucide React](https://lucide.dev/)
-- **Styling**: Vanilla CSS3 (Custom Design System)
+- **Styling**: Vanilla CSS3 (Custom Design System & Variables)
 - **Deployment**: [Vercel](https://vercel.com/)
 
 ---
@@ -55,12 +57,14 @@ npm run build
 
 ---
 
-## 📸 Project Screenshots
+## 📸 Key Sections & Visuals
 
-- **Hero Section**: Premium portrait integration with floating tech-decorations.
+- **Hero Section**: Premium portrait integration with floating tech-decorations and dynamic typing interface.
 - **About Section**: Multi-layered background typography and interactive "Developer Object" code blocks.
-- **Projects Carousel**: Auto-advancing slider with abstract visual placeholders.
-- **Contact Terminal**: A macOS-style sign-off terminal for professional connections.
+- **Projects Showcase**: Carousel slider showing detailed descriptions, tech tags, and direct links to code and live versions (e.g. Aurae E-Commerce).
+- **Tech Arsenal**: Dual infinite-marquee rows detailing frontend, backend, databases, and devops tools.
+- **Qualifications Timeline**: Timeline displaying academic achievements styled as a terminal-based commit log graph.
+- **Contact Terminal**: A macOS-style sign-off terminal for professional connections, including updated social links like Facebook.
 
 ---
 
