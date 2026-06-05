@@ -199,14 +199,55 @@ section {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-mono);
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-main);
+  transition: transform 0.3s ease;
 }
 
-.nav-logo .logo-path  { color: var(--text-muted); }
-.nav-logo .logo-name  { color: var(--syn-cyan); }
+.nav-logo:hover {
+  transform: translateY(-1px);
+}
+
+.nav-logo .logo-icon {
+  font-size: 1.3rem;
+  color: var(--syn-cyan);
+  filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.6));
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+}
+
+.nav-logo:hover .logo-icon {
+  transform: rotate(15deg) scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(0, 212, 245, 0.9));
+}
+
+.nav-logo .logo-path {
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover .logo-path {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-logo .logo-name {
+  background: linear-gradient(90deg, #00d4f5, #c792ea, #f92aad, #00d4f5);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  animation: logo-glow 5s linear infinite;
+  text-shadow: 0 0 20px rgba(0, 212, 245, 0.1);
+}
+
+@keyframes logo-glow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
 
 .nav-links {
   display: flex;

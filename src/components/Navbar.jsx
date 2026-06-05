@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiTerminal } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,6 +21,7 @@ const Navbar = () => {
           setIsMobileMenuOpen(false);
         }}
       >
+        <FiTerminal className="logo-icon" />
         <span className="logo-path">./</span>
         <span className="logo-name">AHNAF</span>
         <span className="logo-path">/PORTFOLIO</span>
