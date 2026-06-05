@@ -55,7 +55,7 @@ const projects = [
     name: 'Aesthetic-Restaurant',
     label: 'Aesthetic Restaurant',
     description: "Welcome to the Aesthetic Restaurant Website! Designed to offer visitors an immersive and visually appealing experience that reflects the restaurant's philosophy.",
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Python'],
     github: 'https://github.com/ah-nd-naf/Aesthetic-Restaurant',
     live: '#',
     accent: '#f92aad',
