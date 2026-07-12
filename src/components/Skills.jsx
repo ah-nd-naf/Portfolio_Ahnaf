@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger } from 'react-icons/si';
 
 const skillset = [
   {
@@ -34,6 +34,7 @@ const skillset = [
       { icon: <SiJsonwebtokens color="#000000" size={16} />, name: 'JWT' },
       { icon: <FaLock color="#4479a1" size={16} />, name: 'Bcrypt' },
       { icon: <SiPostman color="#FF6C37" size={16} />, name: 'Postman' },
+      { icon: <SiSwagger color="#85EA2D" size={16} />, name: 'Swagger' },
     ],
   },
   {
