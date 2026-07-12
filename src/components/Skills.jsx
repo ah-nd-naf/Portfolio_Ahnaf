@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript } from 'react-icons/si';
 
 const skillset = [
   {
     category: '// Languages',
     skills: [
       { icon: <FaJsSquare color="#f7df1e" size={16} />, name: 'JavaScript' },
+      { icon: <SiTypescript color="#3178c6" size={16} />, name: 'TypeScript' },
       { icon: <FaPython color="#3776ab" size={16} />, name: 'Python' },
       { icon: <FaDatabase color="#8b949e" size={16} />, name: 'SQL' },
     ],
