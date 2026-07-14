@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import GlitchText from './GlitchText';
 
 const SLIDE_DURATION = 6000;
 
@@ -128,8 +129,31 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="projects-section">
-      <div className="container" style={{ maxWidth: '1200px' }}>
+    <section id="projects" className="projects-section" style={{ position: 'relative' }}>
+
+      {/* Huge Background Typography Accent */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '12%',
+          left: '0',
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          fontSize: 'clamp(5rem, 15vw, 12rem)',
+          fontWeight: 900,
+          pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+          fontFamily: 'var(--font-sans)',
+          zIndex: 0,
+          opacity: 0.15,
+          letterSpacing: '10px'
+        }}
+      >
+        <GlitchText text="PROJECTS" as="div" />
+      </div>
+      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1 }}>
 
         {/* Section Header */}
         <motion.div
