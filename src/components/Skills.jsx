@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi, SiNextdotjs } from 'react-icons/si';
 
 const skillset = [
   {
@@ -17,6 +17,7 @@ const skillset = [
     category: '// Frontend',
     skills: [
       { icon: <FaReact color="#61dafb" size={16} />, name: 'React' },
+      { icon: <SiNextdotjs color="#ffffff" size={16} />, name: 'Next.js' },
       { icon: <SiFramer color="#0055FF" size={16} />, name: 'Framer Motion' },
       { icon: <SiTailwindcss color="#38bdf8" size={16} />, name: 'Tailwind CSS' },
       { icon: <FaHtml5 color="#e34f26" size={16} />, name: 'HTML/CSS' },
