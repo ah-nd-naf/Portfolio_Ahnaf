@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi } from 'react-icons/si';
 
 const skillset = [
   {
@@ -30,6 +30,7 @@ const skillset = [
       { icon: <FaNodeJs color="#43853d" size={16} />, name: 'Node.js' },
       { icon: <SiExpress color="#8b949e" size={16} />, name: 'Express.js' },
       { icon: <SiDjango color="#44b78b" size={16} />, name: 'Django' },
+      { icon: <SiFastapi color="#009688" size={16} />, name: 'FastAPI' },
       { icon: <FaServer color="#f92aad" size={16} />, name: 'RESTful APIs' },
       { icon: <SiZod color="#3E82F6" size={16} />, name: 'Zod' },
       { icon: <SiJsonwebtokens color="#000000" size={16} />, name: 'JWT' },
