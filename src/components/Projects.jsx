@@ -8,6 +8,15 @@ const SLIDE_DURATION = 6000;
 
 const projects = [
   {
+    name: 'AI-Resume-Analyzer',
+    label: 'AI Resume Analyzer',
+    description: 'An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Gemini Vision OCR, and downloadable PDF reports.',
+    tech: ['Next.js', 'FastAPI', 'Python', 'Prisma', 'Gemini API', 'Tailwind CSS'],
+    github: 'https://github.com/ah-nd-naf/AI-Resume-Analyzer',
+    live: 'https://ai-resume-analyzer-onj7-five.vercel.app',
+    accent: '#6366f1',
+  },
+  {
     name: 'Aurae-Ecommerce',
     label: 'Aurae E-Commerce',
     description: 'A full-stack luxury fashion e-commerce platform with OTP-based JWT authentication, SSLCommerz payment integration, verified purchaser reviews, admin inventory panel, and a minimalist high-contrast storefront UI.',

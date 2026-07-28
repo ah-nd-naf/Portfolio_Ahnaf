@@ -1,5 +1,12 @@
 [
   {
+    "name": "AI-Resume-Analyzer",
+    "description": "An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Gemini Vision OCR, and downloadable PDF reports. 🚀",
+    "language": "TypeScript",
+    "html_url": "https://github.com/ah-nd-naf/AI-Resume-Analyzer",
+    "homepage": "https://ai-resume-analyzer-onj7-five.vercel.app"
+  },
+  {
     "name": "Aurae-Ecommerce",
     "description": "A full-stack luxury fashion e-commerce platform with OTP-based JWT auth, SSLCommerz payment integration, verified purchaser reviews, admin inventory panel, and a minimalist storefront built with React, Vite, Tailwind CSS, Node.js, Prisma & PostgreSQL.",
     "language": "JavaScript",
