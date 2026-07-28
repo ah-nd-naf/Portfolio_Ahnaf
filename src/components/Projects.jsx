@@ -10,8 +10,8 @@ const projects = [
   {
     name: 'AI-Resume-Analyzer',
     label: 'AI Resume Analyzer',
-    description: 'An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Gemini Vision OCR, and downloadable PDF reports.',
-    tech: ['Next.js', 'FastAPI', 'Python', 'Prisma', 'Gemini API', 'Tailwind CSS'],
+    description: 'An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Groq Vision OCR, and downloadable PDF reports.',
+    tech: ['Next.js', 'FastAPI', 'Python', 'Prisma', 'Groq API', 'Tailwind CSS'],
     github: 'https://github.com/ah-nd-naf/AI-Resume-Analyzer',
     live: 'https://ai-resume-analyzer-onj7-five.vercel.app',
     accent: '#6366f1',

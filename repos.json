@@ -1,7 +1,7 @@
 [
   {
     "name": "AI-Resume-Analyzer",
-    "description": "An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Gemini Vision OCR, and downloadable PDF reports. 🚀",
+    "description": "An AI-powered SaaS platform that evaluates resumes against Applicant Tracking Systems (ATS) and job descriptions. Features real-time ATS scoring, keyword gap analysis, AI bullet point rewrites, Groq Vision OCR, and downloadable PDF reports. 🚀",
     "language": "TypeScript",
     "html_url": "https://github.com/ah-nd-naf/AI-Resume-Analyzer",
     "homepage": "https://ai-resume-analyzer-onj7-five.vercel.app"

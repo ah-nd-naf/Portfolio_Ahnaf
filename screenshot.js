@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 
 const urls = {
+  'AI-Resume-Analyzer': 'https://ai-resume-analyzer-onj7-five.vercel.app',
   'social-media-app': 'https://social-media-app-amber-eight-47.vercel.app',
   'Authentication-System': 'https://authentication-system-six-teal.vercel.app',
   'PetSite': 'https://pet-site-pi.vercel.app/'
