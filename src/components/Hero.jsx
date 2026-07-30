@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
+import LoopingTypingEffect from './LoopingTypingEffect';
 import { FaGithub } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
 
@@ -36,9 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: afterTyping, duration: 0.8 }}
           >
-            <b>Web Developer</b>
-            <span className="tag-sep"><b>.</b></span>
-            <b>Full-Stack Builder</b>
+            <b><LoopingTypingEffect words={['Web Developer', 'Full-Stack Builder']} /></b>
           </motion.p>
 
           <motion.div
