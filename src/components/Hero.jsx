@@ -37,7 +37,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: afterTyping, duration: 0.8 }}
           >
-            <b><LoopingTypingEffect words={['Web Developer', 'Full-Stack Builder']} /></b>
+            <b><LoopingTypingEffect words={['Web Developer', 'Full-Stack Builder', 'Web Developer </> Full-Stack Builder']} /></b>
           </motion.p>
 
           <motion.div
