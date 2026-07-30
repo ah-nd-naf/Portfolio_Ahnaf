@@ -40,36 +40,46 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, delay]);
 
-  const currentColor = colors[wordIndex % colors.length];
+  let activeColor = colors[wordIndex % colors.length];
+  if (wordIndex === 2) {
+    if (displayedText.length <= 13) activeColor = colors[0];
+    else if (displayedText.length <= 18) activeColor = '#f92aad';
+    else activeColor = colors[1];
+  }
 
-  const renderText = (text) => {
-    // Split by our interesting separator to style it differently
-    const parts = text.split(/( <\/> )/g);
-    return parts.map((part, i) => {
-      if (part === ' </> ') {
-        // Use the pink color for the separator to make it pop!
-        return <span key={i} style={{ color: '#f92aad', textShadow: '0 0 15px #f92aad' }}>{part}</span>;
-      }
-      return <span key={i}>{part}</span>;
-    });
+  const renderText = (text, wIndex) => {
+    if (wIndex === 2) {
+      const part1 = text.substring(0, 13);
+      const sep = text.substring(13, 18);
+      const part2 = text.substring(18);
+      
+      return (
+        <>
+          <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{part1}</span>
+          <span style={{ color: '#f92aad', textShadow: '0 0 15px #f92aad', transition: 'color 0.3s ease' }}>{sep}</span>
+          <span style={{ color: colors[1], textShadow: `0 0 15px ${colors[1]}80`, transition: 'color 0.3s ease' }}>{part2}</span>
+        </>
+      );
+    }
+    return text;
   };
 
   return (
     <span style={{ position: 'relative', display: 'inline-block' }}>
       <span 
         style={{ 
-          color: currentColor, 
-          textShadow: `0 0 15px ${currentColor}80`,
+          color: activeColor, 
+          textShadow: `0 0 15px ${activeColor}80`,
           transition: 'color 0.3s ease, text-shadow 0.3s ease'
         }}
       >
-        {renderText(displayedText)}
+        {renderText(displayedText, wordIndex)}
       </span>
       <span 
         className="cursor-blink" 
         style={{ 
-          color: currentColor, 
-          textShadow: `0 0 12px ${currentColor}`,
+          color: activeColor, 
+          textShadow: `0 0 12px ${activeColor}`,
           marginLeft: '4px',
           opacity: isDeleting ? 0.8 : 1
         }}
