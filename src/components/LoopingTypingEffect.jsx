@@ -6,7 +6,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
   const [wordIndex, setWordIndex] = useState(0);
 
   // Cyberpunk theme colors
-  const colors = ['#ff9e2c', '#c792ea', '#6cf702', '#f92aad'];
+  const colors = ['#ff9e2c', '#f92aad', '#00d4f5'];
 
   useEffect(() => {
     const currentWord = words[wordIndex];
@@ -43,7 +43,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
   let activeColor = colors[wordIndex % colors.length];
   if (wordIndex === 2) {
     if (displayedText.length <= 13) activeColor = colors[0];
-    else if (displayedText.length <= 18) activeColor = '#f92aad';
+    else if (displayedText.length <= 18) activeColor = colors[2];
     else activeColor = colors[1];
   }
 
@@ -56,7 +56,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
       return (
         <>
           <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{part1}</span>
-          <span style={{ color: '#f92aad', textShadow: '0 0 15px #f92aad', transition: 'color 0.3s ease' }}>{sep}</span>
+          <span style={{ color: colors[2], textShadow: `0 0 15px ${colors[2]}80`, transition: 'color 0.3s ease' }}>{sep}</span>
           <span style={{ color: colors[1], textShadow: `0 0 15px ${colors[1]}80`, transition: 'color 0.3s ease' }}>{part2}</span>
         </>
       );
