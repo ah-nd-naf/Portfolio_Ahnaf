@@ -6,7 +6,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
   const [wordIndex, setWordIndex] = useState(0);
 
   // Cyberpunk theme colors
-  const colors = ['#00d4f5', '#c792ea', '#6cf702', '#f92aad'];
+  const colors = ['#ff9e2c', '#c792ea', '#6cf702', '#f92aad'];
 
   useEffect(() => {
     const currentWord = words[wordIndex];
