@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
-import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi, SiNextdotjs, SiClerk } from 'react-icons/si';
+import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi, SiNextdotjs, SiClerk, SiDocker } from 'react-icons/si';
 
 const skillset = [
   {
@@ -51,6 +51,7 @@ const skillset = [
       { icon: <FaGitAlt color="#f05032" size={16} />, name: 'Git & GitHub' },
       { icon: <SiVite color="#646CFF" size={16} />, name: 'Vite' },
       { icon: <FaLinux color="#fcc624" size={16} />, name: 'Linux' },
+      { icon: <SiDocker color="#2496ed" size={16} />, name: 'Docker' },
       { icon: <SiVercel color="#ffffff" size={16} />, name: 'Vercel' },
       { icon: <SiRender color="#000000" size={16} />, name: 'Render' },
     ],
