@@ -69,7 +69,7 @@ const Contact = () => {
         
         {/* Subtext */}
         <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '500px', margin: '1.5rem auto 2.5rem', lineHeight: 1.6 }}>
-          Whether you have a project in mind, need a developer, or just want to chat about code—I'm always ready to connect.
+          Whether you have a project in mind, or need a developer, or just want to chat about code—I'm always ready to connect.
         </p>
 
         {/* Action Buttons */}
