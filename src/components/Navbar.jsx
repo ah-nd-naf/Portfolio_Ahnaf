@@ -24,7 +24,7 @@ const Navbar = () => {
         <FiTerminal className="logo-icon" />
         <span className="logo-path">./</span>
         <span className="logo-name">AHNAF</span>
-        <span className="logo-path">/PORTFOLIO</span>
+        <span className="logo-portfolio">/PORTFOLIO</span>
       </a>
 
       {/* Desktop Navigation */}
