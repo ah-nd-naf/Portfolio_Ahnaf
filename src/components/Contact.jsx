@@ -5,7 +5,7 @@ import { FiMail } from 'react-icons/fi';
 
 const Contact = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const textToType = "Thank You for Visiting My Portfolio";
+  const textToType = "Thank You For Visiting My Portfolio";
   const hasRun = useRef(false);
 
   const startTyping = () => {
