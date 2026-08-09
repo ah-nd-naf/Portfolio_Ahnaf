@@ -113,7 +113,7 @@ const About = () => {
               gap: '1.5rem'
             }}>
               <p>
-                Hey! I'm <strong style={{ color: 'var(--text-main)' }}>Ahnaf Rasheed</strong>. 
+                Hello! I'm <strong style={{ color: 'var(--text-main)' }}>Ahnaf Rasheed</strong>. 
                 I specialize in turning complex, ambitious ideas into clean, scalable, and visually striking applications. 
               </p>
               <p>
