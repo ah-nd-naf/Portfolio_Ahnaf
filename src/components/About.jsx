@@ -120,7 +120,7 @@ const About = () => {
                 My expertise spans the entire pipeline. I craft intuitive user interfaces with <span className="syn-cyan" style={{ fontWeight: 600 }}>React</span> and <span className="syn-cyan" style={{ fontWeight: 600 }}>Tailwind</span>, while building rock-solid, high-performance backends using <span className="syn-green" style={{ fontWeight: 600 }}>Node.js</span>, <span className="syn-yellow" style={{ fontWeight: 600 }}>Express</span>, and robust databases like <span className="syn-purple" style={{ fontWeight: 600 }}>PostgreSQL</span> and <span className="syn-green" style={{ fontWeight: 600 }}>MongoDB</span>.
               </p>
               <p>
-                I'm driven by a singular philosophy: great software happens when relentless engineering meets uncompromising design.
+                I'm driven by a singular philosophy: Great software happens when relentless engineering meets uncompromising design.
               </p>
             </div>
 
