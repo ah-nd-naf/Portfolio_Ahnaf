@@ -93,6 +93,9 @@ section {
 .syn-yellow   { color: var(--syn-yellow); font-family: var(--font-mono); font-weight: 600; }
 .syn-prop     { color: var(--syn-cyan);   font-family: var(--font-mono); }
 .syn-green    { color: var(--syn-green);  font-family: var(--font-mono); }
+.syn-pink     { color: var(--syn-pink);   font-family: var(--font-mono); font-weight: 600; }
+.syn-cyan     { color: var(--syn-cyan);   font-family: var(--font-mono); font-weight: 600; }
+.syn-purple   { color: var(--syn-purple); font-family: var(--font-mono); font-weight: 600; }
 
 /* ============================================
    IDE EDITOR WINDOW
