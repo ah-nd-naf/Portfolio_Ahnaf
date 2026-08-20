@@ -447,11 +447,13 @@ section {
 .typing-wrapper { line-height: 1; }
 
 .hero-name {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 700;
   letter-spacing: -1px;
   line-height: 1.1;
+  font-kerning: none; /* Prevents text jitter during typing effect */
 }
 
 .name-typing { color: var(--text-main); }
