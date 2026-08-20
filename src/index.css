@@ -447,7 +447,7 @@ section {
 .typing-wrapper { line-height: 1; }
 
 .hero-name {
-  font-family: var(--font-mono);
+  font-family: 'Orbitron', sans-serif;
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 700;
   letter-spacing: -1px;
