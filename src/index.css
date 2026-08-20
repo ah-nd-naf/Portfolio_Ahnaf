@@ -447,7 +447,7 @@ section {
 .typing-wrapper { line-height: 1; }
 
 .hero-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 700;
