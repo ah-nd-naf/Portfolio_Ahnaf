@@ -6,7 +6,7 @@ import GlitchText from './GlitchText';
 
 const SLIDE_DURATION = 6000;
 
-const projects = [
+export const projects = [
   {
     name: 'AI-Resume-Analyzer',
     label: 'AI Resume Analyzer',

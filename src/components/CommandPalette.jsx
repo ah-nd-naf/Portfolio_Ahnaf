@@ -16,11 +16,11 @@ import {
   FiFacebook, 
   FiX, 
   FiZap, 
-  FiMoon, 
   FiCheckCircle
 } from 'react-icons/fi';
+import { projects } from './Projects';
 
-const QUICK_ACTIONS = [
+const NAV_ACTIONS = [
   {
     id: 'nav-home',
     title: 'Home / Hero',
@@ -39,7 +39,7 @@ const QUICK_ACTIONS = [
   },
   {
     id: 'nav-projects',
-    title: 'Featured Projects',
+    title: 'Featured Projects Section',
     category: 'Navigation',
     icon: FiFolder,
     action: () => { document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); },
@@ -69,40 +69,27 @@ const QUICK_ACTIONS = [
     action: () => { document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); },
     shortcut: 'G C'
   },
-  // Projects
-  {
-    id: 'proj-ai-resume',
-    title: 'AI Resume Analyzer',
-    subtitle: 'Next.js · FastAPI · Groq OCR · AI ATS Score',
-    category: 'Projects',
-    icon: FiZap,
-    action: () => { window.open('https://ai-resume-analyzer-onj7-five.vercel.app', '_blank'); }
-  },
-  {
-    id: 'proj-aurae',
-    title: 'Aurae Luxury E-Commerce',
-    subtitle: 'React · Node.js · Express · Prisma · PostgreSQL',
-    category: 'Projects',
-    icon: FiZap,
-    action: () => { window.open('https://aurae-ecommerce.vercel.app', '_blank'); }
-  },
-  {
-    id: 'proj-social',
-    title: 'Social Media App',
-    subtitle: 'MERN Stack · Real-time interactions · Avatars',
-    category: 'Projects',
-    icon: FiZap,
-    action: () => { window.open('https://social-media-app-amber-eight-47.vercel.app', '_blank'); }
-  },
-  {
-    id: 'proj-auth',
-    title: 'Authentication System',
-    subtitle: 'JWT Auth · Protected Routes · Activity Log',
-    category: 'Projects',
-    icon: FiZap,
-    action: () => { window.open('https://authentication-system-six-teal.vercel.app', '_blank'); }
-  },
-  // Socials
+];
+
+// Dynamically generate all project actions from Projects.jsx
+const PROJECT_ACTIONS = projects.map((p, idx) => ({
+  id: `proj-${p.name || idx}`,
+  title: p.label,
+  subtitle: p.tech ? p.tech.join(' · ') : p.description,
+  category: 'Projects',
+  icon: FiZap,
+  action: () => {
+    if (p.live && p.live !== '#') {
+      window.open(p.live, '_blank');
+    } else if (p.github && p.github !== '#') {
+      window.open(p.github, '_blank');
+    } else {
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}));
+
+const SOCIAL_ACTIONS = [
   {
     id: 'soc-github',
     title: 'GitHub Profile',
@@ -135,7 +122,6 @@ const QUICK_ACTIONS = [
     icon: FiMail,
     action: () => { window.location.href = 'mailto:ahnaf.rasheed.zaki@gmail.com'; }
   },
-  // Easter eggs
   {
     id: 'cmd-hire',
     title: 'Hire Ahnaf (sudo hire)',
@@ -146,6 +132,12 @@ const QUICK_ACTIONS = [
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     }
   }
+];
+
+const QUICK_ACTIONS = [
+  ...NAV_ACTIONS,
+  ...PROJECT_ACTIONS,
+  ...SOCIAL_ACTIONS
 ];
 
 const CommandPalette = ({ isOpen, setIsOpen }) => {
@@ -286,13 +278,17 @@ Passionate developer crafting modern, high-performance web applications with Rea
 [AI/Tools]  Groq API, OpenAI, Git/GitHub, Docker, Linux, Vite`
       });
     } else if (lowerCmd === 'projects') {
+      const projectLines = projects.map((p, i) => {
+        const num = `${i + 1}.`.padEnd(3, ' ');
+        const label = p.label.padEnd(27, ' ');
+        const tech = p.tech ? p.tech.join(', ') : '';
+        const status = (p.live && p.live !== '#') ? '[Live Demo]' : '[GitHub Repo]';
+        return `${num} ${label} → ${tech}  ${status}`;
+      }).join('\n');
+
       newHistory.push({
         type: 'output',
-        text: `1. AI Resume Analyzer      -> Next.js, FastAPI, Python, Groq OCR
-2. Aurae E-Commerce         -> React, Node, Express, Prisma, PostgreSQL
-3. Social Media App         -> React, Node.js, Express, MongoDB
-4. Authentication System    -> MERN Stack Boilerplate & Activity Log
-5. Pet Rescue Platform      -> MERN Full-Stack adoption platform`
+        text: `Featured Projects (${projects.length} Total):\n\n${projectLines}\n\nTip: Type a project name in "Quick Search" tab to launch directly.`
       });
     } else if (lowerCmd === 'contact') {
       newHistory.push({
