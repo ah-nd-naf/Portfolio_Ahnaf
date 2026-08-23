@@ -1412,6 +1412,34 @@ section {
   animation: pulse 2s infinite;
 }
 
+.footer-terminal-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: var(--text-dim);
+  transition: transform 0.2s ease;
+}
+
+.footer-terminal-btn:hover {
+  transform: translateY(-1px);
+}
+
+.footer-term-icon {
+  color: var(--syn-cyan);
+  transition: filter 0.2s ease;
+  margin-right: 3px;
+  margin-left: 2px;
+}
+
+.footer-terminal-btn:hover .footer-term-icon {
+  filter: drop-shadow(0 0 6px var(--syn-cyan));
+}
+
 .footer-credits {
   color: var(--text-muted);
 }

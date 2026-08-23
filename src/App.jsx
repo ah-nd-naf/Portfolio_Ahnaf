@@ -41,16 +41,6 @@ function App() {
           setIsOpen={setIsCommandPaletteOpen} 
         />
 
-        {/* Floating Cyber Terminal Quick Trigger Button */}
-        <button
-          className="floating-cmd-trigger"
-          onClick={() => setIsCommandPaletteOpen(true)}
-          title="Open Command Palette (Ctrl+K or ~)"
-          aria-label="Open Command Palette"
-        >
-          <FiTerminal className="floating-cmd-icon" />
-          <span className="floating-cmd-label">⌘K / Terminal</span>
-        </button>
         <footer className="site-footer">
           <div className="footer-status">
             <span className="footer-status-dot"></span>
@@ -66,7 +56,20 @@ function App() {
             <span style={{ color: 'var(--syn-cyan)' }}>ping</span>
             <span style={{ color: 'var(--text-dim)' }}>:</span>
             <span style={{ color: 'var(--syn-number)' }}>12ms</span>
-            <span style={{ color: 'var(--text-dim)' }}>]</span>
+            <span style={{ color: 'var(--text-dim)' }}>] · </span>
+            <button 
+              className="footer-terminal-btn"
+              onClick={() => setIsCommandPaletteOpen(true)}
+              title="Open Command Palette (Ctrl+K or ~)"
+              aria-label="Open Command Palette"
+            >
+              <span style={{ color: 'var(--text-dim)' }}>[</span>
+              <FiTerminal size={12} className="footer-term-icon" />
+              <span style={{ color: 'var(--syn-cyan)' }}>terminal</span>
+              <span style={{ color: 'var(--text-dim)' }}>:</span>
+              <span style={{ color: 'var(--syn-pink)', fontWeight: 600, marginLeft: '3px' }}>⌘K</span>
+              <span style={{ color: 'var(--text-dim)' }}>]</span>
+            </button>
           </div>
           <div className="footer-credits">
             <span style={{ color: 'var(--syn-comment)' }}>// designed &amp; built by </span>

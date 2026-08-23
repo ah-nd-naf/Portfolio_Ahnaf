@@ -149,7 +149,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [activeTab, setActiveTab] = useState('palette'); // 'palette' | 'terminal'
   const [terminalHistory, setTerminalHistory] = useState([
-    { type: 'system', text: 'Antigravity Cyber Terminal [v2.4.0]' },
+    { type: 'system', text: 'Cyber Terminal [v2.4.0]' },
     { type: 'system', text: 'Type "help" for available commands or switch to Quick Actions tab.' }
   ]);
   const [terminalInput, setTerminalInput] = useState('');
