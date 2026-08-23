@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
+const TypingEffect = ({ text, speed = 90, startDelay = 600, onComplete }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
   const indexRef = useRef(0);
   const intervalRef = useRef(null);
   const delayRef = useRef(null);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     // Reset state on mount
@@ -18,9 +23,13 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600 }) => {
         if (indexRef.current < text.length) {
           indexRef.current += 1;
           setDisplayedText(text.slice(0, indexRef.current));
-        } else {
-          clearInterval(intervalRef.current);
-          setIsComplete(true);
+          if (indexRef.current === text.length) {
+            clearInterval(intervalRef.current);
+            setIsComplete(true);
+            if (onCompleteRef.current) {
+              onCompleteRef.current();
+            }
+          }
         }
       }, speed);
     }, startDelay);

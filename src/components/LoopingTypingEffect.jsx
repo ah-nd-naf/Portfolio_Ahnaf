@@ -1,14 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, delay = 2000 }) => {
+const LoopingTypingEffect = ({ 
+  words, 
+  typingSpeed = 80, 
+  deletingSpeed = 40, 
+  delay = 2000,
+  startDelay = 0,
+  isStarted = true
+}) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
+  const [ready, setReady] = useState(false);
 
   // Cyberpunk theme colors (Crimson Red, Neon Pink, Synth Purple)
   const colors = ['#ff003c', '#f92aad', '#c792ea'];
 
   useEffect(() => {
+    if (!isStarted) {
+      setReady(false);
+      setDisplayedText('');
+      setIsDeleting(false);
+      setWordIndex(0);
+      return;
+    }
+
+    let startTimer;
+    if (startDelay > 0) {
+      startTimer = setTimeout(() => {
+        setReady(true);
+      }, startDelay);
+    } else {
+      setReady(true);
+    }
+
+    return () => {
+      if (startTimer) clearTimeout(startTimer);
+    };
+  }, [isStarted, startDelay]);
+
+  useEffect(() => {
+    if (!ready) return;
+
     const currentWord = words[wordIndex];
     let timeout;
 
@@ -29,7 +62,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
         const jitter = Math.random() * 40 - 20; 
         timeout = setTimeout(() => {
           setDisplayedText(currentWord.substring(0, displayedText.length + 1));
-        }, typingSpeed + jitter);
+        }, Math.max(20, typingSpeed + jitter));
       } else {
         timeout = setTimeout(() => {
           setIsDeleting(true);
@@ -38,7 +71,7 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, delay]);
+  }, [ready, displayedText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, delay]);
 
   let activeColor = colors[wordIndex % colors.length];
   if (wordIndex === 2) {
@@ -75,17 +108,19 @@ const LoopingTypingEffect = ({ words, typingSpeed = 80, deletingSpeed = 40, dela
       >
         {renderText(displayedText, wordIndex)}
       </span>
-      <span 
-        className="cursor-blink" 
-        style={{ 
-          color: activeColor, 
-          textShadow: `0 0 12px ${activeColor}`,
-          marginLeft: '4px',
-          opacity: isDeleting ? 0.8 : 1
-        }}
-      >
-        _
-      </span>
+      {ready && (
+        <span 
+          className="cursor-blink" 
+          style={{ 
+            color: activeColor, 
+            textShadow: `0 0 12px ${activeColor}`,
+            marginLeft: '4px',
+            opacity: isDeleting ? 0.8 : 1
+          }}
+        >
+          _
+        </span>
+      )}
     </span>
   );
 };

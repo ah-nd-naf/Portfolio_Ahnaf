@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
 import LoopingTypingEffect from './LoopingTypingEffect';
 import { FaGithub } from 'react-icons/fa';
 import { FiDownload } from 'react-icons/fi';
 
+const HERO_WORDS = ['Web Developer', 'Full-Stack Builder', 'Web Developer </> Full-Stack Builder'];
+
 const Hero = () => {
-  // "Ahnaf Rasheed" = 13 chars × 90ms + 600ms delay ≈ 1.77s total
-  const afterTyping = 2.1;
+  const [nameComplete, setNameComplete] = useState(false);
 
   return (
     <section id="hero" className="hero-section">
@@ -28,23 +29,29 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.5 }}
           >
-            <TypingEffect text="AHNAF RASHEED" speed={120} startDelay={600} />
+            <TypingEffect 
+              text="AHNAF RASHEED" 
+              speed={120} 
+              startDelay={600} 
+              onComplete={() => setNameComplete(true)} 
+            />
           </motion.div>
 
-          <motion.p
-            className="hero-tagline"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: afterTyping, duration: 0.8 }}
-          >
-            <b><LoopingTypingEffect words={['Web Developer', 'Full-Stack Builder', 'Web Developer </> Full-Stack Builder']} /></b>
-          </motion.p>
+          <div className="hero-tagline">
+            <b>
+              <LoopingTypingEffect 
+                words={HERO_WORDS} 
+                isStarted={nameComplete}
+                startDelay={300}
+              />
+            </b>
+          </div>
 
           <motion.div
             className="hero-actions"
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: afterTyping + 0.3, duration: 0.7 }}
+            animate={nameComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <a
               href="https://github.com/ah-nd-naf"
@@ -64,8 +71,8 @@ const Hero = () => {
         {/* Right-side Image Container */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: afterTyping + 0.5, duration: 1, type: 'spring' }}
+          animate={nameComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.9, delay: 0.3, type: 'spring' }}
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', height: '100%' }}
         >
           <div style={{ position: 'relative', width: 'clamp(280px, 30vw, 400px)', height: 'clamp(320px, 35vw, 450px)' }}>
@@ -119,8 +126,8 @@ const Hero = () => {
       <motion.div
         className="scroll-indicator"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: afterTyping + 1, duration: 0.8 }}
+        animate={nameComplete ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
       >
         <span style={{ color: 'var(--syn-purple)' }}>// </span>
         <a href="#about" style={{ color: 'var(--syn-comment)' }}>scroll to explore</a>
