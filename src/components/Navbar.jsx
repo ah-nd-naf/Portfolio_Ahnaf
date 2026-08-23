@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiTerminal } from 'react-icons/fi';
 
-const Navbar = () => {
+const Navbar = ({ onOpenCommandPalette }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -34,6 +34,20 @@ const Navbar = () => {
         <a href="#skills">skills</a>
         <a href="#qualification">education</a>
         <a href="#contact">contact</a>
+
+        {/* Command Palette Trigger */}
+        <button
+          type="button"
+          className="nav-cmd-trigger"
+          onClick={onOpenCommandPalette}
+          title="Open Command Palette (Ctrl+K or ~)"
+          aria-label="Open Command Palette"
+        >
+          <FiTerminal size={13} className="nav-cmd-icon" />
+          <span className="nav-cmd-text">Terminal</span>
+          <kbd className="nav-cmd-kbd">⌘K</kbd>
+        </button>
+
         <a
           href="https://github.com/ah-nd-naf"
           target="_blank"
@@ -68,6 +82,17 @@ const Navbar = () => {
             <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>skills</a>
             <a href="#qualification" onClick={() => setIsMobileMenuOpen(false)}>education</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>contact</a>
+            
+            <button 
+              className="nav-cmd-trigger-mobile"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                if (onOpenCommandPalette) onOpenCommandPalette();
+              }}
+            >
+              <FiTerminal size={15} /> Command Palette / Terminal
+            </button>
+
             <a
               href="https://github.com/ah-nd-naf"
               target="_blank"

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,10 +7,13 @@ import Skills from './components/Skills';
 import Qualification from './components/Qualification';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
+import CommandPalette from './components/CommandPalette';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiTerminal } from 'react-icons/fi';
 
 function App() {
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
   useEffect(() => {
     // Force scroll to top on every fresh load to prevent browser scroll memory
     if ('scrollRestoration' in window.history) {
@@ -23,7 +26,7 @@ function App() {
     <div style={{ position: 'relative' }}>
       <ParticleBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <Navbar />
+        <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
         <main>
           <Hero />
           <About />
@@ -32,6 +35,22 @@ function App() {
           <Qualification />
           <Contact />
         </main>
+
+        <CommandPalette 
+          isOpen={isCommandPaletteOpen} 
+          setIsOpen={setIsCommandPaletteOpen} 
+        />
+
+        {/* Floating Cyber Terminal Quick Trigger Button */}
+        <button
+          className="floating-cmd-trigger"
+          onClick={() => setIsCommandPaletteOpen(true)}
+          title="Open Command Palette (Ctrl+K or ~)"
+          aria-label="Open Command Palette"
+        >
+          <FiTerminal className="floating-cmd-icon" />
+          <span className="floating-cmd-label">⌘K / Terminal</span>
+        </button>
         <footer className="site-footer">
           <div className="footer-status">
             <span className="footer-status-dot"></span>
