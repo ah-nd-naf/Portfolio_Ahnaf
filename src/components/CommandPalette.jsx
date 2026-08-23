@@ -72,22 +72,26 @@ const NAV_ACTIONS = [
 ];
 
 // Dynamically generate all project actions from Projects.jsx
-const PROJECT_ACTIONS = projects.map((p, idx) => ({
-  id: `proj-${p.name || idx}`,
-  title: p.label,
-  subtitle: p.tech ? p.tech.join(' · ') : p.description,
-  category: 'Projects',
-  icon: FiZap,
-  action: () => {
-    if (p.live && p.live !== '#') {
-      window.open(p.live, '_blank');
-    } else if (p.github && p.github !== '#') {
-      window.open(p.github, '_blank');
-    } else {
-      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+const PROJECT_ACTIONS = projects.map((p, idx) => {
+  const isLive = p.live && p.live !== '#';
+  return {
+    id: `proj-${p.name || idx}`,
+    title: p.label,
+    subtitle: p.tech ? p.tech.join(' · ') : p.description,
+    category: 'Projects',
+    isLive: isLive,
+    icon: FiZap,
+    action: () => {
+      if (isLive) {
+        window.open(p.live, '_blank');
+      } else if (p.github && p.github !== '#') {
+        window.open(p.github, '_blank');
+      } else {
+        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  }
-}));
+  };
+});
 
 const SOCIAL_ACTIONS = [
   {
@@ -278,17 +282,69 @@ Passionate developer crafting modern, high-performance web applications with Rea
 [AI/Tools]  Groq API, OpenAI, Git/GitHub, Docker, Linux, Vite`
       });
     } else if (lowerCmd === 'projects') {
-      const projectLines = projects.map((p, i) => {
-        const num = `${i + 1}.`.padEnd(3, ' ');
-        const label = p.label.padEnd(27, ' ');
-        const tech = p.tech ? p.tech.join(', ') : '';
-        const status = (p.live && p.live !== '#') ? '[Live Demo]' : '[GitHub Repo]';
-        return `${num} ${label} → ${tech}  ${status}`;
-      }).join('\n');
-
       newHistory.push({
-        type: 'output',
-        text: `Featured Projects (${projects.length} Total):\n\n${projectLines}\n\nTip: Type a project name in "Quick Search" tab to launch directly.`
+        type: 'custom',
+        render: (
+          <div className="cmd-term-projects-container">
+            <div className="cmd-term-projects-header">
+              <div className="cmd-term-projects-title">
+                <FiZap className="cmd-header-icon" />
+                <span>Featured Projects ({projects.length} Total)</span>
+              </div>
+              <span className="cmd-term-projects-count">Select to Launch</span>
+            </div>
+            <div className="cmd-term-projects-list">
+              {projects.map((p, i) => {
+                const isLive = p.live && p.live !== '#';
+                return (
+                  <div key={p.name || i} className="cmd-term-project-card">
+                    <div className="cmd-term-proj-info">
+                      <div className="cmd-term-proj-top">
+                        <span className="cmd-term-proj-num">0{i + 1}</span>
+                        <span className="cmd-term-proj-title">{p.label}</span>
+                      </div>
+                      <div className="cmd-term-proj-tech">
+                        {p.tech && p.tech.map((t, tidx) => (
+                          <span key={tidx} className="cmd-term-tech-pill">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="cmd-term-proj-action">
+                      {isLive ? (
+                        <a 
+                          href={p.live} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="cmd-term-live-btn"
+                          title={`Launch ${p.label} Live Demo`}
+                        >
+                          <span className="live-dot-pulse"></span>
+                          <span>Launch Live</span>
+                          <FiExternalLink size={12} />
+                        </a>
+                      ) : (
+                        <a 
+                          href={p.github} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="cmd-term-wip-btn"
+                          title={`${p.label} is currently in active development. Inspect source code on GitHub.`}
+                        >
+                          <span className="wip-dot-pulse"></span>
+                          <span>In Progress · Repo</span>
+                          <FiExternalLink size={12} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="cmd-term-projects-footer">
+              <span>💡 Click any button above to launch live apps or inspect repositories.</span>
+            </div>
+          </div>
+        )
       });
     } else if (lowerCmd === 'contact') {
       newHistory.push({
@@ -435,7 +491,19 @@ Thank you for your interest! Redirecting you to the contact section...`
                             </div>
                           </div>
                           <div className="cmd-item-right">
-                            <span className="cmd-item-category">{action.category}</span>
+                            {action.category === 'Projects' ? (
+                              action.isLive ? (
+                                <span className="cmd-badge-live">
+                                  <span className="live-dot-pulse-sm"></span> Live App
+                                </span>
+                              ) : (
+                                <span className="cmd-badge-wip">
+                                  <span className="wip-dot-pulse-sm"></span> In Progress · Repo
+                                </span>
+                              )
+                            ) : (
+                              <span className="cmd-item-category">{action.category}</span>
+                            )}
                             {isSelected && (
                               <span className="cmd-item-enter">
                                 <FiCornerDownLeft size={13} /> Select
@@ -474,7 +542,7 @@ Thank you for your interest! Redirecting you to the contact section...`
                 <div className="cmd-terminal-body">
                   {terminalHistory.map((item, idx) => (
                     <div key={idx} className={`cmd-term-line cmd-term-${item.type}`}>
-                      {item.text}
+                      {item.render ? item.render : item.text}
                     </div>
                   ))}
                   <div ref={terminalBottomRef} />
