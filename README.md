@@ -42,20 +42,25 @@ The portfolio includes a developer-first command palette modal that can be toggl
 - **Shortcut**: Press <kbd>Ctrl</kbd> + <kbd>K</kbd> (or <kbd>Cmd</kbd> + <kbd>K</kbd> on macOS) or <kbd>`</kbd> (backtick).
 - **UI Triggers**: Click the **Terminal [⌘K]** button in the desktop navbar, mobile menu, or the system status bar in the footer.
 
-### Modes
+### Modes & Tabs
 1. **Quick Search (Spotlight)**:
    - Instant fuzzy search across sections, featured projects, and social profiles.
+   - 1-click **Category Filter Chips** (`All`, `Navigation`, `Projects`, `Socials`, `Actions`).
    - Seamless keyboard navigation with <kbd>↑</kbd> <kbd>↓</kbd> arrows and execution with <kbd>↵ Enter</kbd>.
    - Direct launch badges for live deployments and active repositories.
 2. **Interactive CLI Shell**:
-   - `help` — Show list of available terminal commands.
-   - `whoami` / `about` — Display developer summary and core competencies.
-   - `skills` — Print categorized technology stack breakdown.
-   - `projects` — Render rich interactive cards with direct live-demo launches and GitHub links.
-   - `contact` — Output direct communication channels and email links.
-   - `goto <section>` — Jump directly to `about`, `projects`, `skills`, `qualification`, or `contact`.
+   - **Quick Command Chips**: Click-to-run buttons for rapid command execution without typing.
+   - `help` — Render interactive Command Matrix cards with click triggers.
+   - `whoami` / `about` — Display developer ID badge and bio.
+   - `skills` — Render categorized visual skill radar grid (Frontend, Backend, DB, AI & Tools).
+   - `projects` — Render rich interactive cards with live demo launches and GitHub links.
+   - `neofetch` — Display ASCII system telemetry & developer specs.
+   - `contact` / `socials` — Interactive contact cards with 1-click email copy.
+   - `goto <section>` — Jump directly to `hero`, `about`, `projects`, `skills`, `education`, or `contact`.
    - `sudo hire` — Access granted easter egg and fast-track to contact form.
    - `clear` / `exit` — Clear terminal buffer or close the modal.
+3. **Shortcuts Cheatsheet**:
+   - Built-in navigation reference for all keyboard controls and power-user shortcuts.
 
 ---
 
