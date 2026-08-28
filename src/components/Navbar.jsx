@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiTerminal } from 'react-icons/fi';
+import { FiMenu, FiX, FiTerminal, FiSearch } from 'react-icons/fi';
 
 const Navbar = ({ onOpenCommandPalette }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,11 +40,11 @@ const Navbar = ({ onOpenCommandPalette }) => {
           type="button"
           className="nav-cmd-trigger"
           onClick={onOpenCommandPalette}
-          title="Open Command Palette (Ctrl+K or ~)"
-          aria-label="Open Command Palette"
+          title="Quick Search & Terminal (Ctrl+K or ~)"
+          aria-label="Quick Search & Command Terminal"
         >
-          <FiTerminal size={13} className="nav-cmd-icon" />
-          <span className="nav-cmd-text">Terminal</span>
+          <FiSearch size={13} className="nav-cmd-icon" />
+          <span className="nav-cmd-text">Search</span>
           <kbd className="nav-cmd-kbd">⌘K</kbd>
         </button>
 
@@ -90,7 +90,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
                 if (onOpenCommandPalette) onOpenCommandPalette();
               }}
             >
-              <FiTerminal size={15} /> Command Palette / Terminal
+              <FiSearch size={15} /> Quick Search & Terminal <kbd className="nav-cmd-kbd" style={{ marginLeft: '6px' }}>⌘K</kbd>
             </button>
 
             <a

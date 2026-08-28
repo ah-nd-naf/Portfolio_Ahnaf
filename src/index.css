@@ -1554,41 +1554,75 @@ section {
    COMMAND PALETTE & CYBER TERMINAL
    ========================================================================== */
 
-/* Navbar Command Trigger */
+/* Navbar Command Trigger — Sleek Frosted Glass Search Pill */
 .nav-cmd-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background: rgba(0, 212, 245, 0.06);
-  border: 1px solid rgba(0, 212, 245, 0.25);
-  padding: 0.35rem 0.65rem;
-  border-radius: 6px;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 0.42rem 0.85rem 0.42rem 0.75rem;
+  border-radius: 100px;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .nav-cmd-trigger:hover {
-  background: rgba(0, 212, 245, 0.15);
-  border-color: var(--syn-cyan);
-  color: var(--syn-cyan);
-  box-shadow: 0 0 12px rgba(0, 212, 245, 0.25);
+  background: rgba(0, 212, 245, 0.08);
+  border-color: rgba(0, 212, 245, 0.35);
+  color: var(--text-main);
+  box-shadow: 0 0 20px rgba(0, 212, 245, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
 }
 
 .nav-cmd-icon {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-cmd-trigger:hover .nav-cmd-icon {
   color: var(--syn-cyan);
 }
 
+.nav-cmd-text {
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.nav-cmd-trigger:hover .nav-cmd-text {
+  color: var(--text-main);
+}
+
 .nav-cmd-kbd {
-  background: rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 1px 5px;
-  font-size: 0.68rem;
-  color: var(--syn-pink);
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
   font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.nav-cmd-trigger:hover .nav-cmd-kbd {
+  background: rgba(0, 212, 245, 0.15);
+  border-color: rgba(0, 212, 245, 0.4);
+  color: var(--syn-cyan);
 }
 
 /* Mobile Nav Trigger */
@@ -1597,16 +1631,24 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background: rgba(0, 212, 245, 0.08);
-  border: 1px solid rgba(0, 212, 245, 0.3);
-  color: var(--syn-cyan);
-  padding: 0.65rem 1rem;
-  border-radius: 8px;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  padding: 0.75rem 1.25rem;
+  border-radius: 100px;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   cursor: pointer;
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-cmd-trigger-mobile:hover,
+.nav-cmd-trigger-mobile:active {
+  background: rgba(0, 212, 245, 0.1);
+  border-color: var(--syn-cyan);
+  color: var(--syn-cyan);
 }
 
 /* Floating Bottom Trigger Button */
