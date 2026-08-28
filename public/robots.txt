@@ -1,0 +1,6 @@
+# Robots.txt for Ahnaf Rasheed's Developer Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap definition
+Sitemap: https://portfolio-ahnaf-xi.vercel.app/sitemap.xml
