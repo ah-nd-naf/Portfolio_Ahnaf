@@ -1781,10 +1781,56 @@ section {
   font-size: 0.78rem;
   color: var(--text-dim);
   letter-spacing: 0.3px;
+  font-family: var(--font-mono);
+}
+
+.cmd-term-prompt-header {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+}
+
+.cmd-prompt-user {
+  color: var(--syn-purple);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(199, 146, 234, 0.35);
+}
+
+.cmd-prompt-at {
+  color: var(--text-dim);
+  margin: 0 1px;
+  font-weight: 400;
+}
+
+.cmd-prompt-host {
+  color: var(--syn-green);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(78, 201, 176, 0.3);
+}
+
+.cmd-prompt-sep {
+  color: var(--text-dim);
+  margin: 0 1px;
+  font-weight: 400;
+}
+
+.cmd-prompt-path {
+  color: var(--syn-yellow);
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(248, 197, 85, 0.3);
+}
+
+.cmd-prompt-char {
+  color: var(--syn-pink);
+  font-weight: 700;
+  margin-left: 2px;
+  text-shadow: 0 0 8px rgba(249, 42, 173, 0.4);
 }
 
 .cmd-user-path {
-  color: var(--syn-cyan);
+  color: var(--syn-purple);
   font-weight: 600;
 }
 
@@ -1793,7 +1839,7 @@ section {
 }
 
 .cmd-header-cwd {
-  color: var(--syn-green);
+  color: var(--syn-yellow);
   font-weight: 600;
 }
 
@@ -2278,10 +2324,35 @@ section {
 }
 
 .cmd-term-prompt {
-  color: var(--syn-cyan);
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  font-weight: 600;
   flex-shrink: 0;
+  user-select: none;
+}
+
+.cmd-term-user-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.cmd-term-prompt-inline {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.cmd-term-user-text {
+  color: var(--text-main);
+  font-weight: 600;
 }
 
 .cmd-term-input {

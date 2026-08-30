@@ -299,7 +299,25 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
     setCommandHistory((prev) => [...prev, cmd]);
     setHistoryIndex(-1);
 
-    const newHistory = [...terminalHistory, { type: 'user', text: `$ ${cmd}` }];
+    const newHistory = [
+      ...terminalHistory,
+      {
+        type: 'user',
+        render: (
+          <div className="cmd-term-user-entry">
+            <span className="cmd-term-prompt-inline">
+              <span className="cmd-prompt-user">ahnaf</span>
+              <span className="cmd-prompt-at">@</span>
+              <span className="cmd-prompt-host">portfolio</span>
+              <span className="cmd-prompt-sep">:</span>
+              <span className="cmd-prompt-path">~</span>
+              <span className="cmd-prompt-char">$</span>
+            </span>
+            <span className="cmd-term-user-text">{cmd}</span>
+          </div>
+        )
+      }
+    ];
     const lowerCmd = cmd.toLowerCase();
 
     if (lowerCmd === 'help') {
@@ -529,7 +547,11 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               `}</pre>
             </div>
             <div className="cmd-neofetch-info">
-              <div className="neofetch-title">ahnaf@portfolio-os</div>
+              <div className="neofetch-title">
+                <span className="cmd-prompt-user">ahnaf</span>
+                <span className="cmd-prompt-at">@</span>
+                <span className="cmd-prompt-host">portfolio-os</span>
+              </div>
               <div className="neofetch-line">---------------------</div>
               <div className="neofetch-row"><span className="neofetch-key">OS:</span> CyberPortfolio v3.2 x86_64</div>
               <div className="neofetch-row"><span className="neofetch-key">Host:</span> Ahnaf's Brain Engine</div>
@@ -730,9 +752,13 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 </div>
                 <div className="cmd-header-title">
                   <FiTerminal className="cmd-header-icon" />
-                  <span className="cmd-user-path">ahnaf@portfolio</span>
-                  <span className="cmd-header-sep">:</span>
-                  <span className="cmd-header-cwd">~</span>
+                  <span className="cmd-term-prompt-header">
+                    <span className="cmd-prompt-user">ahnaf</span>
+                    <span className="cmd-prompt-at">@</span>
+                    <span className="cmd-prompt-host">portfolio</span>
+                    <span className="cmd-prompt-sep">:</span>
+                    <span className="cmd-prompt-path">~</span>
+                  </span>
                   <span className="cmd-ping-badge">
                     <span className="live-dot-pulse-sm"></span> 12ms
                   </span>
@@ -928,7 +954,14 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 </div>
 
                 <form onSubmit={handleTerminalSubmit} className="cmd-terminal-form">
-                  <span className="cmd-term-prompt">ahnaf@portfolio:~$</span>
+                  <span className="cmd-term-prompt">
+                    <span className="cmd-prompt-user">ahnaf</span>
+                    <span className="cmd-prompt-at">@</span>
+                    <span className="cmd-prompt-host">portfolio</span>
+                    <span className="cmd-prompt-sep">:</span>
+                    <span className="cmd-prompt-path">~</span>
+                    <span className="cmd-prompt-char">$</span>
+                  </span>
                   <input
                     ref={terminalInputRef}
                     type="text"

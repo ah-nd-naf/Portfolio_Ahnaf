@@ -144,7 +144,14 @@ const Contact = () => {
           boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)',
           maxWidth: '100%'
         }}>
-          <span style={{ color: 'var(--syn-pink)' }}>ahnaf@portfolio<span style={{ color: 'var(--text-main)' }}>:</span><span style={{ color: 'var(--syn-cyan)' }}>~$</span></span>
+          <span className="cmd-term-prompt-inline">
+            <span className="cmd-prompt-user">ahnaf</span>
+            <span className="cmd-prompt-at">@</span>
+            <span className="cmd-prompt-host">portfolio</span>
+            <span className="cmd-prompt-sep">:</span>
+            <span className="cmd-prompt-path">~</span>
+            <span className="cmd-prompt-char">$</span>
+          </span>
           <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>ping <span style={{ color: 'var(--syn-string)' }}>ahnaf.rasheed.zaki@gmail.com</span></span>
           <motion.span 
             animate={{ opacity: [1, 0, 1] }} 
