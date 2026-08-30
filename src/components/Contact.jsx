@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaPhoneAlt } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiTerminal } from 'react-icons/fi';
 
 const Contact = () => {
   const [displayedText, setDisplayedText] = useState("");
@@ -144,14 +144,19 @@ const Contact = () => {
           boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)',
           maxWidth: '100%'
         }}>
-          <span className="cmd-term-prompt-inline">
-            <span className="cmd-prompt-user">ahnaf</span>
-            <span className="cmd-prompt-at">@</span>
-            <span className="cmd-prompt-host">portfolio</span>
-            <span className="cmd-prompt-sep">:</span>
-            <span className="cmd-prompt-path">~</span>
-            <span className="cmd-prompt-char">$</span>
-          </span>
+          <div className="cmd-power-prompt" style={{ display: 'inline-flex', verticalAlign: 'middle', marginRight: '10px' }}>
+            <div className="cmd-prompt-segment segment-user">
+              <FiTerminal size={11} />
+              <span>ahnaf</span>
+            </div>
+            <div className="cmd-prompt-segment segment-host">
+              <span>portfolio</span>
+            </div>
+            <div className="cmd-prompt-segment segment-path">
+              <span>~</span>
+            </div>
+            <span className="cmd-prompt-arrow">❯</span>
+          </div>
           <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>ping <span style={{ color: 'var(--syn-string)' }}>ahnaf.rasheed.zaki@gmail.com</span></span>
           <motion.span 
             animate={{ opacity: [1, 0, 1] }} 

@@ -305,14 +305,19 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
         type: 'user',
         render: (
           <div className="cmd-term-user-entry">
-            <span className="cmd-term-prompt-inline">
-              <span className="cmd-prompt-user">ahnaf</span>
-              <span className="cmd-prompt-at">@</span>
-              <span className="cmd-prompt-host">portfolio</span>
-              <span className="cmd-prompt-sep">:</span>
-              <span className="cmd-prompt-path">~</span>
-              <span className="cmd-prompt-char">$</span>
-            </span>
+            <div className="cmd-power-prompt">
+              <div className="cmd-prompt-segment segment-user">
+                <FiTerminal size={11} />
+                <span>ahnaf</span>
+              </div>
+              <div className="cmd-prompt-segment segment-host">
+                <span>portfolio</span>
+              </div>
+              <div className="cmd-prompt-segment segment-path">
+                <span>~</span>
+              </div>
+              <span className="cmd-prompt-arrow">❯</span>
+            </div>
             <span className="cmd-term-user-text">{cmd}</span>
           </div>
         )
@@ -751,17 +756,16 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                   <span className="dot dot-green" onClick={() => setActiveTab('terminal')} title="Terminal"></span>
                 </div>
                 <div className="cmd-header-title">
-                  <FiTerminal className="cmd-header-icon" />
-                  <span className="cmd-term-prompt-header">
-                    <span className="cmd-prompt-user">ahnaf</span>
-                    <span className="cmd-prompt-at">@</span>
-                    <span className="cmd-prompt-host">portfolio</span>
-                    <span className="cmd-prompt-sep">:</span>
-                    <span className="cmd-prompt-path">~</span>
-                  </span>
-                  <span className="cmd-ping-badge">
-                    <span className="live-dot-pulse-sm"></span> 12ms
-                  </span>
+                  <div className="cmd-header-badge">
+                    <FiTerminal className="cmd-badge-icon" />
+                    <span className="cmd-badge-user">ahnaf</span>
+                    <span className="cmd-badge-at">@</span>
+                    <span className="cmd-badge-host">portfolio</span>
+                    <span className="cmd-badge-path">:~</span>
+                    <span className="cmd-ping-badge">
+                      <span className="live-dot-pulse-sm"></span> 12ms
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -954,14 +958,19 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 </div>
 
                 <form onSubmit={handleTerminalSubmit} className="cmd-terminal-form">
-                  <span className="cmd-term-prompt">
-                    <span className="cmd-prompt-user">ahnaf</span>
-                    <span className="cmd-prompt-at">@</span>
-                    <span className="cmd-prompt-host">portfolio</span>
-                    <span className="cmd-prompt-sep">:</span>
-                    <span className="cmd-prompt-path">~</span>
-                    <span className="cmd-prompt-char">$</span>
-                  </span>
+                  <div className="cmd-power-prompt">
+                    <div className="cmd-prompt-segment segment-user">
+                      <FiTerminal size={12} />
+                      <span>ahnaf</span>
+                    </div>
+                    <div className="cmd-prompt-segment segment-host">
+                      <span>portfolio</span>
+                    </div>
+                    <div className="cmd-prompt-segment segment-path">
+                      <span>~</span>
+                    </div>
+                    <span className="cmd-prompt-arrow">❯</span>
+                  </div>
                   <input
                     ref={terminalInputRef}
                     type="text"
