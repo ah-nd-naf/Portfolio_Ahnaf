@@ -179,24 +179,43 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section" style={{ position: 'relative' }}>
 
-      {/* Huge Background Typography Accent */}
+      {/* Ambient Cyber Header Glow */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: '40px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '650px',
+          height: '250px',
+          background: 'radial-gradient(ellipse at center, rgba(0, 212, 245, 0.12) 0%, rgba(199, 146, 234, 0.05) 45%, transparent 70%)',
+          filter: 'blur(50px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Cyber Glitch Typography behind the Toolbar zone */}
       <div
         style={{
           position: 'absolute',
-          top: '12%',
+          top: '290px',
           left: '0',
           width: '100%',
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
-          fontSize: 'clamp(5rem, 15vw, 12rem)',
+          fontSize: 'clamp(5rem, 14vw, 9.5rem)',
           fontWeight: 900,
           pointerEvents: 'none',
+          userSelect: 'none',
           whiteSpace: 'nowrap',
           fontFamily: 'var(--font-sans)',
           zIndex: 0,
-          opacity: 0.15,
-          letterSpacing: '10px'
+          opacity: 0.22,
+          letterSpacing: '14px',
+          lineHeight: 1,
         }}
       >
         <GlitchText text="PROJECTS" as="div" />
@@ -204,23 +223,23 @@ const Projects = () => {
 
       <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1 }}>
 
-        {/* Section Header */}
+        {/* Section Header (Centered & High-Contrast) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ marginBottom: '2.5rem' }}
+          style={{ textAlign: 'center', marginBottom: '2.5rem', padding: '0 1rem', position: 'relative', zIndex: 2 }}
         >
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'rgba(0, 212, 245, 0.05)', border: '1px solid rgba(0, 212, 245, 0.15)', borderRadius: '30px', marginBottom: '1.25rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 18px', background: 'rgba(0, 212, 245, 0.06)', border: '1px solid rgba(0, 212, 245, 0.2)', borderRadius: '30px', marginBottom: '1.25rem', backdropFilter: 'blur(8px)' }}>
             <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--syn-cyan)', boxShadow: '0 0 10px var(--syn-cyan)', animation: 'pulse 2s infinite' }} />
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--syn-cyan)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Featured Work</span>
           </div>
-          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-sans)', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: 1.1, margin: 0 }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.2rem)', fontFamily: 'var(--font-sans)', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: 1.15, margin: 0 }}>
             <span style={{ color: 'var(--text-main)' }}>My </span>
-            <span className="text-gradient" style={{ display: 'inline-block', textShadow: '0 0 40px rgba(0, 212, 245, 0.3)' }}>Projects</span>
+            <span className="text-gradient" style={{ display: 'inline-block', textShadow: '0 0 45px rgba(0, 212, 245, 0.4)' }}>Projects</span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginTop: '1rem', fontFamily: 'var(--font-sans)', fontSize: '1rem', maxWidth: '560px', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--text-muted)', marginTop: '1.15rem', fontFamily: 'var(--font-sans)', fontSize: '1.05rem', maxWidth: '580px', margin: '1.15rem auto 0 auto', lineHeight: 1.65 }}>
             A curated selection of applications I've engineered — switch between interactive slider and full matrix grid.
           </p>
         </motion.div>

@@ -872,6 +872,32 @@ section {
 }
 
 /* ============================================
+   SECTION WATERMARK TYPOGRAPHY
+   ============================================ */
+.section-watermark-text {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(4.5rem, 15vw, 11rem);
+  font-weight: 900;
+  font-family: var(--font-sans);
+  letter-spacing: 16px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 212, 245, 0.1);
+  background: linear-gradient(180deg, rgba(0, 212, 245, 0.07) 0%, rgba(199, 146, 234, 0.02) 60%, transparent 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(0, 212, 245, 0.05);
+  opacity: 0.9;
+  line-height: 1;
+}
+
+/* ============================================
    PROJECTS — TOOLBAR & DUAL VIEW MODE
    ============================================ */
 .projects-toolbar {

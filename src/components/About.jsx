@@ -53,7 +53,7 @@ const About = () => {
       <div 
         style={{
           position: 'absolute',
-          top: '12%',
+          top: '8%',
           left: '0',
           width: '100%',
           overflow: 'hidden',
