@@ -91,7 +91,7 @@ const About = () => {
         <GlitchText text="ABOUT ME" as="div" />
       </div>
 
-      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1, paddingTop: '195px' }}>
+      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1, paddingTop: '215px' }}>
 
         {/* 2-Column Content Layout (Shifted downwards below the glitch header) */}
         <div 
