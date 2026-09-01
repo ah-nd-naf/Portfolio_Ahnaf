@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink, FiChevronLeft, FiChevronRight, FiGrid, FiLayers } from 'react-icons/fi';
-import GlitchText from './GlitchText';
+import { FiExternalLink, FiChevronLeft, FiChevronRight, FiGrid, FiLayers, FiFolder } from 'react-icons/fi';
 
 const SLIDE_DURATION = 6000;
 
@@ -171,86 +170,46 @@ const Projects = () => {
   const activeProject = filteredProjects[currentIndex] || filteredProjects[0];
 
   const variants = {
-    enter: (dir) => ({ x: dir > 0 ? '60%' : '-60%', opacity: 0, scale: 0.92, filter: 'blur(8px)' }),
+    enter: (dir) => ({ x: dir > 0 ? '60%' : '-60%', opacity: 0, scale: 0.94, filter: 'blur(6px)' }),
     center: { x: 0, opacity: 1, scale: 1, filter: 'blur(0px)' },
-    exit: (dir) => ({ x: dir > 0 ? '-60%' : '60%', opacity: 0, scale: 0.92, filter: 'blur(8px)' }),
+    exit: (dir) => ({ x: dir > 0 ? '-60%' : '60%', opacity: 0, scale: 0.94, filter: 'blur(6px)' }),
   };
 
   return (
-    <section id="projects" className="projects-section" style={{ position: 'relative' }}>
+    <section id="projects" className="projects-section">
 
-      {/* Ambient Cyber Header Glow */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '650px',
-          height: '250px',
-          background: 'radial-gradient(ellipse at center, rgba(0, 212, 245, 0.12) 0%, rgba(199, 146, 234, 0.05) 45%, transparent 70%)',
-          filter: 'blur(50px)',
-          pointerEvents: 'none',
-          zIndex: 0
-        }}
-        aria-hidden="true"
-      />
+      {/* Atmospheric Ambient Glow */}
+      <div className="projects-ambient-glow" aria-hidden="true" />
 
-      {/* Cyber Glitch Typography behind the Toolbar zone */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '290px',
-          left: '0',
-          width: '100%',
-          overflow: 'hidden',
-          display: 'flex',
-          justifyContent: 'center',
-          fontSize: 'clamp(5rem, 14vw, 9.5rem)',
-          fontWeight: 900,
-          pointerEvents: 'none',
-          userSelect: 'none',
-          whiteSpace: 'nowrap',
-          fontFamily: 'var(--font-sans)',
-          zIndex: 0,
-          opacity: 0.22,
-          letterSpacing: '14px',
-          lineHeight: 1,
-        }}
-      >
-        <GlitchText text="PROJECTS" as="div" />
-      </div>
+      <div className="container" style={{ maxWidth: '1240px', position: 'relative', zIndex: 1 }}>
 
-      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1 }}>
-
-        {/* Section Header (Centered & High-Contrast) */}
+        {/* Section Header (Centered, Minimalist, High-End) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '2.5rem', padding: '0 1rem', position: 'relative', zIndex: 2 }}
+          className="projects-header-wrapper"
         >
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 18px', background: 'rgba(0, 212, 245, 0.06)', border: '1px solid rgba(0, 212, 245, 0.2)', borderRadius: '30px', marginBottom: '1.25rem', backdropFilter: 'blur(8px)' }}>
-            <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--syn-cyan)', boxShadow: '0 0 10px var(--syn-cyan)', animation: 'pulse 2s infinite' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--syn-cyan)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Featured Work</span>
+          <div className="projects-badge-pill">
+            <span className="projects-badge-dot" />
+            <span className="projects-badge-label">PORTFOLIO WORK</span>
           </div>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.2rem)', fontFamily: 'var(--font-sans)', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: 1.15, margin: 0 }}>
-            <span style={{ color: 'var(--text-main)' }}>My </span>
-            <span className="text-gradient" style={{ display: 'inline-block', textShadow: '0 0 45px rgba(0, 212, 245, 0.4)' }}>Projects</span>
+          <h2 className="projects-heading">
+            Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p style={{ color: 'var(--text-muted)', marginTop: '1.15rem', fontFamily: 'var(--font-sans)', fontSize: '1.05rem', maxWidth: '580px', margin: '1.15rem auto 0 auto', lineHeight: 1.65 }}>
-            A curated selection of applications I've engineered — switch between interactive slider and full matrix grid.
+          <p className="projects-subheading">
+            A showcase of full-stack web applications, AI tools, and production-grade architectures built with modern engineering standards.
           </p>
         </motion.div>
 
-        {/* Control Toolbar: Category Chips & View Toggle */}
+        {/* Floating Glassmorphic Toolbar */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="projects-toolbar"
+          className="projects-toolbar-wrapper"
         >
           {/* Category Filter Chips */}
           <div className="projects-filter-chips" role="tablist" aria-label="Filter projects by category">
@@ -263,42 +222,42 @@ const Projects = () => {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  className={`projects-filter-chip ${isActive ? 'active' : ''}`}
+                  className={`projects-chip-btn ${isActive ? 'active' : ''}`}
                   onClick={() => handleCategoryChange(cat)}
                 >
-                  <span>{cat}</span>
-                  <span className="projects-filter-count">{count}</span>
+                  <span className="chip-text">{cat}</span>
+                  <span className="chip-count-badge">{count}</span>
                 </button>
               );
             })}
           </div>
 
           {/* View Mode Switcher */}
-          <div className="projects-view-switcher" role="group" aria-label="Projects view mode">
+          <div className="projects-view-toggle-group" role="group" aria-label="Projects view mode">
             <button
               type="button"
-              className={`projects-view-btn ${viewMode === 'carousel' ? 'active' : ''}`}
+              className={`projects-toggle-btn ${viewMode === 'carousel' ? 'active' : ''}`}
               onClick={() => setViewMode('carousel')}
-              title="Carousel Slider View"
-              aria-label="Carousel Slider View"
+              title="Interactive Carousel View"
+              aria-label="Interactive Carousel View"
             >
-              <FiLayers size={14} />
+              <FiLayers size={13} />
               <span>Slider</span>
             </button>
             <button
               type="button"
-              className={`projects-view-btn ${viewMode === 'grid' ? 'active' : ''}`}
+              className={`projects-toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
               onClick={() => setViewMode('grid')}
               title="Grid Matrix View"
               aria-label="Grid Matrix View"
             >
-              <FiGrid size={14} />
+              <FiGrid size={13} />
               <span>Grid ({filteredProjects.length})</span>
             </button>
           </div>
         </motion.div>
 
-        {/* Dynamic Content: Carousel vs Grid Matrix */}
+        {/* Dynamic Content Area: Carousel vs Grid */}
         {filteredProjects.length === 0 ? (
           <div className="projects-empty-state">
             <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.95rem' }}>
@@ -308,14 +267,14 @@ const Projects = () => {
               type="button"
               className="projects-btn projects-btn-solid"
               onClick={() => handleCategoryChange('All')}
-              style={{ '--accent': 'var(--syn-cyan)', marginTop: '1rem' }}
+              style={{ '--accent': 'var(--syn-cyan)', marginTop: '1.25rem' }}
             >
               Reset to All Projects
             </button>
           </div>
         ) : viewMode === 'carousel' ? (
           /* ===================================================
-             CAROUSEL SLIDER VIEW
+             CAROUSEL SLIDER VIEW (REFINED)
              =================================================== */
           <>
             <motion.div
@@ -334,12 +293,13 @@ const Projects = () => {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="projects-card"
+                  style={{ '--accent': activeProject.accent }}
                 >
                   {/* Image Panel */}
                   <div className="projects-card-image-panel">
-                    <div className="projects-card-image-overlay" style={{ '--accent': activeProject.accent }} />
+                    <div className="projects-card-image-overlay" />
                     <img
                       src={`/${activeProject.name}.png`}
                       alt={activeProject.label}
@@ -348,18 +308,18 @@ const Projects = () => {
                     />
                     {/* Project number badge */}
                     <div className="projects-card-number">
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '2px' }}>PROJECT</span>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-main)', lineHeight: 1 }}>
+                      <span className="card-num-prefix">PROJECT</span>
+                      <span className="card-num-val">
                         {String(currentIndex + 1).padStart(2, '0')}
                       </span>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-dim)', letterSpacing: '1px' }}>
+                      <span className="card-num-total">
                         / {String(filteredProjects.length).padStart(2, '0')}
                       </span>
                     </div>
                     {/* Live badge */}
                     {activeProject.live !== '#' && (
                       <div className="projects-live-badge">
-                        <span className="projects-live-dot" style={{ '--accent': activeProject.accent }} />
+                        <span className="projects-live-dot" />
                         <span>LIVE</span>
                       </div>
                     )}
@@ -367,36 +327,49 @@ const Projects = () => {
 
                   {/* Content Panel */}
                   <div className="projects-card-content">
-                    {/* Top accent line */}
-                    <div style={{ height: '3px', width: '40px', background: activeProject.accent, borderRadius: '2px', boxShadow: `0 0 12px ${activeProject.accent}`, marginBottom: '1.75rem' }} />
+                    {/* Breadcrumb Tag */}
+                    <div className="projects-card-category-tag">
+                      <span className="tag-accent-line" />
+                      <span className="tag-category-name">{activeProject.categories?.[0] || 'Full-Stack'}</span>
+                    </div>
 
-                    <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: 'clamp(1.4rem, 3vw, 2rem)', color: 'var(--text-main)', lineHeight: 1.2, letterSpacing: '-0.5px', marginBottom: '1rem' }}>
+                    <h3 className="projects-card-title">
                       {activeProject.label}
                     </h3>
 
-                    <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.97rem', color: 'var(--text-muted)', lineHeight: 1.75, marginBottom: '2rem', flexGrow: 1 }}>
+                    <p className="projects-card-description">
                       {activeProject.description}
                     </p>
 
                     {/* Tech Stack */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2.5rem' }}>
+                    <div className="projects-card-tech-list">
                       {activeProject.tech.map((t) => (
-                        <span key={t} className="projects-tech-pill" style={{ '--accent': activeProject.accent }}>
+                        <span key={t} className="projects-tech-pill">
                           {t}
                         </span>
                       ))}
                     </div>
 
                     {/* Action Buttons */}
-                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                    <div className="projects-card-actions">
                       {activeProject.github !== '#' && (
-                        <a href={activeProject.github} target="_blank" rel="noopener noreferrer" className="projects-btn projects-btn-outline" style={{ '--accent': activeProject.accent }}>
-                          <FaGithub size={16} /> Source Code
+                        <a 
+                          href={activeProject.github} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="projects-btn projects-btn-outline"
+                        >
+                          <FaGithub size={15} /> Source Code
                         </a>
                       )}
                       {activeProject.live !== '#' && (
-                        <a href={activeProject.live} target="_blank" rel="noopener noreferrer" className="projects-btn projects-btn-solid" style={{ '--accent': activeProject.accent }}>
-                          <FiExternalLink size={16} /> Live Demo
+                        <a 
+                          href={activeProject.live} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="projects-btn projects-btn-solid"
+                        >
+                          <FiExternalLink size={15} /> Live Demo
                         </a>
                       )}
                     </div>
@@ -425,7 +398,7 @@ const Projects = () => {
                 <button
                   className="projects-arrow-btn"
                   onClick={goPrev}
-                  aria-label="Previous"
+                  aria-label="Previous Project"
                   disabled={filteredProjects.length <= 1}
                   style={{ opacity: filteredProjects.length <= 1 ? 0.4 : 1, cursor: filteredProjects.length <= 1 ? 'not-allowed' : 'pointer' }}
                 >
@@ -434,7 +407,7 @@ const Projects = () => {
                 <button
                   className="projects-arrow-btn"
                   onClick={goNext}
-                  aria-label="Next"
+                  aria-label="Next Project"
                   disabled={filteredProjects.length <= 1}
                   style={{ opacity: filteredProjects.length <= 1 ? 0.4 : 1, cursor: filteredProjects.length <= 1 ? 'not-allowed' : 'pointer' }}
                 >
@@ -451,7 +424,7 @@ const Projects = () => {
                   style={{
                     width: `${progress}%`,
                     background: activeProject.accent,
-                    boxShadow: `0 0 10px ${activeProject.accent}80`,
+                    boxShadow: `0 0 12px ${activeProject.accent}80`,
                   }}
                 />
               </div>
@@ -459,7 +432,7 @@ const Projects = () => {
           </>
         ) : (
           /* ===================================================
-             GRID MATRIX VIEW
+             GRID MATRIX VIEW (LUXURY ARCHITECTURAL CARDS)
              =================================================== */
           <motion.div
             layout
@@ -473,37 +446,33 @@ const Projects = () => {
                 <motion.div
                   layout
                   key={proj.name}
-                  initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.94, y: -20 }}
-                  transition={{ duration: 0.35, delay: idx * 0.05 }}
+                  exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                  transition={{ duration: 0.35, delay: idx * 0.04 }}
                   className="projects-grid-card"
                   style={{ '--accent': proj.accent }}
                 >
-                  {/* Grid Card Mac Header */}
+                  {/* Luxury Top Header */}
                   <div className="projects-grid-header">
-                    <div className="projects-grid-dots">
-                      <span className="mac-dot dot-red" />
-                      <span className="mac-dot dot-yellow" />
-                      <span className="mac-dot dot-green" />
+                    <div className="projects-grid-path">
+                      <FiFolder size={12} style={{ color: proj.accent }} />
+                      <span>apps/{proj.name}</span>
                     </div>
-                    <span className="projects-grid-filename">
-                      {proj.name}.tsx
-                    </span>
-                    <span className="projects-grid-idx">
+                    <span className="projects-grid-index">
                       #{String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
 
-                  {/* Grid Card Image Panel */}
+                  {/* Image Thumbnail with Gradient Mask */}
                   <div className="projects-grid-image-wrapper">
-                    <div className="projects-grid-image-overlay" />
                     <img
                       src={`/${proj.name}.png`}
                       alt={proj.label}
                       className="projects-grid-img"
                       onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }}
                     />
+                    <div className="projects-grid-image-overlay" />
                     {proj.live !== '#' && (
                       <div className="projects-grid-live-badge">
                         <span className="projects-live-dot" />
@@ -512,12 +481,12 @@ const Projects = () => {
                     )}
                   </div>
 
-                  {/* Grid Card Content */}
+                  {/* Card Body */}
                   <div className="projects-grid-body">
                     <h3 className="projects-grid-title">{proj.label}</h3>
                     <p className="projects-grid-desc">{proj.description}</p>
 
-                    {/* Tech tags */}
+                    {/* Tech Tags */}
                     <div className="projects-grid-tech-wrap">
                       {proj.tech.map((t) => (
                         <span key={t} className="projects-tech-pill">

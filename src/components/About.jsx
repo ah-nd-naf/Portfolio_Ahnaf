@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-
 import GlitchText from './GlitchText';
 
 const codeLines = [
@@ -47,38 +46,59 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="about-section" style={{ position: 'relative' }}>
+    <section id="about" className="about-section" style={{ position: 'relative', overflow: 'hidden' }}>
       
-      {/* Huge Background Typography Accent */}
+      {/* Ambient Aurora Glow */}
       <div 
         style={{
           position: 'absolute',
-          top: '8%',
+          top: '0%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '800px',
+          height: '350px',
+          background: 'radial-gradient(ellipse at center, rgba(199, 146, 234, 0.08) 0%, rgba(0, 212, 245, 0.04) 50%, transparent 70%)',
+          filter: 'blur(70px)',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Futuristic Cyber Glitch Header Watermark */}
+      <div 
+        style={{
+          position: 'absolute',
+          top: '20px',
           left: '0',
           width: '100%',
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
-          fontSize: 'clamp(5rem, 15vw, 12rem)',
+          fontSize: 'clamp(5rem, 15vw, 11rem)',
           fontWeight: 900,
           pointerEvents: 'none',
+          userSelect: 'none',
           whiteSpace: 'nowrap',
           fontFamily: 'var(--font-sans)',
-          zIndex: -1,
-          opacity: 0.15, /* Lowered opacity for a cleaner background accent */
-          letterSpacing: '10px'
+          zIndex: 0,
+          opacity: 0.22,
+          letterSpacing: '14px',
+          lineHeight: 1,
         }}
+        aria-hidden="true"
       >
         <GlitchText text="ABOUT ME" as="div" />
       </div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1, paddingTop: '195px' }}>
+
+        {/* 2-Column Content Layout (Shifted downwards below the glitch header) */}
         <div 
           style={{ 
             display: 'grid', 
             gridTemplateColumns: '1fr', 
             gap: '4rem', 
-            maxWidth: '1200px', 
             margin: '0 auto',
             alignItems: 'center'
           }}
@@ -93,10 +113,10 @@ const About = () => {
             style={{ paddingRight: '2rem' }}
           >
             <h2 style={{ 
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+              fontSize: 'clamp(2.4rem, 4.8vw, 3.8rem)', 
               fontWeight: 800, 
-              lineHeight: 1.1, 
-              marginBottom: '2rem',
+              lineHeight: 1.12, 
+              marginBottom: '1.75rem',
               letterSpacing: '-1px',
               color: 'var(--text-main)'
             }}>
