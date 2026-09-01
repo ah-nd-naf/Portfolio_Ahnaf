@@ -203,7 +203,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Floating Glassmorphic Toolbar */}
+        {/* Floating Glassmorphic Pill Dock Toolbar */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -232,6 +232,8 @@ const Projects = () => {
             })}
           </div>
 
+          <div className="projects-toolbar-divider" />
+
           {/* View Mode Switcher */}
           <div className="projects-view-toggle-group" role="group" aria-label="Projects view mode">
             <button
@@ -241,7 +243,7 @@ const Projects = () => {
               title="Interactive Carousel View"
               aria-label="Interactive Carousel View"
             >
-              <FiLayers size={13} />
+              <FiLayers size={14} />
               <span>Slider</span>
             </button>
             <button
@@ -251,7 +253,7 @@ const Projects = () => {
               title="Grid Matrix View"
               aria-label="Grid Matrix View"
             >
-              <FiGrid size={13} />
+              <FiGrid size={14} />
               <span>Grid ({filteredProjects.length})</span>
             </button>
           </div>
@@ -453,18 +455,21 @@ const Projects = () => {
                   className="projects-grid-card"
                   style={{ '--accent': proj.accent }}
                 >
-                  {/* Luxury Top Header */}
+                  {/* Subtle Top Glow Accent */}
+                  <div className="projects-grid-card-glow" />
+
+                  {/* Luxury Top Header Bar */}
                   <div className="projects-grid-header">
-                    <div className="projects-grid-path">
-                      <FiFolder size={12} style={{ color: proj.accent }} />
-                      <span>apps/{proj.name}</span>
+                    <div className="projects-grid-category-chip">
+                      <span className="grid-cat-dot" style={{ background: proj.accent, boxShadow: `0 0 8px ${proj.accent}` }} />
+                      <span className="grid-cat-name">{proj.categories?.[0] || 'Full-Stack'}</span>
                     </div>
-                    <span className="projects-grid-index">
+                    <span className="projects-grid-num-badge">
                       #{String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
 
-                  {/* Image Thumbnail with Gradient Mask */}
+                  {/* Image Showcase with Cinematic Zoom & Gradient Fade */}
                   <div className="projects-grid-image-wrapper">
                     <img
                       src={`/${proj.name}.png`}
@@ -486,7 +491,7 @@ const Projects = () => {
                     <h3 className="projects-grid-title">{proj.label}</h3>
                     <p className="projects-grid-desc">{proj.description}</p>
 
-                    {/* Tech Tags */}
+                    {/* Tech Stack Badges */}
                     <div className="projects-grid-tech-wrap">
                       {proj.tech.map((t) => (
                         <span key={t} className="projects-tech-pill">
@@ -495,7 +500,7 @@ const Projects = () => {
                       ))}
                     </div>
 
-                    {/* Footer Actions */}
+                    {/* Action Buttons */}
                     <div className="projects-grid-actions">
                       {proj.github !== '#' && (
                         <a
@@ -514,7 +519,7 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="projects-btn projects-btn-solid"
-                          title="Open Live Deployment"
+                          title="Launch Live Application"
                         >
                           <FiExternalLink size={14} /> Launch Demo
                         </a>
