@@ -78,18 +78,27 @@ const Contact = () => {
             href="mailto:ahnaf.rasheed.zaki@gmail.com" 
             style={{ 
               display: 'inline-flex', alignItems: 'center', gap: '10px', 
-              padding: '0.9rem 2rem', background: 'var(--text-main)', color: 'var(--bg)', 
-              borderRadius: '100px', fontWeight: 600, fontSize: '1rem', 
-              transition: 'all 0.3s ease', cursor: 'pointer',
-              boxShadow: '0 0 15px rgba(255,255,255,0.1)'
+              padding: '0.9rem 2.2rem', 
+              background: 'var(--name-grad)',
+              backgroundSize: '200% auto',
+              color: '#07090e', 
+              borderRadius: '100px', 
+              fontWeight: 700, 
+              fontSize: '1rem', 
+              transition: 'all 0.35s ease', 
+              cursor: 'pointer',
+              boxShadow: '0 10px 30px rgba(0, 212, 245, 0.28)',
+              textDecoration: 'none'
             }} 
             onMouseEnter={e => {
+              e.currentTarget.style.backgroundPosition = 'right center';
               e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 8px 20px rgba(255,255,255,0.2)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(249, 42, 173, 0.4)';
             }} 
             onMouseLeave={e => {
+              e.currentTarget.style.backgroundPosition = 'left center';
               e.currentTarget.style.transform = 'none';
-              e.currentTarget.style.boxShadow = '0 0 15px rgba(255,255,255,0.1)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 212, 245, 0.28)';
             }}
           >
             <FiMail size={18} />
@@ -137,15 +146,15 @@ const Contact = () => {
         
         {/* Terminal Snippet */}
         <div style={{ 
-          marginTop: '3.5rem', padding: '0.8rem 1.2rem', 
-          background: 'rgba(13, 17, 23, 0.8)', borderRadius: '8px', 
-          border: '1px solid rgba(255,255,255,0.05)', display: 'block', 
-          textAlign: 'left', wordBreak: 'break-all', fontFamily: 'var(--font-mono)', fontSize: '0.85rem',
-          boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)',
+          marginTop: '3.5rem', padding: '0.85rem 1.35rem', 
+          background: 'rgba(10, 14, 20, 0.85)', borderRadius: '10px', 
+          border: '1px solid rgba(255,255,255,0.08)', display: 'block', 
+          textAlign: 'left', wordBreak: 'break-all', fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
+          boxShadow: 'inset 0 0 20px rgba(0,0,0,0.6), 0 8px 25px rgba(0,0,0,0.4)',
           maxWidth: '100%'
         }}>
-          <span style={{ color: 'var(--syn-pink)' }}>ahnaf@portfolio<span style={{ color: 'var(--text-main)' }}>:</span><span style={{ color: 'var(--syn-cyan)' }}>~$</span></span>
-          <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>ping <span style={{ color: 'var(--syn-string)' }}>ahnaf.rasheed.zaki@gmail.com</span></span>
+          <span style={{ color: '#ff4da6', fontWeight: 600 }}>ahnaf@portfolio<span style={{ color: '#ffffff' }}>:</span><span style={{ color: '#00f5ff' }}>~$</span></span>
+          <span style={{ color: 'var(--text-main)', marginLeft: '10px', fontWeight: 500 }}>ping <span style={{ color: '#ff922b', fontWeight: 600 }}>ahnaf.rasheed.zaki@gmail.com</span></span>
           <motion.span 
             animate={{ opacity: [1, 0, 1] }} 
             transition={{ repeat: Infinity, duration: 1, ease: "linear" }}

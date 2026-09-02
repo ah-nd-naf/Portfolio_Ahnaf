@@ -2465,52 +2465,85 @@ section {
 .cmd-header-tabs {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
+  padding: 3px 5px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
 }
 
 .cmd-tab {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 7px;
-  border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  user-select: none;
 }
 
 .cmd-tab:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(0, 212, 245, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(0, 212, 245, 0.25);
 }
 
 .cmd-tab-active {
-  background: rgba(0, 212, 245, 0.14);
-  border-color: rgba(0, 212, 245, 0.4);
-  color: var(--syn-cyan);
-  box-shadow: 0 0 14px rgba(0, 212, 245, 0.2);
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.2) 0%, rgba(199, 146, 234, 0.18) 100%);
+  border: 1px solid #00d4f5;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 16px rgba(0, 212, 245, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.cmd-tab-active:hover {
+  border-color: #00d4f5;
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.28) 0%, rgba(199, 146, 234, 0.25) 100%);
+  box-shadow: 0 0 20px rgba(0, 212, 245, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.cmd-tab svg {
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.cmd-tab:hover svg {
+  transform: scale(1.1);
+  color: #00d4f5;
+}
+
+.cmd-tab-active svg {
+  color: #00d4f5;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.7));
 }
 
 .cmd-close-btn {
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-muted);
   cursor: pointer;
-  padding: 0.35rem;
+  padding: 0.38rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 7px;
   transition: all 0.2s ease;
 }
 
 .cmd-close-btn:hover {
   color: #ff5f56;
-  background: rgba(255, 95, 86, 0.12);
+  border-color: rgba(255, 95, 86, 0.4);
+  background: rgba(255, 95, 86, 0.15);
+  box-shadow: 0 0 10px rgba(255, 95, 86, 0.3);
 }
 
 /* Search Bar */
