@@ -489,8 +489,8 @@ section {
   color: var(--text-muted);
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-top: 1.25rem;
-  margin-bottom: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   min-height: 1.5em;
   display: flex;
   align-items: center;
@@ -498,9 +498,214 @@ section {
 
 .hero-tagline .tag-sep { color: var(--syn-purple); margin: 0 0.75rem; }
 
+/* ============================================
+   HERO CYBER HUD CARD & TELEMETRY
+   ============================================ */
+.hero-hud-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(22, 27, 34, 0.85) 0%, rgba(13, 17, 23, 0.7) 100%);
+  border: 1px solid rgba(0, 212, 245, 0.22);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 30px rgba(0, 212, 245, 0.05);
+  margin-bottom: 2rem;
+  max-width: 620px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-hud-card:hover {
+  border-color: rgba(0, 212, 245, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 35px rgba(0, 212, 245, 0.12);
+}
+
+.hero-hud-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 212, 245, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.hero-hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-hud-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(78, 201, 176, 0.1);
+  border: 1px solid rgba(78, 201, 176, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.hud-pulse-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--syn-green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--syn-green);
+  animation: hud-dot-pulse 2s infinite ease-in-out;
+}
+
+@keyframes hud-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hud-status-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--syn-green);
+  letter-spacing: 1px;
+}
+
+.hero-hud-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hero-hud-bio {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+}
+
+.hero-hud-bio .font-semibold {
+  font-weight: 600;
+}
+
+.hero-hud-tech-section {
+  margin-bottom: 1.15rem;
+}
+
+.hero-hud-tech-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--syn-comment);
+  letter-spacing: 1.5px;
+  margin-bottom: 0.6rem;
+}
+
+.hero-hud-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.hero-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-main);
+  cursor: default;
+  transition: all 0.25s ease;
+}
+
+.hero-tech-chip:hover {
+  background: rgba(0, 212, 245, 0.08);
+  border-color: rgba(0, 212, 245, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 212, 245, 0.15);
+  color: #ffffff;
+}
+
+.chip-icon {
+  display: flex;
+  align-items: center;
+}
+
+.hero-hud-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hud-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hud-metric-val {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--syn-cyan);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.hud-metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-social-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.social-icon-btn:hover {
+  color: var(--syn-cyan);
+  border-color: rgba(0, 212, 245, 0.4);
+  background: rgba(0, 212, 245, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 212, 245, 0.2);
+}
+
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.85rem;
   flex-wrap: wrap;
 }
 
