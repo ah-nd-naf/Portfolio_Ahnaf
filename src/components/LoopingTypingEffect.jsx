@@ -6,15 +6,17 @@ const LoopingTypingEffect = ({
   deletingSpeed = 40, 
   delay = 2000,
   startDelay = 0,
-  isStarted = true
+  isStarted = true,
+  themeColors
 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [ready, setReady] = useState(false);
 
-  // Cyberpunk theme colors (Crimson Red, Neon Pink, Synth Purple)
-  const colors = ['#ff003c', '#f92aad', '#c792ea'];
+  // Cyberpunk theme colors (Crimson Red, Cyber Cyan, Synth Purple, Mint Green, Neon Pink)
+  const defaultColors = ['#ff003c', '#00d4f5', '#c792ea', '#4ec9b0', '#f92aad'];
+  const colors = themeColors || defaultColors;
 
   useEffect(() => {
     if (!isStarted) {
@@ -40,7 +42,7 @@ const LoopingTypingEffect = ({
   }, [isStarted, startDelay]);
 
   useEffect(() => {
-    if (!ready) return;
+    if (!ready || !words || words.length === 0) return;
 
     const currentWord = words[wordIndex];
     let timeout;
@@ -73,26 +75,46 @@ const LoopingTypingEffect = ({
     return () => clearTimeout(timeout);
   }, [ready, displayedText, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, delay]);
 
+  const currentWord = words && words[wordIndex] ? words[wordIndex] : '';
+  const sepIdx = currentWord.indexOf('</>');
+  const hasSep = sepIdx !== -1;
+
   let activeColor = colors[wordIndex % colors.length];
-  if (wordIndex === 2) {
-    if (displayedText.length <= 13) activeColor = colors[0];
-    else if (displayedText.length <= 18) activeColor = colors[2];
-    else activeColor = colors[1];
+  if (hasSep) {
+    const sepStart = sepIdx;
+    const sepEnd = sepIdx + 3;
+    if (displayedText.length <= sepStart) activeColor = colors[0];
+    else if (displayedText.length <= sepEnd) activeColor = colors[2];
+    else activeColor = colors[4];
   }
 
-  const renderText = (text, wIndex) => {
-    if (wIndex === 2) {
-      const part1 = text.substring(0, 13);
-      const sep = text.substring(13, 18);
-      const part2 = text.substring(18);
-      
-      return (
-        <>
-          <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{part1}</span>
-          <span style={{ color: colors[2], textShadow: `0 0 15px ${colors[2]}80`, transition: 'color 0.3s ease' }}>{sep}</span>
-          <span style={{ color: colors[1], textShadow: `0 0 15px ${colors[1]}80`, transition: 'color 0.3s ease' }}>{part2}</span>
-        </>
-      );
+  const renderText = (text) => {
+    if (hasSep) {
+      const sepStart = sepIdx;
+      const sepEnd = sepIdx + 3;
+      if (text.length <= sepStart) {
+        return <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{text}</span>;
+      } else if (text.length <= sepEnd) {
+        const part1 = text.substring(0, sepStart);
+        const sepPart = text.substring(sepStart);
+        return (
+          <>
+            <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{part1}</span>
+            <span style={{ color: colors[2], textShadow: `0 0 15px ${colors[2]}80`, transition: 'color 0.3s ease' }}>{sepPart}</span>
+          </>
+        );
+      } else {
+        const part1 = text.substring(0, sepStart);
+        const sepPart = text.substring(sepStart, sepEnd);
+        const part2 = text.substring(sepEnd);
+        return (
+          <>
+            <span style={{ color: colors[0], textShadow: `0 0 15px ${colors[0]}80`, transition: 'color 0.3s ease' }}>{part1}</span>
+            <span style={{ color: colors[2], textShadow: `0 0 15px ${colors[2]}80`, transition: 'color 0.3s ease' }}>{sepPart}</span>
+            <span style={{ color: colors[4], textShadow: `0 0 15px ${colors[4]}80`, transition: 'color 0.3s ease' }}>{part2}</span>
+          </>
+        );
+      }
     }
     return text;
   };
@@ -106,7 +128,7 @@ const LoopingTypingEffect = ({
           transition: 'color 0.3s ease, text-shadow 0.3s ease'
         }}
       >
-        {renderText(displayedText, wordIndex)}
+        {renderText(displayedText)}
       </span>
       {ready && (
         <span 

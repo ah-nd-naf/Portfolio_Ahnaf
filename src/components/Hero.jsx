@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
-import LoopingTypingEffect from './LoopingTypingEffect';
-import { FaGithub, FaLinkedin, FaReact, FaNodeJs } from 'react-icons/fa';
-import { SiDjango, SiPostgresql, SiMongodb, SiNextdotjs, SiDocker } from 'react-icons/si';
-import { FiLayers, FiMail, FiArrowUpRight } from 'react-icons/fi';
+import SyncedTypingEffect from './SyncedTypingEffect';
+import { FaGithub } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 
-const HERO_WORDS = ['Web Developer', 'Full-Stack Builder', 'Web Developer </> Full-Stack Builder'];
-
-const CORE_TECH = [
-  { icon: <FaReact color="#61dafb" size={13} />, name: 'React' },
-  { icon: <SiNextdotjs color="#ffffff" size={13} />, name: 'Next.js' },
-  { icon: <FaNodeJs color="#43853d" size={13} />, name: 'Node.js' },
-  { icon: <SiDjango color="#44b78b" size={13} />, name: 'Django DRF' },
-  { icon: <SiPostgresql color="#336791" size={13} />, name: 'PostgreSQL' },
-  { icon: <SiMongodb color="#47a248" size={13} />, name: 'MongoDB' },
-  { icon: <SiDocker color="#2496ed" size={13} />, name: 'Docker' },
-];
-
-const METRICS = [
-  { val: '15+', label: 'Projects Built' },
-  { val: '3+', label: 'Full-Stack Ecosystems' },
-  { val: '100%', label: 'Secure & Deployed' },
+const HERO_PAIRS = [
+  {
+    role: 'Web Developer',
+    stack: 'MERN & PERN STACK',
+  },
+  {
+    role: 'Full-Stack Builder',
+    stack: 'Django REST Framework',
+  },
+  {
+    role: 'Web Developer </> Full-Stack Builder',
+    stack: 'MERN & PERN </> Django DRF',
+  },
 ];
 
 const Hero = () => {
@@ -54,78 +50,17 @@ const Hero = () => {
             />
           </motion.div>
 
-          <div className="hero-tagline">
-            <b>
-              <LoopingTypingEffect 
-                words={HERO_WORDS} 
-                isStarted={nameComplete}
-                startDelay={300}
-              />
-            </b>
-          </div>
+          <SyncedTypingEffect 
+            pairs={HERO_PAIRS} 
+            isStarted={nameComplete} 
+            startDelay={300} 
+          />
 
-          {/* Premium Glassmorphic Cyber HUD Card */}
-          <motion.div
-            className="hero-hud-card"
-            initial={{ opacity: 0, y: 15 }}
-            animate={nameComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-          >
-            <div className="hero-hud-glow" />
-
-            {/* HUD Status Header */}
-            <div className="hero-hud-header">
-              <div className="hero-hud-status">
-                <span className="hud-pulse-dot" />
-                <span className="hud-status-text">AVAILABLE FOR HIRE</span>
-              </div>
-              <div className="hero-hud-tag">
-                <span style={{ color: 'var(--syn-cyan)' }}>📍</span> Dhaka, BD · Remote Ready
-              </div>
-            </div>
-
-            {/* Bio Body */}
-            <p className="hero-hud-bio">
-              Full-Stack Developer specializing in <span className="syn-cyan font-semibold">MERN</span>, <span className="syn-purple font-semibold">PERN</span>, and <span className="syn-green font-semibold">Django REST Framework</span>. I engineer production-oriented web applications end-to-end — from secure REST APIs and relational database modeling to sleek, responsive frontends.
-            </p>
-
-            {/* Core Tech Stack Micro-Chips */}
-            <div className="hero-hud-tech-section">
-              <div className="hero-hud-tech-label">
-                <span>// CORE TECH STACK</span>
-              </div>
-              <div className="hero-hud-tech-grid">
-                {CORE_TECH.map((t) => (
-                  <motion.div 
-                    key={t.name}
-                    className="hero-tech-chip"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                  >
-                    <span className="chip-icon">{t.icon}</span>
-                    <span className="chip-name">{t.name}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Telemetry Metrics Footer */}
-            <div className="hero-hud-metrics">
-              {METRICS.map((m) => (
-                <div key={m.label} className="hud-metric-item">
-                  <span className="hud-metric-val">{m.val}</span>
-                  <span className="hud-metric-label">{m.label}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Action Buttons & Social Links */}
           <motion.div
             className="hero-actions"
             initial={{ opacity: 0, y: 10 }}
             animate={nameComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             <a
               href="https://github.com/ah-nd-naf"
@@ -134,35 +69,11 @@ const Hero = () => {
               className="btn btn-primary"
               id="btn-github"
             >
-              <FaGithub /> View GitHub <FiArrowUpRight style={{ fontSize: '0.9rem' }} />
-            </a>
-            <a href="#projects" className="btn btn-secondary" id="btn-projects">
-              <FiLayers /> View Projects
+              <FaGithub /> View GitHub
             </a>
             <a href="#contact" className="btn btn-secondary" id="btn-contact">
               <FiMail /> Get In Touch
             </a>
-
-            <div className="hero-social-strip">
-              <a 
-                href="https://linkedin.com/in/ahnafrasheed" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-icon-btn"
-                title="LinkedIn"
-                aria-label="LinkedIn Profile"
-              >
-                <FaLinkedin />
-              </a>
-              <a 
-                href="mailto:ahnaf.rasheed.zaki@gmail.com" 
-                className="social-icon-btn"
-                title="Email Me"
-                aria-label="Send Email"
-              >
-                <FiMail />
-              </a>
-            </div>
           </motion.div>
         </div>
 
