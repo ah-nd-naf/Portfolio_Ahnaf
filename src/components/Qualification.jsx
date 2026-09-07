@@ -240,32 +240,42 @@ const Qualification = () => {
                     boxShadow: 'inset 0 0 15px rgba(0,0,0,0.5)'
                   }}>
                     {q.lines.map((line, lIdx) => {
-                      // Simple syntax highlighting representation for the details block
-                      let styledLine = <span style={{ color: 'var(--text-muted)' }}>{line}</span>;
-                      if (line.startsWith('//')) {
-                        styledLine = <span style={{ color: 'var(--syn-comment)' }}>{line}</span>;
+                      // Rich syntax highlighting representation for the details block
+                      let styledLine = <span style={{ color: 'var(--text-main)' }}>{line}</span>;
+                      if (line.trim().startsWith('//')) {
+                        styledLine = <span style={{ color: 'var(--syn-comment)', fontStyle: 'italic', fontWeight: 500 }}>{line}</span>;
                       } else if (line.includes('const')) {
+                        const indent = line.match(/^\s*/)[0];
+                        const tokens = line.trim().split(/\s+/);
                         styledLine = (
                           <>
+                            {indent}
                             <span style={{ color: 'var(--syn-purple)', fontWeight: 600 }}>const</span>{' '}
-                            <span style={{ color: 'var(--syn-cyan)' }}>{line.split(' ')[1]}</span>{' '}
-                            {line.substring(line.indexOf('='))}
+                            <span style={{ color: 'var(--syn-cyan)', fontWeight: 600 }}>{tokens[1]}</span>{' '}
+                            <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>= {'{'}</span>
                           </>
                         );
                       } else if (line.includes(':')) {
                         const parts = line.split(':');
-                        const key = parts[0];
+                        const keyWithIndent = parts[0];
                         const val = parts.slice(1).join(':');
+                        const indent = keyWithIndent.match(/^\s*/)[0];
+                        const keyName = keyWithIndent.trim();
                         styledLine = (
                           <>
-                            {key}:<span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)', fontWeight: 600 }}>{val}</span>
+                            {indent}
+                            <span style={{ color: 'var(--syn-cyan)', fontWeight: 600 }}>{keyName}</span>
+                            <span style={{ color: 'var(--text-muted)' }}>:</span>
+                            <span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)', fontWeight: 600 }}>{val}</span>
                           </>
                         );
+                      } else if (line.trim().startsWith('}')) {
+                        styledLine = <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>{line}</span>;
                       }
                       
                       return (
                         <div key={lIdx} style={{ display: 'flex', gap: '1rem' }}>
-                          <span style={{ color: 'rgba(255,255,255,0.15)', userSelect: 'none', width: '2ch', textAlign: 'right' }}>{lIdx + 1}</span>
+                          <span style={{ color: 'rgba(255,255,255,0.35)', userSelect: 'none', width: '2ch', textAlign: 'right', fontWeight: 500 }}>{lIdx + 1}</span>
                           <span style={{ flex: 1 }}>{styledLine}</span>
                         </div>
                       );
