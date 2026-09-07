@@ -258,7 +258,7 @@ const Qualification = () => {
                         const val = parts.slice(1).join(':');
                         styledLine = (
                           <>
-                            {key}:<span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)', fontWeight: 500 }}>{val}</span>
+                            {key}:<span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)', fontWeight: 600 }}>{val}</span>
                           </>
                         );
                       }
