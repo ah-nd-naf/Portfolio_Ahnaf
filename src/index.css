@@ -15,7 +15,7 @@
   --syn-yellow:    #f8c555;
   --syn-pink:      #f92aad;
   --syn-comment:   #5c7a5a;
-  --syn-string:    #ce9178;
+  --syn-string:    #ff9e64;
   --syn-number:    #b5cea8;
 
   /* Name gradient (cyan → purple → pink) */
@@ -88,7 +88,7 @@ section {
    ============================================ */
 .syn-keyword  { color: var(--syn-purple); font-family: var(--font-mono); font-weight: 600; }
 .syn-fn       { color: var(--syn-cyan);   font-family: var(--font-mono); }
-.syn-string   { color: var(--syn-string); font-family: var(--font-mono); }
+.syn-string   { color: var(--syn-string); font-family: var(--font-mono); font-weight: 500; }
 .syn-comment  { color: var(--syn-comment);font-family: var(--font-mono); }
 .syn-number   { color: var(--syn-number); font-family: var(--font-mono); }
 .syn-yellow   { color: var(--syn-yellow); font-family: var(--font-mono); font-weight: 600; }

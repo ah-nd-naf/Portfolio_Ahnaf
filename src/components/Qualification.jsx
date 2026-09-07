@@ -38,7 +38,7 @@ const qualifications = [
       'const bscStatus = {',
       '  university: "BRAC University",',
       '  department: "CSE",',
-      '  thesis: "Deep learning & software architecture patterns", "Computer Vision"',
+      '  thesis: ["Deep learning & software architecture patterns", "Computer Vision"],',
       '  status: "Completed"',
       '};'
     ]
@@ -258,7 +258,7 @@ const Qualification = () => {
                         const val = parts.slice(1).join(':');
                         styledLine = (
                           <>
-                            {key}:<span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)' }}>{val}</span>
+                            {key}:<span style={{ color: val.includes('"') ? 'var(--syn-string)' : 'var(--syn-purple)', fontWeight: 500 }}>{val}</span>
                           </>
                         );
                       }
