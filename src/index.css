@@ -520,29 +520,175 @@ section {
   width: 0.28em;
 }
 
-.name-typing {
+/* ========================================================
+   HERO NAME 3-STAGE CHOREOGRAPHY:
+   Stage 1 (Typing): All letters type in clean white
+   Stage 2 (White Glitch): A & R turn green; other letters glitch in white (same as ABOUT ME)
+   Stage 3 (Green Glitch / Complete): Whole name becomes green, glitch continues, page items load
+   ======================================================== */
+
+/* Stage 1: While typing - all characters are crisp cyber white */
+.hero-name-typing,
+.hero-name.name-typing {
   color: var(--text-main);
 }
 
+.hero-name-typing .hero-name-initial,
 .name-typing .hero-name-initial,
-.name-typing .hero-name-body,
-.name-typing .hero-name-char {
-  color: var(--text-main);
+.hero-name-typing .hero-name-char,
+.hero-name-typing .hero-name-body,
+.name-typing .hero-name-char,
+.name-typing .hero-name-body {
+  color: var(--text-main) !important;
+  filter: none !important;
 }
 
-.name-complete {
-  color: #6cf702; /* Saturated, vivid solid green */
-  transition: color 0.5s ease;
-}
-
-.name-complete .hero-name-initial,
-.name-complete .hero-name-body,
-.name-complete .hero-name-char {
+/* Stage 2: "ABOUT ME" Dual-Color Glitch - A & R become green, body letters glitch in sliced Cyan & Purple (not a single color) */
+.hero-name-purple-glitch .hero-name-initial,
+.hero-name-white-glitch .hero-name-initial,
+.hero-name-cyan-glitch .hero-name-initial,
+.hero-name-about-glitch .hero-name-initial {
   color: #6cf702 !important;
+  filter: drop-shadow(0 0 12px rgba(108, 247, 2, 0.4));
+  transition: color 0.3s ease, filter 0.3s ease;
 }
 
+.hero-name-purple-glitch .hero-name-char,
+.hero-name-purple-glitch .hero-name-body,
+.hero-name-about-glitch .hero-name-char,
+.hero-name-about-glitch .hero-name-body {
+  background: linear-gradient(
+    180deg, 
+    rgba(199, 146, 234, 0.6) 0%, 
+    rgba(199, 146, 234, 0.6) 38%, 
+    rgba(255, 255, 255, 0.1) 38%, 
+    rgba(255, 255, 255, 0.1) 62%, 
+    rgba(0, 212, 245, 0.6) 62%, 
+    rgba(0, 212, 245, 0.6) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.hero-name-purple-glitch .glitch-text,
+.hero-name-about-glitch .glitch-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    180deg, 
+    rgba(199, 146, 234, 0.6) 0%, 
+    rgba(199, 146, 234, 0.6) 38%, 
+    rgba(255, 255, 255, 0.1) 38%, 
+    rgba(255, 255, 255, 0.1) 62%, 
+    rgba(0, 212, 245, 0.6) 62%, 
+    rgba(0, 212, 245, 0.6) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  color: transparent !important;
+  z-index: 1;
+}
+
+.hero-name-purple-glitch .glitch-text::before,
+.hero-name-purple-glitch .glitch-text::after,
+.hero-name-about-glitch .glitch-text::before,
+.hero-name-about-glitch .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Chromatic slice: Electric Cyan */
+.hero-name-purple-glitch .glitch-text::before,
+.hero-name-about-glitch .glitch-text::before {
+  color: var(--syn-cyan);
+  -webkit-text-fill-color: var(--syn-cyan);
+  opacity: 0.55; /* Soft, non-glaring cyber brightness matching the screenshot */
+  z-index: 2;
+  mix-blend-mode: screen;
+  animation: glitch-anim-1 3s infinite linear alternate-reverse;
+}
+
+/* Chromatic slice: Cyber Purple */
+.hero-name-purple-glitch .glitch-text::after,
+.hero-name-about-glitch .glitch-text::after {
+  color: var(--syn-purple);
+  -webkit-text-fill-color: var(--syn-purple);
+  opacity: 0.55; /* Soft, non-glaring cyber brightness matching the screenshot */
+  z-index: 3;
+  mix-blend-mode: screen;
+  animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
+}
+
+/* Stage 3: Green Glitch (Complete) - Whole name turns green, glitch continues to exist */
+.hero-name-green-glitch,
+.hero-name.name-complete {
+  color: #6cf702;
+  transition: color 0.55s ease, text-shadow 0.55s ease;
+}
+
+.hero-name-green-glitch .hero-name-initial,
 .name-complete .hero-name-initial {
-  filter: drop-shadow(0 0 18px rgba(108, 247, 2, 0.4));
+  color: #6cf702 !important;
+  filter: drop-shadow(0 0 14px rgba(108, 247, 2, 0.4));
+}
+
+.hero-name-green-glitch .hero-name-char,
+.hero-name-green-glitch .hero-name-body,
+.name-complete .hero-name-char,
+.name-complete .hero-name-body {
+  color: #6cf702 !important;
+  text-shadow: 0 0 10px rgba(108, 247, 2, 0.25);
+  filter: none !important;
+  transition: color 0.55s ease, text-shadow 0.55s ease;
+}
+
+/* Glitch continues to exist on body letters in green */
+.hero-name-green-glitch .glitch-text,
+.hero-name.name-complete .glitch-text {
+  position: relative;
+  display: inline-block;
+  color: #6cf702 !important;
+  z-index: 1;
+}
+
+.hero-name-green-glitch .glitch-text::before,
+.hero-name-green-glitch .glitch-text::after,
+.hero-name.name-complete .glitch-text::before,
+.hero-name.name-complete .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.hero-name-green-glitch .glitch-text::before,
+.hero-name.name-complete .glitch-text::before {
+  color: var(--syn-cyan);
+  z-index: 2;
+  mix-blend-mode: screen;
+  animation: glitch-anim-1 3s infinite linear alternate-reverse;
+}
+
+.hero-name-green-glitch .glitch-text::after,
+.hero-name.name-complete .glitch-text::after {
+  color: var(--syn-purple);
+  z-index: 3;
+  mix-blend-mode: screen;
+  animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
 }
 
 @keyframes name-flow {
