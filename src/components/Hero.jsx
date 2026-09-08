@@ -60,7 +60,7 @@ const Hero = () => {
             className="hero-actions"
             initial={{ opacity: 0, y: 10 }}
             animate={nameComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
           >
             <a
               href="https://github.com/ah-nd-naf"
@@ -79,9 +79,9 @@ const Hero = () => {
 
         {/* Right-side Image Container */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={nameComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.9, delay: 0.3, type: 'spring' }}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={nameComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
+          transition={{ duration: 0.7, delay: 0.05, type: 'spring', bounce: 0.25 }}
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', height: '100%' }}
         >
           <div style={{ position: 'relative', width: 'clamp(280px, 30vw, 400px)', height: 'clamp(320px, 35vw, 450px)' }}>

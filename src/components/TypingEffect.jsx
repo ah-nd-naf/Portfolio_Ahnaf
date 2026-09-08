@@ -44,18 +44,19 @@ const TypingEffect = ({ text, speed = 135, startDelay = 500, onComplete }) => {
             intervalRef.current = null;
 
             // Phase 2: As soon as writing finishes:
-            // A & R turn green; other letters glitch in Cyber Purple matching the site
+            // A & R turn green; other letters glitch in sliced Cyan & Purple
+            // Load the other things (pic, buttons, synced subtitle) right when entering this state
             addTimeout(() => {
               setPhase('purple-glitch');
+              if (onCompleteRef.current) {
+                onCompleteRef.current();
+              }
 
-              // Phase 3: After some time (1.35s):
-              // The whole name transitions to green, glitch continues, and other page elements load
+              // Phase 3: After elements load (1.8s):
+              // The whole name transitions to green, and glitch continues
               addTimeout(() => {
                 setPhase('green-glitch');
-                if (onCompleteRef.current) {
-                  onCompleteRef.current();
-                }
-              }, 1350);
+              }, 1800);
             }, 100);
           }
         }
