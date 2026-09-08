@@ -44,7 +44,7 @@ const Hero = () => {
           >
             <TypingEffect 
               text="AHNAF RASHEED" 
-              speed={120} 
+              speed={135} 
               startDelay={600} 
               onComplete={() => setNameComplete(true)} 
             />
@@ -53,7 +53,7 @@ const Hero = () => {
           <SyncedTypingEffect 
             pairs={HERO_PAIRS} 
             isStarted={nameComplete} 
-            startDelay={300} 
+            startDelay={400} 
           />
 
           <motion.div

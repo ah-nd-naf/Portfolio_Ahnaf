@@ -445,7 +445,13 @@ section {
 .hero-path-prefix .prefix-dot { color: var(--syn-cyan); }
 
 /* Typing wrapper */
-.typing-wrapper { line-height: 1; }
+/* Typing wrapper */
+.typing-wrapper {
+  line-height: 1.25;
+  min-height: 1.3em;
+  display: flex;
+  align-items: baseline;
+}
 
 .hero-name {
   font-family: 'Cormorant Garamond', serif;
@@ -453,10 +459,11 @@ section {
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 700;
   letter-spacing: -0.5px;
-  line-height: 1.15;
+  line-height: 1.25;
+  min-height: 1.3em;
   font-kerning: none; /* Prevents text jitter during typing effect */
-  display: inline-block;
-  vertical-align: baseline;
+  display: inline-flex;
+  align-items: baseline;
 }
 
 /* Stylized Initials: 'A' and 'R' */
@@ -467,7 +474,7 @@ section {
   font-size: 1.35em;
   display: inline-block;
   line-height: 1;
-  vertical-align: -0.04em;
+  vertical-align: baseline;
   position: relative;
   letter-spacing: 0.02em;
   transition: color 0.4s ease, filter 0.4s ease;
@@ -482,9 +489,30 @@ section {
   margin-right: 0.02em;
 }
 
-.hero-name-body {
+.hero-name-body,
+.hero-name-char {
   display: inline-block;
+  line-height: 1;
   vertical-align: baseline;
+}
+
+@keyframes smooth-char-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.96);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.hero-char-smooth {
+  display: inline-block;
+  animation: smooth-char-reveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform, filter;
 }
 
 .hero-name-space {
@@ -497,7 +525,8 @@ section {
 }
 
 .name-typing .hero-name-initial,
-.name-typing .hero-name-body {
+.name-typing .hero-name-body,
+.name-typing .hero-name-char {
   color: var(--text-main);
 }
 
@@ -507,7 +536,8 @@ section {
 }
 
 .name-complete .hero-name-initial,
-.name-complete .hero-name-body {
+.name-complete .hero-name-body,
+.name-complete .hero-name-char {
   color: #6cf702 !important;
 }
 
@@ -523,9 +553,13 @@ section {
 
 .cursor-blink {
   display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  line-height: 1;
+  vertical-align: baseline;
   color: var(--syn-cyan);
-  font-weight: 300;
-  margin-left: 1px;
+  font-weight: 400;
+  margin-left: 3px;
   animation: cursor-flash 0.7s step-end infinite;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const TypingEffect = ({ text, speed = 90, startDelay = 600, onComplete }) => {
-  const [displayedText, setDisplayedText] = useState('');
+const TypingEffect = ({ text, speed = 135, startDelay = 500, onComplete }) => {
+  const [revealedCount, setRevealedCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const indexRef = useRef(0);
   const intervalRef = useRef(null);
@@ -13,22 +13,24 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600, onComplete }) => {
   }, [onComplete]);
 
   useEffect(() => {
-    // Reset state on mount
     indexRef.current = 0;
-    setDisplayedText('');
+    setRevealedCount(0);
     setIsComplete(false);
 
     delayRef.current = setTimeout(() => {
       intervalRef.current = setInterval(() => {
         if (indexRef.current < text.length) {
           indexRef.current += 1;
-          setDisplayedText(text.slice(0, indexRef.current));
+          setRevealedCount(indexRef.current);
+
           if (indexRef.current === text.length) {
             clearInterval(intervalRef.current);
-            setIsComplete(true);
-            if (onCompleteRef.current) {
-              onCompleteRef.current();
-            }
+            setTimeout(() => {
+              setIsComplete(true);
+              if (onCompleteRef.current) {
+                onCompleteRef.current();
+              }
+            }, 300);
           }
         }
       }, speed);
@@ -36,83 +38,60 @@ const TypingEffect = ({ text, speed = 90, startDelay = 600, onComplete }) => {
 
     return () => {
       clearTimeout(delayRef.current);
-      clearInterval(intervalRef.current);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [text, speed, startDelay]);
 
   const renderContent = () => {
-    if (!displayedText) return null;
-
-    const n = displayedText.length;
-    // Segment mapping for "AHNAF RASHEED":
-    // Char 0: 'A' (Initial of AHNAF)
-    // Chars 1..4: 'HNAF' (Body of AHNAF)
-    // Char 5: Space ' '
-    // Char 6: 'R' (Initial of RASHEED)
-    // Chars 7..12: 'ASHEED' (Body of RASHEED)
-    const initialA = n >= 1 ? displayedText[0] : '';
-    const body1 = n >= 2 ? displayedText.slice(1, Math.min(n, 5)) : '';
-    const hasSpace = n >= 6;
-    const initialR = n >= 7 ? displayedText[6] : '';
-    const body2 = n >= 8 ? displayedText.slice(7) : '';
+    if (revealedCount === 0) return null;
 
     const glitchClass = isComplete ? 'glitch-text' : '';
     const elements = [];
 
-    if (initialA) {
-      elements.push(
-        <span
-          key="initial-a"
-          className={`hero-name-initial initial-a ${glitchClass}`}
-          data-text={initialA}
-        >
-          {initialA}
-        </span>
-      );
-    }
+    for (let i = 0; i < revealedCount && i < text.length; i++) {
+      const ch = text[i];
 
-    if (body1) {
-      elements.push(
-        <span
-          key="body-1"
-          className={`hero-name-body ${glitchClass}`}
-          data-text={body1}
-        >
-          {body1}
-        </span>
-      );
-    }
-
-    if (hasSpace) {
-      elements.push(
-        <span key="space" className="hero-name-space">
-          {'\u00A0'}
-        </span>
-      );
-    }
-
-    if (initialR) {
-      elements.push(
-        <span
-          key="initial-r"
-          className={`hero-name-initial initial-r ${glitchClass}`}
-          data-text={initialR}
-        >
-          {initialR}
-        </span>
-      );
-    }
-
-    if (body2) {
-      elements.push(
-        <span
-          key="body-2"
-          className={`hero-name-body ${glitchClass}`}
-          data-text={body2}
-        >
-          {body2}
-        </span>
-      );
+      if (i === 0) {
+        // Initial 'A'
+        elements.push(
+          <span
+            key="char-0-initial-a"
+            className={`hero-name-initial initial-a hero-char-smooth ${glitchClass}`}
+            data-text={ch}
+          >
+            {ch}
+          </span>
+        );
+      } else if (i === 6) {
+        // Initial 'R'
+        elements.push(
+          <span
+            key="char-6-initial-r"
+            className={`hero-name-initial initial-r hero-char-smooth ${glitchClass}`}
+            data-text={ch}
+          >
+            {ch}
+          </span>
+        );
+      } else if (ch === ' ') {
+        // Space between words
+        elements.push(
+          <span key={`space-${i}`} className="hero-name-space">
+            {'\u00A0'}
+          </span>
+        );
+      } else {
+        // Standard body character
+        elements.push(
+          <span
+            key={`char-${i}`}
+            className={`hero-name-char hero-char-smooth ${glitchClass}`}
+            data-text={ch}
+          >
+            {ch}
+          </span>
+        );
+      }
     }
 
     return elements;
