@@ -491,43 +491,45 @@ const Projects = () => {
                     <h3 className="projects-grid-title">{proj.label}</h3>
                     <p className="projects-grid-desc">{proj.description}</p>
 
-                    {/* Tech Stack Badges */}
-                    <div className="projects-grid-tech-wrap">
-                      {proj.tech.map((t) => (
-                        <span key={t} className="projects-tech-pill">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                    {/* Card Footer: Tech Stack & Actions Dock */}
+                    <div className="projects-grid-footer">
+                      <div className="projects-grid-tech-wrap">
+                        {proj.tech.map((t) => (
+                          <span key={t} className="projects-tech-pill">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
 
-                    {/* Action Buttons */}
-                    <div className="projects-grid-actions">
-                      {proj.github !== '#' && (
-                        <a
-                          href={proj.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="projects-btn projects-btn-outline"
-                          title="View Source Code"
-                        >
-                          <FaGithub size={14} /> Code
-                        </a>
-                      )}
-                      {proj.live !== '#' ? (
-                        <a
-                          href={proj.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="projects-btn projects-btn-solid"
-                          title="Launch Live Application"
-                        >
-                          <FiExternalLink size={14} /> Launch Demo
-                        </a>
-                      ) : (
-                        <span className="projects-btn-disabled">
-                          Backend Only
-                        </span>
-                      )}
+                      {/* Action Buttons */}
+                      <div className="projects-grid-actions">
+                        {proj.github !== '#' && (
+                          <a
+                            href={proj.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projects-btn projects-btn-outline"
+                            title="View Source Code"
+                          >
+                            <FaGithub size={14} /> Code
+                          </a>
+                        )}
+                        {proj.live !== '#' ? (
+                          <a
+                            href={proj.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projects-btn projects-btn-solid"
+                            title="Launch Live Application"
+                          >
+                            <FiExternalLink size={14} /> Launch Demo
+                          </a>
+                        ) : (
+                          <span className="projects-btn-disabled">
+                            Backend Only
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

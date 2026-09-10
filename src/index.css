@@ -1681,11 +1681,21 @@ section {
   margin-bottom: 0.95rem;
 }
 
+.projects-grid-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .projects-grid-tech-wrap {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 0.35rem;
-  margin-bottom: 1.15rem;
+  min-height: 52px;
+  margin-bottom: 0.95rem;
 }
 
 .projects-grid-tech-wrap .projects-tech-pill {
@@ -1708,7 +1718,6 @@ section {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin-top: auto;
 }
 
 .projects-grid-actions .projects-btn {
