@@ -26,7 +26,9 @@ import {
   FiSliders,
   FiAward,
   FiLayers,
-  FiCommand
+  FiCommand,
+  FiMapPin,
+  FiBriefcase
 } from 'react-icons/fi';
 import { projects } from './Projects';
 
@@ -384,36 +386,98 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
         type: 'custom',
         render: (
           <div className="cmd-rich-whoami">
+            {/* Header: Developer Identity & Status */}
             <div className="cmd-whoami-header">
-              <div className="cmd-whoami-avatar">
-                <FiUser size={20} />
+              <div className="cmd-whoami-avatar-glow">
+                <div className="cmd-whoami-avatar">
+                  <FiUser size={18} />
+                </div>
               </div>
               <div className="cmd-whoami-meta">
-                <div className="cmd-whoami-name">Ahnaf Rasheed</div>
+                <div className="cmd-whoami-name-row">
+                  <span className="cmd-whoami-name">Ahnaf Rasheed</span>
+                  <span className="cmd-whoami-alias">@ah-nd-naf</span>
+                </div>
                 <div className="cmd-whoami-role">Full-Stack Web Developer & AI Integrator</div>
               </div>
               <div className="cmd-whoami-status">
                 <span className="live-dot-pulse"></span>
-                <span>AVAILABLE</span>
+                <span>AVAILABLE FOR HIRE</span>
               </div>
             </div>
-            <div className="cmd-whoami-body">
-              Passionate developer crafting modern, high-performance web applications with <b>React 19</b>, <b>Next.js</b>, <b>Node.js</b>, <b>Python</b>, and <b>PostgreSQL</b>. Focused on clean architecture, futuristic UI, and AI integrations.
+
+            {/* Futuristic Bio Statement Box */}
+            <div className="cmd-whoami-bio-card">
+              <div className="cmd-whoami-bio-quote-icon">
+                <FiCode size={14} />
+              </div>
+              <div className="cmd-whoami-bio-text">
+                Passionate software engineer crafting clean, scalable web applications with{' '}
+                <span className="bio-hl cyan">React 19</span>,{' '}
+                <span className="bio-hl purple">Next.js</span>,{' '}
+                <span className="bio-hl green">Node.js</span>,{' '}
+                <span className="bio-hl yellow">Python</span>, and{' '}
+                <span className="bio-hl pink">PostgreSQL</span>. 
+                Bridging relentless backend engineering with futuristic cyberpunk UI & AI automation.
+              </div>
             </div>
-            <div className="cmd-whoami-tags">
-              <span>📍 Dhaka, Bangladesh / Global Remote</span>
-              <span>⚡ MERN + Python Stack</span>
-              <span>🚀 Open for Roles</span>
+
+            {/* Cyber Telemetry Badges Grid */}
+            <div className="cmd-whoami-badges-grid">
+              <div className="cmd-whoami-badge-item badge-location">
+                <FiMapPin className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Location</span>
+                  <span className="badge-val">Dhaka, BD · Global Remote</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-stack">
+                <FiZap className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Tech Arsenal</span>
+                  <span className="badge-val">MERN + Python + AI Stack</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-status">
+                <FiBriefcase className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Status</span>
+                  <span className="badge-val">Open for Roles & Projects</span>
+                </div>
+              </div>
             </div>
+
+            {/* Actions Bar */}
             <div className="cmd-whoami-actions">
               <button 
-                className="cmd-pill-btn"
+                className="cmd-pill-btn primary"
                 onClick={() => {
                   setIsOpen(false);
                   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                title="Navigate to About Section on page"
               >
-                <span>Jump to About Section</span> <FiArrowRight size={12} />
+                <span>Jump to About Section</span>
+                <FiArrowRight size={12} />
+              </button>
+              <a
+                href="https://github.com/ah-nd-naf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn"
+                title="Visit GitHub profile"
+              >
+                <FiGithub size={13} />
+                <span>GitHub Profile</span>
+                <FiExternalLink size={11} />
+              </a>
+              <button
+                className="cmd-pill-btn"
+                onClick={() => processCommand('contact')}
+                title="View contact channels"
+              >
+                <FiMail size={13} />
+                <span>Get In Touch</span>
               </button>
             </div>
           </div>

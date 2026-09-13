@@ -3460,81 +3460,207 @@ section {
 
 /* Whoami Developer ID Card */
 .cmd-rich-whoami {
-  background: rgba(16, 21, 30, 0.85);
+  background: rgba(14, 19, 29, 0.94);
   border: 1px solid rgba(0, 212, 245, 0.25);
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1rem 1.1rem;
   margin: 0.4rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45), 0 0 16px rgba(0, 212, 245, 0.1);
 }
 
 .cmd-whoami-header {
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.cmd-whoami-avatar-glow {
+  position: relative;
+  flex-shrink: 0;
 }
 
 .cmd-whoami-avatar {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
-  background: rgba(0, 212, 245, 0.15);
-  border: 1px solid var(--syn-cyan);
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.22) 0%, rgba(124, 58, 237, 0.2) 100%);
+  border: 1px solid rgba(0, 212, 245, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--syn-cyan);
+  box-shadow: 0 0 14px rgba(0, 212, 245, 0.35);
 }
 
 .cmd-whoami-meta {
   flex: 1;
+  min-width: 0;
+}
+
+.cmd-whoami-name-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .cmd-whoami-name {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: #f8fafc;
+  letter-spacing: 0.2px;
+}
+
+.cmd-whoami-alias {
+  font-size: 0.72rem;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.12);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
 }
 
 .cmd-whoami-role {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--syn-cyan);
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 .cmd-whoami-status {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(39, 201, 63, 0.12);
-  border: 1px solid rgba(39, 201, 63, 0.35);
-  color: #4ef06b;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #34d399;
   font-size: 0.68rem;
-  padding: 2px 7px;
+  padding: 3px 9px;
   border-radius: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
 }
 
-.cmd-whoami-body {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-.cmd-whoami-tags {
+/* Futuristic Bio Statement Box */
+.cmd-whoami-bio-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(8, 12, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #00d4f5;
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  margin: 0.75rem 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.cmd-whoami-bio-quote-icon {
+  color: #00d4f5;
+  margin-top: 2px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.6));
+}
+
+.cmd-whoami-bio-text {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+}
+
+/* Bio Highlighting Tags */
+.bio-hl {
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.bio-hl.cyan { background: rgba(0, 212, 245, 0.12); color: #00d4f5; border: 1px solid rgba(0, 212, 245, 0.25); }
+.bio-hl.purple { background: rgba(192, 132, 252, 0.12); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.25); }
+.bio-hl.green { background: rgba(52, 211, 153, 0.12); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.25); }
+.bio-hl.yellow { background: rgba(251, 191, 36, 0.12); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.25); }
+.bio-hl.pink { background: rgba(244, 114, 182, 0.12); color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.25); }
+
+/* Cyber Telemetry Badges Grid */
+.cmd-whoami-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem;
   margin-bottom: 0.85rem;
 }
 
-.cmd-whoami-tags span {
-  font-size: 0.7rem;
-  color: var(--text-dim);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 2px 7px;
-  border-radius: 5px;
+.cmd-whoami-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(10, 14, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.2s ease;
+}
+
+.cmd-whoami-badge-item:hover {
+  background: rgba(16, 22, 34, 0.95);
+  border-color: rgba(0, 212, 245, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.cmd-whoami-badge-item.badge-location .badge-icon {
+  color: #00d4f5;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.5));
+}
+
+.cmd-whoami-badge-item.badge-stack .badge-icon {
+  color: #a78bfa;
+  filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.5));
+}
+
+.cmd-whoami-badge-item.badge-status .badge-icon {
+  color: #34d399;
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.5));
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.badge-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--syn-comment);
+  font-weight: 700;
+}
+
+.badge-val {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Actions Bar */
+.cmd-whoami-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .cmd-pill-btn {
@@ -3549,6 +3675,7 @@ section {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
