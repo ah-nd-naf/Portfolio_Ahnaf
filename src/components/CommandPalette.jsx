@@ -192,6 +192,8 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
   const inputRef = useRef(null);
   const terminalInputRef = useRef(null);
   const terminalBottomRef = useRef(null);
+  const lastCommandRef = useRef(null);
+  const [lastCmdIndex, setLastCmdIndex] = useState(null);
   const listRef = useRef(null);
 
   // Global hotkey listener (Ctrl+K, Cmd+K, ~)
@@ -272,10 +274,12 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
     }
   }, [selectedIndex]);
 
-  // Scroll terminal to bottom
+  // Scroll terminal to top of newly executed command
   useEffect(() => {
     if (activeTab === 'terminal') {
-      terminalBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+      if (lastCommandRef.current) {
+        lastCommandRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }, [terminalHistory, activeTab]);
 
@@ -298,6 +302,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
     // Record to history
     setCommandHistory((prev) => [...prev, cmd]);
     setHistoryIndex(-1);
+    setLastCmdIndex(terminalHistory.length);
 
     const newHistory = [
       ...terminalHistory,
@@ -709,6 +714,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
       });
     } else if (lowerCmd === 'clear') {
       setTerminalHistory([]);
+      setLastCmdIndex(null);
       setTerminalInput('');
       return;
     } else if (lowerCmd === 'exit' || lowerCmd === 'quit') {
@@ -971,7 +977,11 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
 
                 <div className="cmd-terminal-body">
                   {terminalHistory.map((item, idx) => (
-                    <div key={idx} className={`cmd-term-line cmd-term-${item.type}`}>
+                    <div 
+                      key={idx} 
+                      ref={idx === lastCmdIndex ? lastCommandRef : null}
+                      className={`cmd-term-line cmd-term-${item.type}`}
+                    >
                       {item.render ? item.render : item.text}
                     </div>
                   ))}
