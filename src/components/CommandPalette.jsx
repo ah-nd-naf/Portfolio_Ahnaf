@@ -477,20 +477,37 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
           <div className="cmd-term-projects-container">
             <div className="cmd-term-projects-header">
               <div className="cmd-term-projects-title">
-                <FiZap className="cmd-header-icon" />
-                <span>Featured Project Showcase ({projects.length} Total)</span>
+                <FiZap className="cmd-accent-cyan" />
+                <span>Featured Projects Showcase ({projects.length} Total)</span>
               </div>
-              <span className="cmd-term-projects-count">Click to Launch</span>
+              <button
+                className="cmd-term-goto-btn"
+                onClick={() => {
+                  setIsOpen(false);
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                title="Scroll down to Projects Section on page"
+              >
+                <span>Jump to Section</span>
+                <FiArrowRight size={11} />
+              </button>
             </div>
+
             <div className="cmd-term-projects-list">
               {projects.map((p, i) => {
                 const isLive = p.live && p.live !== '#';
+                const formattedNum = String(i + 1).padStart(2, '0');
+                const primaryCategory = p.categories && p.categories[0];
+
                 return (
                   <div key={p.name || i} className="cmd-term-project-card">
                     <div className="cmd-term-proj-info">
                       <div className="cmd-term-proj-top">
-                        <span className="cmd-term-proj-num">0{i + 1}</span>
+                        <span className="cmd-term-proj-num">[{formattedNum}]</span>
                         <span className="cmd-term-proj-title">{p.label}</span>
+                        {primaryCategory && (
+                          <span className="cmd-term-proj-cat">{primaryCategory}</span>
+                        )}
                       </div>
                       <div className="cmd-term-proj-tech">
                         {p.tech && p.tech.map((t, tidx) => (
@@ -498,8 +515,9 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                         ))}
                       </div>
                     </div>
+
                     <div className="cmd-term-proj-action">
-                      {isLive ? (
+                      {isLive && (
                         <a 
                           href={p.live} 
                           target="_blank" 
@@ -509,19 +527,21 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                         >
                           <span className="live-dot-pulse"></span>
                           <span>Launch Live</span>
-                          <FiExternalLink size={12} />
+                          <FiExternalLink size={11} />
                         </a>
-                      ) : (
+                      )}
+                      {p.github && (
                         <a 
                           href={p.github} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="cmd-term-wip-btn"
-                          title={`${p.label} is in active development. Inspect source on GitHub.`}
+                          className={isLive ? "cmd-term-code-btn" : "cmd-term-wip-btn"}
+                          title={isLive ? `Inspect ${p.label} Source Code on GitHub` : `${p.label} is in active development. Inspect source on GitHub.`}
                         >
-                          <span className="wip-dot-pulse"></span>
-                          <span>In Progress · Repo</span>
-                          <FiExternalLink size={12} />
+                          {!isLive && <span className="wip-dot-pulse"></span>}
+                          <FiGithub size={12} />
+                          <span>{isLive ? 'Source' : 'In Progress · Repo'}</span>
+                          <FiExternalLink size={11} />
                         </a>
                       )}
                     </div>
@@ -529,8 +549,9 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 );
               })}
             </div>
+
             <div className="cmd-term-projects-footer">
-              <span>💡 Click any button to launch live applications or inspect repositories.</span>
+              <span>💡 Click <b>Launch Live</b> to test applications or <b>Source</b> to inspect repositories.</span>
             </div>
           </div>
         )

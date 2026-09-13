@@ -3621,6 +3621,317 @@ section {
 .skill-chip.purple { background: rgba(199, 146, 234, 0.1); border-color: rgba(199, 146, 234, 0.3); color: var(--syn-purple); }
 .skill-chip.pink { background: rgba(255, 64, 129, 0.1); border-color: rgba(255, 64, 129, 0.3); color: var(--syn-pink); }
 
+/* ==========================================================================
+   CLI TERMINAL PROJECTS SHOWCASE CARDS & STATUS BADGES
+   ========================================================================== */
+
+/* Pulsing Status Dot Indicators */
+.live-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: liveDotPulse 1.8s infinite ease-in-out;
+}
+
+.live-dot-pulse-sm {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: liveDotPulse 1.8s infinite ease-in-out;
+}
+
+.wip-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: wipDotPulse 1.8s infinite ease-in-out;
+}
+
+.wip-dot-pulse-sm {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 6px #fbbf24;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: wipDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+    box-shadow: 0 0 0 4px rgba(52, 211, 153, 0);
+  }
+}
+
+@keyframes wipDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0);
+  }
+}
+
+/* Projects Showcase Container */
+.cmd-term-projects-container {
+  background: rgba(14, 19, 29, 0.92);
+  border: 1px solid rgba(0, 212, 245, 0.22);
+  border-radius: 12px;
+  padding: 0.95rem;
+  margin: 0.4rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.cmd-term-projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cmd-term-projects-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #f8fafc;
+}
+
+.cmd-term-goto-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: var(--syn-cyan);
+  background: rgba(0, 212, 245, 0.08);
+  border: 1px solid rgba(0, 212, 245, 0.25);
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.cmd-term-goto-btn:hover {
+  background: rgba(0, 212, 245, 0.18);
+  border-color: var(--syn-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.cmd-term-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cmd-term-project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  background: rgba(10, 14, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+}
+
+.cmd-term-project-card:hover {
+  background: rgba(16, 22, 34, 0.95);
+  border-color: rgba(0, 212, 245, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 212, 245, 0.12);
+  transform: translateY(-1px);
+}
+
+.cmd-term-proj-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cmd-term-proj-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.3rem;
+}
+
+.cmd-term-proj-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--syn-cyan);
+  background: rgba(0, 212, 245, 0.1);
+  border: 1px solid rgba(0, 212, 245, 0.25);
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.cmd-term-proj-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: 0.2px;
+}
+
+.cmd-term-proj-cat {
+  font-size: 0.65rem;
+  color: var(--syn-purple);
+  background: rgba(199, 146, 234, 0.1);
+  border: 1px solid rgba(199, 146, 234, 0.25);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.cmd-term-proj-tech {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.cmd-term-tech-pill {
+  font-size: 0.67rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  transition: all 0.15s ease;
+}
+
+.cmd-term-project-card:hover .cmd-term-tech-pill {
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #cbd5e1;
+}
+
+.cmd-term-proj-action {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.cmd-term-live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.32rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  color: #34d399;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.cmd-term-live-btn:hover {
+  background: #10b981;
+  color: #022c1b;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
+}
+
+.cmd-term-code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.32rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.cmd-term-code-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.cmd-term-wip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.32rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  color: #fbbf24;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.cmd-term-wip-btn:hover {
+  background: #f59e0b;
+  color: #351a02;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+
+.cmd-term-projects-footer {
+  margin-top: 0.75rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.7rem;
+  color: var(--syn-comment);
+}
+
+.cmd-term-projects-footer b {
+  color: var(--syn-cyan);
+}
+
 /* Neofetch Telemetry Display */
 .cmd-neofetch-container {
   display: flex;
@@ -3957,6 +4268,16 @@ section {
   }
   .cmd-help-grid, .cmd-skills-grid, .cmd-contact-grid, .cmd-shortcuts-grid {
     grid-template-columns: 1fr;
+  }
+  .cmd-term-project-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  .cmd-term-proj-action {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
 }
 
