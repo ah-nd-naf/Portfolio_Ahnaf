@@ -28,7 +28,9 @@ import {
   FiLayers,
   FiCommand,
   FiMapPin,
-  FiBriefcase
+  FiBriefcase,
+  FiCoffee,
+  FiEye
 } from 'react-icons/fi';
 import { projects } from './Projects';
 
@@ -766,12 +768,57 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
         type: 'custom',
         render: (
           <div className="cmd-matrix-box">
-            <div className="cmd-matrix-title">🕶️ Wake up, Neo...</div>
-            <div className="cmd-matrix-quote">
-              "First, solve the problem. Then, write the code." — John Johnson
+            {/* Header: Cyber Matrix Protocol */}
+            <div className="cmd-matrix-header">
+              <div className="cmd-matrix-title-group">
+                <div className="cmd-matrix-icon-box">
+                  <FiEye className="cmd-matrix-pulse-icon" size={16} />
+                </div>
+                <div>
+                  <div className="cmd-matrix-title">Wake up, Neo...</div>
+                  <div className="cmd-matrix-subtitle">MATRIX_NEURAL_OVERRIDE // DECRYPTED</div>
+                </div>
+              </div>
+              <div className="cmd-matrix-badge">
+                <span className="matrix-status-dot"></span>
+                <span>SIMULATION 01</span>
+              </div>
             </div>
-            <div className="cmd-matrix-stats">
-              Portfolio built with 💻 Code, ☕ Coffee, and ⚛️ React 19.
+
+            {/* Aesthetic Quote Block */}
+            <div className="cmd-matrix-quote-wrapper">
+              <div className="cmd-matrix-quote-line">
+                <span className="matrix-quote-mark">“</span>
+                <p className="cmd-matrix-quote-text">
+                  Hey there. No need to rush, be <span className="matrix-hl green">focused</span> and{' '}
+                  <span className="matrix-hl emerald">enjoy the process</span>, and the outcome will be{' '}
+                  <span className="matrix-hl glow">Remarkable</span>.
+                </p>
+              </div>
+              <div className="cmd-matrix-author">
+                <span className="matrix-author-dash">—</span>
+                <span className="matrix-author-name">Ahnaf Rasheed</span>
+                <span className="matrix-author-title">Full-Stack Engineer</span>
+              </div>
+            </div>
+
+            {/* Real SVG Tech Badges */}
+            <div className="cmd-matrix-footer">
+              <span className="matrix-footer-label">Engineered With:</span>
+              <div className="matrix-tech-badges">
+                <div className="matrix-tech-badge">
+                  <FiCode size={13} className="matrix-tech-icon code" />
+                  <span>Clean Code</span>
+                </div>
+                <div className="matrix-tech-badge">
+                  <FiCoffee size={13} className="matrix-tech-icon coffee" />
+                  <span>Coffee & Focus</span>
+                </div>
+                <div className="matrix-tech-badge">
+                  <FiZap size={13} className="matrix-tech-icon react" />
+                  <span>React 19 Core</span>
+                </div>
+              </div>
             </div>
           </div>
         )
