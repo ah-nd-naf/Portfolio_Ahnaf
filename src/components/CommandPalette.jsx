@@ -1083,7 +1083,14 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 {/* Sticky Command Chips Bar */}
                 <div className="cmd-quick-chips-bar">
                   <span className="cmd-chips-label">Quick Run:</span>
-                  <div className="cmd-chips-scroll">
+                  <div 
+                    className="cmd-chips-scroll"
+                    onWheel={(e) => {
+                      if (e.deltaY) {
+                        e.currentTarget.scrollLeft += e.deltaY;
+                      }
+                    }}
+                  >
                     {QUICK_CHIPS.map((item) => {
                       const Icon = item.icon;
                       return (
