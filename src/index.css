@@ -1439,17 +1439,42 @@ section {
   box-shadow: 0 8px 24px rgba(0, 212, 245, 0.25);
 }
 
-.projects-btn-disabled {
+.projects-btn-disabled,
+.projects-btn-pending {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: var(--text-dim);
-  padding: 0.5rem 0.9rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  color: #94a3b8;
+  padding: 0.48rem 0.95rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   cursor: default;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.projects-btn-pending:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(0, 212, 245, 0.25);
+  color: #e2e8f0;
+}
+
+.projects-pending-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+  animation: pendingDotPulse 2s infinite ease-in-out;
+}
+
+@keyframes pendingDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .projects-controls {
@@ -1777,6 +1802,13 @@ section {
   color: #07090e;
   transform: translateY(-2px);
   box-shadow: 0 6px 24px color-mix(in srgb, var(--accent, #00d4f5) 60%, transparent);
+}
+
+.projects-grid-actions .projects-btn-pending {
+  padding: 0.48rem 0.95rem;
+  font-size: 0.76rem;
+  font-weight: 500;
+  border-radius: 100px;
 }
 
 

@@ -69,9 +69,9 @@ export const projects = [
   {
     name: 'Aesthetic-Restaurant',
     label: 'Aesthetic Restaurant',
-    description: "Welcome to the Aesthetic Restaurant Website! Designed to offer visitors an immersive and visually appealing experience that reflects the restaurant's philosophy.",
-    tech: ['HTML', 'CSS', 'JavaScript', 'Python'],
-    categories: ['Frontend'],
+    description: 'Full-stack dining and culinary showcase platform featuring an immersive, responsive frontend integrated with Python backend services for reservation management and interactive menu exploration.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Python'],
+    categories: ['Full-Stack', 'Frontend', 'Backend'],
     github: 'https://github.com/ah-nd-naf/Aesthetic-Restaurant',
     live: '#',
     accent: '#f92aad',
@@ -79,9 +79,9 @@ export const projects = [
   {
     name: 'Student-Management-System',
     label: 'Student Management System',
-    description: 'Comprehensive backend system for managing students, teachers, and admins. Includes role-based access control and secure JWT authentication.',
-    tech: ['Node.js', 'Express', 'MongoDB'],
-    categories: ['Backend'],
+    description: 'Full-stack academic management portal (ERP) for students, teachers, and admins featuring responsive management dashboards, attendance tracking, and secure JWT authentication.',
+    tech: ['JavaScript', 'HTML/CSS', 'Node.js', 'Express', 'MongoDB'],
+    categories: ['Full-Stack', 'Backend'],
     github: 'https://github.com/ah-nd-naf/STD_MS',
     live: '#',
     accent: '#b5cea8',
@@ -364,7 +364,7 @@ const Projects = () => {
                           <FaGithub size={15} /> Source Code
                         </a>
                       )}
-                      {activeProject.live !== '#' && (
+                      {activeProject.live !== '#' ? (
                         <a 
                           href={activeProject.live} 
                           target="_blank" 
@@ -373,6 +373,14 @@ const Projects = () => {
                         >
                           <FiExternalLink size={15} /> Live Demo
                         </a>
+                      ) : (
+                        <span 
+                          className="projects-btn-pending"
+                          title="Full-stack application available in repo; public deployment in progress"
+                        >
+                          <span className="projects-pending-dot" />
+                          <span>Demo Soon</span>
+                        </span>
                       )}
                     </div>
                   </div>
@@ -525,8 +533,12 @@ const Projects = () => {
                             <FiExternalLink size={14} /> Launch Demo
                           </a>
                         ) : (
-                          <span className="projects-btn-disabled">
-                            Backend Only
+                          <span 
+                            className="projects-btn-pending"
+                            title="Full-stack application available in repo; public deployment in progress"
+                          >
+                            <span className="projects-pending-dot" />
+                            <span>Demo Soon</span>
                           </span>
                         )}
                       </div>
