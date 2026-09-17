@@ -186,8 +186,18 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
   
   // Terminal history & input state
   const [terminalHistory, setTerminalHistory] = useState([
-    { type: 'system', text: 'CyberTerm OS [v3.2.0-PROD] — Interactive Portfolio Kernel' },
-    { type: 'system', text: '💡 Type "help" or click any quick command chip below to execute actions.' }
+    {
+      type: 'banner',
+      render: (
+        <div className="cmd-term-banner">
+          <div className="cmd-banner-os">CyberTerm OS [Version 3.2.0-PROD]</div>
+          <div className="cmd-banner-copyright">(c) 2026 Ahnaf Rasheed. All rights reserved.</div>
+          <div className="cmd-banner-hint">
+            Type <span className="cmd-banner-code">"help"</span> for a list of available commands, or click any quick chip above.
+          </div>
+        </div>
+      )
+    }
   ]);
   const [terminalInput, setTerminalInput] = useState('');
   const [commandHistory, setCommandHistory] = useState([]);
@@ -378,7 +388,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               </div>
             </div>
             <div className="cmd-help-footer">
-              <span>💡 Click any command card above to execute immediately.</span>
+              <span>Tip: Click any command card above to execute immediately.</span>
             </div>
           </div>
         )
@@ -622,7 +632,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
             </div>
 
             <div className="cmd-term-projects-footer">
-              <span>💡 Click <b>Launch Live</b> to test applications or <b>Source</b> to inspect repositories.</span>
+              <span>Tip: Click <b>Launch Live</b> to test applications or <b>Source</b> to inspect repositories.</span>
             </div>
           </div>
         )
@@ -823,7 +833,12 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
           </div>
         )
       });
-    } else if (lowerCmd === 'clear') {
+    } else if (lowerCmd === 'ver' || lowerCmd === 'version') {
+      newHistory.push({
+        type: 'output',
+        text: 'CyberTerm OS [Version 3.2.0-PROD]'
+      });
+    } else if (lowerCmd === 'clear' || lowerCmd === 'cls') {
       setTerminalHistory([]);
       setLastCmdIndex(null);
       setTerminalInput('');
@@ -1120,7 +1135,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                     value={terminalInput}
                     onChange={(e) => setTerminalInput(e.target.value)}
                     onKeyDown={handleTerminalKeyDown}
-                    placeholder='Type "help", "whoami", "skills", "projects", "sudo hire"...'
+                    placeholder='Type a command... (try "help")'
                     autoFocus
                   />
                   <button type="submit" className="cmd-term-submit" title="Execute command">

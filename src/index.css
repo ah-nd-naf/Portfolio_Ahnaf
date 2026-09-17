@@ -3222,8 +3222,42 @@ section {
   margin-bottom: 0.65rem;
 }
 
+.cmd-term-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+.cmd-banner-os {
+  color: #e6edf3;
+  font-weight: 600;
+  font-size: 0.84rem;
+  letter-spacing: 0.25px;
+}
+
+.cmd-banner-copyright {
+  color: #8b949e;
+  font-size: 0.78rem;
+}
+
+.cmd-banner-hint {
+  margin-top: 0.45rem;
+  color: #c9d1d9;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.cmd-banner-code {
+  color: var(--syn-cyan);
+  font-weight: 600;
+}
+
 .cmd-term-system {
-  color: var(--syn-comment);
+  color: #8b949e;
+  font-family: var(--font-mono);
 }
 
 .cmd-term-user {
@@ -3363,6 +3397,13 @@ section {
   color: var(--text-main);
   font-family: var(--font-mono);
   font-size: 0.88rem;
+}
+
+.cmd-term-input::placeholder {
+  color: rgba(144, 164, 174, 0.45);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.2px;
 }
 
 .cmd-term-submit {
