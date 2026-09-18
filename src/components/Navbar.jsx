@@ -90,7 +90,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
                 if (onOpenCommandPalette) onOpenCommandPalette();
               }}
             >
-              <FiSearch size={15} /> Quick Search & Terminal <kbd className="nav-cmd-kbd" style={{ marginLeft: '6px' }}>⌘K</kbd>
+              <FiSearch size={15} /> Quick Search & Terminal
             </button>
 
             <a
