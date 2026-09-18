@@ -4944,3 +4944,130 @@ section {
     height: auto;
   }
 }
+
+/* User Revisions for Mobile */
+@media (max-width: 768px) {
+  /* Make the projects toolbar a sleek horizontally scrollable pill instead of a big wrapped box */
+  .projects-toolbar-wrapper {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    border-radius: 100px !important;
+    padding: 8px 16px !important;
+    width: max-content !important;
+    max-width: 95vw !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .projects-toolbar-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Keep the internal elements from wrapping */
+  .projects-filter-chips {
+    flex-wrap: nowrap !important;
+  }
+  .projects-chip-btn {
+    white-space: nowrap !important;
+  }
+  .projects-view-toggle-group {
+    flex-wrap: nowrap !important;
+  }
+
+  /* Fix ABOUT ME text getting cut off */
+  .about-bg-text {
+    font-size: 15vw !important;
+    width: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Final Mobile Revisions */
+@media (max-width: 768px) {
+  /* ABOUT ME Text Fix */
+  .about-bg-text {
+    font-size: 11vw !important; /* Smaller to prevent cutoff */
+    letter-spacing: 2px !important; /* Override any huge letter spacing */
+    width: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Projects Toolbar Fix - Premium Stacked Layout */
+  .projects-toolbar-wrapper {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    border-radius: 20px !important;
+    padding: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    overflow: hidden !important; /* prevent any internal overflow from breaking page */
+    box-sizing: border-box !important;
+    gap: 1rem !important;
+    margin: 0 auto 2rem auto !important;
+  }
+
+  /* Make just the filter chips horizontally scrollable */
+  .projects-filter-chips {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    justify-content: flex-start !important;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .projects-filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-chip-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* View toggles row */
+  .projects-view-toggle-group {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  .projects-toggle-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+  }
+}
+
+/* Minimalist Mobile Toolbar Revisions */
+@media (max-width: 768px) {
+  .projects-toolbar-wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin-bottom: 2rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .projects-filter-chips {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    gap: 0.5rem !important;
+  }
+}
