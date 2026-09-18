@@ -104,7 +104,7 @@ const Hero = () => {
               <img 
                 src="/ahnaf-dp.png" 
                 alt="Ahnaf Rasheed" 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} 
               />
               
               {/* Cyber overlay gradient (Subtle edge glow) */}

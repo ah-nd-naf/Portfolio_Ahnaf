@@ -4932,3 +4932,15 @@ section {
     font-size: 16px !important;
   }
 }
+
+/* Toolbar Mobile Fix */
+@media (max-width: 768px) {
+  .projects-toolbar-wrapper {
+    border-radius: 16px;
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+}
