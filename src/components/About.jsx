@@ -75,7 +75,7 @@ const About = () => {
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
-          fontSize: 'clamp(2.5rem, 11vw, 11rem)',
+          fontSize: 'clamp(3.5rem, 16vw, 11rem)',
           fontWeight: 900,
           pointerEvents: 'none',
           userSelect: 'none',
@@ -83,7 +83,7 @@ const About = () => {
           fontFamily: 'var(--font-sans)',
           zIndex: 0,
           opacity: 0.22,
-          letterSpacing: 'clamp(2px, 1vw, 14px)',
+          letterSpacing: 'clamp(4px, 2vw, 14px)',
           lineHeight: 1,
         }}
         aria-hidden="true"
