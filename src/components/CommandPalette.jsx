@@ -922,20 +922,29 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 </div>
               </div>
 
+              <button 
+                className="cmd-close-btn cmd-close-btn-mobile" 
+                onClick={() => setIsOpen(false)}
+                title="Close Modal (Esc)"
+                aria-label="Close Command Palette"
+              >
+                <FiX size={15} />
+              </button>
+
               <div className="cmd-header-tabs">
                 <button
                   className={`cmd-tab ${activeTab === 'palette' ? 'cmd-tab-active' : ''}`}
                   onClick={() => setActiveTab('palette')}
                   title="Spotlight Search (Ctrl+K)"
                 >
-                  <FiSearch size={13} /> <span>Quick Search</span>
+                  <FiSearch size={13} /> <span>Search</span>
                 </button>
                 <button
                   className={`cmd-tab ${activeTab === 'terminal' ? 'cmd-tab-active' : ''}`}
                   onClick={() => setActiveTab('terminal')}
                   title="Interactive Terminal Shell"
                 >
-                  <FiTerminal size={13} /> <span>CLI Shell</span>
+                  <FiTerminal size={13} /> <span>Terminal</span>
                 </button>
                 <button
                   className={`cmd-tab ${activeTab === 'shortcuts' ? 'cmd-tab-active' : ''}`}
@@ -945,9 +954,10 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                   <FiCommand size={13} /> <span>Shortcuts</span>
                 </button>
                 <button 
-                  className="cmd-close-btn" 
+                  className="cmd-close-btn cmd-close-btn-desktop" 
                   onClick={() => setIsOpen(false)}
                   title="Close Modal (Esc)"
+                  aria-label="Close Command Palette"
                 >
                   <FiX size={15} />
                 </button>

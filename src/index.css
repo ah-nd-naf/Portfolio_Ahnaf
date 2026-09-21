@@ -2684,7 +2684,7 @@ section {
   background: rgba(18, 23, 33, 0.9);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   gap: 0.75rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .cmd-header-left {
@@ -2862,6 +2862,14 @@ section {
   justify-content: center;
   border-radius: 7px;
   transition: all 0.2s ease;
+}
+
+.cmd-close-btn-mobile {
+  display: none;
+}
+
+.cmd-close-btn-desktop {
+  display: flex;
 }
 
 .cmd-close-btn:hover {
@@ -4692,18 +4700,60 @@ section {
     padding-right: 0.75rem;
   }
   .cmd-header {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    position: relative;
+  }
+  .cmd-header-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-right: 2.5rem;
+  }
+  .cmd-close-btn-desktop {
+    display: none !important;
+  }
+  .cmd-close-btn-mobile {
+    display: flex !important;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.85rem;
+    padding: 0.45rem;
   }
   .cmd-header-tabs {
     width: 100%;
-    justify-content: space-between;
-  }
-  .cmd-tab span {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    padding: 3px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9px;
   }
   .cmd-tab {
-    padding: 0.35rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.3rem;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    width: 100%;
+  }
+  .cmd-tab span {
+    display: inline !important;
+    font-size: 0.74rem;
+    font-weight: 500;
+  }
+  .cmd-ping-badge {
+    display: none;
+  }
+  .cmd-header-badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
   }
   .cmd-footer {
     display: none;
