@@ -5121,3 +5121,52 @@ section {
     gap: 0.5rem !important;
   }
 }
+
+/* Mobile overrides added for responsiveness */
+@media (max-width: 799px) {
+  /* Projects section fixes */
+  .projects-card-image-panel {
+    height: 180px !important;
+  }
+  .projects-card-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .projects-card-description {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .projects-card-content {
+    padding: 1.25rem 1.25rem !important;
+  }
+  
+  /* Qualification section fixes */
+  .qual-card {
+    padding: 1.25rem !important;
+  }
+  .qual-card .qual-title {
+    font-size: 1.15rem !important;
+  }
+  .qual-card .qual-detail {
+    font-size: 0.9rem !important;
+  }
+  .qual-card .qual-code {
+    padding: 1rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Skills marquee fixes */
+  .marquee-skill-card {
+    padding: 0.75rem 1.25rem !important;
+    gap: 0.75rem !important;
+  }
+  .skill-icon {
+    font-size: 1.2rem !important;
+  }
+  .skill-name {
+    font-size: 0.9rem !important;
+  }
+}
+

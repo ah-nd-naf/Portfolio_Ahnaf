@@ -175,7 +175,7 @@ const Qualification = () => {
 
                 {/* Glassmorphic Commit Card */}
                 <div 
-                  className="glass-card"
+                  className="glass-card qual-card"
                   style={{
                     padding: '2rem',
                     borderRadius: '16px',
@@ -196,12 +196,12 @@ const Qualification = () => {
                 >
                   
                   {/* Card Header (Git Log Styling) */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.75rem' }}>
+                  <div className="qual-header" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.75rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: q.color, fontWeight: 700 }}>
+                      <span className="qual-commit" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: q.color, fontWeight: 700 }}>
                         commit {q.hash}
                       </span>
-                      <span style={{ 
+                      <span className="qual-tag" style={{ 
                         fontFamily: 'var(--font-mono)', 
                         fontSize: '0.7rem', 
                         padding: '2px 8px', 
@@ -214,21 +214,21 @@ const Qualification = () => {
                       </span>
                     </div>
                     
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--syn-comment)' }}>
+                    <span className="qual-period" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--syn-comment)' }}>
                       {q.period}
                     </span>
                   </div>
 
                   {/* Title & School */}
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-main)', margin: '0 0 0.25rem 0' }}>
+                  <h3 className="qual-title" style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--text-main)', margin: '0 0 0.25rem 0' }}>
                     {q.title}
                   </h3>
-                  <div style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div className="qual-detail" style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ color: q.color }}>●</span> {q.institution} {q.detail && `• ${q.detail}`}
                   </div>
 
                   {/* File Code Block representation */}
-                  <div style={{
+                  <div className="qual-code" style={{
                     background: 'rgba(13, 17, 23, 0.8)',
                     border: '1px solid rgba(255, 255, 255, 0.03)',
                     borderRadius: '8px',

@@ -106,8 +106,8 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }) => {
               e.currentTarget.style.transform = 'none';
             }}
           >
-            <span style={{ fontSize: '1.6rem', display: 'flex' }}>{s.icon}</span>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '1.1rem', fontWeight: 500, color: 'var(--text-main)' }}>{s.name}</span>
+            <span className="skill-icon" style={{ fontSize: '1.6rem', display: 'flex' }}>{s.icon}</span>
+            <span className="skill-name" style={{ fontFamily: 'var(--font-sans)', fontSize: '1.1rem', fontWeight: 500, color: 'var(--text-main)' }}>{s.name}</span>
           </div>
         ))}
       </motion.div>
