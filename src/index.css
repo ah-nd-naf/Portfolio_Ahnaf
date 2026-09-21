@@ -5125,48 +5125,93 @@ section {
 /* Mobile overrides added for responsiveness */
 @media (max-width: 799px) {
   /* Projects section fixes */
-  .projects-card-image-panel {
-    height: 180px !important;
+  .projects-slider-wrapper {
+    margin-bottom: 1rem !important;
   }
+  .projects-card {
+    border-radius: 16px !important;
+  }
+  .projects-card-image-panel {
+    height: 140px !important;
+  }
+  .projects-card-number {
+    top: 0.75rem !important;
+    left: 0.75rem !important;
+    padding: 0.35rem 0.5rem !important;
+    border-radius: 8px !important;
+  }
+  .card-num-prefix { font-size: 0.55rem !important; }
+  .card-num-val { font-size: 1.2rem !important; }
+  .card-num-total { font-size: 0.55rem !important; }
+  .projects-live-badge {
+    bottom: 0.75rem !important;
+    left: 0.75rem !important;
+    padding: 3px 8px !important;
+    font-size: 0.55rem !important;
+  }
+
   .projects-card-title {
-    font-size: 1.25rem !important;
-    margin-bottom: 0.5rem !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 0.35rem !important;
   }
   .projects-card-description {
-    font-size: 0.85rem !important;
-    margin-bottom: 0.8rem !important;
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
   }
   .projects-card-content {
-    padding: 1.25rem 1.25rem !important;
+    padding: 1rem 1rem !important;
+  }
+  .projects-card-tech-list {
+    margin-bottom: 0.85rem !important;
+    gap: 0.4rem !important;
+  }
+  .projects-tech-pill {
+    font-size: 0.65rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+  .projects-card-actions {
+    gap: 0.5rem !important;
+  }
+  .projects-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
   }
   
   /* Qualification section fixes */
   .qual-card {
-    padding: 1.25rem !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
   }
   .qual-card .qual-title {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
   }
   .qual-card .qual-detail {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
   }
   .qual-card .qual-code {
-    padding: 1rem !important;
-    font-size: 0.75rem !important;
+    padding: 0.85rem !important;
+    font-size: 0.7rem !important;
+  }
+  .qual-header {
+    margin-bottom: 0.75rem !important;
+    padding-bottom: 0.5rem !important;
   }
 }
 
 @media (max-width: 768px) {
   /* Skills marquee fixes */
   .marquee-skill-card {
-    padding: 0.75rem 1.25rem !important;
-    gap: 0.75rem !important;
+    padding: 0.65rem 1rem !important;
+    gap: 0.65rem !important;
+    border-radius: 50px !important;
   }
   .skill-icon {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
   .skill-name {
-    font-size: 0.9rem !important;
+    font-size: 0.85rem !important;
   }
 }
 
