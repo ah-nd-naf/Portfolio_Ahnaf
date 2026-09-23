@@ -4832,6 +4832,39 @@ section {
   word-break: keep-all;
 }
 
+/* Base helpers for responsive classes */
+.about-watermark {
+  position: absolute;
+  top: clamp(20px, 8vw, 60px);
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(3.5rem, 16vw, 11rem);
+  font-weight: 900;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  z-index: 0;
+  opacity: 0.22;
+  letter-spacing: clamp(4px, 2vw, 14px);
+  line-height: 1;
+}
+
+.about-container {
+  padding-top: clamp(110px, 20vw, 215px);
+}
+
+.skills-heading {
+  font-size: clamp(2.3rem, 5.5vw, 4.5rem);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+}
+
 /* ==========================================================================
    COMPREHENSIVE MOBILE RESPONSIVENESS & POLISH
    ========================================================================== */
@@ -4876,18 +4909,21 @@ section {
     right: 0 !important;
   }
 
-  /* 2. Hero Section */
+  /* 2. Hero Section: Prominent name & spacious breathing room */
   .hero-section {
-    padding: 105px 5vw 60px !important;
+    padding: 110px 5vw 70px !important;
     min-height: auto !important;
   }
   .hero-layout {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
+    gap: 3.25rem !important;
     text-align: left !important;
   }
+  .hero-path-prefix {
+    margin-bottom: 0.85rem !important;
+  }
   .hero-name {
-    font-size: clamp(1.7rem, 6.8vw, 2.65rem) !important;
+    font-size: clamp(2.15rem, 7.8vw, 3.2rem) !important;
     line-height: 1.15 !important;
     letter-spacing: -0.5px !important;
     display: inline-flex !important;
@@ -4896,6 +4932,7 @@ section {
     word-break: keep-all !important;
     white-space: normal !important;
     max-width: 100% !important;
+    margin-bottom: 1.1rem !important;
   }
   .hero-name-initial {
     font-size: 1.25em !important;
@@ -4904,18 +4941,30 @@ section {
   .hero-name-char {
     display: inline-block !important;
   }
+  .hero-tagline {
+    margin-top: 0.6rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .hero-taglines-divider {
+    margin: 0.75rem 0 !important;
+  }
+  .hero-tagline.hero-stack-tagline {
+    margin-top: 0.35rem !important;
+    margin-bottom: 2rem !important;
+  }
   .hero-actions {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 0.75rem !important;
+    gap: 0.85rem !important;
     width: 100% !important;
+    margin-bottom: 2.75rem !important;
   }
   .hero-actions .btn {
     flex: 1 1 calc(50% - 0.5rem) !important;
     min-width: 130px !important;
     justify-content: center !important;
-    padding: 0.65rem 1rem !important;
-    font-size: 0.8rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.82rem !important;
     white-space: nowrap !important;
   }
   .hero-floating-badge.hero-badge-dev {
@@ -4931,17 +4980,15 @@ section {
     padding: 0.4rem 0.8rem !important;
   }
 
-  /* 3. About Section */
-  .about-bg-text {
+  /* 3. About Section: Watermark shifted and separated from writing */
+  .about-watermark {
+    top: 10px !important;
     font-size: 11vw !important;
     letter-spacing: 2px !important;
-    width: 100% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    box-sizing: border-box !important;
-    top: 30px !important;
+    opacity: 0.12 !important;
+  }
+  .about-container {
+    padding-top: clamp(140px, 28vw, 210px) !important;
   }
   .about-content {
     grid-template-columns: 1fr !important;
@@ -4959,7 +5006,12 @@ section {
     white-space: pre !important;
   }
 
-  /* 4. Skills Marquee */
+  /* 4. Skills Marquee & Single-Line Heading */
+  .skills-heading {
+    font-size: clamp(1.85rem, 6.8vw, 3.2rem) !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+  }
   .marquee-skill-card {
     padding: 0.65rem 1rem !important;
     gap: 0.65rem !important;
@@ -4972,7 +5024,7 @@ section {
     font-size: 0.85rem !important;
   }
 
-  /* 5. Projects Section */
+  /* 5. Projects Section: Glassmorphic Capsule Pills & Taller Image Banner */
   .projects-section {
     padding-top: 90px !important;
     padding-bottom: 70px !important;
@@ -5017,9 +5069,22 @@ section {
   .projects-chip-btn {
     white-space: nowrap !important;
     flex-shrink: 0 !important;
-    padding: 0.4rem 0.85rem !important;
+    padding: 0.45rem 0.9rem !important;
     font-size: 0.78rem !important;
     border-radius: 100px !important;
+    background: rgba(22, 27, 34, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #94a3b8 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  .projects-chip-btn.active {
+    background: linear-gradient(135deg, rgba(0, 212, 245, 0.25) 0%, rgba(199, 146, 234, 0.25) 100%) !important;
+    border: 1px solid rgba(0, 212, 245, 0.65) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(0, 212, 245, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    font-weight: 600 !important;
   }
   .projects-view-toggle-group {
     display: flex !important;
@@ -5040,7 +5105,7 @@ section {
     border-radius: 16px !important;
   }
   .projects-card-image-panel {
-    height: 140px !important;
+    height: 230px !important; /* Impactful, tall preview showing project clearly */
   }
   .projects-card-number {
     top: 0.75rem !important;
@@ -5150,7 +5215,7 @@ section {
     white-space: pre !important;
   }
 
-  /* 7. Contact Section */
+  /* 7. Contact Section: Terminal layout & cursor placed right after .com */
   #contact {
     padding-top: 90px !important;
     padding-bottom: 60px !important;
@@ -5161,7 +5226,7 @@ section {
   }
   .contact-terminal-box {
     margin-top: 2.25rem !important;
-    padding: 0.85rem 1rem !important;
+    padding: 0.9rem 1.1rem !important;
     width: 100% !important;
     max-width: 100% !important;
     border-radius: 10px !important;
@@ -5172,18 +5237,13 @@ section {
   }
   .contact-terminal-inner {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 0.35rem !important;
-    font-size: clamp(0.72rem, 2.7vw, 0.84rem) !important;
-    line-height: 1.5 !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: clamp(0.72rem, 2.7vw, 0.86rem) !important;
+    line-height: 1.6 !important;
     text-align: left !important;
-    overflow-x: auto !important;
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-  }
-  .contact-terminal-inner::-webkit-scrollbar {
-    display: none !important;
   }
   .contact-terminal-prompt {
     white-space: nowrap !important;
@@ -5194,11 +5254,15 @@ section {
     font-weight: 500 !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
   }
   .contact-terminal-email {
     white-space: nowrap !important;
     word-break: keep-all !important;
+  }
+  .contact-terminal-cursor {
+    display: inline-block !important;
+    vertical-align: middle !important;
   }
 
   /* 8. Command Palette */
@@ -5245,5 +5309,6 @@ section {
     display: none !important;
   }
 }
+
 
 

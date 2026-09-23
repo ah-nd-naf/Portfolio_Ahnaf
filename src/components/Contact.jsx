@@ -155,13 +155,13 @@ const Contact = () => {
             <span className="contact-terminal-cmd">
               <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>ping</span>
               <span className="contact-terminal-email" style={{ color: '#ff922b', fontWeight: 600, marginLeft: '8px' }}>ahnaf.rasheed.zaki@gmail.com</span>
+              <motion.span 
+                animate={{ opacity: [1, 0, 1] }} 
+                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                className="contact-terminal-cursor"
+                style={{ display: 'inline-block', background: 'var(--text-main)', width: '6px', height: '1.1em', verticalAlign: 'middle', marginLeft: '6px' }}
+              />
             </span>
-            <motion.span 
-              animate={{ opacity: [1, 0, 1] }} 
-              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              className="contact-terminal-cursor"
-              style={{ display: 'inline-block', background: 'var(--text-main)', width: '6px', height: '1.1em', verticalAlign: 'middle', marginLeft: '6px' }}
-            />
           </div>
         </div>
       </motion.div>

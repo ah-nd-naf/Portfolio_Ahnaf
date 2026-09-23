@@ -131,8 +131,9 @@ const Skills = () => (
            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--syn-cyan)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Technical Proficiencies</span>
         </div>
 
-        <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontFamily: 'var(--font-sans)', fontWeight: 800, margin: 0, letterSpacing: '-1.5px', lineHeight: 1.1 }}>
-          <span style={{ color: 'var(--text-main)' }}>My</span> <span className="text-gradient" style={{ display: 'inline-block', textShadow: '0 0 40px rgba(0, 212, 245, 0.3)' }}>Tech Arsenal</span>
+        <h2 className="skills-heading" style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, margin: 0, letterSpacing: '-1.5px', lineHeight: 1.15 }}>
+          <span style={{ color: 'var(--text-main)' }}>My</span>{' '}
+          <span className="text-gradient" style={{ display: 'inline', textShadow: '0 0 40px rgba(0, 212, 245, 0.3)' }}>Tech Arsenal</span>
         </h2>
         
         <p style={{ color: 'var(--text-muted)', marginTop: '1.5rem', fontFamily: 'var(--font-sans)', fontSize: '1.1rem', maxWidth: '600px', margin: '1.5rem auto 0 auto', lineHeight: 1.6 }}>

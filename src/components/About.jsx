@@ -67,6 +67,7 @@ const About = () => {
 
       {/* Futuristic Cyber Glitch Header Watermark */}
       <div 
+        className="about-watermark"
         style={{
           position: 'absolute',
           top: 'clamp(20px, 8vw, 60px)',
@@ -91,7 +92,7 @@ const About = () => {
         <GlitchText text="ABOUT ME" as="div" />
       </div>
 
-      <div className="container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1, paddingTop: 'clamp(110px, 20vw, 215px)' }}>
+      <div className="container about-container" style={{ maxWidth: '1200px', position: 'relative', zIndex: 1, paddingTop: 'clamp(110px, 20vw, 215px)' }}>
 
         {/* 2-Column Content Layout (Shifted downwards below the glitch header) */}
         <div 
