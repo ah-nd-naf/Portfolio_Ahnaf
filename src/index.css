@@ -5209,10 +5209,17 @@ section {
   }
   .qual-code {
     padding: 0.85rem !important;
-    font-size: 0.7rem !important;
-    line-height: 1.5 !important;
-    overflow-x: auto !important;
-    white-space: pre !important;
+    font-size: 0.72rem !important;
+    line-height: 1.6 !important;
+    overflow-x: hidden !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+  }
+  .qual-code > div {
+    min-width: 0 !important;
+  }
+  .qual-code span {
+    word-break: break-word !important;
   }
 
   /* 7. Contact Section: Terminal layout & cursor placed right after .com */
