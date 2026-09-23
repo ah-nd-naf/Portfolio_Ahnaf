@@ -4824,6 +4824,7 @@ section {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
 }
 
 .contact-terminal-email {
@@ -5193,6 +5194,7 @@ section {
     font-weight: 500 !important;
     display: inline-flex !important;
     align-items: center !important;
+    gap: 8px !important;
   }
   .contact-terminal-email {
     white-space: nowrap !important;

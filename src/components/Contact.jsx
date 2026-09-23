@@ -153,8 +153,8 @@ const Contact = () => {
               <span style={{ color: '#00f5ff' }}>~$</span>
             </span>
             <span className="contact-terminal-cmd">
-              <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>ping </span>
-              <span className="contact-terminal-email" style={{ color: '#ff922b', fontWeight: 600 }}>ahnaf.rasheed.zaki@gmail.com</span>
+              <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>ping</span>
+              <span className="contact-terminal-email" style={{ color: '#ff922b', fontWeight: 600, marginLeft: '8px' }}>ahnaf.rasheed.zaki@gmail.com</span>
             </span>
             <motion.span 
               animate={{ opacity: [1, 0, 1] }} 
