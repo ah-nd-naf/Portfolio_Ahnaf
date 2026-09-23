@@ -117,10 +117,10 @@ const Qualification = () => {
         </motion.div>
 
         {/* Timeline Graph */}
-        <div style={{ position: 'relative', paddingLeft: '50px', marginLeft: '10px' }}>
+        <div className="qual-timeline" style={{ position: 'relative', paddingLeft: '50px', marginLeft: '10px' }}>
           
           {/* Main Git Branch Line */}
-          <div style={{ 
+          <div className="qual-branch-line" style={{ 
             position: 'absolute', 
             left: '19px', 
             top: '15px', 
@@ -144,7 +144,9 @@ const Qualification = () => {
               >
                 
                 {/* Git Node (Commit Point) */}
-                <div style={{
+                <div 
+                  className="qual-node"
+                  style={{
                   position: 'absolute',
                   left: '-47px',
                   top: '15px',
@@ -197,8 +199,8 @@ const Qualification = () => {
                   
                   {/* Card Header (Git Log Styling) */}
                   <div className="qual-header" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '0.75rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span className="qual-commit" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: q.color, fontWeight: 700 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                      <span className="qual-commit" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: q.color, fontWeight: 700, whiteSpace: 'nowrap', wordBreak: 'keep-all' }}>
                         commit {q.hash}
                       </span>
                       <span className="qual-tag" style={{ 
@@ -207,14 +209,16 @@ const Qualification = () => {
                         padding: '2px 8px', 
                         borderRadius: '4px', 
                         background: `${q.color}15`, 
-                        color: q.color,
-                        border: `1px solid ${q.color}30`
+                        color: q.color, 
+                        border: `1px solid ${q.color}30`,
+                        whiteSpace: 'nowrap',
+                        wordBreak: 'keep-all'
                       }}>
                         {q.tag}
                       </span>
                     </div>
                     
-                    <span className="qual-period" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--syn-comment)' }}>
+                    <span className="qual-period" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--syn-comment)', whiteSpace: 'nowrap' }}>
                       {q.period}
                     </span>
                   </div>

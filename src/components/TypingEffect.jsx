@@ -159,7 +159,6 @@ const TypingEffect = ({ text, speed = 135, startDelay = 500, onComplete }) => {
     <div className="typing-wrapper">
       <h1 
         className={`hero-name hero-name-${phase} ${phase === 'green-glitch' ? 'name-complete' : phase === 'typing' ? 'name-typing' : 'name-glitching'}`}
-        style={{ whiteSpace: 'nowrap' }}
       >
         {renderContent()}
         <span className="cursor-blink">_</span>

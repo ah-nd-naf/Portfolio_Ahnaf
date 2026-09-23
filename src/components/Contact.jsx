@@ -25,6 +25,7 @@ const Contact = () => {
       <div style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, background: 'radial-gradient(circle at 50% 100%, rgba(199, 146, 234, 0.15) 0%, transparent 60%)', zIndex: 0, pointerEvents: 'none' }} />
       
       <motion.div
+        className="contact-card"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -32,7 +33,6 @@ const Contact = () => {
         style={{ 
           maxWidth: '750px', 
           width: '100%', 
-          padding: '3.5rem 2.5rem', 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
@@ -145,21 +145,24 @@ const Contact = () => {
         </div>
         
         {/* Terminal Snippet */}
-        <div style={{ 
-          marginTop: '3.5rem', padding: '0.85rem 1.35rem', 
-          background: 'rgba(10, 14, 20, 0.85)', borderRadius: '10px', 
-          border: '1px solid rgba(255,255,255,0.08)', display: 'block', 
-          textAlign: 'left', wordBreak: 'break-all', fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
-          boxShadow: 'inset 0 0 20px rgba(0,0,0,0.6), 0 8px 25px rgba(0,0,0,0.4)',
-          maxWidth: '100%'
-        }}>
-          <span style={{ color: '#ff4da6', fontWeight: 600 }}>ahnaf@portfolio<span style={{ color: '#ffffff' }}>:</span><span style={{ color: '#00f5ff' }}>~$</span></span>
-          <span style={{ color: 'var(--text-main)', marginLeft: '10px', fontWeight: 500 }}>ping <span style={{ color: '#ff922b', fontWeight: 600 }}>ahnaf.rasheed.zaki@gmail.com</span></span>
-          <motion.span 
-            animate={{ opacity: [1, 0, 1] }} 
-            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-            style={{ display: 'inline-block', background: 'var(--text-main)', width: '6px', height: '1.2em', verticalAlign: 'middle', marginLeft: '6px' }}
-          />
+        <div className="contact-terminal-box">
+          <div className="contact-terminal-inner">
+            <span className="contact-terminal-prompt">
+              <span style={{ color: '#ff4da6', fontWeight: 600 }}>ahnaf@portfolio</span>
+              <span style={{ color: '#ffffff' }}>:</span>
+              <span style={{ color: '#00f5ff' }}>~$</span>
+            </span>
+            <span className="contact-terminal-cmd">
+              <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>ping </span>
+              <span className="contact-terminal-email" style={{ color: '#ff922b', fontWeight: 600 }}>ahnaf.rasheed.zaki@gmail.com</span>
+            </span>
+            <motion.span 
+              animate={{ opacity: [1, 0, 1] }} 
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              className="contact-terminal-cursor"
+              style={{ display: 'inline-block', background: 'var(--text-main)', width: '6px', height: '1.1em', verticalAlign: 'middle', marginLeft: '6px' }}
+            />
+          </div>
         </div>
       </motion.div>
 

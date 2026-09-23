@@ -113,6 +113,7 @@ const Hero = () => {
 
             {/* Floating decoration 1 */}
             <motion.div 
+              className="hero-floating-badge hero-badge-dev"
               animate={{ y: [0, -10, 0] }} 
               transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
               style={{ position: 'absolute', top: '20px', right: '-20px', background: 'rgba(13, 17, 23, 0.8)', padding: '0.6rem 1.2rem', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--syn-green)', zIndex: 2, backdropFilter: 'blur(5px)', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}
@@ -122,6 +123,7 @@ const Hero = () => {
 
             {/* Floating decoration 2 */}
             <motion.div 
+              className="hero-floating-badge hero-badge-status"
               animate={{ y: [0, 10, 0] }} 
               transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
               style={{ position: 'absolute', bottom: '40px', left: '-30px', background: 'rgba(13, 17, 23, 0.8)', padding: '0.6rem 1.2rem', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--syn-purple)', zIndex: 2, backdropFilter: 'blur(5px)', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}
