@@ -4979,12 +4979,14 @@ section {
   filter: drop-shadow(0 0 10px rgba(199, 146, 234, 0.45));
 }
 
+.contact-terminal-cursor,
 .contact-signoff-cursor {
   color: #ff2a85;
   font-weight: 900;
   font-size: 1.15em;
   margin-left: 2px;
   text-shadow: 0 0 10px rgba(255, 42, 133, 0.8);
+  display: inline-block;
 }
 
 /* Base helpers for responsive classes */
@@ -5425,8 +5427,9 @@ section {
     margin-left: 0 !important;
   }
   .contact-terminal-cursor {
+    font-size: 1.1em !important;
     display: inline-block !important;
-    vertical-align: middle !important;
+    line-height: 1 !important;
   }
 
   /* Sign-off Terminal (Mobile refinement: vivid cyber terminal & balanced spacing) */

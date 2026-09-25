@@ -157,10 +157,9 @@ const Contact = () => {
               <span className="contact-terminal-email" style={{ color: '#ff922b', fontWeight: 600 }}>ahnaf.rasheed.zaki@gmail.com</span>
               <motion.span 
                 animate={{ opacity: [1, 0, 1] }} 
-                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
                 className="contact-terminal-cursor"
-                style={{ display: 'inline-block', background: 'var(--text-main)', width: '6px', height: '1.1em', verticalAlign: 'middle', marginLeft: '6px' }}
-              />
+              >_</motion.span>
             </span>
           </div>
         </div>
