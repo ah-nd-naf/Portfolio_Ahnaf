@@ -171,53 +171,60 @@ const Contact = () => {
         className="contact-signoff-terminal"
         onViewportEnter={startTyping}
         viewport={{ once: true, amount: 0.1 }}
-        style={{ 
-          position: 'relative',
-          marginTop: '3rem',
-          width: '100%',
-          maxWidth: '600px',
-          background: 'rgba(13, 17, 23, 0.7)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          boxShadow: '0 15px 35px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)',
-          fontFamily: 'var(--font-mono)', 
-          fontSize: '0.95rem', 
-        }}
       >
         {/* Terminal Header */}
-        <div className="contact-signoff-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.2rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.8rem' }}>
-          <div className="contact-signoff-dots" style={{ display: 'flex', gap: '8px' }}>
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f57', boxShadow: '0 0 10px rgba(255,95,87,0.4)' }}></span>
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#febc2e', boxShadow: '0 0 10px rgba(254,188,46,0.4)' }}></span>
-            <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#28c840', boxShadow: '0 0 10px rgba(40,200,64,0.4)' }}></span>
+        <div className="contact-signoff-header">
+          <div className="contact-signoff-dots">
+            <span className="dot-red"></span>
+            <span className="dot-yellow"></span>
+            <span className="dot-green"></span>
           </div>
-          <span className="contact-signoff-title" style={{ fontSize: '0.75rem', color: 'var(--syn-comment)', letterSpacing: '1px' }}>bash - sign_off.sh</span>
-          <div className="contact-signoff-spacer" style={{ width: '44px' }}></div> {/* Spacer to center title */}
+          <span className="contact-signoff-title">
+            bash &mdash; <span style={{ color: '#c792ea', fontWeight: 600 }}>sign_off.sh</span>
+          </span>
+          <div className="contact-signoff-spacer"></div>
         </div>
 
         {/* Terminal Body */}
-        <div className="contact-signoff-body" style={{ color: 'var(--text-muted)', lineHeight: 1.8, textAlign: 'left' }}>
-          <div style={{ marginBottom: '0.5rem' }}>
-            <span style={{ color: 'var(--syn-cyan)' }}>guest@local<span style={{ color: 'var(--text-main)' }}>:</span><span style={{ color: 'var(--syn-pink)' }}>~$</span></span>
-            <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>./exit.sh</span>
-          </div>
-          <div style={{ marginBottom: '0.5rem' }}>
-            <span style={{ color: 'var(--syn-comment)' }}>[Process Completed] Terminating session...</span>
-          </div>
-          <div>
-            <span style={{ color: 'var(--syn-cyan)' }}>guest@local<span style={{ color: 'var(--text-main)' }}>:</span><span style={{ color: 'var(--syn-pink)' }}>~$</span></span>
-            <span style={{ color: 'var(--text-main)', marginLeft: '10px' }}>
-              echo "<span style={{ color: 'var(--syn-cyan)', fontWeight: 600, textShadow: '0 0 15px rgba(0,212,245,0.4)' }}>{displayedText}</span>"
+        <div className="contact-signoff-body">
+          <div className="signoff-line">
+            <span className="signoff-prompt">
+              <span className="signoff-user">guest@local</span>
+              <span className="signoff-colon">:</span>
+              <span className="signoff-tilde">~$</span>
             </span>
-            <motion.span
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ repeat: Infinity, duration: 0.8 }}
-              className="contact-signoff-cursor"
-              style={{ color: 'var(--syn-cyan)', fontWeight: 800, marginLeft: '2px', fontSize: '1.1rem' }}
-            >_</motion.span>
+            <span className="signoff-exec">
+              <span style={{ color: '#8b949e' }}>./</span>
+              <span style={{ color: '#4ec9b0', fontWeight: 600 }}>exit.sh</span>
+            </span>
+          </div>
+
+          <div className="signoff-status-line">
+            <span className="signoff-badge">
+              <span className="signoff-badge-dot">●</span> Process Completed
+            </span>
+            <span className="signoff-status-text">Terminating session...</span>
+          </div>
+
+          <div className="signoff-line">
+            <span className="signoff-prompt">
+              <span className="signoff-user">guest@local</span>
+              <span className="signoff-colon">:</span>
+              <span className="signoff-tilde">~$</span>
+            </span>
+            <span className="signoff-echo-cmd">
+              <span style={{ color: '#c792ea', fontWeight: 600 }}>echo</span>
+              <span style={{ color: '#ff922b', margin: '0 4px', fontWeight: 600 }}>"</span>
+              <span className="signoff-typed-text">
+                {displayedText}
+              </span>
+              <span style={{ color: '#ff922b', margin: '0 2px', fontWeight: 600 }}>"</span>
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+                className="contact-signoff-cursor"
+              >_</motion.span>
+            </span>
           </div>
         </div>
       </motion.div>

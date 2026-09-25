@@ -4832,6 +4832,161 @@ section {
   word-break: keep-all;
 }
 
+/* ==========================================================================
+   CONTACT SIGNOFF TERMINAL (BASE DESKTOP)
+   ========================================================================== */
+.contact-signoff-terminal {
+  position: relative;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(160deg, rgba(16, 22, 34, 0.9) 0%, rgba(10, 14, 22, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 245, 0.22);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 25px rgba(0, 212, 245, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+}
+
+.contact-signoff-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0.75rem;
+}
+
+.contact-signoff-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.contact-signoff-dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.contact-signoff-dots .dot-red {
+  background: #ff5f57;
+  box-shadow: 0 0 8px rgba(255, 95, 87, 0.6);
+}
+
+.contact-signoff-dots .dot-yellow {
+  background: #febc2e;
+  box-shadow: 0 0 8px rgba(254, 188, 46, 0.6);
+}
+
+.contact-signoff-dots .dot-green {
+  background: #28c840;
+  box-shadow: 0 0 8px rgba(40, 200, 64, 0.6);
+}
+
+.contact-signoff-title {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+}
+
+.contact-signoff-spacer {
+  width: 44px;
+}
+
+.contact-signoff-body {
+  line-height: 1.75;
+  text-align: left;
+}
+
+.signoff-line {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.signoff-prompt {
+  white-space: nowrap;
+}
+
+.signoff-user {
+  color: #00d4f5;
+  font-weight: 600;
+}
+
+.signoff-colon {
+  color: #8b949e;
+}
+
+.signoff-tilde {
+  color: #ff2a85;
+  font-weight: 700;
+}
+
+.signoff-exec {
+  font-weight: 500;
+}
+
+.signoff-status-line {
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.signoff-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  background: rgba(78, 201, 176, 0.12);
+  border: 1px solid rgba(78, 201, 176, 0.35);
+  border-radius: 4px;
+  color: #4ec9b0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.signoff-badge-dot {
+  font-size: 0.65rem;
+  color: #4ec9b0;
+  animation: pulse 2s infinite;
+}
+
+.signoff-status-text {
+  color: #8b949e;
+  font-size: 0.8rem;
+}
+
+.signoff-echo-cmd {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.signoff-typed-text {
+  background: linear-gradient(90deg, #00d4f5 0%, #c792ea 55%, #f92aad 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  filter: drop-shadow(0 0 10px rgba(199, 146, 234, 0.45));
+}
+
+.contact-signoff-cursor {
+  color: #ff2a85;
+  font-weight: 900;
+  font-size: 1.15em;
+  margin-left: 2px;
+  text-shadow: 0 0 10px rgba(255, 42, 133, 0.8);
+}
+
 /* Base helpers for responsive classes */
 .about-watermark {
   position: absolute;
@@ -5274,31 +5429,45 @@ section {
     vertical-align: middle !important;
   }
 
-  /* Sign-off Terminal (Mobile refinement: crisp fonts & balanced spacing) */
+  /* Sign-off Terminal (Mobile refinement: vivid cyber terminal & balanced spacing) */
   .contact-signoff-terminal {
     margin-top: 1.6rem !important;
-    padding: 1.1rem 1.25rem !important;
+    padding: 1.05rem 1.15rem !important;
     font-size: clamp(0.72rem, 2.7vw, 0.8rem) !important;
     border-radius: 12px !important;
     width: 100% !important;
+    border: 1px solid rgba(0, 212, 245, 0.28) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 212, 245, 0.09) !important;
   }
   .contact-signoff-header {
-    margin-bottom: 0.85rem !important;
-    padding-bottom: 0.65rem !important;
+    margin-bottom: 0.8rem !important;
+    padding-bottom: 0.6rem !important;
   }
   .contact-signoff-dots span {
-    width: 10px !important;
-    height: 10px !important;
+    width: 9px !important;
+    height: 9px !important;
   }
   .contact-signoff-title {
-    font-size: 0.72rem !important;
+    font-size: 0.7rem !important;
   }
   .contact-signoff-body {
     line-height: 1.65 !important;
     font-size: inherit !important;
   }
-  .contact-signoff-body > div {
+  .signoff-line {
     margin-bottom: 0.45rem !important;
+    gap: 6px !important;
+  }
+  .signoff-status-line {
+    margin-bottom: 0.45rem !important;
+    gap: 6px !important;
+  }
+  .signoff-badge {
+    padding: 1px 6px !important;
+    font-size: 0.68rem !important;
+  }
+  .signoff-status-text {
+    font-size: 0.72rem !important;
   }
   .contact-signoff-cursor {
     font-size: 1.1em !important;
