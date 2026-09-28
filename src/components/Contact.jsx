@@ -1,22 +1,86 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaFacebook, FaPhoneAlt } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiRefreshCw } from 'react-icons/fi';
+
+const SPINNERS = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
 const Contact = () => {
+  const [termState, setTermState] = useState('idle'); // 'idle' | 'terminating' | 'completed' | 'done'
+  const [progress, setProgress] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
+  const [spinnerIdx, setSpinnerIdx] = useState(0);
   const textToType = "Thank You For Visiting My Portfolio";
   const hasRun = useRef(false);
+  const timerRef = useRef([]);
 
-  const startTyping = () => {
+  const clearAllTimers = () => {
+    timerRef.current.forEach(t => clearInterval(t));
+    timerRef.current = [];
+  };
+
+  const startSequence = () => {
+    clearAllTimers();
+    setTermState('terminating');
+    setProgress(0);
+    setDisplayedText("");
+
+    const startTime = Date.now();
+    const duration = 2200; // 2.2s for session termination (steady & smooth)
+
+    const pTimer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min(100, Math.round((elapsed / duration) * 100));
+      setProgress(pct);
+
+      if (pct >= 100) {
+        clearInterval(pTimer);
+        setTermState('completed');
+
+        // Natural pause, then type out echo message
+        const echoTimeout = setTimeout(() => {
+          let i = 0;
+          const typeTimer = setInterval(() => {
+            setDisplayedText(textToType.substring(0, i + 1));
+            i++;
+            if (i >= textToType.length) {
+              clearInterval(typeTimer);
+              setTermState('done');
+            }
+          }, 85); // 85ms per character for natural typing pace
+          timerRef.current.push(typeTimer);
+        }, 650);
+        timerRef.current.push(echoTimeout);
+      }
+    }, 40);
+    timerRef.current.push(pTimer);
+  };
+
+  // Spinner animation while terminating
+  useEffect(() => {
+    let sTimer;
+    if (termState === 'terminating') {
+      sTimer = setInterval(() => {
+        setSpinnerIdx(prev => (prev + 1) % SPINNERS.length);
+      }, 85);
+    }
+    return () => clearInterval(sTimer);
+  }, [termState]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => clearAllTimers();
+  }, []);
+
+  const handleViewportEnter = () => {
     if (hasRun.current) return;
     hasRun.current = true;
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayedText(textToType.substring(0, i + 1));
-      i++;
-      if (i >= textToType.length) clearInterval(interval);
-    }, 100); // 100ms per character
+    startSequence();
+  };
+
+  const handleReplay = (e) => {
+    e.stopPropagation();
+    startSequence();
   };
 
   return (
@@ -165,10 +229,10 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      {/* Typing Thank You Footer */}
+      {/* Dynamic Signoff Terminal */}
       <motion.div
         className="contact-signoff-terminal"
-        onViewportEnter={startTyping}
+        onViewportEnter={handleViewportEnter}
         viewport={{ once: true, amount: 0.1 }}
       >
         {/* Terminal Header */}
@@ -181,7 +245,15 @@ const Contact = () => {
           <span className="contact-signoff-title">
             bash &mdash; <span style={{ color: '#c792ea', fontWeight: 600 }}>sign_off.sh</span>
           </span>
-          <div className="contact-signoff-spacer"></div>
+          <button 
+            type="button"
+            onClick={handleReplay}
+            title="Re-run terminal session"
+            className="contact-signoff-replay-btn"
+          >
+            <FiRefreshCw size={11} className={termState === 'terminating' ? 'spin-icon' : ''} />
+            <span>Replay</span>
+          </button>
         </div>
 
         {/* Terminal Body */}
@@ -198,33 +270,76 @@ const Contact = () => {
             </span>
           </div>
 
+          {/* Dynamic Status / Process Completed Line */}
           <div className="signoff-status-line">
-            <span className="signoff-badge">
-              <span className="signoff-badge-dot">●</span> Process Completed
-            </span>
-            <span className="signoff-status-text">Terminating session...</span>
+            {termState === 'terminating' ? (
+              <div className="signoff-terminating-container">
+                <div className="signoff-terminating-header">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span className="signoff-spinner">{SPINNERS[spinnerIdx]}</span>
+                    <span className="signoff-terminating-label">Terminating session...</span>
+                  </div>
+                  <span className="signoff-pct">{progress}%</span>
+                </div>
+                <div className="signoff-progress-track">
+                  <div 
+                    className="signoff-progress-bar"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
+              </div>
+            ) : termState === 'idle' ? (
+              <div className="signoff-completed-container">
+                <span className="signoff-badge" style={{ borderColor: 'rgba(254, 188, 46, 0.35)', color: '#febc2e', background: 'rgba(254, 188, 46, 0.1)' }}>
+                  <span className="signoff-badge-dot" style={{ color: '#febc2e' }}>●</span> Ready
+                </span>
+                <span className="signoff-status-text">Awaiting termination...</span>
+              </div>
+            ) : (
+              <motion.div 
+                initial={{ opacity: 0, y: -2 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="signoff-completed-container"
+              >
+                <span className="signoff-badge">
+                  <span className="signoff-badge-dot">✓</span> Process Completed
+                </span>
+                <span className="signoff-status-text">
+                  Session closed <span className="signoff-code-tag">[exit: 0]</span> &middot; <span className="signoff-ms-tag">14ms</span>
+                </span>
+              </motion.div>
+            )}
           </div>
 
-          <div className="signoff-line">
-            <span className="signoff-prompt">
-              <span className="signoff-user">guest@local</span>
-              <span className="signoff-colon">:</span>
-              <span className="signoff-tilde">~$</span>
-            </span>
-            <span className="signoff-echo-cmd">
-              <span style={{ color: '#c792ea', fontWeight: 600 }}>echo</span>
-              <span style={{ color: '#ff922b', margin: '0 4px', fontWeight: 600 }}>"</span>
-              <span className="signoff-typed-text">
-                {displayedText}
+          {/* Echo Command Line */}
+          {(termState === 'completed' || termState === 'done') && (
+            <motion.div 
+              initial={{ opacity: 0, y: 3 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="signoff-line"
+            >
+              <span className="signoff-prompt">
+                <span className="signoff-user">guest@local</span>
+                <span className="signoff-colon">:</span>
+                <span className="signoff-tilde">~$</span>
               </span>
-              <span style={{ color: '#ff922b', margin: '0 2px', fontWeight: 600 }}>"</span>
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ repeat: Infinity, duration: 0.8 }}
-                className="contact-signoff-cursor"
-              >_</motion.span>
-            </span>
-          </div>
+              <span className="signoff-echo-cmd">
+                <span style={{ color: '#c792ea', fontWeight: 600 }}>echo</span>
+                <span style={{ color: '#ff922b', margin: '0 4px', fontWeight: 600 }}>"</span>
+                <span className="signoff-typed-text">
+                  {displayedText}
+                </span>
+                <span style={{ color: '#ff922b', margin: '0 2px', fontWeight: 600 }}>"</span>
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ repeat: Infinity, duration: 0.8 }}
+                  className="contact-signoff-cursor"
+                >_</motion.span>
+              </span>
+            </motion.div>
+          )}
         </div>
       </motion.div>
     </section>
