@@ -63,6 +63,15 @@ const NAV_ACTIONS = [
     shortcut: 'G P'
   },
   {
+    id: 'nav-research',
+    title: 'Research & Publications',
+    subtitle: 'Peer-reviewed IEEE paper on 3C-Net deep learning classifier',
+    category: 'Navigation',
+    icon: FiBookOpen,
+    action: () => { document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' }); },
+    shortcut: 'G R'
+  },
+  {
     id: 'nav-skills',
     title: 'Tech Skills & Arsenal',
     subtitle: 'Frontend, backend, database & devops tools',
@@ -147,6 +156,14 @@ const SOCIAL_ACTIONS = [
     action: () => { window.location.href = 'mailto:ahnaf.rasheed.zaki@gmail.com'; }
   },
   {
+    id: 'act-ieee-paper',
+    title: 'IEEE Publication (3C-Net)',
+    subtitle: 'Read peer-reviewed paper on IEEE Xplore (BECITHCON 2025)',
+    category: 'Actions',
+    icon: FiAward,
+    action: () => { window.open('https://ieeexplore.ieee.org/document/11504298', '_blank'); }
+  },
+  {
     id: 'cmd-hire',
     title: 'Hire Ahnaf (sudo hire)',
     subtitle: 'Launch hiring workflow & contact shortcut',
@@ -169,6 +186,7 @@ const CATEGORIES = ['All', 'Navigation', 'Projects', 'Socials', 'Actions'];
 const QUICK_CHIPS = [
   { label: 'help', cmd: 'help', icon: FiHelpCircle },
   { label: 'projects', cmd: 'projects', icon: FiFolder },
+  { label: 'research', cmd: 'research', icon: FiBookOpen },
   { label: 'skills', cmd: 'skills', icon: FiCpu },
   { label: 'whoami', cmd: 'whoami', icon: FiUser },
   { label: 'neofetch', cmd: 'neofetch', icon: FiActivity },
@@ -366,6 +384,10 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 <div className="cmd-help-badge"><FiZap size={13} /> projects</div>
                 <div className="cmd-help-desc">Interactive portfolio cards with live links</div>
               </div>
+              <div className="cmd-help-card" onClick={() => processCommand('research')}>
+                <div className="cmd-help-badge"><FiBookOpen size={13} /> research</div>
+                <div className="cmd-help-desc">IEEE publication &amp; 3C-Net thesis findings</div>
+              </div>
               <div className="cmd-help-card" onClick={() => processCommand('neofetch')}>
                 <div className="cmd-help-badge"><FiActivity size={13} /> neofetch</div>
                 <div className="cmd-help-desc">System specs & developer telemetry</div>
@@ -490,6 +512,88 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               >
                 <FiMail size={13} />
                 <span>Get In Touch</span>
+              </button>
+            </div>
+          </div>
+        )
+      });
+    } else if (['research', 'paper', 'publication', 'thesis', 'ieee', '3cnet'].includes(lowerCmd)) {
+      newHistory.push({
+        type: 'custom',
+        render: (
+          <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid var(--syn-cyan)' }}>
+            <div className="cmd-whoami-header">
+              <div className="cmd-whoami-avatar-glow">
+                <div className="cmd-whoami-avatar" style={{ background: 'rgba(0, 212, 245, 0.15)', color: 'var(--syn-cyan)' }}>
+                  <FiAward size={18} />
+                </div>
+              </div>
+              <div className="cmd-whoami-meta">
+                <div className="cmd-whoami-name-row">
+                  <span className="cmd-whoami-name">IEEE Xplore Publication</span>
+                  <span className="cmd-whoami-alias">Doc #11504298</span>
+                </div>
+                <div className="cmd-whoami-role">BECITHCON 2025 · Peer-Reviewed Conference Paper</div>
+              </div>
+              <div className="cmd-whoami-status">
+                <span className="live-dot-pulse"></span>
+                <span>INDEXED &amp; PUBLISHED</span>
+              </div>
+            </div>
+
+            <div className="cmd-whoami-bio-card">
+              <div className="cmd-whoami-bio-quote-icon">
+                <FiBookOpen size={14} />
+              </div>
+              <div className="cmd-whoami-bio-text">
+                <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+                  3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques
+                </strong>
+                A lightweight deep learning architecture formulated for automated cervical cytology classification (Normal, Precancerous, Cancerous) from Liquid-Based Pap Smear images with minimal computational overhead.
+              </div>
+            </div>
+
+            <div className="cmd-whoami-badges-grid">
+              <div className="cmd-whoami-badge-item badge-location">
+                <FiAward className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Conference</span>
+                  <span className="badge-val">2025 IEEE BECITHCON</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-stack">
+                <FiZap className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Model / Dataset</span>
+                  <span className="badge-val">3C-Net CNN · Mendeley LBC</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-status">
+                <FiUser className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Co-Author</span>
+                  <span className="badge-val">Md. Ahnaf Rasheed Zaki</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="cmd-whoami-actions">
+              <button
+                className="cmd-whoami-btn btn-primary"
+                onClick={() => window.open('https://ieeexplore.ieee.org/document/11504298', '_blank')}
+              >
+                <FiExternalLink size={13} />
+                <span>Read on IEEE Xplore ↗</span>
+              </button>
+              <button
+                className="cmd-whoami-btn btn-secondary"
+                onClick={() => {
+                  setIsOpen(false);
+                  document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <FiArrowRight size={13} />
+                <span>Jump to Research Section</span>
               </button>
             </div>
           </div>
@@ -757,8 +861,8 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
       }, 1500);
     } else if (lowerCmd.startsWith('goto ')) {
       const target = lowerCmd.replace('goto ', '').trim();
-      const validSections = ['about', 'projects', 'skills', 'qualification', 'contact', 'hero', 'education'];
-      const mappedTarget = target === 'education' ? 'qualification' : (target === 'hero' ? 'hero' : target);
+      const validSections = ['about', 'projects', 'research', 'skills', 'qualification', 'contact', 'hero', 'education', 'publications', 'publication', 'paper'];
+      const mappedTarget = target === 'education' ? 'qualification' : (['publications', 'publication', 'paper'].includes(target) ? 'research' : (target === 'hero' ? 'hero' : target));
 
       if (validSections.includes(target)) {
         newHistory.push({ type: 'success', text: `✔ Navigating to #${mappedTarget}...` });
@@ -771,7 +875,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
           }
         }, 500);
       } else {
-        newHistory.push({ type: 'error', text: `✖ Unknown target section: "${target}". Available: [hero, about, projects, skills, education, contact]` });
+        newHistory.push({ type: 'error', text: `✖ Unknown target section: "${target}". Available: [hero, about, projects, research, skills, education, contact]` });
       }
     } else if (lowerCmd === 'easteregg' || lowerCmd === 'matrix') {
       newHistory.push({

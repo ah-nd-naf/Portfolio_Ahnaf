@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaSchool } from 'react-icons/fa';
-import { FiGitBranch } from 'react-icons/fi';
+import { FiGitBranch, FiExternalLink, FiAward } from 'react-icons/fi';
 
 const qualifications = [
   {
@@ -33,12 +33,19 @@ const qualifications = [
     icon: <FaGraduationCap size={18} />,
     color: 'var(--syn-cyan)',
     tag: 'tag: BSc-CSE',
+    publicationLink: {
+      title: 'IEEE Publication: 3C-Net',
+      url: 'https://ieeexplore.ieee.org/document/11504298',
+      text: 'Read Published Thesis on IEEE Xplore'
+    },
     lines: [
-      '// Undergraduate degree',
+      '// Undergraduate degree & Thesis',
       'const bscStatus = {',
       '  university: "BRAC University",',
       '  department: "CSE",',
-      '  thesis: ["Deep learning & software architecture patterns", "Computer Vision"],',
+      '  thesis: "3C-Net: Cervical Cancer Classification using DL",',
+      '  publication: "IEEE Xplore (BECITHCON 2025)",',
+      '  ieeeDocId: "11504298",',
       '  status: "Completed"',
       '};'
     ]
@@ -285,6 +292,44 @@ const Qualification = () => {
                       );
                     })}
                   </div>
+
+                  {q.publicationLink && (
+                    <div style={{ marginTop: '1.25rem', display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                      <a
+                        href={q.publicationLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          fontSize: '0.85rem',
+                          padding: '0.55rem 1.15rem',
+                          borderRadius: '8px',
+                          background: 'linear-gradient(135deg, rgba(0, 212, 245, 0.15) 0%, rgba(199, 146, 234, 0.15) 100%)',
+                          border: '1px solid var(--syn-cyan)',
+                          color: '#fff',
+                          fontFamily: 'var(--font-mono)',
+                          fontWeight: 600,
+                          textDecoration: 'none',
+                          transition: 'all 0.3s ease',
+                          boxShadow: '0 4px 15px rgba(0, 212, 245, 0.15)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 212, 245, 0.35)';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 212, 245, 0.15)';
+                          e.currentTarget.style.transform = 'none';
+                        }}
+                      >
+                        <FiAward size={15} color="var(--syn-cyan)" />
+                        <span>{q.publicationLink.text}</span>
+                        <FiExternalLink size={13} />
+                      </a>
+                    </div>
+                  )}
 
                 </div>
               </motion.div>

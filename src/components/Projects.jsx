@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink, FiChevronLeft, FiChevronRight, FiGrid, FiLayers, FiFolder } from 'react-icons/fi';
+import { FiExternalLink, FiChevronLeft, FiChevronRight, FiGrid, FiLayers, FiFolder, FiFileText } from 'react-icons/fi';
 
 const SLIDE_DURATION = 6000;
 
@@ -15,6 +15,17 @@ export const projects = [
     github: 'https://github.com/ah-nd-naf/AI-Resume-Analyzer',
     live: 'https://ai-resume-analyzer-onj7-five.vercel.app',
     accent: '#6366f1',
+  },
+  {
+    name: '3C-Net-Research',
+    label: '3C-Net: Cervical Cancer AI Classifier',
+    description: 'A lightweight deep learning architecture formulated for automated cervical cytology classification (Normal, Precancerous, Cancerous) from Liquid-Based Pap Smear images. Published & indexed in IEEE Xplore (BECITHCON 2025).',
+    tech: ['Python', 'Deep Learning', 'Computer Vision', 'CNN', 'Medical AI'],
+    categories: ['AI / ML'],
+    github: '#',
+    live: 'https://ieeexplore.ieee.org/document/11504298',
+    isPaper: true,
+    accent: '#00d4f5',
   },
   {
     name: 'Aurae-Ecommerce',
@@ -319,7 +330,12 @@ const Projects = () => {
                       </span>
                     </div>
                     {/* Live badge */}
-                    {activeProject.live !== '#' && (
+                    {activeProject.isPaper ? (
+                      <div className="projects-live-badge" style={{ background: 'rgba(0, 212, 245, 0.2)', borderColor: 'var(--syn-cyan)' }}>
+                        <span className="projects-live-dot" style={{ background: 'var(--syn-cyan)', boxShadow: '0 0 8px var(--syn-cyan)' }} />
+                        <span style={{ color: 'var(--syn-cyan)' }}>IEEE PAPER</span>
+                      </div>
+                    ) : activeProject.live !== '#' && (
                       <div className="projects-live-badge">
                         <span className="projects-live-dot" />
                         <span>LIVE</span>
@@ -354,33 +370,59 @@ const Projects = () => {
 
                     {/* Action Buttons */}
                     <div className="projects-card-actions">
-                      {activeProject.github !== '#' && (
-                        <a 
-                          href={activeProject.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="projects-btn projects-btn-outline"
-                        >
-                          <FaGithub size={15} /> Source Code
-                        </a>
-                      )}
-                      {activeProject.live !== '#' ? (
-                        <a 
-                          href={activeProject.live} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="projects-btn projects-btn-solid"
-                        >
-                          <FiExternalLink size={15} /> Live Demo
-                        </a>
+                      {activeProject.isPaper ? (
+                        <>
+                          <a 
+                            href={activeProject.live} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="projects-btn projects-btn-solid"
+                            style={{ background: 'var(--name-grad)', color: '#0d1117', fontWeight: 600 }}
+                          >
+                            <FiExternalLink size={15} /> Read on IEEE Xplore ↗
+                          </a>
+                          <a 
+                            href="#research" 
+                            className="projects-btn projects-btn-outline"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                          >
+                            <FiFileText size={15} /> Paper Details
+                          </a>
+                        </>
                       ) : (
-                        <span 
-                          className="projects-btn-pending"
-                          title="Full-stack application available in repo; public deployment in progress"
-                        >
-                          <span className="projects-pending-dot" />
-                          <span>Demo Soon</span>
-                        </span>
+                        <>
+                          {activeProject.github !== '#' && (
+                            <a 
+                              href={activeProject.github} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="projects-btn projects-btn-outline"
+                            >
+                              <FaGithub size={15} /> Source Code
+                            </a>
+                          )}
+                          {activeProject.live !== '#' ? (
+                            <a 
+                              href={activeProject.live} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="projects-btn projects-btn-solid"
+                            >
+                              <FiExternalLink size={15} /> Live Demo
+                            </a>
+                          ) : (
+                            <span 
+                              className="projects-btn-pending"
+                              title="Full-stack application available in repo; public deployment in progress"
+                            >
+                              <span className="projects-pending-dot" />
+                              <span>Demo Soon</span>
+                            </span>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>
@@ -486,7 +528,12 @@ const Projects = () => {
                       onError={(e) => { e.target.onerror = null; e.target.src = '/placeholder.png'; }}
                     />
                     <div className="projects-grid-image-overlay" />
-                    {proj.live !== '#' && (
+                    {proj.isPaper ? (
+                      <div className="projects-grid-live-badge" style={{ background: 'rgba(0, 212, 245, 0.2)', borderColor: 'var(--syn-cyan)' }}>
+                        <span className="projects-live-dot" style={{ background: 'var(--syn-cyan)', boxShadow: '0 0 8px var(--syn-cyan)' }} />
+                        <span style={{ color: 'var(--syn-cyan)' }}>IEEE PAPER</span>
+                      </div>
+                    ) : proj.live !== '#' && (
                       <div className="projects-grid-live-badge">
                         <span className="projects-live-dot" />
                         <span>LIVE</span>
@@ -511,35 +558,63 @@ const Projects = () => {
 
                       {/* Action Buttons */}
                       <div className="projects-grid-actions">
-                        {proj.github !== '#' && (
-                          <a
-                            href={proj.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="projects-btn projects-btn-outline"
-                            title="View Source Code"
-                          >
-                            <FaGithub size={14} /> Code
-                          </a>
-                        )}
-                        {proj.live !== '#' ? (
-                          <a
-                            href={proj.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="projects-btn projects-btn-solid"
-                            title="Launch Live Application"
-                          >
-                            <FiExternalLink size={14} /> Launch Demo
-                          </a>
+                        {proj.isPaper ? (
+                          <>
+                            <a
+                              href={proj.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="projects-btn projects-btn-solid"
+                              title="Read IEEE Paper"
+                              style={{ background: 'var(--name-grad)', color: '#0d1117', fontWeight: 600 }}
+                            >
+                              <FiExternalLink size={14} /> IEEE Paper
+                            </a>
+                            <a
+                              href="#research"
+                              className="projects-btn projects-btn-outline"
+                              title="View Research Summary"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' });
+                              }}
+                            >
+                              <FiFileText size={14} /> Details
+                            </a>
+                          </>
                         ) : (
-                          <span 
-                            className="projects-btn-pending"
-                            title="Full-stack application available in repo; public deployment in progress"
-                          >
-                            <span className="projects-pending-dot" />
-                            <span>Demo Soon</span>
-                          </span>
+                          <>
+                            {proj.github !== '#' && (
+                              <a
+                                href={proj.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="projects-btn projects-btn-outline"
+                                title="View Source Code"
+                              >
+                                <FaGithub size={14} /> Code
+                              </a>
+                            )}
+                            {proj.live !== '#' ? (
+                              <a
+                                href={proj.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="projects-btn projects-btn-solid"
+                                title="Launch Live Application"
+                              >
+                                <FiExternalLink size={14} /> Launch Demo
+                              </a>
+                            ) : (
+                              <span 
+                                className="projects-btn-pending"
+                                title="Full-stack application available in repo; public deployment in progress"
+                              >
+                                <span className="projects-pending-dot" />
+                                <span>Demo Soon</span>
+                              </span>
+                            )}
+                          </>
                         )}
                       </div>
                     </div>
