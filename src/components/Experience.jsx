@@ -2,24 +2,53 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FiBriefcase, 
-  FiExternalLink, 
   FiGitCommit, 
   FiLayers, 
-  FiCode, 
-  FiCheckCircle, 
   FiTerminal,
-  FiCpu
+  FiArrowUpRight
 } from 'react-icons/fi';
+import { 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiPostgresql, 
+  SiTailwindcss,
+  SiFigma
+} from 'react-icons/si';
+import { 
+  FaReact, 
+  FaNodeJs, 
+  FaJsSquare, 
+  FaServer, 
+  FaGitAlt, 
+  FaLayerGroup,
+  FaCheckCircle
+} from 'react-icons/fa';
+
+// Authentic Brand Icons Mapping
+const TECH_ICONS = {
+  'Next.js': <SiNextdotjs color="#ffffff" size={13} />,
+  'TypeScript': <SiTypescript color="#3178c6" size={13} />,
+  'JavaScript': <FaJsSquare color="#f7df1e" size={13} />,
+  'React': <FaReact color="#61dafb" size={13} />,
+  'PostgreSQL': <SiPostgresql color="#4169e1" size={13} />,
+  'Node.js': <FaNodeJs color="#68a063" size={13} />,
+  'REST APIs': <FaServer color="#f92aad" size={12} />,
+  'Custom APIs': <FaServer color="#f92aad" size={12} />,
+  'Tailwind CSS': <SiTailwindcss color="#38bdf8" size={13} />,
+  'Git & GitHub': <FaGitAlt color="#f05032" size={13} />,
+  'State Management': <FaLayerGroup color="#f2a60c" size={12} />,
+  'UI/UX Design': <SiFigma color="#f24e1e" size={12} />,
+  'Testing & QA': <FaCheckCircle color="#c3e88d" size={12} />
+};
 
 const EXPERIENCE_DATA = {
   company: 'Periscale AI',
   companyUrl: 'https://www.periscale.ai/',
   logo: '/periscale-logo.png',
   role: 'Full-Stack Developer Intern',
-  type: 'Internship',
   period: 'August 1, 2026 – Present',
   status: 'Active',
-  location: 'Dhaka, Bangladesh · Remote / Hybrid',
+  location: 'Dhaka, Bangladesh',
   summary: 'Contributing as a core full-stack developer across multiple key repositories—engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
   repositories: [
     {
@@ -32,10 +61,10 @@ const EXPERIENCE_DATA = {
     },
     {
       id: 'gammify',
-      badge: 'Engagement Engine',
-      title: 'Gammify (Gamification & Loyalty Repo)',
-      description: 'Architected and implemented interactive gamification mechanics, customer reward loops, and retention tools within the Gammify repository to boost user interaction and conversion rates for social-first brands.',
-      tags: ['TypeScript', 'JavaScript', 'Next.js', 'PostgreSQL', 'State Management'],
+      badge: 'Gaming & E-Commerce',
+      title: 'Gammify (Online Gaming & Gift Card Platform)',
+      description: 'Contributed to Gammify, an e-commerce platform dedicated to digital gaming cards, game top-ups, and gift card sales. Engaged across UI/UX design implementation, component testing, feedback review iterations, and core technical workflows for seamless digital transactions.',
+      tags: ['Next.js', 'TypeScript', 'JavaScript', 'PostgreSQL', 'UI/UX Design', 'Testing & QA'],
       color: 'var(--syn-purple)'
     },
     {
@@ -56,12 +85,6 @@ const EXPERIENCE_DATA = {
     'REST APIs',
     'Tailwind CSS',
     'Git & GitHub'
-  ],
-  metrics: [
-    { label: 'Repositories Contributed', value: '3+' },
-    { label: 'Client Solutions Shipped', value: '2+' },
-    { label: 'Stack Scope', value: 'Full-Stack (UI to DB)' },
-    { label: 'Status', value: 'Active Contributor' }
   ]
 };
 
@@ -103,7 +126,7 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
+          style={{ textAlign: 'center', marginBottom: '3.5rem' }}
         >
           <div style={{ 
             display: 'inline-flex', 
@@ -188,15 +211,7 @@ const Experience = () => {
           />
 
           {/* Company Header Row */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1.5rem',
-            paddingBottom: '2rem',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
-          }}>
+          <div className="exp-header-row">
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
               {/* Company Logo with Neon Frame */}
               <div 
@@ -205,12 +220,12 @@ const Experience = () => {
                   height: '64px',
                   borderRadius: '16px',
                   background: 'rgba(6, 182, 212, 0.08)',
-                  border: '1.5px solid rgba(0, 212, 245, 0.4)',
-                  padding: '6px',
+                  border: '1.5px solid rgba(0, 212, 245, 0.35)',
+                  padding: '7px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 0 20px rgba(0, 212, 245, 0.2)',
+                  boxShadow: '0 0 25px rgba(0, 212, 245, 0.18)',
                   flexShrink: 0
                 }}
               >
@@ -222,61 +237,43 @@ const Experience = () => {
               </div>
 
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                  <h3 style={{ 
-                    margin: 0, 
-                    fontSize: 'clamp(1.4rem, 3vw, 1.85rem)', 
-                    fontWeight: 800, 
-                    color: 'var(--text-main)',
-                    letterSpacing: '-0.5px'
-                  }}>
-                    {EXPERIENCE_DATA.company}
-                  </h3>
+                <h3 style={{ 
+                  margin: 0, 
+                  fontSize: 'clamp(1.6rem, 3.2vw, 2.1rem)', 
+                  fontWeight: 800, 
+                  color: 'var(--text-main)',
+                  letterSpacing: '-0.5px'
+                }}>
+                  {EXPERIENCE_DATA.company}
+                </h3>
+
+                <div style={{ 
+                  marginTop: '6px', 
+                  fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', 
+                  fontWeight: 600, 
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '10px'
+                }}>
+                  <span style={{ color: 'var(--syn-cyan)' }}>{EXPERIENCE_DATA.role}</span>
+                  <span style={{ color: 'rgba(255, 255, 255, 0.2)', fontSize: '0.8rem' }}>•</span>
                   <a
                     href={EXPERIENCE_DATA.companyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      color: 'var(--syn-cyan)',
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.8rem',
-                      textDecoration: 'none',
-                      padding: '3px 10px',
-                      borderRadius: '20px',
-                      background: 'rgba(0, 212, 245, 0.08)',
-                      border: '1px solid rgba(0, 212, 245, 0.25)',
-                      transition: 'all 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(0, 212, 245, 0.18)';
-                      e.currentTarget.style.transform = 'translateY(-1px)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(0, 212, 245, 0.08)';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                    }}
+                    className="exp-domain-link"
+                    title="Visit periscale.ai (opens in new tab)"
                   >
                     <span>periscale.ai</span>
-                    <FiExternalLink size={12} />
+                    <FiArrowUpRight size={13} />
                   </a>
-                </div>
-
-                <div style={{ 
-                  marginTop: '6px', 
-                  fontSize: 'clamp(1rem, 2vw, 1.15rem)', 
-                  fontWeight: 600, 
-                  color: 'var(--syn-cyan)' 
-                }}>
-                  {EXPERIENCE_DATA.role}
                 </div>
               </div>
             </div>
 
             {/* Status & Period Badge */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', smAlignItems: 'flex-end', gap: '8px' }}>
+            <div className="exp-status-col">
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -316,7 +313,7 @@ const Experience = () => {
 
               <div style={{ 
                 fontFamily: 'var(--font-mono)', 
-                fontSize: '0.75rem', 
+                fontSize: '0.78rem', 
                 color: 'var(--text-dim)' 
               }}>
                 {EXPERIENCE_DATA.location}
@@ -324,45 +321,11 @@ const Experience = () => {
             </div>
           </div>
 
-          {/* High-level Elevator Pitch / Summary */}
-          <div style={{ padding: '1.75rem 0 1.5rem', color: 'var(--text-muted)', lineHeight: 1.7, fontSize: '1.05rem' }}>
+          {/* High-level Overview Summary */}
+          <div style={{ padding: '1.75rem 0 2rem', color: 'var(--text-muted)', lineHeight: 1.75, fontSize: '1.05rem' }}>
             <p style={{ margin: 0 }}>
               {EXPERIENCE_DATA.summary}
             </p>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
-            gap: '1rem',
-            padding: '1.25rem',
-            background: 'rgba(0, 0, 0, 0.3)',
-            borderRadius: '16px',
-            border: '1px solid rgba(255, 255, 255, 0.05)',
-            marginBottom: '2.5rem'
-          }}>
-            {EXPERIENCE_DATA.metrics.map((m, idx) => (
-              <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                <span style={{ 
-                  fontFamily: 'var(--font-mono)', 
-                  fontSize: '0.72rem', 
-                  color: 'var(--text-dim)', 
-                  textTransform: 'uppercase', 
-                  letterSpacing: '1px' 
-                }}>
-                  {m.label}
-                </span>
-                <span style={{ 
-                  fontFamily: 'var(--font-mono)', 
-                  fontSize: '1.15rem', 
-                  fontWeight: 700, 
-                  color: idx === 0 ? 'var(--syn-cyan)' : idx === 1 ? 'var(--syn-purple)' : idx === 2 ? 'var(--syn-green)' : 'var(--syn-yellow)' 
-                }}>
-                  {m.value}
-                </span>
-              </div>
-            ))}
           </div>
 
           {/* Section Divider: Repositories & Sub-projects */}
@@ -381,13 +344,13 @@ const Experience = () => {
 
           {/* Repositories 3-Column / Stack Grid */}
           <div className="exp-repos-grid">
-            {EXPERIENCE_DATA.repositories.map((repo, idx) => (
+            {EXPERIENCE_DATA.repositories.map((repo) => (
               <motion.div
                 key={repo.id}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
                 style={{
-                  padding: '1.5rem',
+                  padding: '1.6rem',
                   borderRadius: '16px',
                   background: 'rgba(255, 255, 255, 0.02)',
                   border: `1px solid ${repo.color}30`,
@@ -436,29 +399,24 @@ const Experience = () => {
                   </p>
                 </div>
 
-                {/* Tech Badges inside Repo Card */}
+                {/* Tech Badges with Real Icons */}
                 <div style={{ 
-                  marginTop: '1.25rem', 
+                  marginTop: '1.5rem', 
                   paddingTop: '1rem', 
-                  borderTop: '1px solid rgba(255, 255, 255, 0.05)', 
+                  borderTop: '1px solid rgba(255, 255, 255, 0.06)', 
                   display: 'flex', 
                   flexWrap: 'wrap', 
-                  gap: '6px' 
+                  gap: '7px' 
                 }}>
                   {repo.tags.map((tag, tIdx) => (
                     <span 
                       key={tIdx} 
-                      style={{ 
-                        fontFamily: 'var(--font-mono)', 
-                        fontSize: '0.72rem', 
-                        color: 'var(--text-muted)', 
-                        background: 'rgba(255, 255, 255, 0.03)', 
-                        padding: '2px 8px', 
-                        borderRadius: '4px',
-                        border: '1px solid rgba(255, 255, 255, 0.06)'
-                      }}
+                      className="exp-tech-chip"
                     >
-                      {tag}
+                      <span className="exp-tech-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
+                        {TECH_ICONS[tag]}
+                      </span>
+                      <span>{tag}</span>
                     </span>
                   ))}
                 </div>
@@ -494,18 +452,12 @@ const Experience = () => {
               {EXPERIENCE_DATA.stack.map((item, idx) => (
                 <span 
                   key={idx} 
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    color: 'var(--syn-cyan)',
-                    background: 'rgba(0, 212, 245, 0.06)',
-                    border: '1px solid rgba(0, 212, 245, 0.25)',
-                    padding: '4px 12px',
-                    borderRadius: '20px',
-                    fontWeight: 500
-                  }}
+                  className="exp-stack-pill"
                 >
-                  {item}
+                  <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                    {TECH_ICONS[item]}
+                  </span>
+                  <span>{item}</span>
                 </span>
               ))}
             </div>
@@ -516,21 +468,110 @@ const Experience = () => {
       </div>
 
       <style>{`
+        .exp-header-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1.5rem;
+          padding-bottom: 2rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .exp-domain-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          color: var(--text-muted);
+          font-family: var(--font-mono);
+          font-size: 0.82rem;
+          text-decoration: none;
+          padding: 3px 10px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.09);
+          transition: all 0.2s ease;
+        }
+
+        .exp-domain-link:hover {
+          color: var(--syn-cyan);
+          background: rgba(0, 212, 245, 0.1);
+          border-color: rgba(0, 212, 245, 0.35);
+          transform: translateY(-1px);
+        }
+
+        .exp-status-col {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 6px;
+        }
+
+        @media (max-width: 640px) {
+          .exp-status-col {
+            align-items: flex-start;
+          }
+        }
+
         .exp-repos-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1.25rem;
           margin-bottom: 2.5rem;
         }
+
         @media (max-width: 992px) {
           .exp-repos-grid {
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           }
         }
+
         @media (max-width: 640px) {
           .exp-repos-grid {
             grid-template-columns: 1fr;
           }
+        }
+
+        .exp-tech-chip {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-mono);
+          font-size: 0.74rem;
+          color: var(--text-main);
+          background: rgba(255, 255, 255, 0.035);
+          padding: 3px 9px;
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          transition: all 0.2s ease;
+        }
+
+        .exp-tech-chip:hover {
+          background: rgba(255, 255, 255, 0.07);
+          border-color: rgba(255, 255, 255, 0.14);
+          transform: translateY(-1px);
+        }
+
+        .exp-stack-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          font-family: var(--font-mono);
+          font-size: 0.8rem;
+          color: var(--text-main);
+          background: rgba(0, 212, 245, 0.05);
+          border: 1px solid rgba(0, 212, 245, 0.25);
+          padding: 5px 14px;
+          border-radius: 20px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+
+        .exp-stack-pill:hover {
+          background: rgba(0, 212, 245, 0.12);
+          border-color: rgba(0, 212, 245, 0.45);
+          box-shadow: 0 0 15px rgba(0, 212, 245, 0.15);
+          transform: translateY(-1px);
         }
       `}</style>
     </section>

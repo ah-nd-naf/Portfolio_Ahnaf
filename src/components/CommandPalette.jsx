@@ -563,7 +563,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
                   Multi-Repository Production Engineering
                 </strong>
-                Contributing as a core full-stack developer across Periscale's web platform, the Gammify engagement engine, and 2+ bespoke client solutions using Next.js, TypeScript, PostgreSQL, and REST APIs.
+                Contributing as a core full-stack developer across Periscale's web platform, the Gammify gaming & card platform, and 2+ bespoke client solutions using Next.js, TypeScript, PostgreSQL, and REST APIs.
               </div>
             </div>
 
