@@ -19,26 +19,22 @@ import {
   FaNodeJs, 
   FaJsSquare, 
   FaServer, 
-  FaGitAlt, 
-  FaLayerGroup,
-  FaCheckCircle
+  FaGitAlt
 } from 'react-icons/fa';
 
-// Authentic Brand Icons Mapping
+// Minimalist, Non-Cartoonish Developer Icons
 const TECH_ICONS = {
-  'Next.js': <SiNextdotjs color="#ffffff" size={13} />,
-  'TypeScript': <SiTypescript color="#3178c6" size={13} />,
-  'JavaScript': <FaJsSquare color="#f7df1e" size={13} />,
-  'React': <FaReact color="#61dafb" size={13} />,
-  'PostgreSQL': <SiPostgresql color="#4169e1" size={13} />,
-  'Node.js': <FaNodeJs color="#68a063" size={13} />,
-  'REST APIs': <FaServer color="#f92aad" size={12} />,
-  'Custom APIs': <FaServer color="#f92aad" size={12} />,
-  'Tailwind CSS': <SiTailwindcss color="#38bdf8" size={13} />,
-  'Git & GitHub': <FaGitAlt color="#f05032" size={13} />,
-  'State Management': <FaLayerGroup color="#f2a60c" size={12} />,
-  'UI/UX Design': <SiFigma color="#f24e1e" size={12} />,
-  'Testing & QA': <FaCheckCircle color="#c3e88d" size={12} />
+  'Next.js': <SiNextdotjs size={11} className="exp-icon" />,
+  'TypeScript': <SiTypescript size={11} className="exp-icon" />,
+  'JavaScript': <FaJsSquare size={11} className="exp-icon" />,
+  'React': <FaReact size={11} className="exp-icon" />,
+  'PostgreSQL': <SiPostgresql size={11} className="exp-icon" />,
+  'Node.js': <FaNodeJs size={11} className="exp-icon" />,
+  'REST APIs': <FaServer size={10} className="exp-icon" />,
+  'Custom APIs': <FaServer size={10} className="exp-icon" />,
+  'Tailwind CSS': <SiTailwindcss size={11} className="exp-icon" />,
+  'Git & GitHub': <FaGitAlt size={11} className="exp-icon" />,
+  'UI/UX & Testing': <SiFigma size={11} className="exp-icon" />
 };
 
 const EXPERIENCE_DATA = {
@@ -55,23 +51,23 @@ const EXPERIENCE_DATA = {
       id: 'periscale-core',
       badge: 'Core Platform & Web',
       title: 'Periscale AI Web & Platform Services',
-      description: 'Engineered responsive frontend modules and backend API services powering Periscale\'s official web presence and platform workflows. Built server-driven UI components with Next.js and TypeScript, connected to robust backend endpoints.',
-      tags: ['Next.js', 'TypeScript', 'React', 'PostgreSQL', 'REST APIs', 'Tailwind CSS'],
+      description: 'Engineered frontend modules and backend API services powering Periscale\'s web applications and landing services. Built responsive UI components with Next.js & TypeScript, integrated with PostgreSQL database queries.',
+      tags: ['Next.js', 'TypeScript', 'React', 'PostgreSQL', 'REST APIs'],
       color: 'var(--syn-cyan)'
     },
     {
       id: 'gammify',
       badge: 'Gaming & E-Commerce',
       title: 'Gammify (Online Gaming & Gift Card Platform)',
-      description: 'Contributed to Gammify, an e-commerce platform dedicated to digital gaming cards, game top-ups, and gift card sales. Engaged across UI/UX design implementation, component testing, feedback review iterations, and core technical workflows for seamless digital transactions.',
-      tags: ['Next.js', 'TypeScript', 'JavaScript', 'PostgreSQL', 'UI/UX Design', 'Testing & QA'],
+      description: 'Contributed to Gammify, an e-commerce platform for digital gaming cards, game top-ups, and gift cards. Executed UI/UX design implementation, component testing, stakeholder feedback reviews, and core technical workflows.',
+      tags: ['Next.js', 'TypeScript', 'JavaScript', 'PostgreSQL', 'UI/UX & Testing'],
       color: 'var(--syn-purple)'
     },
     {
       id: 'client-projects',
       badge: 'Client Deliverables',
       title: 'Client Enterprise Solutions & Integrations',
-      description: 'Delivered rapid full-stack solutions and third-party integrations across 2+ commercial client codebases. Handled relational database schemas, secure API routing, and custom frontend views with strict deadlines.',
+      description: 'Delivered rapid full-stack solutions and third-party integrations across 2+ commercial client codebases. Formulated relational PostgreSQL schemas, secure REST routing, and custom frontend views with strict deadlines.',
       tags: ['TypeScript', 'JavaScript', 'Node.js', 'PostgreSQL', 'Custom APIs'],
       color: 'var(--syn-green)'
     }
@@ -342,80 +338,55 @@ const Experience = () => {
             </h4>
           </div>
 
-          {/* Repositories 3-Column / Stack Grid */}
+          {/* Repositories 3-Column / Equalized Geometric Grid */}
           <div className="exp-repos-grid">
             {EXPERIENCE_DATA.repositories.map((repo) => (
               <motion.div
                 key={repo.id}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
+                className="exp-card"
                 style={{
-                  padding: '1.6rem',
-                  borderRadius: '16px',
-                  background: 'rgba(255, 255, 255, 0.02)',
                   border: `1px solid ${repo.color}30`,
-                  boxShadow: `0 8px 24px -10px ${repo.color}20`,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  position: 'relative'
+                  boxShadow: `0 8px 24px -10px ${repo.color}20`
                 }}
               >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-                    <span style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      padding: '3px 10px',
-                      borderRadius: '6px',
-                      background: `${repo.color}15`,
-                      color: repo.color,
-                      border: `1px solid ${repo.color}35`,
-                      letterSpacing: '0.5px'
-                    }}>
-                      {repo.badge}
-                    </span>
-                    <FiGitCommit size={14} color={repo.color} opacity={0.8} />
-                  </div>
-
-                  <h5 style={{ 
-                    margin: '0 0 0.75rem 0', 
-                    fontSize: '1.05rem', 
-                    fontWeight: 700, 
-                    color: 'var(--text-main)', 
-                    lineHeight: 1.4 
+                {/* Card Top / Badge */}
+                <div className="exp-card-top">
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    padding: '3px 10px',
+                    borderRadius: '6px',
+                    background: `${repo.color}15`,
+                    color: repo.color,
+                    border: `1px solid ${repo.color}35`,
+                    letterSpacing: '0.5px'
                   }}>
-                    {repo.title}
-                  </h5>
-
-                  <p style={{ 
-                    margin: 0, 
-                    fontSize: '0.92rem', 
-                    color: 'var(--text-muted)', 
-                    lineHeight: 1.65 
-                  }}>
-                    {repo.description}
-                  </p>
+                    {repo.badge}
+                  </span>
+                  <FiGitCommit size={14} color={repo.color} opacity={0.8} />
                 </div>
 
-                {/* Tech Badges with Real Icons */}
-                <div style={{ 
-                  marginTop: '1.5rem', 
-                  paddingTop: '1rem', 
-                  borderTop: '1px solid rgba(255, 255, 255, 0.06)', 
-                  display: 'flex', 
-                  flexWrap: 'wrap', 
-                  gap: '7px' 
-                }}>
+                {/* Card Title (Uniform Height) */}
+                <h5 className="exp-card-title">
+                  {repo.title}
+                </h5>
+
+                {/* Card Description (Flex-1 for uniform push) */}
+                <p className="exp-card-desc">
+                  {repo.description}
+                </p>
+
+                {/* Tech Badges (Pinned to exact same bottom baseline) */}
+                <div className="exp-card-tags">
                   {repo.tags.map((tag, tIdx) => (
                     <span 
                       key={tIdx} 
                       className="exp-tech-chip"
                     >
-                      <span className="exp-tech-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                        {TECH_ICONS[tag]}
-                      </span>
+                      {TECH_ICONS[tag]}
                       <span>{tag}</span>
                     </span>
                   ))}
@@ -454,9 +425,7 @@ const Experience = () => {
                   key={idx} 
                   className="exp-stack-pill"
                 >
-                  <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-                    {TECH_ICONS[item]}
-                  </span>
+                  {TECH_ICONS[item]}
                   <span>{item}</span>
                 </span>
               ))}
@@ -486,8 +455,8 @@ const Experience = () => {
           font-family: var(--font-mono);
           font-size: 0.82rem;
           text-decoration: none;
-          padding: 3px 10px;
-          border-radius: 8px;
+          padding: 2px 8px;
+          border-radius: 6px;
           background: rgba(255, 255, 255, 0.04);
           border: 1px solid rgba(255, 255, 255, 0.09);
           transition: all 0.2s ease;
@@ -518,6 +487,7 @@ const Experience = () => {
           grid-template-columns: repeat(3, 1fr);
           gap: 1.25rem;
           margin-bottom: 2.5rem;
+          align-items: stretch;
         }
 
         @media (max-width: 992px) {
@@ -532,45 +502,111 @@ const Experience = () => {
           }
         }
 
+        .exp-card {
+          padding: 1.6rem;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.02);
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          position: relative;
+        }
+
+        .exp-card-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0.9rem;
+        }
+
+        .exp-card-title {
+          margin: 0 0 0.85rem 0;
+          font-size: 1.05rem;
+          font-weight: 700;
+          color: var(--text-main);
+          line-height: 1.4;
+          min-height: 2.85em;
+          display: flex;
+          align-items: flex-start;
+        }
+
+        .exp-card-desc {
+          margin: 0;
+          font-size: 0.92rem;
+          color: var(--text-muted);
+          line-height: 1.65;
+          flex: 1;
+        }
+
+        .exp-card-tags {
+          margin-top: 1.5rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          gap: 6px;
+          min-height: 68px;
+        }
+
         .exp-tech-chip {
           display: inline-flex;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
           font-family: var(--font-mono);
-          font-size: 0.74rem;
-          color: var(--text-main);
-          background: rgba(255, 255, 255, 0.035);
-          padding: 3px 9px;
+          font-size: 0.72rem;
+          color: var(--text-muted);
+          background: rgba(255, 255, 255, 0.03);
+          padding: 3px 8px;
           border-radius: 6px;
-          border: 1px solid rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+
+        .exp-tech-chip .exp-icon {
+          color: var(--text-dim);
+          opacity: 0.75;
           transition: all 0.2s ease;
         }
 
         .exp-tech-chip:hover {
           background: rgba(255, 255, 255, 0.07);
-          border-color: rgba(255, 255, 255, 0.14);
-          transform: translateY(-1px);
+          border-color: rgba(255, 255, 255, 0.15);
+          color: var(--text-main);
+        }
+
+        .exp-tech-chip:hover .exp-icon {
+          color: var(--syn-cyan);
+          opacity: 1;
         }
 
         .exp-stack-pill {
           display: inline-flex;
           align-items: center;
-          gap: 7px;
+          gap: 6px;
           font-family: var(--font-mono);
-          font-size: 0.8rem;
-          color: var(--text-main);
-          background: rgba(0, 212, 245, 0.05);
-          border: 1px solid rgba(0, 212, 245, 0.25);
-          padding: 5px 14px;
+          font-size: 0.78rem;
+          color: var(--text-muted);
+          background: rgba(0, 212, 245, 0.04);
+          border: 1px solid rgba(0, 212, 245, 0.18);
+          padding: 4px 12px;
           border-radius: 20px;
           font-weight: 500;
           transition: all 0.2s ease;
         }
 
+        .exp-stack-pill .exp-icon {
+          color: var(--syn-cyan);
+          opacity: 0.8;
+          transition: all 0.2s ease;
+        }
+
         .exp-stack-pill:hover {
-          background: rgba(0, 212, 245, 0.12);
-          border-color: rgba(0, 212, 245, 0.45);
-          box-shadow: 0 0 15px rgba(0, 212, 245, 0.15);
+          background: rgba(0, 212, 245, 0.1);
+          border-color: rgba(0, 212, 245, 0.4);
+          color: var(--text-main);
+          box-shadow: 0 0 15px rgba(0, 212, 245, 0.12);
           transform: translateY(-1px);
         }
       `}</style>
