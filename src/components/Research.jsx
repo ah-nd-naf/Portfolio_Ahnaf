@@ -313,10 +313,135 @@ const Research = () => {
                   <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginTop: '2px' }}>Lightweight CNN</div>
                 </div>
               </div>
+
+              {/* Action Buttons Dock (Shifted to Left under Image & Metrics) */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.85rem',
+                marginTop: '0.5rem',
+                paddingTop: '1.25rem',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+              }}>
+                {/* Primary Button */}
+                <a
+                  href="https://ieeexplore.ieee.org/document/11504298"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="projects-btn projects-btn-solid"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px',
+                    fontSize: '0.96rem',
+                    fontWeight: 700,
+                    padding: '0.85rem 1.5rem',
+                    background: 'var(--name-grad)',
+                    color: '#0d1117',
+                    borderRadius: '10px',
+                    textDecoration: 'none',
+                    boxShadow: '0 8px 25px rgba(0, 212, 245, 0.25)',
+                    transition: 'all 0.3s ease',
+                    width: '100%'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 212, 245, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'none';
+                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 212, 245, 0.25)';
+                  }}
+                >
+                  <FiExternalLink size={17} /> Read on IEEE Xplore ↗
+                </a>
+
+                {/* Secondary Citation Buttons */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '0.75rem'
+                }}>
+                  <button
+                    type="button"
+                    onClick={copyBibtex}
+                    className="projects-btn projects-btn-outline"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '7px',
+                      fontSize: '0.84rem',
+                      padding: '0.7rem 0.75rem',
+                      borderRadius: '8px',
+                      background: 'rgba(22, 27, 34, 0.6)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      color: copiedBib ? 'var(--syn-green)' : 'var(--text-main)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      width: '100%'
+                    }}
+                  >
+                    {copiedBib ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                    <span>{copiedBib ? 'BibTeX Copied!' : 'Copy BibTeX'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={copyApa}
+                    className="projects-btn projects-btn-outline"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '7px',
+                      fontSize: '0.84rem',
+                      padding: '0.7rem 0.75rem',
+                      borderRadius: '8px',
+                      background: 'rgba(22, 27, 34, 0.6)',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      color: copiedApa ? 'var(--syn-green)' : 'var(--text-main)',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      width: '100%'
+                    }}
+                  >
+                    {copiedApa ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                    <span>{copiedApa ? 'APA Copied!' : 'Copy APA'}</span>
+                  </button>
+                </div>
+
+                {/* Toggle Drawer Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsBibOpen(!isBibOpen)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    fontSize: '0.82rem',
+                    padding: '0.65rem 1rem',
+                    borderRadius: '8px',
+                    background: isBibOpen ? 'rgba(0, 212, 245, 0.1)' : 'rgba(255, 255, 255, 0.02)',
+                    border: `1px dashed ${isBibOpen ? 'var(--syn-cyan)' : 'rgba(255, 255, 255, 0.15)'}`,
+                    color: isBibOpen ? 'var(--syn-cyan)' : 'var(--text-muted)',
+                    cursor: 'pointer',
+                    fontFamily: 'var(--font-mono)',
+                    transition: 'all 0.2s ease',
+                    width: '100%'
+                  }}
+                >
+                  <FiCode size={14} />
+                  <span>{isBibOpen ? 'Hide BibTeX Drawer' : 'View BibTeX Citation'}</span>
+                  {isBibOpen ? <FiChevronUp size={14} /> : <FiChevronDown size={14} />}
+                </button>
+              </div>
             </div>
 
             {/* Right: Paper Metadata & Findings */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
               <div>
                 {/* Paper Title */}
                 <h3 style={{
@@ -376,7 +501,7 @@ const Research = () => {
                   fontSize: '0.96rem',
                   lineHeight: 1.7,
                   color: 'var(--text-muted)',
-                  marginBottom: '1.75rem'
+                  marginBottom: '1.5rem'
                 }}>
                   <p style={{ marginBottom: '0.75rem' }}>
                     <strong style={{ color: 'var(--text-main)' }}>Abstract &amp; Core Contribution: </strong>
@@ -387,8 +512,33 @@ const Research = () => {
                   </p>
                 </div>
 
+                {/* Key Research Highlights Box */}
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.6rem',
+                  marginBottom: '1.5rem',
+                  padding: '1rem 1.25rem',
+                  background: 'rgba(13, 17, 23, 0.65)',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(0, 212, 245, 0.12)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
+                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
+                    <span><strong style={{ color: 'var(--syn-cyan)' }}>Lightweight Edge CNN:</strong> Engineered specifically to eliminate heavy parameter overhead for resource-limited clinical environments.</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
+                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
+                    <span><strong style={{ color: 'var(--syn-purple)' }}>3-Class Cytological Screening:</strong> Automated multi-class distinction across Normal, Precancerous, and Malignant cells.</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
+                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
+                    <span><strong style={{ color: 'var(--syn-green)' }}>Dataset Validation:</strong> Benchmark tested and validated on the Mendeley Liquid-Based Cytology (LBC) Pap smear dataset.</span>
+                  </div>
+                </div>
+
                 {/* Tech Pills */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {['Deep Learning', 'Computer Vision', 'Medical AI', 'Convolutional Neural Networks', 'Cytology', 'Python', 'IEEE Xplore'].map((tag) => (
                     <span 
                       key={tag}
@@ -407,115 +557,6 @@ const Research = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Action Buttons Dock */}
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.85rem',
-                alignItems: 'center',
-                paddingTop: '1.25rem',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <a
-                  href="https://ieeexplore.ieee.org/document/11504298"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="projects-btn projects-btn-solid"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    fontSize: '0.92rem',
-                    fontWeight: 600,
-                    padding: '0.75rem 1.6rem',
-                    background: 'var(--name-grad)',
-                    color: '#0d1117',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    boxShadow: '0 8px 25px rgba(0, 212, 245, 0.25)',
-                    transition: 'all 0.3s ease'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 212, 245, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 212, 245, 0.25)';
-                  }}
-                >
-                  <FiExternalLink size={16} /> Read on IEEE Xplore ↗
-                </a>
-
-                <button
-                  type="button"
-                  onClick={copyBibtex}
-                  className="projects-btn projects-btn-outline"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '0.88rem',
-                    padding: '0.7rem 1.25rem',
-                    borderRadius: '8px',
-                    background: 'rgba(22, 27, 34, 0.6)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    color: copiedBib ? 'var(--syn-green)' : 'var(--text-main)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  {copiedBib ? <FiCheck size={15} /> : <FiCopy size={15} />}
-                  <span>{copiedBib ? 'BibTeX Copied!' : 'Copy BibTeX'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={copyApa}
-                  className="projects-btn projects-btn-outline"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '0.88rem',
-                    padding: '0.7rem 1.25rem',
-                    borderRadius: '8px',
-                    background: 'rgba(22, 27, 34, 0.6)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    color: copiedApa ? 'var(--syn-green)' : 'var(--text-main)',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  {copiedApa ? <FiCheck size={15} /> : <FiCopy size={15} />}
-                  <span>{copiedApa ? 'APA Copied!' : 'Copy APA'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setIsBibOpen(!isBibOpen)}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    fontSize: '0.85rem',
-                    padding: '0.7rem 1rem',
-                    borderRadius: '8px',
-                    background: 'transparent',
-                    border: '1px dashed rgba(255, 255, 255, 0.15)',
-                    color: 'var(--text-muted)',
-                    cursor: 'pointer',
-                    fontFamily: 'var(--font-mono)',
-                    marginLeft: 'auto'
-                  }}
-                >
-                  <FiCode size={14} />
-                  <span>{isBibOpen ? 'Hide BibTeX' : 'View BibTeX'}</span>
-                  {isBibOpen ? <FiChevronUp size={14} /> : <FiChevronDown size={14} />}
-                </button>
-              </div>
-
             </div>
 
           </div>
