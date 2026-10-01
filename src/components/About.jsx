@@ -13,8 +13,9 @@ const codeLines = [
   { num: 8, content: <><span style={{paddingLeft:'3rem'}}><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-green">MongoDB</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">Python</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-cyan">Django</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">SQL</span><span style={{color:'var(--text-muted)'}}>',</span></span></> },
   { num: 9, content: <><span style={{paddingLeft:'3rem'}}><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-cyan">JavaScript</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">REST APIs</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">Git</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-cyan">Linux</span><span style={{color:'var(--text-muted)'}}>',</span></span></> },
   { num: 10, content: <><span style={{paddingLeft:'1.5rem'}}><span style={{color:'var(--text-muted)'}}>],</span></span></> },
-  { num: 11, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">availableForHire</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-number">true</span></span></> },
-  { num: 12, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
+  { num: 11, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">internship</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Periscale AI"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
+  { num: 12, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">availableForHire</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-number">true</span></span></> },
+  { num: 13, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
 ];
 
 const About = () => {

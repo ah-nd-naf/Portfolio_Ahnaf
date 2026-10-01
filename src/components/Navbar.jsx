@@ -30,6 +30,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
       {/* Desktop Navigation */}
       <nav className="nav-links desktop-nav" aria-label="Primary navigation">
         <a href="#about">about</a>
+        <a href="#experience">experience</a>
         <a href="#projects">projects</a>
         <a href="#research">research</a>
         <a href="#skills">skills</a>
@@ -79,6 +80,7 @@ const Navbar = ({ onOpenCommandPalette }) => {
             transition={{ duration: 0.2 }}
           >
             <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>about</a>
+            <a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>experience</a>
             <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>projects</a>
             <a href="#research" onClick={() => setIsMobileMenuOpen(false)}>research</a>
             <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>skills</a>

@@ -54,6 +54,15 @@ const NAV_ACTIONS = [
     shortcut: 'G A'
   },
   {
+    id: 'nav-experience',
+    title: 'Work Experience / Periscale AI',
+    subtitle: 'Full-Stack Developer Intern · Multi-repo engineering (Gammify, Web, Clients)',
+    category: 'Navigation',
+    icon: FiBriefcase,
+    action: () => { document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); },
+    shortcut: 'G X'
+  },
+  {
     id: 'nav-projects',
     title: 'Featured Projects',
     subtitle: 'Interactive carousel showcase of web apps',
@@ -185,6 +194,7 @@ const CATEGORIES = ['All', 'Navigation', 'Projects', 'Socials', 'Actions'];
 
 const QUICK_CHIPS = [
   { label: 'help', cmd: 'help', icon: FiHelpCircle },
+  { label: 'experience', cmd: 'experience', icon: FiBriefcase },
   { label: 'projects', cmd: 'projects', icon: FiFolder },
   { label: 'research', cmd: 'research', icon: FiBookOpen },
   { label: 'skills', cmd: 'skills', icon: FiCpu },
@@ -376,6 +386,10 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 <div className="cmd-help-badge"><FiUser size={13} /> whoami</div>
                 <div className="cmd-help-desc">Developer bio, identity & core focus</div>
               </div>
+              <div className="cmd-help-card" onClick={() => processCommand('experience')}>
+                <div className="cmd-help-badge"><FiBriefcase size={13} /> experience</div>
+                <div className="cmd-help-desc">Periscale AI Full-Stack role & multi-repo track record</div>
+              </div>
               <div className="cmd-help-card" onClick={() => processCommand('skills')}>
                 <div className="cmd-help-badge"><FiCpu size={13} /> skills</div>
                 <div className="cmd-help-desc">Full-stack technical competencies & tools</div>
@@ -512,6 +526,88 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               >
                 <FiMail size={13} />
                 <span>Get In Touch</span>
+              </button>
+            </div>
+          </div>
+        )
+      });
+    } else if (['experience', 'work', 'periscale', 'internship', 'intern', 'job'].includes(lowerCmd)) {
+      newHistory.push({
+        type: 'custom',
+        render: (
+          <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid var(--syn-cyan)' }}>
+            <div className="cmd-whoami-header">
+              <div className="cmd-whoami-avatar-glow">
+                <div className="cmd-whoami-avatar" style={{ background: 'rgba(0, 212, 245, 0.15)', color: 'var(--syn-cyan)', padding: '5px' }}>
+                  <img src="/periscale-logo.png" alt="Periscale AI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+              </div>
+              <div className="cmd-whoami-meta">
+                <div className="cmd-whoami-name-row">
+                  <span className="cmd-whoami-name">Periscale AI</span>
+                  <span className="cmd-whoami-alias">periscale.ai</span>
+                </div>
+                <div className="cmd-whoami-role">Full-Stack Developer Intern · Aug 1, 2026 – Present</div>
+              </div>
+              <div className="cmd-whoami-status">
+                <span className="live-dot-pulse"></span>
+                <span>ACTIVE INTERNSHIP</span>
+              </div>
+            </div>
+
+            <div className="cmd-whoami-bio-card">
+              <div className="cmd-whoami-bio-quote-icon">
+                <FiBriefcase size={14} />
+              </div>
+              <div className="cmd-whoami-bio-text">
+                <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+                  Multi-Repository Production Engineering
+                </strong>
+                Contributing as a core full-stack developer across Periscale's web platform, the Gammify engagement engine, and 2+ bespoke client solutions using Next.js, TypeScript, PostgreSQL, and REST APIs.
+              </div>
+            </div>
+
+            <div className="cmd-whoami-badges-grid">
+              <div className="cmd-whoami-badge-item badge-location">
+                <FiLayers className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Repositories</span>
+                  <span className="badge-val">Periscale Core · Gammify · Clients</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-stack">
+                <FiZap className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Tech Stack</span>
+                  <span className="badge-val">Next.js · TS · PostgreSQL · REST</span>
+                </div>
+              </div>
+              <div className="cmd-whoami-badge-item badge-status">
+                <FiCheckCircle className="badge-icon" size={14} />
+                <div className="badge-content">
+                  <span className="badge-label">Status</span>
+                  <span className="badge-val">Active / Ongoing</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="cmd-whoami-actions">
+              <button
+                className="cmd-whoami-btn btn-primary"
+                onClick={() => {
+                  setIsOpen(false);
+                  document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <FiArrowRight size={13} />
+                <span>Jump to Experience Section</span>
+              </button>
+              <button
+                className="cmd-whoami-btn btn-secondary"
+                onClick={() => window.open('https://www.periscale.ai/', '_blank')}
+              >
+                <FiExternalLink size={13} />
+                <span>Visit periscale.ai ↗</span>
               </button>
             </div>
           </div>
@@ -861,8 +957,8 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
       }, 1500);
     } else if (lowerCmd.startsWith('goto ')) {
       const target = lowerCmd.replace('goto ', '').trim();
-      const validSections = ['about', 'projects', 'research', 'skills', 'qualification', 'contact', 'hero', 'education', 'publications', 'publication', 'paper'];
-      const mappedTarget = target === 'education' ? 'qualification' : (['publications', 'publication', 'paper'].includes(target) ? 'research' : (target === 'hero' ? 'hero' : target));
+      const validSections = ['about', 'experience', 'work', 'periscale', 'projects', 'research', 'skills', 'qualification', 'contact', 'hero', 'education', 'publications', 'publication', 'paper'];
+      const mappedTarget = target === 'education' ? 'qualification' : (['publications', 'publication', 'paper'].includes(target) ? 'research' : (['work', 'periscale'].includes(target) ? 'experience' : (target === 'hero' ? 'hero' : target)));
 
       if (validSections.includes(target)) {
         newHistory.push({ type: 'success', text: `✔ Navigating to #${mappedTarget}...` });
@@ -875,7 +971,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
           }
         }, 500);
       } else {
-        newHistory.push({ type: 'error', text: `✖ Unknown target section: "${target}". Available: [hero, about, projects, research, skills, education, contact]` });
+        newHistory.push({ type: 'error', text: `✖ Unknown target section: "${target}". Available: [hero, about, experience, projects, research, skills, education, contact]` });
       }
     } else if (lowerCmd === 'easteregg' || lowerCmd === 'matrix') {
       newHistory.push({
