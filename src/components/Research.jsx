@@ -11,7 +11,8 @@ import {
   FiAward,
   FiCpu,
   FiLayers,
-  FiCode
+  FiCode,
+  FiUsers
 } from 'react-icons/fi';
 
 const BIBTEX_CITATION = `@inproceedings{sawom20253cnet,
@@ -226,13 +227,14 @@ const Research = () => {
             padding: '2.25rem 2.25rem 2rem'
           }} className="research-grid-layout">
 
-            {/* Left: Interactive Diagram / Visual Showcase */}
+            {/* Left: Interactive Diagram, Architecture Highlights & Clinical Action Dock */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {/* Image Preview Box */}
               <div style={{
                 position: 'relative',
                 borderRadius: '14px',
                 overflow: 'hidden',
-                border: '1px solid rgba(0, 212, 245, 0.2)',
+                border: '1px solid rgba(0, 212, 245, 0.25)',
                 background: '#090d13',
                 boxShadow: '0 12px 30px rgba(0,0,0,0.6)'
               }}>
@@ -260,7 +262,7 @@ const Research = () => {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   padding: '8px 14px',
-                  background: 'rgba(13, 17, 23, 0.85)',
+                  background: 'rgba(13, 17, 23, 0.88)',
                   backdropFilter: 'blur(8px)',
                   borderRadius: '8px',
                   border: '1px solid rgba(255, 255, 255, 0.08)'
@@ -314,14 +316,52 @@ const Research = () => {
                 </div>
               </div>
 
-              {/* Action Buttons Dock (Shifted to Left under Image & Metrics) */}
+              {/* Key Research Highlights Box (Positioned on Left to fully balance vertical space) */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '0.85rem',
-                marginTop: '0.5rem',
-                paddingTop: '1.25rem',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+                gap: '0.65rem',
+                padding: '1.1rem 1.25rem',
+                background: 'rgba(13, 17, 23, 0.7)',
+                borderRadius: '12px',
+                border: '1px solid rgba(0, 212, 245, 0.16)',
+                boxShadow: 'inset 0 0 15px rgba(0, 212, 245, 0.03)'
+              }}>
+                <div style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.72rem',
+                  color: 'var(--syn-cyan)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  marginBottom: '2px'
+                }}>
+                  <FiCpu size={13} />
+                  <span>CORE ARCHITECTURAL HIGHLIGHTS</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                  <span style={{ color: 'var(--syn-cyan)', fontWeight: 700 }}>▹</span>
+                  <span><strong style={{ color: 'var(--syn-cyan)' }}>Lightweight Edge CNN:</strong> Low-parameter model formulated for edge clinical diagnostic hardware.</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                  <span style={{ color: 'var(--syn-purple)', fontWeight: 700 }}>▹</span>
+                  <span><strong style={{ color: 'var(--syn-purple)' }}>3-Class Screening:</strong> High-precision classification across Normal, Precancerous, and Malignant cells.</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                  <span style={{ color: 'var(--syn-green)', fontWeight: 700 }}>▹</span>
+                  <span><strong style={{ color: 'var(--syn-green)' }}>Dataset Validation:</strong> Benchmark tested and verified on the Mendeley Liquid-Based Cytology dataset.</span>
+                </div>
+              </div>
+
+              {/* Action Buttons Dock */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.8rem',
+                marginTop: '0.25rem'
               }}>
                 {/* Primary Button */}
                 <a
@@ -440,122 +480,259 @@ const Research = () => {
               </div>
             </div>
 
-            {/* Right: Paper Metadata & Findings */}
+            {/* Right: Paper Metadata, Authors Showcase & Findings */}
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
               <div>
                 {/* Paper Title */}
                 <h3 style={{
-                  fontSize: 'clamp(1.25rem, 2.2vw, 1.7rem)',
+                  fontSize: 'clamp(1.35rem, 2.4vw, 1.85rem)',
                   fontFamily: 'var(--font-sans)',
-                  fontWeight: 700,
-                  lineHeight: 1.35,
+                  fontWeight: 800,
+                  lineHeight: 1.3,
+                  letterSpacing: '-0.5px',
                   color: 'var(--text-main)',
-                  marginBottom: '1rem'
+                  marginBottom: '1.25rem'
                 }}>
                   3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques
                 </h3>
 
-                {/* Authors */}
-                <div style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.86rem',
-                  color: 'var(--text-muted)',
-                  lineHeight: 1.6,
-                  marginBottom: '1.25rem'
-                }}>
-                  <span style={{ color: 'var(--syn-comment)' }}>// Authors: </span>
-                  Md. Safayet Hossain Sawom, Md. Adnan Khan,{' '}
-                  <span style={{
-                    color: 'var(--syn-cyan)',
-                    fontWeight: 700,
-                    textShadow: '0 0 10px rgba(0, 212, 245, 0.35)',
-                    borderBottom: '1px dashed var(--syn-cyan)',
-                    paddingBottom: '1px'
+                {/* Authors Showcase Chips */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.72rem',
+                    color: 'var(--syn-comment)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    fontWeight: 600,
+                    marginBottom: '0.65rem'
                   }}>
-                    Md. Ahnaf Rasheed Zaki
-                  </span>
-                  , Mst. Noushin Fariha Ronok, and Dewan Ziaul Karim.
+                    <FiUsers size={13} color="var(--syn-cyan)" />
+                    <span>AUTHORS &amp; RESEARCHERS</span>
+                  </div>
+
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', alignItems: 'center' }}>
+                    {[
+                      { name: 'Md. Safayet Hossain Sawom', isMe: false },
+                      { name: 'Md. Adnan Khan', isMe: false },
+                      { name: 'Md. Ahnaf Rasheed Zaki', isMe: true },
+                      { name: 'Mst. Noushin Fariha Ronok', isMe: false },
+                      { name: 'Dewan Ziaul Karim', isMe: false }
+                    ].map((author) => (
+                      author.isMe ? (
+                        <div 
+                          key={author.name}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '7px',
+                            padding: '5px 14px',
+                            borderRadius: '30px',
+                            background: 'linear-gradient(135deg, rgba(0, 212, 245, 0.16) 0%, rgba(199, 146, 234, 0.16) 100%)',
+                            border: '1px solid var(--syn-cyan)',
+                            boxShadow: '0 0 16px rgba(0, 212, 245, 0.28)'
+                          }}
+                        >
+                          <span style={{
+                            width: '7px',
+                            height: '7px',
+                            borderRadius: '50%',
+                            background: 'var(--syn-cyan)',
+                            boxShadow: '0 0 8px var(--syn-cyan)'
+                          }} />
+                          <span style={{
+                            fontFamily: 'var(--font-sans)',
+                            fontSize: '0.88rem',
+                            fontWeight: 700,
+                            color: '#fff'
+                          }}>
+                            {author.name}
+                          </span>
+                          <span style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.68rem',
+                            padding: '1px 7px',
+                            borderRadius: '12px',
+                            background: 'var(--syn-cyan)',
+                            color: '#0d1117',
+                            fontWeight: 700,
+                            letterSpacing: '0.5px'
+                          }}>
+                            AUTHOR
+                          </span>
+                        </div>
+                      ) : (
+                        <div 
+                          key={author.name}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '5px 12px',
+                            borderRadius: '30px',
+                            background: 'rgba(22, 27, 34, 0.7)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            color: 'var(--text-muted)',
+                            fontSize: '0.82rem',
+                            fontFamily: 'var(--font-sans)'
+                          }}
+                        >
+                          <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(255,255,255,0.35)' }} />
+                          <span>{author.name}</span>
+                        </div>
+                      )
+                    ))}
+                  </div>
                 </div>
 
-                {/* Conference Citation Info */}
+                {/* Redesigned Luxury Conference Credential Banner */}
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '0.6rem 1rem',
-                  background: 'rgba(0, 212, 245, 0.04)',
-                  border: '1px solid rgba(0, 212, 245, 0.12)',
-                  borderRadius: '8px',
-                  marginBottom: '1.5rem',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.8rem',
-                  color: 'var(--text-main)'
+                  gap: '14px',
+                  padding: '1.1rem 1.35rem',
+                  background: 'linear-gradient(135deg, rgba(0, 212, 245, 0.06) 0%, rgba(22, 27, 34, 0.8) 100%)',
+                  border: '1px solid rgba(0, 212, 245, 0.22)',
+                  borderRadius: '12px',
+                  marginBottom: '1.6rem',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
                 }}>
-                  <FiBookOpen size={15} color="var(--syn-cyan)" />
-                  <span>2025 IEEE International Conference on Biomedical Engineering, Computer and Information Technology for Health (BECITHCON)</span>
-                </div>
-
-                {/* Abstract Text */}
-                <div style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: '0.96rem',
-                  lineHeight: 1.7,
-                  color: 'var(--text-muted)',
-                  marginBottom: '1.5rem'
-                }}>
-                  <p style={{ marginBottom: '0.75rem' }}>
-                    <strong style={{ color: 'var(--text-main)' }}>Abstract &amp; Core Contribution: </strong>
-                    Cervical cancer remains one of the leading causes of cancer mortality among women globally, where early cytological detection is paramount. This research presents <strong style={{ color: 'var(--syn-cyan)' }}>3C-Net</strong>, a lightweight deep learning architecture formulated to accurately categorize cervical cytology images into three diagnostic classes: <span style={{ color: 'var(--syn-green)' }}>normal</span>, <span style={{ color: 'var(--syn-yellow)' }}>precancerous</span>, and <span style={{ color: 'var(--syn-pink)' }}>cancerous</span>.
-                  </p>
-                  <p>
-                    Evaluated on the Mendeley Liquid-Based Cytology (LBC) dataset, the proposed 3C-Net architecture achieves superior diagnostic classification performance while significantly reducing computational parameters, making it ideally suited for edge medical devices in clinical pathology laboratories.
-                  </p>
-                </div>
-
-                {/* Key Research Highlights Box */}
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.6rem',
-                  marginBottom: '1.5rem',
-                  padding: '1rem 1.25rem',
-                  background: 'rgba(13, 17, 23, 0.65)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(0, 212, 245, 0.12)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
-                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
-                    <span><strong style={{ color: 'var(--syn-cyan)' }}>Lightweight Edge CNN:</strong> Engineered specifically to eliminate heavy parameter overhead for resource-limited clinical environments.</span>
+                  {/* Glowing Conference Badge Emblem */}
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '10px',
+                    background: 'rgba(0, 212, 245, 0.12)',
+                    border: '1px solid rgba(0, 212, 245, 0.35)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--syn-cyan)',
+                    flexShrink: 0,
+                    boxShadow: '0 0 16px rgba(0, 212, 245, 0.18)'
+                  }}>
+                    <FiBookOpen size={20} />
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
-                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
-                    <span><strong style={{ color: 'var(--syn-purple)' }}>3-Class Cytological Screening:</strong> Automated multi-class distinction across Normal, Precancerous, and Malignant cells.</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: 'var(--text-main)' }}>
-                    <span style={{ color: 'var(--syn-cyan)', fontWeight: 700, lineHeight: 1.5 }}>▹</span>
-                    <span><strong style={{ color: 'var(--syn-green)' }}>Dataset Validation:</strong> Benchmark tested and validated on the Mendeley Liquid-Based Cytology (LBC) Pap smear dataset.</span>
-                  </div>
-                </div>
 
-                {/* Tech Pills */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {['Deep Learning', 'Computer Vision', 'Medical AI', 'Convolutional Neural Networks', 'Cytology', 'Python', 'IEEE Xplore'].map((tag) => (
-                    <span 
-                      key={tag}
-                      style={{
+                  {/* Conference Hierarchy & Metadata */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                      <span style={{
                         fontFamily: 'var(--font-mono)',
-                        fontSize: '0.74rem',
-                        padding: '4px 10px',
-                        borderRadius: '6px',
-                        background: 'rgba(255, 255, 255, 0.03)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        color: 'var(--text-muted)'
-                      }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        color: 'var(--syn-cyan)',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                      }}>
+                        IEEE BECITHCON 2025
+                      </span>
+                      <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>•</span>
+                      <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.7rem',
+                        color: 'var(--syn-purple)',
+                        background: 'rgba(199, 146, 234, 0.12)',
+                        padding: '1px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid rgba(199, 146, 234, 0.25)',
+                        fontWeight: 600
+                      }}>
+                        IEEE Conference Proceedings
+                      </span>
+                    </div>
+
+                    <div style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontSize: '0.88rem',
+                      fontWeight: 600,
+                      color: 'var(--text-main)',
+                      lineHeight: 1.45
+                    }}>
+                      4th International Conference on Biomedical Engineering, Computer and Information Technology for Health
+                    </div>
+                  </div>
                 </div>
+
+                {/* Editorial Abstract Callout Block */}
+                <div style={{
+                  padding: '1.2rem 1.4rem',
+                  background: 'rgba(13, 17, 23, 0.6)',
+                  borderLeft: '3px solid var(--syn-cyan)',
+                  borderRadius: '0 12px 12px 0',
+                  marginBottom: '1.6rem'
+                }}>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.74rem',
+                    color: 'var(--syn-cyan)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    fontWeight: 600,
+                    marginBottom: '0.65rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <FiFileText size={13} />
+                    <span>ABSTRACT &amp; PROBLEM STATEMENT</span>
+                  </div>
+
+                  <p style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.94rem',
+                    lineHeight: 1.75,
+                    color: 'var(--text-muted)',
+                    marginBottom: '0.75rem'
+                  }}>
+                    Cervical cancer remains one of the leading causes of cancer mortality among women globally, where early cytological detection is paramount. This research introduces <strong style={{ color: 'var(--syn-cyan)' }}>3C-Net</strong>, a lightweight deep learning architecture formulated to accurately categorize cervical cytology images into three clinical diagnostic classes: <span style={{ color: 'var(--syn-green)', fontWeight: 600 }}>Normal</span>, <span style={{ color: 'var(--syn-yellow)', fontWeight: 600 }}>Precancerous</span>, and <span style={{ color: 'var(--syn-pink)', fontWeight: 600 }}>Cancerous</span>.
+                  </p>
+                  <p style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.94rem',
+                    lineHeight: 1.75,
+                    color: 'var(--text-muted)',
+                    margin: 0
+                  }}>
+                    Evaluated on the Mendeley Liquid-Based Cytology (LBC) dataset, 3C-Net achieves superior diagnostic classification performance while significantly reducing computational parameters, making it ideally suited for edge deployment in resource-limited clinical pathology laboratories.
+                  </p>
+                </div>
+
+                {/* Research Keywords */}
+                <div>
+                  <div style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.7rem',
+                    color: 'var(--text-dim)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    marginBottom: '0.5rem'
+                  }}>
+                    INDEXED KEYWORDS
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {['Deep Learning', 'Computer Vision', 'Medical AI', 'Convolutional Neural Networks', 'Cytology', 'Python', 'IEEE Xplore'].map((tag) => (
+                      <span 
+                        key={tag}
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.74rem',
+                          padding: '4px 10px',
+                          borderRadius: '6px',
+                          background: 'rgba(255, 255, 255, 0.03)',
+                          border: '1px solid rgba(255, 255, 255, 0.08)',
+                          color: 'var(--text-muted)'
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
 
