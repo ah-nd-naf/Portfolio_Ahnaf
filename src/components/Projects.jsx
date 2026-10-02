@@ -17,6 +17,28 @@ export const projects = [
     accent: '#6366f1',
   },
   {
+    name: 'Periscale-Ecommerce',
+    label: 'Periscale E-Commerce Engine',
+    description: 'Production multi-channel e-commerce storefront & merchant platform featuring 60-second product catalogs, 1-click sync across Daraz, Shopify, Facebook & Instagram, built-in AI fraud prevention, bilingual EN/BN localization, and seamless checkout flows.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Framer Motion', 'REST APIs'],
+    categories: ['Full-Stack', 'Frontend', 'Backend'],
+    github: '#',
+    live: 'https://www.periscale.ai/ecom',
+    accent: '#ff4d00',
+    isCommercial: true,
+  },
+  {
+    name: 'Periscale-Analytics',
+    label: 'Periscale Server CAPI & Analytics Hub',
+    description: 'Enterprise first-party Server-Side Conversions API (CAPI) and behavioral analytics platform. Recovers 100% of ad signals lost to iOS 14+ and ad blockers with guaranteed 8.5+ Meta EMQ, real-time 0.018s latency signal stream, interactive signal injector, heatmaps, and session replays.',
+    tech: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
+    categories: ['Full-Stack', 'Backend', 'AI / ML'],
+    github: '#',
+    live: 'https://www.periscale.ai/analytics',
+    accent: '#06b6d4',
+    isCommercial: true,
+  },
+  {
     name: '3C-Net-Research',
     label: '3C-Net: Cervical Cancer AI Classifier',
     description: 'A lightweight deep learning architecture formulated for automated cervical cytology classification (Normal, Precancerous, Cancerous) from Liquid-Based Pap Smear images. Published & indexed in IEEE Xplore (BECITHCON 2025).',
@@ -335,6 +357,11 @@ const Projects = () => {
                         <span className="projects-live-dot" style={{ background: 'var(--syn-cyan)', boxShadow: '0 0 8px var(--syn-cyan)' }} />
                         <span style={{ color: 'var(--syn-cyan)' }}>IEEE PAPER</span>
                       </div>
+                    ) : activeProject.isCommercial ? (
+                      <div className="projects-live-badge" style={{ background: `${activeProject.accent}22`, borderColor: activeProject.accent }}>
+                        <span className="projects-live-dot" style={{ background: activeProject.accent, boxShadow: `0 0 8px ${activeProject.accent}` }} />
+                        <span style={{ color: activeProject.accent, fontWeight: 700 }}>PRODUCTION SAAS</span>
+                      </div>
                     ) : activeProject.live !== '#' && (
                       <div className="projects-live-badge">
                         <span className="projects-live-dot" />
@@ -390,6 +417,28 @@ const Projects = () => {
                             }}
                           >
                             <FiFileText size={15} /> Paper Details
+                          </a>
+                        </>
+                      ) : activeProject.isCommercial ? (
+                        <>
+                          <a 
+                            href={activeProject.live} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="projects-btn projects-btn-solid"
+                            style={{ background: activeProject.accent, color: '#ffffff', fontWeight: 700, boxShadow: `0 0 16px ${activeProject.accent}40` }}
+                          >
+                            <FiExternalLink size={15} /> Live Platform ↗
+                          </a>
+                          <a 
+                            href="#experience" 
+                            className="projects-btn projects-btn-outline"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                          >
+                            <FiLayers size={15} /> Periscale Role
                           </a>
                         </>
                       ) : (
@@ -514,9 +563,15 @@ const Projects = () => {
                       <span className="grid-cat-dot" style={{ background: proj.accent, boxShadow: `0 0 8px ${proj.accent}` }} />
                       <span className="grid-cat-name">{proj.categories?.[0] || 'Full-Stack'}</span>
                     </div>
-                    <span className="projects-grid-num-badge">
-                      #{String(idx + 1).padStart(2, '0')}
-                    </span>
+                    {proj.isCommercial ? (
+                      <span className="projects-grid-num-badge" style={{ color: proj.accent, borderColor: `${proj.accent}40`, fontWeight: 700 }}>
+                        SAAS
+                      </span>
+                    ) : (
+                      <span className="projects-grid-num-badge">
+                        #{String(idx + 1).padStart(2, '0')}
+                      </span>
+                    )}
                   </div>
 
                   {/* Image Showcase with Cinematic Zoom & Gradient Fade */}
@@ -530,8 +585,13 @@ const Projects = () => {
                     <div className="projects-grid-image-overlay" />
                     {proj.isPaper ? (
                       <div className="projects-grid-live-badge" style={{ background: 'rgba(0, 212, 245, 0.2)', borderColor: 'var(--syn-cyan)' }}>
-                        <span className="projects-live-dot" style={{ background: 'var(--syn-cyan)', boxShadow: '0 0 8px var(--syn-cyan)' }} />
+                        <span className="projects-grid-live-dot" style={{ background: 'var(--syn-cyan)', boxShadow: '0 0 8px var(--syn-cyan)' }} />
                         <span style={{ color: 'var(--syn-cyan)' }}>IEEE PAPER</span>
+                      </div>
+                    ) : proj.isCommercial ? (
+                      <div className="projects-grid-live-badge" style={{ background: `${proj.accent}22`, borderColor: proj.accent }}>
+                        <span className="projects-grid-live-dot" style={{ background: proj.accent, boxShadow: `0 0 8px ${proj.accent}` }} />
+                        <span style={{ color: proj.accent, fontWeight: 700 }}>PRODUCTION</span>
                       </div>
                     ) : proj.live !== '#' && (
                       <div className="projects-grid-live-badge">
@@ -580,6 +640,30 @@ const Projects = () => {
                               }}
                             >
                               <FiFileText size={14} /> Details
+                            </a>
+                          </>
+                        ) : proj.isCommercial ? (
+                          <>
+                            <a
+                              href={proj.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="projects-btn projects-btn-solid"
+                              title="Launch Live Platform"
+                              style={{ background: proj.accent, color: '#ffffff', fontWeight: 700 }}
+                            >
+                              <FiExternalLink size={14} /> Live SaaS
+                            </a>
+                            <a
+                              href="#experience"
+                              className="projects-btn projects-btn-outline"
+                              title="View Periscale AI Internship Role"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                              }}
+                            >
+                              <FiLayers size={14} /> Role
                             </a>
                           </>
                         ) : (

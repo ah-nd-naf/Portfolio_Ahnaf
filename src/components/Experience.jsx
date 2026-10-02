@@ -5,7 +5,8 @@ import {
   FiGitCommit, 
   FiLayers, 
   FiTerminal,
-  FiArrowUpRight
+  FiArrowUpRight,
+  FiExternalLink
 } from 'react-icons/fi';
 import { 
   SiNextdotjs, 
@@ -32,6 +33,9 @@ const TECH_ICONS = {
   'Node.js': <FaNodeJs size={11} className="exp-icon" />,
   'REST APIs': <FaServer size={10} className="exp-icon" />,
   'Custom APIs': <FaServer size={10} className="exp-icon" />,
+  'Meta CAPI': <FaServer size={10} className="exp-icon" />,
+  'TikTok CAPI': <FaServer size={10} className="exp-icon" />,
+  'GA4 Server': <FaServer size={10} className="exp-icon" />,
   'Tailwind CSS': <SiTailwindcss size={11} className="exp-icon" />,
   'Git & GitHub': <FaGitAlt size={11} className="exp-icon" />,
   'UI/UX & Testing': <SiFigma size={11} className="exp-icon" />
@@ -48,12 +52,24 @@ const EXPERIENCE_DATA = {
   summary: 'Contributing as a core full-stack developer across multiple key repositories—engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
   repositories: [
     {
-      id: 'periscale-core',
-      badge: 'Core Platform & Web',
-      title: 'Periscale AI Web & Platform Services',
-      description: 'Engineered frontend modules and backend API services powering Periscale\'s web applications and landing services. Built responsive UI components with Next.js & TypeScript, integrated with PostgreSQL database queries.',
-      tags: ['Next.js', 'TypeScript', 'React', 'PostgreSQL', 'REST APIs'],
-      color: 'var(--syn-cyan)'
+      id: 'periscale-ecom',
+      badge: 'E-Commerce Engine',
+      title: 'Periscale E-Commerce Platform',
+      description: 'Engineered frontend modules and resilient API workflows for Periscale\'s multi-channel e-commerce engine. Built 60-second product catalogs, 1-click sync with Daraz & Shopify, AI fraud protection, bilingual EN/BN localization, and seamless checkout flows.',
+      tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST APIs'],
+      color: '#ff5500',
+      liveUrl: 'https://www.periscale.ai/ecom',
+      liveLabel: '/ecom'
+    },
+    {
+      id: 'periscale-analytics',
+      badge: 'Server CAPI & Tracking',
+      title: 'First-Party CAPI & Deep Behavioral Analytics',
+      description: 'Architected first-party Server-Side Conversions API (CAPI) relay preserving 100% ad signals past iOS 14+ / ad-blockers with 8.5+ Meta EMQ. Formulated real-time 0.018s latency signal streams, interactive injector testing, and behavioral session replays.',
+      tags: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
+      color: 'var(--syn-cyan)',
+      liveUrl: 'https://www.periscale.ai/analytics',
+      liveLabel: '/analytics'
     },
     {
       id: 'gammify',
@@ -366,7 +382,24 @@ const Experience = () => {
                   }}>
                     {repo.badge}
                   </span>
-                  <FiGitCommit size={14} color={repo.color} opacity={0.8} />
+                  {repo.liveUrl ? (
+                    <a
+                      href={repo.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="exp-repo-live-btn"
+                      title={`Launch ${repo.title} in new tab`}
+                      style={{
+                        borderColor: `${repo.color}40`,
+                        color: repo.color
+                      }}
+                    >
+                      <span>{repo.liveLabel || 'Live Launch'}</span>
+                      <FiExternalLink size={11} />
+                    </a>
+                  ) : (
+                    <FiGitCommit size={14} color={repo.color} opacity={0.8} />
+                  )}
                 </div>
 
                 {/* Card Title (Uniform Height) */}
@@ -484,19 +517,13 @@ const Experience = () => {
 
         .exp-repos-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 1.25rem;
           margin-bottom: 2.5rem;
           align-items: stretch;
         }
 
-        @media (max-width: 992px) {
-          .exp-repos-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          }
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 860px) {
           .exp-repos-grid {
             grid-template-columns: 1fr;
           }
@@ -517,6 +544,28 @@ const Experience = () => {
           justify-content: space-between;
           align-items: center;
           margin-bottom: 0.9rem;
+          gap: 0.5rem;
+        }
+
+        .exp-repo-live-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 3px 9px;
+          border-radius: 6px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: var(--text-main);
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+
+        .exp-repo-live-btn:hover {
+          background: rgba(255, 255, 255, 0.12);
+          transform: translateY(-1px);
         }
 
         .exp-card-title {

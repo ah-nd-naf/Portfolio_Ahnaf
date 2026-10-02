@@ -563,7 +563,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
                   Multi-Repository Production Engineering
                 </strong>
-                Contributing as a core full-stack developer across Periscale's web platform, the Gammify gaming & card platform, and 2+ bespoke client solutions using Next.js, TypeScript, PostgreSQL, and REST APIs.
+                Contributing as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI & Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
               </div>
             </div>
 
@@ -572,7 +572,7 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 <FiLayers className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Repositories</span>
-                  <span className="badge-val">Periscale Core · Gammify · Clients</span>
+                  <span className="badge-val">E-Commerce · CAPI Hub · Gammify · Clients</span>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-stack">
@@ -600,14 +600,21 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
                 }}
               >
                 <FiArrowRight size={13} />
-                <span>Jump to Experience Section</span>
+                <span>Experience</span>
               </button>
               <button
                 className="cmd-whoami-btn btn-secondary"
-                onClick={() => window.open('https://www.periscale.ai/', '_blank')}
+                onClick={() => window.open('https://www.periscale.ai/ecom', '_blank')}
               >
                 <FiExternalLink size={13} />
-                <span>Visit periscale.ai ↗</span>
+                <span>Launch /ecom ↗</span>
+              </button>
+              <button
+                className="cmd-whoami-btn btn-secondary"
+                onClick={() => window.open('https://www.periscale.ai/analytics', '_blank')}
+              >
+                <FiExternalLink size={13} />
+                <span>Launch /analytics ↗</span>
               </button>
             </div>
           </div>
