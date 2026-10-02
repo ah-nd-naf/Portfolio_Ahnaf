@@ -32,7 +32,7 @@ export const projects = [
     label: 'Periscale Server CAPI & Analytics Hub',
     description: 'Enterprise first-party Server-Side Conversions API (CAPI) and behavioral analytics platform. Recovers 100% of ad signals lost to iOS 14+ and ad blockers with guaranteed 8.5+ Meta EMQ, real-time 0.018s latency signal stream, interactive signal injector, heatmaps, and session replays.',
     tech: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
-    categories: ['Full-Stack', 'Backend', 'AI / ML'],
+    categories: ['Full-Stack', 'Frontend', 'Backend', 'AI / ML'],
     github: '#',
     live: 'https://www.periscale.ai/analytics',
     accent: '#06b6d4',
