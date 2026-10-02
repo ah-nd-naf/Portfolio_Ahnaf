@@ -33,8 +33,6 @@ const Navbar = ({ onOpenCommandPalette }) => {
         <a href="#experience">experience</a>
         <a href="#projects">projects</a>
         <a href="#research">research</a>
-        <a href="#skills">skills</a>
-        <a href="#qualification">education</a>
         <a href="#contact">contact</a>
 
         {/* Command Palette Trigger */}
@@ -46,7 +44,6 @@ const Navbar = ({ onOpenCommandPalette }) => {
           aria-label="Quick Search & Command Terminal"
         >
           <FiSearch size={13} className="nav-cmd-icon" />
-          <span className="nav-cmd-text">Search</span>
           <kbd className="nav-cmd-kbd">⌘K</kbd>
         </button>
 
