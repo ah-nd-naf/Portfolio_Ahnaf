@@ -16,7 +16,7 @@ const HERO_PAIRS = [
   },
   {
     role: 'Web Developer </> Full-Stack Builder',
-    stack: 'MERN & PERN </> Django DRF',
+    stack: 'MERN & PERN </> Django REST',
   },
 ];
 

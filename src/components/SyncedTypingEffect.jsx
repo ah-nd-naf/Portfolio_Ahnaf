@@ -16,10 +16,10 @@ const SyncedTypingEffect = ({
   const [phase, setPhase] = useState('waiting'); // 'waiting' | 'typing' | 'pausing' | 'deleting'
 
   // Vibrant cyber neon colors per pair
-  // Pair 0: Line 1 = Crimson Red, Line 2 = Cyber Cyan
+  // Pair 0: Line 1 = Cyber Violet (#c792ea), Line 2 = Cyber Cyan (#00d4f5)
   // Pair 1: Line 1 = Neon Pink (#f92aad), Line 2 = Emerald Green (#2ed573)
   // Pair 2: Line 1 = Multi-color, Line 2 = Multi-color
-  const colorsLine1 = ['#ff003c', '#f92aad', '#ff003c'];
+  const colorsLine1 = ['#c792ea', '#f92aad', '#c792ea'];
   const colorsLine2 = ['#00d4f5', '#2ed573', '#00d4f5'];
 
   useEffect(() => {
@@ -145,8 +145,8 @@ const SyncedTypingEffect = ({
   const currentPair = pairs && pairs[pairIndex];
   if (currentPair && currentPair.role.includes('</>')) {
     const sIdx = currentPair.role.indexOf('</>');
-    if (displayedText1.length <= sIdx) cursor1Color = '#ff003c';
-    else if (displayedText1.length <= sIdx + 3) cursor1Color = '#c792ea';
+    if (displayedText1.length <= sIdx) cursor1Color = '#c792ea';
+    else if (displayedText1.length <= sIdx + 3) cursor1Color = '#00d4f5';
     else cursor1Color = '#f92aad';
   }
 
@@ -166,7 +166,7 @@ const SyncedTypingEffect = ({
       <div className={className1}>
         <b>
           <span style={{ position: 'relative', display: 'inline-block' }}>
-            {renderText(displayedText1, c1, '#ff003c', '#c792ea', '#f92aad')}
+            {renderText(displayedText1, c1, '#c792ea', '#00d4f5', '#f92aad')}
             {isReady && (
               <span 
                 className="cursor-blink" 
