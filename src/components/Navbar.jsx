@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiTerminal, FiSearch, FiFileText } from 'react-icons/fi';
+import { FiMenu, FiX, FiTerminal, FiSearch, FiFileText, FiArrowUpRight } from 'react-icons/fi';
 
 const Navbar = ({ onOpenCommandPalette, onOpenCV }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -35,18 +35,6 @@ const Navbar = ({ onOpenCommandPalette, onOpenCV }) => {
         <a href="#research">research</a>
         <a href="#contact">contact</a>
 
-        {/* CV / Resume Trigger */}
-        <button
-          type="button"
-          className="nav-cv-btn"
-          onClick={onOpenCV}
-          title="View & Download Resume / CV (PDF)"
-          aria-label="View and Download CV"
-        >
-          <FiFileText size={12} />
-          <span>CV</span>
-        </button>
-
         {/* Command Palette Trigger */}
         <button
           type="button"
@@ -59,6 +47,20 @@ const Navbar = ({ onOpenCommandPalette, onOpenCV }) => {
           <kbd className="nav-cmd-kbd">⌘K</kbd>
         </button>
 
+        {/* CV / Resume Action Button */}
+        <button
+          type="button"
+          className="nav-cv-btn"
+          onClick={onOpenCV}
+          title="View & Download Resume / CV (PDF)"
+          aria-label="View and Download CV"
+        >
+          <FiFileText size={13} />
+          <span>CV</span>
+          <FiArrowUpRight size={12} className="nav-cv-arrow" />
+        </button>
+
+        {/* GitHub Button */}
         <a
           href="https://github.com/ah-nd-naf"
           target="_blank"
