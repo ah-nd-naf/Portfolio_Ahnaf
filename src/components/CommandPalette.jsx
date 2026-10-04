@@ -30,7 +30,9 @@ import {
   FiMapPin,
   FiBriefcase,
   FiCoffee,
-  FiEye
+  FiEye,
+  FiFileText,
+  FiDownload
 } from 'react-icons/fi';
 import { projects } from './Projects';
 
@@ -181,6 +183,29 @@ const SOCIAL_ACTIONS = [
     action: () => { window.open('https://gammify.app', '_blank'); }
   },
   {
+    id: 'act-view-cv',
+    title: 'Curriculum Vitae (CV / Resume)',
+    subtitle: 'Preview & download official PDF CV (Ahnaf_Rasheed_CV.pdf)',
+    category: 'Actions',
+    icon: FiFileText,
+    action: () => { window.open('/Ahnaf_Rasheed_CV.pdf', '_blank'); }
+  },
+  {
+    id: 'act-download-cv',
+    title: 'Download CV (Direct PDF)',
+    subtitle: 'Instant 1-click download of Ahnaf_Rasheed_CV.pdf',
+    category: 'Actions',
+    icon: FiDownload,
+    action: () => {
+      const link = document.createElement('a');
+      link.href = '/Ahnaf_Rasheed_CV.pdf';
+      link.download = 'Ahnaf_Rasheed_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  },
+  {
     id: 'cmd-hire',
     title: 'Hire Ahnaf (sudo hire)',
     subtitle: 'Launch hiring workflow & contact shortcut',
@@ -202,6 +227,7 @@ const CATEGORIES = ['All', 'Navigation', 'Projects', 'Socials', 'Actions'];
 
 const QUICK_CHIPS = [
   { label: 'help', cmd: 'help', icon: FiHelpCircle },
+  { label: 'cv', cmd: 'cv', icon: FiFileText },
   { label: 'experience', cmd: 'experience', icon: FiBriefcase },
   { label: 'projects', cmd: 'projects', icon: FiFolder },
   { label: 'research', cmd: 'research', icon: FiBookOpen },
@@ -213,7 +239,7 @@ const QUICK_CHIPS = [
   { label: 'clear', cmd: 'clear', icon: FiTrash2 }
 ];
 
-const CommandPalette = ({ isOpen, setIsOpen }) => {
+const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -335,6 +361,10 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
 
   const executeAction = (action) => {
     setIsOpen(false);
+    if (action.id === 'act-view-cv' && onOpenCV) {
+      onOpenCV();
+      return;
+    }
     action.action();
   };
 
@@ -393,6 +423,10 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               <div className="cmd-help-card" onClick={() => processCommand('whoami')}>
                 <div className="cmd-help-badge"><FiUser size={13} /> whoami</div>
                 <div className="cmd-help-desc">Developer bio, identity & core focus</div>
+              </div>
+              <div className="cmd-help-card" onClick={() => processCommand('cv')}>
+                <div className="cmd-help-badge"><FiFileText size={13} /> cv / resume</div>
+                <div className="cmd-help-desc">Preview &amp; download official PDF CV</div>
               </div>
               <div className="cmd-help-card" onClick={() => processCommand('experience')}>
                 <div className="cmd-help-badge"><FiBriefcase size={13} /> experience</div>
@@ -534,6 +568,73 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               >
                 <FiMail size={13} />
                 <span>Get In Touch</span>
+              </button>
+            </div>
+          </div>
+        )
+      });
+    } else if (['cv', 'resume', 'pdf'].includes(lowerCmd)) {
+      newHistory.push({
+        type: 'custom',
+        render: (
+          <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid var(--syn-purple)' }}>
+            <div className="cmd-whoami-header">
+              <div className="cmd-whoami-avatar-glow">
+                <div className="cmd-whoami-avatar" style={{ background: 'rgba(199, 146, 234, 0.15)', color: 'var(--syn-purple)' }}>
+                  <FiFileText size={18} />
+                </div>
+              </div>
+              <div className="cmd-whoami-meta">
+                <div className="cmd-whoami-name-row">
+                  <span className="cmd-whoami-name">Curriculum Vitae (CV)</span>
+                  <span className="cmd-whoami-alias">Ahnaf_Rasheed_CV.pdf</span>
+                </div>
+                <div className="cmd-whoami-role">Full-Stack Developer · Periscale AI Intern</div>
+              </div>
+              <div className="cmd-whoami-status">
+                <span className="live-dot-pulse" style={{ background: 'var(--syn-purple)', boxShadow: '0 0 8px var(--syn-purple)' }}></span>
+                <span style={{ color: 'var(--syn-purple)' }}>PDF READY</span>
+              </div>
+            </div>
+
+            <div className="cmd-whoami-bio-card">
+              <div className="cmd-whoami-bio-quote-icon">
+                <FiFileText size={14} />
+              </div>
+              <div className="cmd-whoami-bio-text">
+                <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+                  Curriculum Vitae / Professional Resume
+                </strong>
+                Complete track record detailing academic background, industry internships at Periscale AI, commercial repositories (E-Commerce, CAPI Hub, Gammify), and IEEE published research.
+              </div>
+            </div>
+
+            <div className="cmd-whoami-actions">
+              <button
+                className="cmd-whoami-btn btn-primary"
+                onClick={() => {
+                  setIsOpen(false);
+                  if (onOpenCV) onOpenCV();
+                }}
+              >
+                <FiEye size={13} />
+                <span>Open CV Preview</span>
+              </button>
+              <a
+                href="/Ahnaf_Rasheed_CV.pdf"
+                download="Ahnaf_Rasheed_CV.pdf"
+                className="cmd-whoami-btn btn-secondary"
+                style={{ textDecoration: 'none' }}
+              >
+                <FiDownload size={13} />
+                <span>Download PDF ↗</span>
+              </a>
+              <button
+                className="cmd-whoami-btn btn-secondary"
+                onClick={() => window.open('/Ahnaf_Rasheed_CV.pdf', '_blank')}
+              >
+                <FiExternalLink size={13} />
+                <span>Open in Tab ↗</span>
               </button>
             </div>
           </div>

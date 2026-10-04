@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiTerminal, FiSearch } from 'react-icons/fi';
+import { FiMenu, FiX, FiTerminal, FiSearch, FiFileText } from 'react-icons/fi';
 
-const Navbar = ({ onOpenCommandPalette }) => {
+const Navbar = ({ onOpenCommandPalette, onOpenCV }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -34,6 +34,18 @@ const Navbar = ({ onOpenCommandPalette }) => {
         <a href="#projects">projects</a>
         <a href="#research">research</a>
         <a href="#contact">contact</a>
+
+        {/* CV / Resume Trigger */}
+        <button
+          type="button"
+          className="nav-cv-btn"
+          onClick={onOpenCV}
+          title="View & Download Resume / CV (PDF)"
+          aria-label="View and Download CV"
+        >
+          <FiFileText size={12} />
+          <span>CV</span>
+        </button>
 
         {/* Command Palette Trigger */}
         <button
@@ -84,6 +96,16 @@ const Navbar = ({ onOpenCommandPalette }) => {
             <a href="#qualification" onClick={() => setIsMobileMenuOpen(false)}>education</a>
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>contact</a>
             
+            <button 
+              className="nav-cv-btn-mobile"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                if (onOpenCV) onOpenCV();
+              }}
+            >
+              <FiFileText size={15} /> View & Download CV (PDF)
+            </button>
+
             <button 
               className="nav-cmd-trigger-mobile"
               onClick={() => {

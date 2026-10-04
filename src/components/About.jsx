@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FiFileText, FiDownload } from 'react-icons/fi';
 import GlitchText from './GlitchText';
 
 const codeLines = [
@@ -18,7 +19,7 @@ const codeLines = [
   { num: 13, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
 ];
 
-const About = () => {
+const About = ({ onOpenCV }) => {
   const [visibleLines, setVisibleLines] = useState(0);
   const hasRun = useRef(false);
 
@@ -146,7 +147,7 @@ const About = () => {
               </p>
             </div>
 
-            <div style={{ marginTop: '2.5rem' }}>
+            <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
               <a
                 href="https://github.com/ah-nd-naf"
                 target="_blank"
@@ -180,6 +181,17 @@ const About = () => {
               >
                 Explore My Code <span>→</span>
               </a>
+
+              <button
+                type="button"
+                className="about-cv-btn"
+                onClick={onOpenCV}
+                title="View & Download Curriculum Vitae (PDF)"
+              >
+                <FiFileText size={15} />
+                <span>View CV / Resume</span>
+                <FiDownload size={13} style={{ opacity: 0.8 }} />
+              </button>
             </div>
           </motion.div>
 

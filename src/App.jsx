@@ -10,11 +10,13 @@ import Qualification from './components/Qualification';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import CommandPalette from './components/CommandPalette';
+import CVModal from './components/CVModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FiMail, FiTerminal } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
 
   useEffect(() => {
     // Force scroll to top on every fresh load to prevent browser scroll memory
@@ -28,10 +30,13 @@ function App() {
     <div style={{ position: 'relative' }}>
       <ParticleBackground />
       <div style={{ position: 'relative', zIndex: 1 }}>
-        <Navbar onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} />
+        <Navbar 
+          onOpenCommandPalette={() => setIsCommandPaletteOpen(true)} 
+          onOpenCV={() => setIsCVModalOpen(true)}
+        />
         <main>
-          <Hero />
-          <About />
+          <Hero onOpenCV={() => setIsCVModalOpen(true)} />
+          <About onOpenCV={() => setIsCVModalOpen(true)} />
           <Experience />
           <Projects />
           <Research />
@@ -43,6 +48,12 @@ function App() {
         <CommandPalette 
           isOpen={isCommandPaletteOpen} 
           setIsOpen={setIsCommandPaletteOpen} 
+          onOpenCV={() => setIsCVModalOpen(true)}
+        />
+
+        <CVModal 
+          isOpen={isCVModalOpen} 
+          onClose={() => setIsCVModalOpen(false)} 
         />
 
         <footer className="site-footer">

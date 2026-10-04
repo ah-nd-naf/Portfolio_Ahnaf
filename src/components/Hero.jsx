@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
 import SyncedTypingEffect from './SyncedTypingEffect';
 import { FaGithub } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiFileText } from 'react-icons/fi';
 
 const HERO_PAIRS = [
   {
@@ -20,7 +20,7 @@ const HERO_PAIRS = [
   },
 ];
 
-const Hero = () => {
+const Hero = ({ onOpenCV }) => {
   const [nameComplete, setNameComplete] = useState(false);
 
   return (
@@ -71,6 +71,15 @@ const Hero = () => {
             >
               <FaGithub /> View GitHub
             </a>
+            <button
+              type="button"
+              className="btn btn-cv"
+              id="btn-cv"
+              onClick={onOpenCV}
+              title="Preview & Download CV / Resume"
+            >
+              <FiFileText /> View / Download CV
+            </button>
             <a href="#contact" className="btn btn-secondary" id="btn-contact">
               <FiMail /> Get In Touch
             </a>
