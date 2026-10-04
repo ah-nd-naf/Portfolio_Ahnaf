@@ -67,7 +67,7 @@ const EXPERIENCE_DATA = {
       title: 'First-Party CAPI & Deep Behavioral Analytics',
       description: 'Architected first-party Server-Side Conversions API (CAPI) relay preserving 100% ad signals past iOS 14+ / ad-blockers with 8.5+ Meta EMQ. Formulated real-time 0.018s latency signal streams, interactive injector testing, and behavioral session replays.',
       tags: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
-      color: 'var(--syn-cyan)',
+      color: '#00d4f5',
       liveUrl: 'https://www.periscale.ai/analytics',
       liveLabel: '/analytics'
     },
@@ -77,7 +77,9 @@ const EXPERIENCE_DATA = {
       title: 'Gammify (Online Gaming & Gift Card Platform)',
       description: 'Contributed to Gammify, an e-commerce platform for digital gaming cards, game top-ups, and gift cards. Executed UI/UX design implementation, component testing, stakeholder feedback reviews, and core technical workflows.',
       tags: ['Next.js', 'TypeScript', 'JavaScript', 'PostgreSQL', 'UI/UX & Testing'],
-      color: 'var(--syn-purple)'
+      color: '#c792ea',
+      liveUrl: 'https://gammify.app',
+      liveLabel: 'gammify.app'
     },
     {
       id: 'client-projects',
@@ -85,7 +87,7 @@ const EXPERIENCE_DATA = {
       title: 'Client Enterprise Solutions & Integrations',
       description: 'Delivered rapid full-stack solutions and third-party integrations across 2+ commercial client codebases. Formulated relational PostgreSQL schemas, secure REST routing, and custom frontend views with strict deadlines.',
       tags: ['TypeScript', 'JavaScript', 'Node.js', 'PostgreSQL', 'Custom APIs'],
-      color: 'var(--syn-green)'
+      color: '#4ec9b0'
     }
   ],
   stack: [

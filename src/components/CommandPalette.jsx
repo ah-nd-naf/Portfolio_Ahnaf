@@ -173,6 +173,14 @@ const SOCIAL_ACTIONS = [
     action: () => { window.open('https://ieeexplore.ieee.org/document/11504298', '_blank'); }
   },
   {
+    id: 'act-gammify',
+    title: 'Gammify Platform',
+    subtitle: 'gammify.app · Digital gaming & gift card e-commerce platform',
+    category: 'Actions',
+    icon: FiExternalLink,
+    action: () => { window.open('https://gammify.app', '_blank'); }
+  },
+  {
     id: 'cmd-hire',
     title: 'Hire Ahnaf (sudo hire)',
     subtitle: 'Launch hiring workflow & contact shortcut',
@@ -615,6 +623,13 @@ const CommandPalette = ({ isOpen, setIsOpen }) => {
               >
                 <FiExternalLink size={13} />
                 <span>Launch /analytics ↗</span>
+              </button>
+              <button
+                className="cmd-whoami-btn btn-secondary"
+                onClick={() => window.open('https://gammify.app', '_blank')}
+              >
+                <FiExternalLink size={13} />
+                <span>Launch gammify.app ↗</span>
               </button>
             </div>
           </div>
