@@ -1387,21 +1387,39 @@ section {
 }
 
 .projects-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  padding: 0.32rem 0.8rem;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: var(--text-muted);
-  transition: all 0.25s ease;
+  font-size: 0.78rem;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(0, 212, 245, 0.05);
+  border: 1px solid rgba(0, 212, 245, 0.2);
+  color: var(--text-main);
+  font-weight: 500;
+  transition: all 0.2s ease;
   cursor: default;
+  white-space: nowrap;
+}
+
+.projects-tech-pill .project-tech-icon {
+  color: var(--syn-cyan);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .projects-tech-pill:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-main);
+  background: rgba(0, 212, 245, 0.12);
+  border-color: rgba(0, 212, 245, 0.45);
+  box-shadow: 0 0 15px rgba(0, 212, 245, 0.18);
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+.projects-tech-pill:hover .project-tech-icon {
+  opacity: 1;
 }
 
 .projects-btn {
@@ -1758,18 +1776,19 @@ section {
 
 .projects-grid-tech-wrap .projects-tech-pill {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 0.22rem 0.6rem;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  color: #94a3b8;
-  transition: all 0.25s ease;
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 100px;
+  background: rgba(0, 212, 245, 0.05);
+  border: 1px solid rgba(0, 212, 245, 0.2);
+  color: var(--text-main);
+  transition: all 0.2s ease;
+  gap: 5px;
 }
 
 .projects-grid-card:hover .projects-tech-pill {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #e2e8f0;
+  border-color: rgba(0, 212, 245, 0.35);
+  color: #fff;
 }
 
 .projects-grid-actions {
@@ -5402,8 +5421,10 @@ section {
     gap: 0.4rem !important;
   }
   .projects-tech-pill {
-    font-size: 0.65rem !important;
-    padding: 0.2rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+    border-radius: 100px !important;
+    gap: 5px !important;
   }
   .projects-card-actions {
     gap: 0.5rem !important;

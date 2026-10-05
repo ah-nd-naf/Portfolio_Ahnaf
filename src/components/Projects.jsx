@@ -1,9 +1,76 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink, FiChevronLeft, FiChevronRight, FiGrid, FiLayers, FiFolder, FiFileText } from 'react-icons/fi';
+import { 
+  FaGithub, 
+  FaReact, 
+  FaNodeJs, 
+  FaJsSquare, 
+  FaServer, 
+  FaPython, 
+  FaHtml5, 
+  FaBrain, 
+  FaHeartbeat, 
+  FaCss3Alt 
+} from 'react-icons/fa';
+import { 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiPostgresql, 
+  SiTailwindcss, 
+  SiFastapi, 
+  SiPrisma, 
+  SiMongodb, 
+  SiExpress, 
+  SiVite, 
+  SiFramer 
+} from 'react-icons/si';
+import { 
+  FiExternalLink, 
+  FiChevronLeft, 
+  FiChevronRight, 
+  FiGrid, 
+  FiLayers, 
+  FiFolder, 
+  FiFileText,
+  FiCpu,
+  FiEye,
+  FiCode
+} from 'react-icons/fi';
 
 const SLIDE_DURATION = 6000;
+
+// Developer Tech Stack Icons
+const PROJECT_TECH_ICONS = {
+  'Next.js': <SiNextdotjs size={11} className="project-tech-icon" />,
+  'TypeScript': <SiTypescript size={11} className="project-tech-icon" />,
+  'JavaScript': <FaJsSquare size={11} className="project-tech-icon" />,
+  'Python': <FaPython size={11} className="project-tech-icon" />,
+  'FastAPI': <SiFastapi size={11} className="project-tech-icon" />,
+  'Prisma': <SiPrisma size={11} className="project-tech-icon" />,
+  'Groq API': <FiCpu size={11} className="project-tech-icon" />,
+  'Tailwind CSS': <SiTailwindcss size={11} className="project-tech-icon" />,
+  'PostgreSQL': <SiPostgresql size={11} className="project-tech-icon" />,
+  'Framer Motion': <SiFramer size={11} className="project-tech-icon" />,
+  'REST APIs': <FaServer size={10} className="project-tech-icon" />,
+  'Custom APIs': <FaServer size={10} className="project-tech-icon" />,
+  'Meta CAPI': <FaServer size={10} className="project-tech-icon" />,
+  'TikTok CAPI': <FaServer size={10} className="project-tech-icon" />,
+  'GA4 Server': <FaServer size={10} className="project-tech-icon" />,
+  'Deep Learning': <FaBrain size={11} className="project-tech-icon" />,
+  'Computer Vision': <FiEye size={11} className="project-tech-icon" />,
+  'CNN': <FiCpu size={11} className="project-tech-icon" />,
+  'Medical AI': <FaHeartbeat size={11} className="project-tech-icon" />,
+  'React': <FaReact size={11} className="project-tech-icon" />,
+  'Vite': <SiVite size={11} className="project-tech-icon" />,
+  'Node.js': <FaNodeJs size={11} className="project-tech-icon" />,
+  'Express': <SiExpress size={11} className="project-tech-icon" />,
+  'MongoDB': <SiMongodb size={11} className="project-tech-icon" />,
+  'HTML': <FaHtml5 size={11} className="project-tech-icon" />,
+  'HTML5': <FaHtml5 size={11} className="project-tech-icon" />,
+  'CSS': <FaCss3Alt size={11} className="project-tech-icon" />,
+  'CSS3': <FaCss3Alt size={11} className="project-tech-icon" />,
+  'HTML/CSS': <FaHtml5 size={11} className="project-tech-icon" />
+};
 
 export const projects = [
   {
@@ -390,7 +457,8 @@ const Projects = () => {
                     <div className="projects-card-tech-list">
                       {activeProject.tech.map((t) => (
                         <span key={t} className="projects-tech-pill">
-                          {t}
+                          {PROJECT_TECH_ICONS[t] || <FiCode size={11} className="project-tech-icon" />}
+                          <span>{t}</span>
                         </span>
                       ))}
                     </div>
@@ -611,7 +679,8 @@ const Projects = () => {
                       <div className="projects-grid-tech-wrap">
                         {proj.tech.map((t) => (
                           <span key={t} className="projects-tech-pill">
-                            {t}
+                            {PROJECT_TECH_ICONS[t] || <FiCode size={10} className="project-tech-icon" />}
+                            <span>{t}</span>
                           </span>
                         ))}
                       </div>
@@ -710,6 +779,58 @@ const Projects = () => {
         )}
 
       </div>
+
+      <style>{`
+        .projects-tech-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          color: var(--text-main);
+          background: rgba(0, 212, 245, 0.05);
+          border: 1px solid rgba(0, 212, 245, 0.2);
+          padding: 5px 12px;
+          border-radius: 100px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+          cursor: default;
+          white-space: nowrap;
+        }
+
+        .projects-tech-pill .project-tech-icon {
+          color: var(--syn-cyan);
+          opacity: 0.9;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .projects-tech-pill:hover {
+          background: rgba(0, 212, 245, 0.12);
+          border-color: rgba(0, 212, 245, 0.45);
+          box-shadow: 0 0 15px rgba(0, 212, 245, 0.18);
+          transform: translateY(-1px);
+          color: #fff;
+        }
+
+        .projects-tech-pill:hover .project-tech-icon {
+          opacity: 1;
+        }
+
+        .projects-grid-tech-wrap .projects-tech-pill {
+          font-size: 0.73rem;
+          padding: 4px 10px;
+          gap: 5px;
+        }
+
+        @media (max-width: 640px) {
+          .projects-tech-pill {
+            font-size: 0.72rem !important;
+            padding: 4px 10px !important;
+            gap: 5px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
