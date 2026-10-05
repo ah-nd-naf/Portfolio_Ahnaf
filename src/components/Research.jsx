@@ -45,7 +45,7 @@ const Research = () => {
   };
 
   return (
-    <section id="research" className="research-section" style={{ position: 'relative', padding: '110px 5vw 90px' }}>
+    <section id="research" className="research-section">
       
       {/* Ambient Glow */}
       <div 
@@ -150,82 +150,29 @@ const Research = () => {
         >
 
           {/* Top Status Bar (IEEE & Indexing Badge) */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '1rem',
-            padding: '1.1rem 2rem',
-            background: 'rgba(13, 17, 23, 0.75)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.06)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '4px 12px',
-                borderRadius: '6px',
-                background: 'rgba(0, 212, 245, 0.12)',
-                color: 'var(--syn-cyan)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.78rem',
-                fontWeight: 700,
-                letterSpacing: '0.5px',
-                border: '1px solid rgba(0, 212, 245, 0.3)'
-              }}>
+          <div className="research-status-bar">
+            <div className="research-status-group venue">
+              <span className="research-ieee-badge">
                 <FiAward size={14} /> IEEE Xplore
               </span>
-              <span style={{
-                color: 'var(--text-muted)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem'
-              }}>
+              <span className="research-conf-text">
                 BECITHCON 2025 · Conference Paper
               </span>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '3px 10px',
-                borderRadius: '20px',
-                background: 'rgba(78, 201, 176, 0.1)',
-                border: '1px solid rgba(78, 201, 176, 0.3)',
-                color: 'var(--syn-green)',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.72rem',
-                fontWeight: 600
-              }}>
-                <span style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: 'var(--syn-green)',
-                  boxShadow: '0 0 8px var(--syn-green)'
-                }} />
+            <div className="research-status-group indexing">
+              <div className="research-indexed-badge">
+                <span className="research-indexed-dot" />
                 PUBLISHED &amp; INDEXED
               </div>
-              <span style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.75rem',
-                color: 'var(--syn-comment)'
-              }}>
+              <span className="research-doc-id">
                 Doc #11504298
               </span>
             </div>
           </div>
 
           {/* Main Card Content */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '2.5rem',
-            padding: '2.25rem 2.25rem 2rem'
-          }} className="research-grid-layout">
+          <div className="research-grid-layout">
 
             {/* Left: Interactive Diagram, Architecture Highlights & Clinical Action Dock */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -253,66 +200,31 @@ const Research = () => {
                 />
                 
                 {/* Visual Overlay Tag */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '12px',
-                  left: '12px',
-                  right: '12px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '8px 14px',
-                  background: 'rgba(13, 17, 23, 0.88)',
-                  backdropFilter: 'blur(8px)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(255, 255, 255, 0.08)'
-                }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--syn-cyan)', fontWeight: 600 }}>
-                    Architecture: 3C-Net CNN
+                <div className="research-image-overlay">
+                  <span className="research-overlay-arch">
+                    <span className="research-arch-prefix">Architecture: </span>3C-Net CNN
                   </span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                  <span className="research-overlay-dataset">
                     Mendeley LBC Dataset
                   </span>
                 </div>
               </div>
 
               {/* Research Metrics Pills */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-                gap: '0.75rem'
-              }}>
-                <div style={{
-                  padding: '0.75rem 1rem',
-                  background: 'rgba(22, 27, 34, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  borderRadius: '10px',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--syn-purple)', textTransform: 'uppercase' }}>Focus</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginTop: '2px' }}>Medical AI &amp; CV</div>
+              <div className="research-metrics-grid">
+                <div className="research-metric-card">
+                  <div className="research-metric-label focus">Focus</div>
+                  <div className="research-metric-val">Medical AI &amp; CV</div>
                 </div>
 
-                <div style={{
-                  padding: '0.75rem 1rem',
-                  background: 'rgba(22, 27, 34, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  borderRadius: '10px',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--syn-cyan)', textTransform: 'uppercase' }}>Classes</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginTop: '2px' }}>3-Class Cytology</div>
+                <div className="research-metric-card">
+                  <div className="research-metric-label classes">Classes</div>
+                  <div className="research-metric-val">3-Class Cytology</div>
                 </div>
 
-                <div style={{
-                  padding: '0.75rem 1rem',
-                  background: 'rgba(22, 27, 34, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.05)',
-                  borderRadius: '10px',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--syn-green)', textTransform: 'uppercase' }}>Design</div>
-                  <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)', marginTop: '2px' }}>Lightweight CNN</div>
+                <div className="research-metric-card">
+                  <div className="research-metric-label design">Design</div>
+                  <div className="research-metric-val">Lightweight CNN</div>
                 </div>
               </div>
 
@@ -752,7 +664,7 @@ const Research = () => {
                   overflow: 'hidden'
                 }}
               >
-                <div style={{ padding: '1.5rem 2.25rem' }}>
+                <div className="research-bib-drawer-content">
                   <div style={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -810,9 +722,304 @@ const Research = () => {
       </div>
 
       <style>{`
+        /* Base / Desktop Styles */
+        .research-section {
+          position: relative;
+          padding: 110px 5vw 90px;
+        }
+
+        .research-status-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 1rem;
+          padding: 1.1rem 2rem;
+          background: rgba(13, 17, 23, 0.75);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .research-status-group {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .research-ieee-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 12px;
+          border-radius: 6px;
+          background: rgba(0, 212, 245, 0.12);
+          color: var(--syn-cyan);
+          font-family: var(--font-mono);
+          fontSize: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          border: 1px solid rgba(0, 212, 245, 0.3);
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        .research-conf-text {
+          color: var(--text-muted);
+          font-family: var(--font-mono);
+          font-size: 0.8rem;
+          white-space: nowrap;
+        }
+
+        .research-indexed-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 3px 10px;
+          border-radius: 20px;
+          background: rgba(78, 201, 176, 0.1);
+          border: 1px solid rgba(78, 201, 176, 0.3);
+          color: var(--syn-green);
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          font-weight: 600;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+
+        .research-indexed-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: var(--syn-green);
+          box-shadow: 0 0 8px var(--syn-green);
+          flex-shrink: 0;
+        }
+
+        .research-doc-id {
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          color: var(--syn-comment);
+          white-space: nowrap;
+        }
+
+        .research-grid-layout {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          padding: 2.25rem 2.25rem 2rem;
+        }
+
         @media (min-width: 950px) {
           .research-grid-layout {
             grid-template-columns: 1fr 1.25fr !important;
+          }
+        }
+
+        .research-image-overlay {
+          position: absolute;
+          bottom: 12px;
+          left: 12px;
+          right: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 14px;
+          background: rgba(13, 17, 23, 0.88);
+          backdrop-filter: blur(8px);
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          gap: 8px;
+        }
+
+        .research-overlay-arch {
+          font-family: var(--font-mono);
+          font-size: 0.75rem;
+          color: var(--syn-cyan);
+          font-weight: 600;
+          white-space: nowrap;
+        }
+
+        .research-overlay-dataset {
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          color: var(--text-muted);
+          white-space: nowrap;
+        }
+
+        .research-metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.75rem;
+        }
+
+        .research-metric-card {
+          padding: 0.75rem 0.6rem;
+          background: rgba(22, 27, 34, 0.5);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .research-metric-label {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          text-transform: uppercase;
+        }
+
+        .research-metric-label.focus {
+          color: var(--syn-purple);
+        }
+
+        .research-metric-label.classes {
+          color: var(--syn-cyan);
+        }
+
+        .research-metric-label.design {
+          color: var(--syn-green);
+        }
+
+        .research-metric-val {
+          font-family: var(--font-sans);
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text-main);
+          margin-top: 2px;
+          line-height: 1.25;
+        }
+
+        .research-bib-drawer-content {
+          padding: 1.5rem 2.25rem;
+        }
+
+        /* Tablet Responsive Adjustments */
+        @media (max-width: 768px) {
+          .research-section {
+            padding: 85px 4vw 70px;
+          }
+          .research-grid-layout {
+            padding: 1.75rem 1.5rem;
+            gap: 2rem;
+          }
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 640px) {
+          .research-section {
+            padding: 70px 3.5vw 60px;
+          }
+
+          .research-status-bar {
+            padding: 0.85rem 1rem;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.65rem;
+          }
+
+          .research-status-group.venue {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 8px;
+          }
+
+          .research-status-group.indexing {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 8px;
+            padding-top: 0.55rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.08);
+          }
+
+          .research-ieee-badge {
+            font-size: 0.72rem;
+            padding: 3px 9px;
+            white-space: nowrap;
+            flex-shrink: 0;
+          }
+
+          .research-conf-text {
+            font-size: 0.72rem;
+            text-align: right;
+            white-space: nowrap;
+          }
+
+          .research-indexed-badge {
+            font-size: 0.68rem;
+            padding: 2.5px 8px;
+            white-space: nowrap;
+            flex-shrink: 0;
+          }
+
+          .research-doc-id {
+            font-size: 0.72rem;
+            text-align: right;
+            white-space: nowrap;
+          }
+
+          .research-grid-layout {
+            padding: 1.25rem 1rem 1.5rem;
+            gap: 1.5rem;
+          }
+
+          .research-image-overlay {
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            padding: 6px 10px;
+          }
+
+          .research-overlay-arch {
+            font-size: 0.7rem;
+          }
+
+          .research-overlay-dataset {
+            font-size: 0.68rem;
+          }
+
+          .research-metrics-grid {
+            gap: 0.5rem;
+          }
+
+          .research-metric-card {
+            padding: 0.65rem 0.35rem;
+            border-radius: 8px;
+          }
+
+          .research-metric-label {
+            font-size: 0.64rem;
+          }
+
+          .research-metric-val {
+            font-size: 0.76rem;
+            line-height: 1.2;
+          }
+
+          .research-bib-drawer-content {
+            padding: 1rem;
+          }
+        }
+
+        @media (max-width: 440px) {
+          .research-arch-prefix {
+            display: none;
+          }
+          .research-conf-text {
+            font-size: 0.68rem;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .research-conf-text {
+            font-size: 0.65rem;
+          }
+          .research-metric-val {
+            font-size: 0.72rem;
           }
         }
       `}</style>
