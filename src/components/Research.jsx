@@ -156,7 +156,7 @@ const Research = () => {
                 <FiAward size={14} /> IEEE Xplore
               </span>
               <span className="research-conf-text">
-                BECITHCON 2025 · Conference Paper
+                BECITHCON 2025<span className="research-conf-full"> · Conference Paper</span>
               </span>
             </div>
 
@@ -769,6 +769,10 @@ const Research = () => {
           white-space: nowrap;
         }
 
+        .research-conf-full {
+          display: inline;
+        }
+
         .research-indexed-badge {
           display: inline-flex;
           align-items: center;
@@ -947,6 +951,10 @@ const Research = () => {
             font-size: 0.72rem;
             text-align: right;
             white-space: nowrap;
+          }
+
+          .research-conf-full {
+            display: none;
           }
 
           .research-indexed-badge {
