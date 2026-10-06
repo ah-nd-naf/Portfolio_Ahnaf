@@ -144,27 +144,9 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '3.5rem' }}
         >
-          <div style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            padding: '6px 18px', 
-            background: 'rgba(0, 212, 245, 0.05)', 
-            border: '1px solid rgba(0, 212, 245, 0.2)', 
-            borderRadius: '30px', 
-            marginBottom: '1.25rem' 
-          }}>
+          <div className="exp-section-badge">
             <FiBriefcase size={14} color="var(--syn-cyan)" />
-            <span style={{ 
-              fontFamily: 'var(--font-mono)', 
-              fontSize: '0.78rem', 
-              color: 'var(--syn-cyan)', 
-              letterSpacing: '2px', 
-              textTransform: 'uppercase', 
-              fontWeight: 600 
-            }}>
-              git log --experience --live
-            </span>
+            <span>git log --experience --live</span>
           </div>
 
           <h2 style={{ 
@@ -425,6 +407,28 @@ const Experience = () => {
       </div>
 
       <style>{`
+        .exp-section-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 18px;
+          background: rgba(0, 212, 245, 0.05);
+          border: 1px solid rgba(0, 212, 245, 0.2);
+          border-radius: 30px;
+          margin-bottom: 1.25rem;
+          white-space: nowrap;
+        }
+
+        .exp-section-badge span {
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          color: var(--syn-cyan);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+
         .exp-header-row {
           display: flex;
           justify-content: space-between;
@@ -959,6 +963,16 @@ const Experience = () => {
           .exp-stack-list {
             gap: 6px !important;
             width: 100% !important;
+          }
+
+          .exp-section-badge {
+            padding: 5px 13px !important;
+            gap: 6px !important;
+          }
+
+          .exp-section-badge span {
+            font-size: 0.72rem !important;
+            letter-spacing: 1px !important;
           }
 
           .exp-stack-pill {

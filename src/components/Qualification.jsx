@@ -109,9 +109,9 @@ const Qualification = () => {
           transition={{ duration: 0.6 }}
           style={{ textAlign: 'center', marginBottom: '5rem' }}
         >
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'rgba(199, 146, 234, 0.05)', border: '1px solid rgba(199, 146, 234, 0.15)', borderRadius: '30px', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 14px', background: 'rgba(199, 146, 234, 0.05)', border: '1px solid rgba(199, 146, 234, 0.15)', borderRadius: '30px', marginBottom: '1.5rem', whiteSpace: 'nowrap' }}>
              <FiGitBranch size={14} color="var(--syn-purple)" />
-             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--syn-purple)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>git log --oneline --graph</span>
+             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--syn-purple)', letterSpacing: '1px', textTransform: 'uppercase', fontWeight: 600, whiteSpace: 'nowrap' }}>git log --oneline --graph</span>
           </div>
 
           <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontFamily: 'var(--font-sans)', fontWeight: 800, margin: 0, letterSpacing: '-1.5px', lineHeight: 1.1 }}>

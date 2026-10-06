@@ -501,69 +501,25 @@ const Research = () => {
                 </div>
 
                 {/* Redesigned Luxury Conference Credential Banner */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '14px',
-                  padding: '1.1rem 1.35rem',
-                  background: 'linear-gradient(135deg, rgba(0, 212, 245, 0.06) 0%, rgba(22, 27, 34, 0.8) 100%)',
-                  border: '1px solid rgba(0, 212, 245, 0.22)',
-                  borderRadius: '12px',
-                  marginBottom: '1.6rem',
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
-                }}>
+                <div className="research-conf-banner">
                   {/* Glowing Conference Badge Emblem */}
-                  <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '10px',
-                    background: 'rgba(0, 212, 245, 0.12)',
-                    border: '1px solid rgba(0, 212, 245, 0.35)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--syn-cyan)',
-                    flexShrink: 0,
-                    boxShadow: '0 0 16px rgba(0, 212, 245, 0.18)'
-                  }}>
+                  <div className="research-conf-emblem">
                     <FiBookOpen size={20} />
                   </div>
 
                   {/* Conference Hierarchy & Metadata */}
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                      <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: 'var(--syn-cyan)',
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
-                      }}>
+                  <div className="research-conf-details">
+                    <div className="research-conf-header-row">
+                      <span className="research-conf-title-tag">
                         IEEE BECITHCON 2025
                       </span>
-                      <span style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>•</span>
-                      <span style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.7rem',
-                        color: 'var(--syn-purple)',
-                        background: 'rgba(199, 146, 234, 0.12)',
-                        padding: '1px 8px',
-                        borderRadius: '4px',
-                        border: '1px solid rgba(199, 146, 234, 0.25)',
-                        fontWeight: 600
-                      }}>
+                      <span className="research-conf-dot-sep">•</span>
+                      <span className="research-conf-proceedings-tag">
                         IEEE Conference Proceedings
                       </span>
                     </div>
 
-                    <div style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontSize: '0.88rem',
-                      fontWeight: 600,
-                      color: 'var(--text-main)',
-                      lineHeight: 1.45
-                    }}>
+                    <div className="research-conf-full-name">
                       4th International Conference on Biomedical Engineering, Computer and Information Technology for Health
                     </div>
                   </div>
@@ -898,6 +854,78 @@ const Research = () => {
           padding: 1.5rem 2.25rem;
         }
 
+        .research-conf-banner {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 1.1rem 1.35rem;
+          background: linear-gradient(135deg, rgba(0, 212, 245, 0.06) 0%, rgba(22, 27, 34, 0.8) 100%);
+          border: 1px solid rgba(0, 212, 245, 0.22);
+          border-radius: 12px;
+          margin-bottom: 1.6rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .research-conf-emblem {
+          width: 44px;
+          height: 44px;
+          border-radius: 10px;
+          background: rgba(0, 212, 245, 0.12);
+          border: 1px solid rgba(0, 212, 245, 0.35);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--syn-cyan);
+          flex-shrink: 0;
+          box-shadow: 0 0 16px rgba(0, 212, 245, 0.18);
+        }
+
+        .research-conf-details {
+          flex: 1;
+          min-width: 0;
+        }
+
+        .research-conf-header-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-bottom: 4px;
+        }
+
+        .research-conf-title-tag {
+          font-family: var(--font-mono);
+          font-size: 0.72rem;
+          font-weight: 700;
+          color: var(--syn-cyan);
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .research-conf-dot-sep {
+          color: var(--text-dim);
+          font-size: 0.75rem;
+        }
+
+        .research-conf-proceedings-tag {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          color: var(--syn-purple);
+          background: rgba(199, 146, 234, 0.12);
+          padding: 1px 8px;
+          border-radius: 4px;
+          border: 1px solid rgba(199, 146, 234, 0.25);
+          font-weight: 600;
+        }
+
+        .research-conf-full-name {
+          font-family: var(--font-sans);
+          font-size: 0.88rem;
+          font-weight: 600;
+          color: var(--text-main);
+          line-height: 1.45;
+        }
+
         /* Tablet Responsive Adjustments */
         @media (max-width: 768px) {
           .research-section {
@@ -1010,6 +1038,41 @@ const Research = () => {
 
           .research-bib-drawer-content {
             padding: 1rem;
+          }
+
+          .research-conf-banner {
+            align-items: flex-start !important;
+            padding: 0.95rem 1rem !important;
+            gap: 12px !important;
+          }
+
+          .research-conf-emblem {
+            width: 38px !important;
+            height: 38px !important;
+            margin-top: 3px !important;
+          }
+
+          .research-conf-header-row {
+            gap: 6px !important;
+            margin-bottom: 5px !important;
+          }
+
+          .research-conf-title-tag {
+            font-size: 0.7rem !important;
+          }
+
+          .research-conf-dot-sep {
+            display: none !important;
+          }
+
+          .research-conf-proceedings-tag {
+            font-size: 0.66rem !important;
+            padding: 1px 6px !important;
+          }
+
+          .research-conf-full-name {
+            font-size: 0.82rem !important;
+            line-height: 1.4 !important;
           }
         }
 
