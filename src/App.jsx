@@ -58,22 +58,33 @@ function App() {
 
         <footer className="site-footer">
           <div className="footer-status">
-            <span className="footer-status-dot"></span>
-            <span style={{ color: 'var(--text-dim)' }}>[</span>
-            <span style={{ color: 'var(--syn-cyan)' }}>system</span>
-            <span style={{ color: 'var(--text-dim)' }}>:</span>
-            <span style={{ color: 'var(--syn-green)', fontWeight: 600 }}>active</span>
-            <span style={{ color: 'var(--text-dim)' }}>] · [</span>
-            <span style={{ color: 'var(--syn-cyan)' }}>env</span>
-            <span style={{ color: 'var(--text-dim)' }}>:</span>
-            <span style={{ color: 'var(--syn-purple)' }}>production</span>
-            <span style={{ color: 'var(--text-dim)' }}>] · [</span>
-            <span style={{ color: 'var(--syn-cyan)' }}>ping</span>
-            <span style={{ color: 'var(--text-dim)' }}>:</span>
-            <span style={{ color: 'var(--syn-number)' }}>12ms</span>
-            <span style={{ color: 'var(--text-dim)' }}>] · </span>
+            <span className="footer-status-pill">
+              <span className="footer-status-dot"></span>
+              <span style={{ color: 'var(--text-dim)' }}>[</span>
+              <span style={{ color: 'var(--syn-cyan)' }}>system</span>
+              <span style={{ color: 'var(--text-dim)' }}>:</span>
+              <span style={{ color: 'var(--syn-green)', fontWeight: 600 }}>active</span>
+              <span style={{ color: 'var(--text-dim)' }}>]</span>
+            </span>
+            <span className="footer-status-sep footer-hide-mobile">·</span>
+            <span className="footer-status-pill footer-hide-mobile">
+              <span style={{ color: 'var(--text-dim)' }}>[</span>
+              <span style={{ color: 'var(--syn-cyan)' }}>env</span>
+              <span style={{ color: 'var(--text-dim)' }}>:</span>
+              <span style={{ color: 'var(--syn-purple)' }}>production</span>
+              <span style={{ color: 'var(--text-dim)' }}>]</span>
+            </span>
+            <span className="footer-status-sep">·</span>
+            <span className="footer-status-pill">
+              <span style={{ color: 'var(--text-dim)' }}>[</span>
+              <span style={{ color: 'var(--syn-cyan)' }}>ping</span>
+              <span style={{ color: 'var(--text-dim)' }}>:</span>
+              <span style={{ color: 'var(--syn-number)' }}>12ms</span>
+              <span style={{ color: 'var(--text-dim)' }}>]</span>
+            </span>
+            <span className="footer-status-sep footer-hide-mobile">·</span>
             <button 
-              className="footer-terminal-btn"
+              className="footer-terminal-btn footer-hide-mobile"
               onClick={() => setIsCommandPaletteOpen(true)}
               title="Open Command Palette (Ctrl+K or ~)"
               aria-label="Open Command Palette"
@@ -116,6 +127,7 @@ function App() {
                 <FiMail size={15} />
               </a>
             </div>
+            <span className="footer-right-sep footer-show-mobile">·</span>
             <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="footer-back-to-top">
               <span className="back-to-top-kw">return</span> <span className="back-to-top-fn">toTop</span><span className="back-to-top-punct">()</span>
             </span>
