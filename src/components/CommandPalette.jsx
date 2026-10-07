@@ -518,21 +518,30 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <FiMapPin className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Location</span>
-                  <span className="badge-val">Dhaka, BD · Global Remote</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag cyan">Dhaka, BD</span>
+                    <span className="badge-tag cyan">Global Remote</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-stack">
                 <FiZap className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Tech Arsenal</span>
-                  <span className="badge-val">MERN + Python + AI Stack</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag purple">Next.js &amp; React</span>
+                    <span className="badge-tag purple">Node &amp; Python</span>
+                    <span className="badge-tag purple">AI Stack</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-status">
                 <FiBriefcase className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Status</span>
-                  <span className="badge-val">Open for Roles & Projects</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag green">Open for Roles</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -611,30 +620,30 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
 
             <div className="cmd-whoami-actions">
               <button
-                className="cmd-whoami-btn btn-primary"
+                className="cmd-pill-btn primary"
                 onClick={() => {
                   setIsOpen(false);
                   if (onOpenCV) onOpenCV();
                 }}
               >
-                <FiEye size={13} />
+                <FiEye size={12} />
                 <span>Open CV Preview</span>
               </button>
               <a
                 href="/Ahnaf_Rasheed_CV.pdf"
                 download="Ahnaf_Rasheed_CV.pdf"
-                className="cmd-whoami-btn btn-secondary"
+                className="cmd-pill-btn"
                 style={{ textDecoration: 'none' }}
               >
-                <FiDownload size={13} />
-                <span>Download PDF ↗</span>
+                <FiDownload size={12} />
+                <span>Download PDF</span>
               </a>
               <button
-                className="cmd-whoami-btn btn-secondary"
+                className="cmd-pill-btn secondary"
                 onClick={() => window.open('/Ahnaf_Rasheed_CV.pdf', '_blank')}
               >
-                <FiExternalLink size={13} />
-                <span>Open in Tab ↗</span>
+                <span>Open in Tab</span>
+                <FiExternalLink size={12} />
               </button>
             </div>
           </div>
@@ -672,7 +681,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
                   Multi-Repository Production Engineering
                 </strong>
-                Contributing as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI & Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
+                Contributing as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI &amp; Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
               </div>
             </div>
 
@@ -680,57 +689,87 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
               <div className="cmd-whoami-badge-item badge-location">
                 <FiLayers className="badge-icon" size={14} />
                 <div className="badge-content">
-                  <span className="badge-label">Repositories</span>
-                  <span className="badge-val">E-Commerce · CAPI Hub · Gammify · Clients</span>
+                  <span className="badge-label">Key Repositories</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag cyan">E-Commerce</span>
+                    <span className="badge-tag cyan">CAPI Hub</span>
+                    <span className="badge-tag cyan">Gammify</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-stack">
                 <FiZap className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Tech Stack</span>
-                  <span className="badge-val">Next.js · TS · PostgreSQL · REST</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag purple">Next.js</span>
+                    <span className="badge-tag purple">TypeScript</span>
+                    <span className="badge-tag purple">PostgreSQL</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-status">
                 <FiCheckCircle className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Status</span>
-                  <span className="badge-val">Active / Ongoing</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag green">Active / Ongoing</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="cmd-whoami-actions">
+              <a
+                href="https://www.periscale.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn primary"
+                title="Visit periscale.ai (opens in new tab)"
+              >
+                <span>periscale.ai</span>
+                <FiExternalLink size={12} />
+              </a>
+              <a
+                href="https://www.periscale.ai/ecom"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn"
+                title="Launch Periscale E-Commerce Platform"
+              >
+                <span>E-Commerce Engine</span>
+                <FiExternalLink size={12} />
+              </a>
+              <a
+                href="https://www.periscale.ai/analytics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn"
+                title="Launch Server CAPI & Analytics Hub"
+              >
+                <span>CAPI Analytics</span>
+                <FiExternalLink size={12} />
+              </a>
+              <a
+                href="https://gammify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn"
+                title="Launch Gammify Gaming Platform"
+              >
+                <span>Gammify App</span>
+                <FiExternalLink size={12} />
+              </a>
               <button
-                className="cmd-whoami-btn btn-primary"
+                className="cmd-pill-btn secondary"
                 onClick={() => {
                   setIsOpen(false);
                   document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
                 }}
+                title="Scroll down to Experience section on page"
               >
-                <FiArrowRight size={13} />
-                <span>Experience</span>
-              </button>
-              <button
-                className="cmd-whoami-btn btn-secondary"
-                onClick={() => window.open('https://www.periscale.ai/ecom', '_blank')}
-              >
-                <FiExternalLink size={13} />
-                <span>Launch /ecom ↗</span>
-              </button>
-              <button
-                className="cmd-whoami-btn btn-secondary"
-                onClick={() => window.open('https://www.periscale.ai/analytics', '_blank')}
-              >
-                <FiExternalLink size={13} />
-                <span>Launch /analytics ↗</span>
-              </button>
-              <button
-                className="cmd-whoami-btn btn-secondary"
-                onClick={() => window.open('https://gammify.app', '_blank')}
-              >
-                <FiExternalLink size={13} />
-                <span>Launch gammify.app ↗</span>
+                <span>Jump to Section</span>
+                <FiArrowRight size={12} />
               </button>
             </div>
           </div>
@@ -777,42 +816,51 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <FiAward className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Conference</span>
-                  <span className="badge-val">2025 IEEE BECITHCON</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag cyan">2025 IEEE BECITHCON</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-stack">
                 <FiZap className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Model / Dataset</span>
-                  <span className="badge-val">3C-Net CNN · Mendeley LBC</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag purple">3C-Net CNN</span>
+                    <span className="badge-tag purple">Mendeley LBC</span>
+                  </div>
                 </div>
               </div>
               <div className="cmd-whoami-badge-item badge-status">
                 <FiUser className="badge-icon" size={14} />
                 <div className="badge-content">
                   <span className="badge-label">Co-Author</span>
-                  <span className="badge-val">Md. Ahnaf Rasheed Zaki</span>
+                  <div className="badge-tags">
+                    <span className="badge-tag green">Md. Ahnaf Rasheed Zaki</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="cmd-whoami-actions">
-              <button
-                className="cmd-whoami-btn btn-primary"
-                onClick={() => window.open('https://ieeexplore.ieee.org/document/11504298', '_blank')}
+              <a
+                href="https://ieeexplore.ieee.org/document/11504298"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cmd-pill-btn primary"
               >
-                <FiExternalLink size={13} />
-                <span>Read on IEEE Xplore ↗</span>
-              </button>
+                <span>Read on IEEE Xplore</span>
+                <FiExternalLink size={12} />
+              </a>
               <button
-                className="cmd-whoami-btn btn-secondary"
+                className="cmd-pill-btn secondary"
                 onClick={() => {
                   setIsOpen(false);
                   document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <FiArrowRight size={13} />
-                <span>Jump to Research Section</span>
+                <span>Jump to Section</span>
+                <FiArrowRight size={12} />
               </button>
             </div>
           </div>

@@ -3730,9 +3730,15 @@ section {
 /* Cyber Telemetry Badges Grid */
 .cmd-whoami-badges-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
   margin-bottom: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .cmd-whoami-badges-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cmd-whoami-badge-item {
@@ -3786,9 +3792,46 @@ section {
   font-size: 0.73rem;
   font-weight: 600;
   color: #f1f5f9;
+  white-space: normal;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.badge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.badge-tag {
+  font-size: 0.67rem;
+  font-family: var(--font-mono);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: #cbd5e1;
+  font-weight: 500;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.badge-tag.cyan {
+  background: rgba(0, 212, 245, 0.1);
+  border-color: rgba(0, 212, 245, 0.28);
+  color: var(--syn-cyan);
+}
+
+.badge-tag.purple {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.28);
+  color: #c084fc;
+}
+
+.badge-tag.green {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.28);
+  color: #34d399;
 }
 
 /* Actions Bar */
@@ -3815,6 +3858,7 @@ section {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
+  line-height: 1.2;
 }
 
 .cmd-pill-btn:hover {
@@ -3831,6 +3875,21 @@ section {
 
 .cmd-pill-btn.primary:hover {
   background: #fff;
+  color: #000;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+.cmd-pill-btn.secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-muted);
+}
+
+.cmd-pill-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 212, 245, 0.4);
+  color: var(--syn-cyan);
+  box-shadow: 0 0 10px rgba(0, 212, 245, 0.2);
 }
 
 /* Skills Radar Grid */
