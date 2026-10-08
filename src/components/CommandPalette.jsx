@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FiTerminal, 
@@ -271,6 +271,41 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
   const lastCommandRef = useRef(null);
   const [lastCmdIndex, setLastCmdIndex] = useState(null);
   const listRef = useRef(null);
+  const chipsScrollRef = useRef(null);
+
+  // Smooth horizontal wheel scroll for command chips with strict event isolation
+  const setChipsScrollRef = useCallback((node) => {
+    if (chipsScrollRef.current && chipsScrollRef.current._cleanupWheel) {
+      chipsScrollRef.current._cleanupWheel();
+    }
+    chipsScrollRef.current = node;
+    if (node) {
+      const handleWheel = (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          e.stopPropagation();
+          node.scrollLeft += e.deltaY;
+        }
+      };
+      node.addEventListener('wheel', handleWheel, { passive: false });
+      node._cleanupWheel = () => node.removeEventListener('wheel', handleWheel);
+    }
+  }, []);
+
+  // Lock background body & html scroll when Command Palette / Terminal is open
+  useEffect(() => {
+    if (isOpen) {
+      const prevBodyOverflow = document.body.style.overflow;
+      const prevHtmlOverflow = document.documentElement.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+
+      return () => {
+        document.body.style.overflow = prevBodyOverflow;
+        document.documentElement.style.overflow = prevHtmlOverflow;
+      };
+    }
+  }, [isOpen]);
 
   // Global hotkey listener (Ctrl+K, Cmd+K, ~)
   useEffect(() => {
@@ -1259,7 +1294,16 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="cmd-backdrop" onClick={() => setIsOpen(false)}>
+        <div 
+          className="cmd-backdrop" 
+          onClick={() => setIsOpen(false)}
+          onWheel={(e) => {
+            if (e.target === e.currentTarget) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+          }}
+        >
           <motion.div
             className="cmd-modal"
             initial={{ opacity: 0, scale: 0.94, y: -25 }}
@@ -1267,6 +1311,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
             exit={{ opacity: 0, scale: 0.94, y: -25 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
           >
             {/* Top glowing ambient neon border */}
             <div className="cmd-modal-glow-line" />
@@ -1465,12 +1510,8 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <div className="cmd-quick-chips-bar">
                   <span className="cmd-chips-label">Quick Run:</span>
                   <div 
+                    ref={setChipsScrollRef}
                     className="cmd-chips-scroll"
-                    onWheel={(e) => {
-                      if (e.deltaY) {
-                        e.currentTarget.scrollLeft += e.deltaY;
-                      }
-                    }}
                   >
                     {QUICK_CHIPS.map((item) => {
                       const Icon = item.icon;
