@@ -12,7 +12,7 @@ import ParticleBackground from './components/ParticleBackground';
 import CommandPalette from './components/CommandPalette';
 import CVModal from './components/CVModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { FiMail, FiTerminal } from 'react-icons/fi';
+import { FiMail, FiTerminal, FiArrowUp } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -114,24 +114,30 @@ function App() {
           </div>
           <div className="footer-right">
             <div className="footer-socials">
-              <a href="https://github.com/ah-nd-naf" target="_blank" rel="noopener noreferrer" className="footer-social-link github-icon" title="GitHub">
+              <a href="https://github.com/ah-nd-naf" target="_blank" rel="noopener noreferrer" className="footer-social-link github-icon" title="GitHub" aria-label="GitHub">
                 <FaGithub size={15} />
               </a>
-              <a href="https://linkedin.com/in/ahnafrasheed/" target="_blank" rel="noopener noreferrer" className="footer-social-link linkedin-icon" title="LinkedIn">
+              <a href="https://linkedin.com/in/ahnafrasheed/" target="_blank" rel="noopener noreferrer" className="footer-social-link linkedin-icon" title="LinkedIn" aria-label="LinkedIn">
                 <FaLinkedin size={15} />
               </a>
-              <a href="https://www.facebook.com/share/192K2vokxv/" target="_blank" rel="noopener noreferrer" className="footer-social-link facebook-icon" title="Facebook">
+              <a href="https://www.facebook.com/share/192K2vokxv/" target="_blank" rel="noopener noreferrer" className="footer-social-link facebook-icon" title="Facebook" aria-label="Facebook">
                 <FaFacebook size={15} />
               </a>
-              <a href="mailto:ahnaf.rasheed.zaki@gmail.com" className="footer-social-link mail-icon" title="Email">
+              <a href="mailto:ahnaf.rasheed.zaki@gmail.com" className="footer-social-link mail-icon" title="Email" aria-label="Email">
                 <FiMail size={15} />
               </a>
             </div>
-            <span className="footer-right-sep footer-show-mobile">·</span>
-            <span onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="footer-back-to-top">
+            <button 
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+              className="footer-back-to-top"
+              aria-label="Return to top"
+            >
+              <FiArrowUp size={12} className="back-to-top-arrow" />
               <span className="back-to-top-kw">return</span> <span className="back-to-top-fn">toTop</span><span className="back-to-top-punct">()</span>
-            </span>
+            </button>
           </div>
+          <div className="footer-divider footer-show-mobile" aria-hidden="true"></div>
         </footer>
       </div>
     </div>
