@@ -5732,14 +5732,14 @@ section {
     margin-top: 0.5rem !important;
   }
 
-  /* 9. Footer - Compact & Sleek Cyber Dock for Mobile */
+  /* 9. Footer - Split Row Cyber Dock for Mobile */
   .site-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.55rem !important;
-    padding: 1.1rem 1rem 0.9rem !important;
+    gap: 0.65rem !important;
+    padding: 1.15rem 1rem 0.95rem !important;
     height: auto !important;
     font-size: 0.7rem !important;
     text-align: center !important;
@@ -5782,23 +5782,24 @@ section {
     animation: pulse 2s infinite !important;
   }
 
-  /* Container for Socials & Back to Top */
+  /* Tier 2: Split Row (Left Corner: Socials | Right Corner: Return to Top) */
   .footer-right {
     order: 2 !important;
     width: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: center !important;
-    justify-content: center !important;
+    padding: 0 4px !important;
     gap: 0.5rem !important;
   }
 
-  /* Tier 2: Clean Social Dock */
+  /* Left Corner: Clean Social Icons */
   .footer-socials {
     display: inline-flex !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -5806,8 +5807,8 @@ section {
     box-shadow: none !important;
   }
   .footer-social-link {
-    width: 30px !important;
-    height: 30px !important;
+    width: 29px !important;
+    height: 29px !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
@@ -5855,13 +5856,13 @@ section {
     background: rgba(249, 42, 173, 0.08) !important;
   }
 
-  /* Tier 3: Compact Return to Top Pill Button */
+  /* Right Corner: Return to Top Pill Button */
   .footer-back-to-top {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 5px !important;
-    padding: 3px 12px !important;
+    padding: 4px 11px !important;
     background: rgba(22, 27, 34, 0.85) !important;
     border: 1px solid rgba(88, 166, 255, 0.22) !important;
     border-radius: 9999px !important;
@@ -5871,6 +5872,7 @@ section {
     cursor: pointer !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
     transition: all 0.2s ease !important;
+    white-space: nowrap !important;
     -webkit-tap-highlight-color: transparent !important;
   }
   .footer-back-to-top:hover,
@@ -5889,15 +5891,17 @@ section {
     transform: translateY(-1px) !important;
   }
 
-  /* Tier 4: Subtle Divider & Credits */
+  /* Tier 3: Subtle Divider */
   .footer-divider {
     order: 3 !important;
     display: block !important;
-    width: 120px !important;
+    width: 100% !important;
     height: 1px !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
-    margin: 0.1rem auto !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent) !important;
+    margin: 0.15rem 0 !important;
   }
+
+  /* Tier 4: Credits */
   .footer-credits {
     order: 4 !important;
     width: 100% !important;
