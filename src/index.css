@@ -5732,20 +5732,20 @@ section {
     margin-top: 0.5rem !important;
   }
 
-  /* 9. Footer - Tiered Cyber Dock for Mobile */
+  /* 9. Footer - Compact & Sleek Cyber Dock for Mobile */
   .site-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 1.15rem !important;
-    padding: 2rem 1.25rem 1.75rem !important;
+    gap: 0.55rem !important;
+    padding: 1.1rem 1rem 0.9rem !important;
     height: auto !important;
-    font-size: 0.74rem !important;
+    font-size: 0.7rem !important;
     text-align: center !important;
-    background: rgba(13, 17, 23, 0.9) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    background: rgba(13, 17, 23, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
     border-top: 1px solid var(--border) !important;
     position: relative !important;
   }
@@ -5756,13 +5756,13 @@ section {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    background: rgba(22, 27, 34, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    gap: 5px !important;
+    background: rgba(22, 27, 34, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
     border-radius: 9999px !important;
-    padding: 6px 16px !important;
-    font-size: 0.72rem !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+    padding: 2px 10px !important;
+    font-size: 0.65rem !important;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25) !important;
     width: auto !important;
     max-width: 95% !important;
     white-space: nowrap !important;
@@ -5770,15 +5770,15 @@ section {
   .footer-status-pill {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 3px !important;
+    gap: 2px !important;
     white-space: nowrap !important;
   }
   .footer-status-dot {
-    width: 7px !important;
-    height: 7px !important;
+    width: 5px !important;
+    height: 5px !important;
     border-radius: 50% !important;
     background: var(--syn-green) !important;
-    box-shadow: 0 0 8px var(--syn-green) !important;
+    box-shadow: 0 0 6px var(--syn-green) !important;
     animation: pulse 2s infinite !important;
   }
 
@@ -5790,93 +5790,95 @@ section {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 1rem !important;
+    gap: 0.5rem !important;
   }
 
-  /* Tier 2: Glass Social Dock */
+  /* Tier 2: Clean Social Dock */
   .footer-socials {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 14px !important;
-    background: rgba(22, 27, 34, 0.85) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 9999px !important;
-    padding: 6px 16px !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+    gap: 10px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
   }
   .footer-social-link {
-    width: 38px !important;
-    height: 38px !important;
+    width: 30px !important;
+    height: 30px !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     color: var(--text-muted) !important;
-    background: rgba(255, 255, 255, 0.03) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
     border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
+  }
+  .footer-social-link svg {
+    width: 13px !important;
+    height: 13px !important;
   }
   .footer-social-link:hover,
   .footer-social-link:active {
-    transform: translateY(-2px) scale(1.06) !important;
+    transform: translateY(-1px) scale(1.08) !important;
   }
   .footer-social-link.github-icon:hover,
   .footer-social-link.github-icon:active {
     color: #fff !important;
     border-color: rgba(0, 212, 245, 0.5) !important;
-    box-shadow: 0 0 14px rgba(0, 212, 245, 0.35) !important;
+    box-shadow: 0 0 10px rgba(0, 212, 245, 0.3) !important;
     background: rgba(0, 212, 245, 0.08) !important;
   }
   .footer-social-link.linkedin-icon:hover,
   .footer-social-link.linkedin-icon:active {
     color: #0077b5 !important;
-    border-color: rgba(0, 119, 181, 0.5) !important;
-    box-shadow: 0 0 14px rgba(0, 119, 181, 0.35) !important;
-    background: rgba(0, 119, 181, 0.08) !important;
+    border-color: rgba(10, 102, 194, 0.5) !important;
+    box-shadow: 0 0 10px rgba(10, 102, 194, 0.3) !important;
+    background: rgba(10, 102, 194, 0.08) !important;
   }
   .footer-social-link.facebook-icon:hover,
   .footer-social-link.facebook-icon:active {
     color: #1877f2 !important;
     border-color: rgba(24, 119, 242, 0.5) !important;
-    box-shadow: 0 0 14px rgba(24, 119, 242, 0.35) !important;
+    box-shadow: 0 0 10px rgba(24, 119, 242, 0.3) !important;
     background: rgba(24, 119, 242, 0.08) !important;
   }
   .footer-social-link.mail-icon:hover,
   .footer-social-link.mail-icon:active {
     color: var(--syn-pink) !important;
     border-color: rgba(249, 42, 173, 0.5) !important;
-    box-shadow: 0 0 14px rgba(249, 42, 173, 0.35) !important;
+    box-shadow: 0 0 10px rgba(249, 42, 173, 0.3) !important;
     background: rgba(249, 42, 173, 0.08) !important;
   }
 
-  /* Tier 3: Dedicated Return to Top Pill Button */
+  /* Tier 3: Compact Return to Top Pill Button */
   .footer-back-to-top {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    padding: 8px 20px !important;
-    background: linear-gradient(135deg, rgba(22, 27, 34, 0.95) 0%, rgba(28, 35, 51, 0.9) 100%) !important;
-    border: 1px solid rgba(88, 166, 255, 0.3) !important;
+    gap: 5px !important;
+    padding: 3px 12px !important;
+    background: rgba(22, 27, 34, 0.85) !important;
+    border: 1px solid rgba(88, 166, 255, 0.22) !important;
     border-radius: 9999px !important;
     font-family: var(--font-mono) !important;
-    font-size: 0.76rem !important;
+    font-size: 0.67rem !important;
     color: var(--text-main) !important;
     cursor: pointer !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+    transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
   }
   .footer-back-to-top:hover,
   .footer-back-to-top:active {
-    transform: translateY(-2px) !important;
+    transform: translateY(-1px) !important;
     border-color: var(--syn-cyan) !important;
-    box-shadow: 0 4px 22px rgba(0, 212, 245, 0.32) !important;
-    background: linear-gradient(135deg, rgba(28, 35, 51, 0.98) 0%, rgba(22, 27, 34, 0.95) 100%) !important;
+    box-shadow: 0 2px 10px rgba(0, 212, 245, 0.25) !important;
+    background: rgba(28, 35, 51, 0.95) !important;
   }
   .back-to-top-arrow {
     color: var(--syn-cyan) !important;
@@ -5884,25 +5886,25 @@ section {
   }
   .footer-back-to-top:hover .back-to-top-arrow,
   .footer-back-to-top:active .back-to-top-arrow {
-    transform: translateY(-2px) !important;
+    transform: translateY(-1px) !important;
   }
 
   /* Tier 4: Subtle Divider & Credits */
   .footer-divider {
     order: 3 !important;
     display: block !important;
-    width: 200px !important;
+    width: 120px !important;
     height: 1px !important;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent) !important;
-    margin: 0.3rem auto !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+    margin: 0.1rem auto !important;
   }
   .footer-credits {
     order: 4 !important;
     width: 100% !important;
     justify-content: center !important;
     text-align: center !important;
-    font-size: 0.72rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.67rem !important;
+    line-height: 1.35 !important;
     color: var(--text-muted) !important;
   }
 
