@@ -175,195 +175,126 @@
     margin-top: 0.5rem;
   }
 
-  /* 9. Footer - Split Row Cyber Dock for Mobile */
+  /* 9. Footer - Responsive Multi-Tier Dock for Mobile */
   .site-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.65rem !important;
-    padding: 1.15rem 1rem 0.95rem !important;
+    gap: 1.1rem !important;
+    padding: 1.6rem 1.1rem 1.25rem !important;
     height: auto !important;
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
     text-align: center !important;
-    background: rgba(13, 17, 23, 0.92) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    background: rgba(13, 17, 23, 0.94) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     border-top: 1px solid var(--border) !important;
     position: relative !important;
   }
 
-  /* Tier 1: Telemetry Capsule */
-  .footer-status {
-    order: 1 !important;
-    display: inline-flex !important;
+  /* Tier 1: Brand & Quick Navigation */
+  .footer-top-row {
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 5px !important;
-    background: rgba(22, 27, 34, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    border-radius: 9999px !important;
-    padding: 2px 10px !important;
-    font-size: 0.65rem !important;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25) !important;
-    width: auto !important;
-    max-width: 95% !important;
-    white-space: nowrap !important;
-  }
-  .footer-status-pill {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 2px !important;
-    white-space: nowrap !important;
-  }
-  .footer-status-dot {
-    width: 5px !important;
-    height: 5px !important;
-    border-radius: 50% !important;
-    background: var(--syn-green) !important;
-    box-shadow: 0 0 6px var(--syn-green) !important;
-    animation: pulse 2s infinite !important;
-  }
-
-  /* Tier 2: Split Row (Left Corner: Socials | Right Corner: Return to Top) */
-  .footer-right {
-    order: 2 !important;
+    gap: 0.85rem !important;
     width: 100% !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 4px !important;
-    gap: 0.5rem !important;
+    text-align: center !important;
   }
-
-  /* Left Corner: Clean Social Icons */
-  .footer-socials {
-    display: inline-flex !important;
+  .footer-brand {
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 7px !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    box-shadow: none !important;
+    text-align: center !important;
+    gap: 0.25rem !important;
   }
-  .footer-social-link {
-    width: 29px !important;
-    height: 29px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
+  .footer-logo {
+    font-size: 1rem !important;
+  }
+  .footer-tagline {
+    font-size: 0.7rem !important;
+    text-align: center !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  .footer-quick-nav {
     justify-content: center !important;
-    color: var(--text-muted) !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
-    transition: all 0.2s ease !important;
-    -webkit-tap-highlight-color: transparent !important;
+    gap: 0.4rem !important;
+    max-width: 100% !important;
   }
-  .footer-social-link svg {
-    width: 13px !important;
-    height: 13px !important;
-  }
-  .footer-social-link:hover,
-  .footer-social-link:active {
-    transform: translateY(-1px) scale(1.08) !important;
-  }
-  .footer-social-link.github-icon:hover,
-  .footer-social-link.github-icon:active {
-    color: #fff !important;
-    border-color: rgba(0, 212, 245, 0.5) !important;
-    box-shadow: 0 0 10px rgba(0, 212, 245, 0.3) !important;
-    background: rgba(0, 212, 245, 0.08) !important;
-  }
-  .footer-social-link.linkedin-icon:hover,
-  .footer-social-link.linkedin-icon:active {
-    color: #0077b5 !important;
-    border-color: rgba(10, 102, 194, 0.5) !important;
-    box-shadow: 0 0 10px rgba(10, 102, 194, 0.3) !important;
-    background: rgba(10, 102, 194, 0.08) !important;
-  }
-  .footer-social-link.facebook-icon:hover,
-  .footer-social-link.facebook-icon:active {
-    color: #1877f2 !important;
-    border-color: rgba(24, 119, 242, 0.5) !important;
-    box-shadow: 0 0 10px rgba(24, 119, 242, 0.3) !important;
-    background: rgba(24, 119, 242, 0.08) !important;
-  }
-  .footer-social-link.mail-icon:hover,
-  .footer-social-link.mail-icon:active {
-    color: var(--syn-pink) !important;
-    border-color: rgba(249, 42, 173, 0.5) !important;
-    box-shadow: 0 0 10px rgba(249, 42, 173, 0.3) !important;
-    background: rgba(249, 42, 173, 0.08) !important;
+  .footer-nav-chip {
+    padding: 3px 8px !important;
+    font-size: 0.68rem !important;
+    border-radius: 5px !important;
   }
 
-  /* Right Corner: Return to Top Pill Button */
-  .footer-back-to-top {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 5px !important;
-    padding: 4px 11px !important;
-    background: rgba(22, 27, 34, 0.85) !important;
-    border: 1px solid rgba(88, 166, 255, 0.22) !important;
-    border-radius: 9999px !important;
-    font-family: var(--font-mono) !important;
-    font-size: 0.67rem !important;
-    color: var(--text-main) !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
-    transition: all 0.2s ease !important;
-    white-space: nowrap !important;
-    -webkit-tap-highlight-color: transparent !important;
-  }
-  .footer-back-to-top:hover,
-  .footer-back-to-top:active {
-    transform: translateY(-1px) !important;
-    border-color: var(--syn-cyan) !important;
-    box-shadow: 0 2px 10px rgba(0, 212, 245, 0.25) !important;
-    background: rgba(28, 35, 51, 0.95) !important;
-  }
-  .back-to-top-arrow {
-    color: var(--syn-cyan) !important;
-    transition: transform 0.2s ease !important;
-  }
-  .footer-back-to-top:hover .back-to-top-arrow,
-  .footer-back-to-top:active .back-to-top-arrow {
-    transform: translateY(-1px) !important;
-  }
-
-  /* Tier 3: Subtle Divider */
-  .footer-divider {
-    order: 3 !important;
-    display: block !important;
+  .footer-divider-line {
     width: 100% !important;
     height: 1px !important;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent) !important;
-    margin: 0.15rem 0 !important;
+    margin: 0 !important;
   }
 
-  /* Tier 4: Credits */
-  .footer-credits {
-    order: 4 !important;
-    width: 100% !important;
-    justify-content: center !important;
+  /* Tier 2: Social Badges */
+  .footer-social-section {
+    align-items: center !important;
     text-align: center !important;
-    font-size: 0.67rem !important;
-    line-height: 1.35 !important;
-    color: var(--text-muted) !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
   }
-
-  .footer-hide-mobile {
+  .footer-social-title {
+    justify-content: center !important;
+    font-size: 0.68rem !important;
+  }
+  .footer-social-badges {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.55rem !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+  }
+  .footer-social-badge {
+    padding: 6px 10px !important;
+    font-size: 0.7rem !important;
+    justify-content: center !important;
+    border-radius: 7px !important;
+  }
+  .social-badge-handle {
     display: none !important;
   }
-  .footer-show-mobile {
-    display: inline-block !important;
-    color: var(--text-dim) !important;
+  .social-badge-sep {
+    display: none !important;
+  }
+
+  /* Tier 3: Telemetry, Credits & Return to Top */
+  .footer-bottom-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .footer-status {
+    padding: 3px 10px !important;
+    font-size: 0.66rem !important;
+    gap: 4px !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
   .footer-terminal-btn {
-    display: none !important;
+    display: inline-flex !important;
+    font-size: 0.66rem !important;
+  }
+  .footer-credits {
+    font-size: 0.67rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+  }
+  .footer-back-to-top {
+    padding: 4px 12px !important;
+    font-size: 0.68rem !important;
   }
 }
 
