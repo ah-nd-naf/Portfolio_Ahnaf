@@ -12,7 +12,7 @@ import ParticleBackground from './components/ParticleBackground';
 import CommandPalette from './components/CommandPalette';
 import CVModal from './components/CVModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { FiMail, FiTerminal, FiArrowUp } from 'react-icons/fi';
+import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -57,118 +57,164 @@ function App() {
         />
 
         <footer className="site-footer">
-          {/* Tier 1: Brand & Section Navigation */}
-          <div className="footer-top-row">
-            <div className="footer-brand">
+          {/* Main 3-Column Modern Grid */}
+          <div className="footer-grid-container">
+            {/* Col 1: Brand & Identity */}
+            <div className="footer-col footer-col-brand">
               <a href="#hero" className="footer-logo">
                 <span className="footer-bracket">&lt;</span>
                 <span className="footer-logo-text">ahnaf.dev</span>
                 <span className="footer-slash">/</span>
                 <span className="footer-bracket">&gt;</span>
               </a>
-              <span className="footer-tagline">// building resilient full-stack systems &amp; intelligent web apps</span>
+              <p className="footer-bio">
+                Building resilient full-stack systems &amp; intelligent web apps with clean architecture and modern engineering.
+              </p>
+              
+              <div className="footer-status-indicator">
+                <span className="footer-pulse-dot"></span>
+                <span className="footer-status-text">Available for select projects &amp; roles</span>
+              </div>
             </div>
-            
-            <nav className="footer-quick-nav" aria-label="Footer navigation">
-              <a href="#about" className="footer-nav-chip">#about</a>
-              <a href="#experience" className="footer-nav-chip">#experience</a>
-              <a href="#projects" className="footer-nav-chip">#projects</a>
-              <a href="#research" className="footer-nav-chip">#research</a>
-              <a href="#skills" className="footer-nav-chip">#skills</a>
-              <a href="#contact" className="footer-nav-chip">#contact</a>
-            </nav>
+
+            {/* Col 2: Navigation Directory */}
+            <div className="footer-col footer-col-nav">
+              <div className="footer-col-header">
+                <span className="footer-header-symbol">#</span>
+                <span className="footer-header-title">directory</span>
+              </div>
+              <ul className="footer-nav-list">
+                <li>
+                  <a href="#about" className="footer-nav-item">
+                    <span className="footer-nav-idx">01.</span>
+                    <span className="footer-nav-label">About</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#experience" className="footer-nav-item">
+                    <span className="footer-nav-idx">02.</span>
+                    <span className="footer-nav-label">Experience</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#projects" className="footer-nav-item">
+                    <span className="footer-nav-idx">03.</span>
+                    <span className="footer-nav-label">Projects</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#research" className="footer-nav-item">
+                    <span className="footer-nav-idx">04.</span>
+                    <span className="footer-nav-label">Research</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#skills" className="footer-nav-item">
+                    <span className="footer-nav-idx">05.</span>
+                    <span className="footer-nav-label">Skills</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="footer-nav-item">
+                    <span className="footer-nav-idx">06.</span>
+                    <span className="footer-nav-label">Contact</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 3: Social & Connect Network */}
+            <div className="footer-col footer-col-social">
+              <div className="footer-col-header">
+                <span className="footer-header-symbol">$</span>
+                <span className="footer-header-title">connect --socials</span>
+              </div>
+              <div className="footer-social-grid">
+                <a 
+                  href="https://github.com/ah-nd-naf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-social-card github-card"
+                  title="GitHub Profile"
+                  aria-label="GitHub Profile"
+                >
+                  <FaGithub size={15} className="social-card-icon" />
+                  <div className="social-card-meta">
+                    <span className="social-card-title">GitHub</span>
+                    <span className="social-card-handle">@ah-nd-naf</span>
+                  </div>
+                  <FiArrowUpRight size={13} className="social-card-arrow" />
+                </a>
+
+                <a 
+                  href="https://linkedin.com/in/ahnafrasheed/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-social-card linkedin-card"
+                  title="LinkedIn Profile"
+                  aria-label="LinkedIn Profile"
+                >
+                  <FaLinkedin size={15} className="social-card-icon" />
+                  <div className="social-card-meta">
+                    <span className="social-card-title">LinkedIn</span>
+                    <span className="social-card-handle">@ahnafrasheed</span>
+                  </div>
+                  <FiArrowUpRight size={13} className="social-card-arrow" />
+                </a>
+
+                <a 
+                  href="https://www.facebook.com/share/192K2vokxv/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-social-card facebook-card"
+                  title="Facebook Profile"
+                  aria-label="Facebook Profile"
+                >
+                  <FaFacebook size={15} className="social-card-icon" />
+                  <div className="social-card-meta">
+                    <span className="social-card-title">Facebook</span>
+                    <span className="social-card-handle">@ahnaf</span>
+                  </div>
+                  <FiArrowUpRight size={13} className="social-card-arrow" />
+                </a>
+
+                <a 
+                  href="mailto:ahnaf.rasheed.zaki@gmail.com" 
+                  className="footer-social-card mail-card"
+                  title="Send Email"
+                  aria-label="Email Ahnaf"
+                >
+                  <FiMail size={15} className="social-card-icon" />
+                  <div className="social-card-meta">
+                    <span className="social-card-title">Email</span>
+                    <span className="social-card-handle">zaki@gmail</span>
+                  </div>
+                  <FiArrowUpRight size={13} className="social-card-arrow" />
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="footer-divider-line" aria-hidden="true"></div>
-
-          {/* Tier 2: Interactive Social Badges */}
-          <div className="footer-social-section">
-            <div className="footer-social-title">
-              <span className="footer-social-prompt">$</span>
-              <span>connect --socials</span>
-            </div>
-            <div className="footer-social-badges">
-              <a 
-                href="https://github.com/ah-nd-naf" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer-social-badge github-badge"
-                title="GitHub: ah-nd-naf"
-                aria-label="GitHub Profile"
-              >
-                <FaGithub size={15} className="social-badge-icon" />
-                <span className="social-badge-name">GitHub</span>
-                <span className="social-badge-sep">/</span>
-                <span className="social-badge-handle">ah-nd-naf</span>
-              </a>
-              <a 
-                href="https://linkedin.com/in/ahnafrasheed/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer-social-badge linkedin-badge"
-                title="LinkedIn: ahnafrasheed"
-                aria-label="LinkedIn Profile"
-              >
-                <FaLinkedin size={15} className="social-badge-icon" />
-                <span className="social-badge-name">LinkedIn</span>
-                <span className="social-badge-sep">/</span>
-                <span className="social-badge-handle">ahnafrasheed</span>
-              </a>
-              <a 
-                href="https://www.facebook.com/share/192K2vokxv/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="footer-social-badge facebook-badge"
-                title="Facebook: Ahnaf Rasheed"
-                aria-label="Facebook Profile"
-              >
-                <FaFacebook size={15} className="social-badge-icon" />
-                <span className="social-badge-name">Facebook</span>
-                <span className="social-badge-sep">/</span>
-                <span className="social-badge-handle">ahnaf</span>
-              </a>
-              <a 
-                href="mailto:ahnaf.rasheed.zaki@gmail.com" 
-                className="footer-social-badge mail-badge"
-                title="Email: ahnaf.rasheed.zaki@gmail.com"
-                aria-label="Email Ahnaf"
-              >
-                <FiMail size={15} className="social-badge-icon" />
-                <span className="social-badge-name">Email</span>
-                <span className="social-badge-sep">:</span>
-                <span className="social-badge-handle">zaki@gmail</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="footer-divider-line" aria-hidden="true"></div>
-
-          {/* Tier 3: Telemetry Bar, Credits, Back to Top */}
-          <div className="footer-bottom-row">
-            <div className="footer-status">
-              <span className="footer-status-pill">
+          {/* Bottom Row: VS Code / IDE Status Dock */}
+          <div className="footer-status-bar">
+            <div className="footer-status-left">
+              <span className="footer-status-item">
                 <span className="footer-status-dot"></span>
-                <span style={{ color: 'var(--text-dim)' }}>[</span>
-                <span style={{ color: 'var(--syn-cyan)' }}>system</span>
-                <span style={{ color: 'var(--text-dim)' }}>:</span>
-                <span style={{ color: 'var(--syn-green)', fontWeight: 600 }}>active</span>
-                <span style={{ color: 'var(--text-dim)' }}>]</span>
+                <span className="status-key">[status:</span>
+                <span className="status-val status-val-active">active</span>
+                <span className="status-key">]</span>
               </span>
               <span className="footer-status-sep">·</span>
-              <span className="footer-status-pill">
-                <span style={{ color: 'var(--text-dim)' }}>[</span>
-                <span style={{ color: 'var(--syn-cyan)' }}>env</span>
-                <span style={{ color: 'var(--text-dim)' }}>:</span>
-                <span style={{ color: 'var(--syn-purple)' }}>prod</span>
-                <span style={{ color: 'var(--text-dim)' }}>]</span>
+              <span className="footer-status-item">
+                <span className="status-key">[env:</span>
+                <span className="status-val status-val-env">prod</span>
+                <span className="status-key">]</span>
               </span>
               <span className="footer-status-sep">·</span>
-              <span className="footer-status-pill">
-                <span style={{ color: 'var(--text-dim)' }}>[</span>
-                <span style={{ color: 'var(--syn-cyan)' }}>ping</span>
-                <span style={{ color: 'var(--text-dim)' }}>:</span>
-                <span style={{ color: 'var(--syn-number)' }}>12ms</span>
-                <span style={{ color: 'var(--text-dim)' }}>]</span>
+              <span className="footer-status-item">
+                <span className="status-key">[ping:</span>
+                <span className="status-val status-val-ping">12ms</span>
+                <span className="status-key">]</span>
               </span>
               <span className="footer-status-sep">·</span>
               <button 
@@ -178,40 +224,32 @@ function App() {
                 title="Open Command Palette (Ctrl+K or ~)"
                 aria-label="Open Command Palette"
               >
-                <span style={{ color: 'var(--text-dim)' }}>[</span>
+                <span className="status-key">[</span>
                 <FiTerminal size={11} className="footer-term-icon" />
-                <span style={{ color: 'var(--syn-cyan)' }}>terminal</span>
-                <span style={{ color: 'var(--text-dim)' }}>:</span>
-                <span style={{ color: 'var(--syn-pink)', fontWeight: 600, marginLeft: '3px' }}>⌘K</span>
-                <span style={{ color: 'var(--text-dim)' }}>]</span>
+                <span className="status-key">terminal:</span>
+                <span className="footer-cmd-kbd">⌘K</span>
+                <span className="status-key">]</span>
               </button>
             </div>
 
-            <div className="footer-credits">
-              <span style={{ color: 'var(--syn-comment)' }}>// built with React 18 · Vite · CSS3</span>
-              <span style={{ color: 'var(--text-dim)', margin: '0 4px' }}> · </span>
-              <span style={{ 
-                background: 'linear-gradient(90deg, var(--syn-cyan), var(--syn-purple), var(--syn-pink))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 700,
-                textShadow: '0 0 15px rgba(199, 146, 234, 0.2)',
-                display: 'inline-block'
-              }}>
-                Ahnaf Rasheed
-              </span>
-              <span style={{ color: 'var(--syn-comment)', marginLeft: '4px' }}>© {new Date().getFullYear()}</span>
+            <div className="footer-status-center">
+              <span className="footer-credits-tag">// built with React 18 · Vite · CSS3</span>
+              <span className="footer-credits-sep">·</span>
+              <span className="footer-credits-name">Ahnaf Rasheed</span>
+              <span className="footer-credits-copy">© {new Date().getFullYear()}</span>
             </div>
 
-            <button 
-              type="button"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
-              className="footer-back-to-top"
-              aria-label="Return to top"
-            >
-              <FiArrowUp size={12} className="back-to-top-arrow" />
-              <span className="back-to-top-kw">return</span> <span className="back-to-top-fn">toTop</span><span className="back-to-top-punct">()</span>
-            </button>
+            <div className="footer-status-right">
+              <button 
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+                className="footer-back-to-top"
+                aria-label="Return to top"
+              >
+                <FiArrowUp size={12} className="back-to-top-arrow" />
+                <span className="back-to-top-kw">return</span> <span className="back-to-top-fn">toTop</span><span className="back-to-top-punct">()</span>
+              </button>
+            </div>
           </div>
         </footer>
       </div>
