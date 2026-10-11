@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fi';
 
 const CVModal = ({ isOpen, onClose }) => {
-  const cvPath = '/Ahnaf_Rasheed_CV.pdf';
+  const cvPath = '/Ahnaf_Rasheed_CV(2).pdf';
 
   // Close on Escape key
   useEffect(() => {
