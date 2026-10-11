@@ -12,7 +12,7 @@ import ParticleBackground from './components/ParticleBackground';
 import CommandPalette from './components/CommandPalette';
 import CVModal from './components/CVModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight } from 'react-icons/fi';
+import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight, FiChevronRight } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -86,39 +86,80 @@ function App() {
               <ul className="footer-nav-list">
                 <li>
                   <a href="#about" className="footer-nav-item">
-                    <span className="footer-nav-idx">01.</span>
-                    <span className="footer-nav-label">About</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">01.</span>
+                      <span className="footer-nav-label">About</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
                 </li>
                 <li>
                   <a href="#experience" className="footer-nav-item">
-                    <span className="footer-nav-idx">02.</span>
-                    <span className="footer-nav-label">Experience</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">02.</span>
+                      <span className="footer-nav-label">Experience</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
                 </li>
                 <li>
                   <a href="#projects" className="footer-nav-item">
-                    <span className="footer-nav-idx">03.</span>
-                    <span className="footer-nav-label">Projects</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">03.</span>
+                      <span className="footer-nav-label">Projects</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
                 </li>
                 <li>
                   <a href="#research" className="footer-nav-item">
-                    <span className="footer-nav-idx">04.</span>
-                    <span className="footer-nav-label">Research</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">04.</span>
+                      <span className="footer-nav-label">Research</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
                 </li>
                 <li>
                   <a href="#skills" className="footer-nav-item">
-                    <span className="footer-nav-idx">05.</span>
-                    <span className="footer-nav-label">Skills</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">05.</span>
+                      <span className="footer-nav-label">Skills</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#qualification" className="footer-nav-item">
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">06.</span>
+                      <span className="footer-nav-label">Education</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
                 </li>
                 <li>
                   <a href="#contact" className="footer-nav-item">
-                    <span className="footer-nav-idx">06.</span>
-                    <span className="footer-nav-label">Contact</span>
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">07.</span>
+                      <span className="footer-nav-label">Contact</span>
+                    </span>
+                    <FiChevronRight size={11} className="footer-nav-arrow" />
                   </a>
+                </li>
+                <li>
+                  <button 
+                    type="button" 
+                    onClick={() => setIsCVModalOpen(true)}
+                    className="footer-nav-item footer-nav-btn"
+                    title="View & Download Resume / CV"
+                  >
+                    <span className="footer-nav-left">
+                      <span className="footer-nav-idx">08.</span>
+                      <span className="footer-nav-label">Resume / CV</span>
+                    </span>
+                    <FiArrowUpRight size={11} className="footer-nav-arrow" />
+                  </button>
                 </li>
               </ul>
             </div>
