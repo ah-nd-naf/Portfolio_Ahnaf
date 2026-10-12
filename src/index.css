@@ -6304,15 +6304,16 @@ button.footer-nav-item {
     font-weight: 600 !important;
   }
   .contact-terminal-cmd {
-    white-space: nowrap !important;
     font-weight: 500 !important;
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
   }
   .contact-terminal-email {
-    white-space: nowrap !important;
-    word-break: keep-all !important;
+    word-break: break-all !important;
+    white-space: normal !important;
     margin-left: 0 !important;
   }
   .contact-terminal-cursor {
@@ -6375,32 +6376,6 @@ button.footer-nav-item {
     font-size: 1.1em !important;
   }
 
-  /* 8. Command Palette */
-  .cmd-overlay {
-    padding: 1rem !important;
-    align-items: flex-start !important;
-  }
-  .cmd-palette {
-    width: 100% !important;
-    max-height: 90vh !important;
-    margin-top: 1rem !important;
-  }
-  .cmd-tabs {
-    flex-wrap: wrap !important;
-    gap: 0.5rem !important;
-  }
-  .cmd-item-shortcut {
-    display: none !important;
-  }
-  .cmd-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1rem !important;
-  }
-  .cmd-badge {
-    position: static !important;
-    margin-top: 0.5rem !important;
-  }
 
   /* 9. Footer - 3-Column Modern Grid & IDE Status Bar Dock for Mobile */
   .site-footer {
