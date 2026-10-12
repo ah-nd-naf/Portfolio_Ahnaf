@@ -268,6 +268,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
   const inputRef = useRef(null);
   const terminalInputRef = useRef(null);
   const terminalBottomRef = useRef(null);
+  const terminalBodyRef = useRef(null);
   const lastCommandRef = useRef(null);
   const [lastCmdIndex, setLastCmdIndex] = useState(null);
   const listRef = useRef(null);
@@ -326,14 +327,14 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, setIsOpen]);
 
-  // Focus input on open or tab change
+  // Focus input on open or tab change safely without scrolling parent modal
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
         if (activeTab === 'palette') {
-          inputRef.current?.focus();
+          inputRef.current?.focus({ preventScroll: true });
         } else if (activeTab === 'terminal') {
-          terminalInputRef.current?.focus();
+          terminalInputRef.current?.focus({ preventScroll: true });
         }
       }, 80);
     } else {
@@ -380,16 +381,21 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
     if (listRef.current) {
       const activeEl = listRef.current.querySelector('.cmd-item-active');
       if (activeEl) {
-        activeEl.scrollIntoView({ block: 'nearest' });
+        activeEl.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       }
     }
   }, [selectedIndex]);
 
-  // Scroll terminal to top of newly executed command
+  // Scroll terminal to top of newly executed command using dedicated container scroll
   useEffect(() => {
     if (activeTab === 'terminal') {
-      if (lastCommandRef.current) {
-        lastCommandRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (terminalBodyRef.current && lastCommandRef.current) {
+        terminalBodyRef.current.scrollTo({
+          top: lastCommandRef.current.offsetTop - terminalBodyRef.current.offsetTop,
+          behavior: 'smooth'
+        });
+      } else if (terminalBottomRef.current) {
+        terminalBottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
       }
     }
   }, [terminalHistory, activeTab]);
@@ -1312,6 +1318,11 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
             onWheel={(e) => e.stopPropagation()}
+            onScroll={(e) => {
+              if (e.currentTarget.scrollLeft !== 0) {
+                e.currentTarget.scrollLeft = 0;
+              }
+            }}
           >
             {/* Top glowing ambient neon border */}
             <div className="cmd-modal-glow-line" />
@@ -1530,7 +1541,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                   </div>
                 </div>
 
-                <div className="cmd-terminal-body">
+                <div className="cmd-terminal-body" ref={terminalBodyRef}>
                   {terminalHistory.map((item, idx) => (
                     <div 
                       key={idx} 
@@ -1565,7 +1576,6 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                     onChange={(e) => setTerminalInput(e.target.value)}
                     onKeyDown={handleTerminalKeyDown}
                     placeholder='Type a command... (try "help")'
-                    autoFocus
                   />
                   <button type="submit" className="cmd-term-submit" title="Execute command">
                     <FiCornerDownLeft size={14} />
