@@ -238,13 +238,15 @@ function App() {
                   className="footer-social-card mail-card"
                   title="Send Direct Message"
                   aria-label="Send Direct Message"
-                  style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit' }}
                 >
                   <div className="social-card-icon-box">
                     <FiMail size={15} className="social-card-icon" />
                   </div>
                   <div className="social-card-meta">
-                    <span className="social-card-title">Direct Msg</span>
+                    <div className="social-card-title-row">
+                      <span className="social-card-title">Direct Msg</span>
+                      <span className="social-card-pulse-dot" />
+                    </div>
                     <span className="social-card-handle">Say Hello</span>
                   </div>
                   <FiArrowUpRight size={13} className="social-card-arrow" />
