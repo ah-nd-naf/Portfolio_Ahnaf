@@ -11,12 +11,14 @@ import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 import CommandPalette from './components/CommandPalette';
 import CVModal from './components/CVModal';
+import ContactModal from './components/ContactModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight, FiChevronRight } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [isCVModalOpen, setIsCVModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   useEffect(() => {
     // Force scroll to top on every fresh load to prevent browser scroll memory
@@ -42,7 +44,7 @@ function App() {
           <Research />
           <Skills />
           <Qualification />
-          <Contact />
+          <Contact onOpenContactModal={() => setIsContactModalOpen(true)} />
         </main>
 
         <CommandPalette 
@@ -54,6 +56,11 @@ function App() {
         <CVModal 
           isOpen={isCVModalOpen} 
           onClose={() => setIsCVModalOpen(false)} 
+        />
+
+        <ContactModal 
+          isOpen={isContactModalOpen} 
+          onClose={() => setIsContactModalOpen(false)} 
         />
 
         <footer className="site-footer">
@@ -219,19 +226,21 @@ function App() {
                   <FiArrowUpRight size={13} className="social-card-arrow" />
                 </a>
 
-                <a 
-                  href="mailto:ahnaf.rasheed.zaki@gmail.com" 
+                <button 
+                  type="button"
+                  onClick={() => setIsContactModalOpen(true)}
                   className="footer-social-card mail-card"
-                  title="Send Email"
-                  aria-label="Email Ahnaf"
+                  title="Send Direct Message"
+                  aria-label="Send Direct Message"
+                  style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit' }}
                 >
                   <FiMail size={15} className="social-card-icon" />
                   <div className="social-card-meta">
-                    <span className="social-card-title">Email</span>
-                    <span className="social-card-handle">zaki@gmail</span>
+                    <span className="social-card-title">Direct Msg</span>
+                    <span className="social-card-handle">open modal</span>
                   </div>
                   <FiArrowUpRight size={13} className="social-card-arrow" />
-                </a>
+                </button>
               </div>
             </div>
           </div>

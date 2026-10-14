@@ -5,7 +5,7 @@ import { FiMail, FiRefreshCw } from 'react-icons/fi';
 
 const SPINNERS = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
 
-const Contact = () => {
+const Contact = ({ onOpenContactModal }) => {
   const [termState, setTermState] = useState('idle'); // 'idle' | 'terminating' | 'completed' | 'done'
   const [progress, setProgress] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -138,8 +138,10 @@ const Contact = () => {
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center', alignItems: 'center' }}>
-          <a 
-            href="mailto:ahnaf.rasheed.zaki@gmail.com" 
+          <button 
+            type="button"
+            onClick={onOpenContactModal}
+            aria-label="Open direct message modal"
             style={{ 
               display: 'inline-flex', alignItems: 'center', gap: '10px', 
               padding: '0.9rem 2.2rem', 
@@ -152,7 +154,9 @@ const Contact = () => {
               transition: 'all 0.35s ease', 
               cursor: 'pointer',
               boxShadow: '0 10px 30px rgba(0, 212, 245, 0.28)',
-              textDecoration: 'none'
+              border: 'none',
+              outline: 'none',
+              fontFamily: 'inherit'
             }} 
             onMouseEnter={e => {
               e.currentTarget.style.backgroundPosition = 'right center';
@@ -167,7 +171,7 @@ const Contact = () => {
           >
             <FiMail size={18} />
             Say Hello
-          </a>
+          </button>
           
           <div style={{ display: 'flex', gap: '0.8rem' }}>
             {[
@@ -209,7 +213,12 @@ const Contact = () => {
         </div>
         
         {/* Terminal Snippet */}
-        <div className="contact-terminal-box">
+        <div 
+          className="contact-terminal-box" 
+          onClick={onOpenContactModal}
+          style={{ cursor: 'pointer' }}
+          title="Click to write direct message"
+        >
           <div className="contact-terminal-inner">
             <span className="contact-terminal-prompt">
               <span style={{ color: '#ff4da6', fontWeight: 600 }}>ahnaf@portfolio</span>
@@ -228,6 +237,7 @@ const Contact = () => {
           </div>
         </div>
       </motion.div>
+
 
       {/* Dynamic Signoff Terminal */}
       <motion.div

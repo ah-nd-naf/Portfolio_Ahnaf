@@ -90,11 +90,17 @@ A high-performance, developer-first portfolio built with **React 19**, **Vite**,
   - **Higher Secondary Certificate (HSC)**: BN School & College, Khulna (Science).
 - Commit hash tags (`tag: BSc-CSE`, `tag: MSc-CS`, `tag: HSC-grad`) and interactive thesis links.
 
-### 8. Contact Terminal (`#contact`)
+### 8. Contact Terminal & Direct Message Modal (`#contact` & `ContactModal.jsx`)
 - macOS-styled terminal window with simulated session teardown:
   - Interactive spinner animation and `process.exit(0)` terminal simulation.
   - Animated typewriter farewell sign-off.
   - Direct connection cards for Email, Phone, GitHub, LinkedIn, and Facebook.
+- **Interactive Direct Message Modal (`dispatch_message.sh`)**:
+  - Opened via the **"Say Hello"** button, the terminal ping prompt, or the footer mail trigger.
+  - 4 clean fields: Name, Email, Inquiry Type with 1-click quick preset chips (`💼 Hiring`, `🚀 Project`, `🤝 Collaboration`, `☕ Quick Question`), and Message buffer.
+  - Built-in transmission states with loading spinner, payload validation, and success screen.
+  - 1-click email copy button with toast confirmation and direct mailto fallback link.
+  - **100% Mobile Optimized**: Prevents iOS auto-zoom, wraps touch chips gracefully, and adapts to small viewports.
 
 ### 9. CV Modal (`CVModal.jsx`)
 - Full-screen modal with frosted glass backdrop.
