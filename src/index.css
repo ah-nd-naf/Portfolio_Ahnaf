@@ -7184,30 +7184,33 @@ button.footer-nav-item {
 }
 
 .contact-preset-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .contact-preset-chip {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 16px;
-  padding: 5px 11px;
-  font-size: 0.74rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
   font-family: var(--font-sans);
-  color: var(--text-muted);
+  color: #c9d1d9;
   cursor: pointer;
   transition: all 0.22s ease;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .preset-chip-icon {
   flex-shrink: 0;
+  font-size: 13px;
   color: var(--syn-cyan);
   transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -7215,7 +7218,8 @@ button.footer-nav-item {
 .contact-preset-chip:hover {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  border-color: rgba(0, 212, 245, 0.35);
+  border-color: rgba(0, 212, 245, 0.4);
+  transform: translateY(-1px);
 }
 
 .contact-preset-chip:hover .preset-chip-icon {
@@ -7224,16 +7228,15 @@ button.footer-nav-item {
 }
 
 .contact-preset-chip.chip-active {
-  background: rgba(0, 212, 245, 0.14);
+  background: rgba(0, 212, 245, 0.15);
   border-color: var(--syn-cyan);
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   box-shadow: 0 0 14px rgba(0, 212, 245, 0.25);
 }
 
 .contact-preset-chip.chip-active .preset-chip-icon {
   color: var(--syn-cyan);
-  transform: scale(1.1);
 }
 
 .contact-textarea {
@@ -7541,13 +7544,15 @@ button.footer-nav-item {
   }
 
   .contact-preset-chips {
-    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
   }
 
   .contact-preset-chip {
-    padding: 6px 10px;
+    padding: 8px 6px;
     font-size: 0.72rem;
-    border-radius: 14px;
+    gap: 6px;
+    border-radius: 8px;
   }
 
   .contact-submit-btn {

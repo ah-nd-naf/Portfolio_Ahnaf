@@ -10,42 +10,42 @@ import {
   FiTerminal, 
   FiUser, 
   FiMessageSquare, 
-  FiCornerDownLeft, 
-  FiExternalLink,
   FiPhone,
   FiGithub,
   FiLinkedin,
-  FiFacebook,
-  FiBriefcase,
-  FiCode,
-  FiUsers,
-  FiHelpCircle
+  FiFacebook
 } from 'react-icons/fi';
+import { 
+  FaBriefcase, 
+  FaLaptopCode, 
+  FaUserFriends, 
+  FaCommentDots 
+} from 'react-icons/fa';
 
 const SUBJECT_PRESETS = [
   { 
     id: 'hiring',
     label: 'Hiring / Job Role', 
     value: 'Job Opportunity / Career Inquiry',
-    icon: FiBriefcase
+    icon: FaBriefcase
   },
   { 
     id: 'project',
     label: 'Project / Freelance', 
     value: 'New Project / Development Contract',
-    icon: FiCode
+    icon: FaLaptopCode
   },
   { 
     id: 'collab',
     label: 'Collaboration', 
     value: 'Engineering Collaboration',
-    icon: FiUsers
+    icon: FaUserFriends
   },
   { 
     id: 'question',
     label: 'Quick Question', 
     value: 'Quick Inquiry / Say Hello',
-    icon: FiHelpCircle
+    icon: FaCommentDots
   }
 ];
 
@@ -437,9 +437,8 @@ const ContactModal = ({ isOpen, onClose }) => {
                         </>
                       ) : (
                         <>
-                          <FiSend size={15} />
+                          <FiSend size={16} />
                           <span>Transmit Message</span>
-                          <span className="btn-kbd-hint">↵</span>
                         </>
                       )}
                     </button>
