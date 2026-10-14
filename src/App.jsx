@@ -186,7 +186,9 @@ function App() {
                   title="GitHub Profile"
                   aria-label="GitHub Profile"
                 >
-                  <FaGithub size={15} className="social-card-icon" />
+                  <div className="social-card-icon-box">
+                    <FaGithub size={15} className="social-card-icon" />
+                  </div>
                   <div className="social-card-meta">
                     <span className="social-card-title">GitHub</span>
                     <span className="social-card-handle">@ah-nd-naf</span>
@@ -202,7 +204,9 @@ function App() {
                   title="LinkedIn Profile"
                   aria-label="LinkedIn Profile"
                 >
-                  <FaLinkedin size={15} className="social-card-icon" />
+                  <div className="social-card-icon-box">
+                    <FaLinkedin size={15} className="social-card-icon" />
+                  </div>
                   <div className="social-card-meta">
                     <span className="social-card-title">LinkedIn</span>
                     <span className="social-card-handle">@ahnafrasheed</span>
@@ -218,7 +222,9 @@ function App() {
                   title="Facebook Profile"
                   aria-label="Facebook Profile"
                 >
-                  <FaFacebook size={15} className="social-card-icon" />
+                  <div className="social-card-icon-box">
+                    <FaFacebook size={15} className="social-card-icon" />
+                  </div>
                   <div className="social-card-meta">
                     <span className="social-card-title">Facebook</span>
                     <span className="social-card-handle">@ahnaf</span>
@@ -234,10 +240,12 @@ function App() {
                   aria-label="Send Direct Message"
                   style={{ background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer', fontFamily: 'inherit' }}
                 >
-                  <FiMail size={15} className="social-card-icon" />
+                  <div className="social-card-icon-box">
+                    <FiMail size={15} className="social-card-icon" />
+                  </div>
                   <div className="social-card-meta">
                     <span className="social-card-title">Direct Msg</span>
-                    <span className="social-card-handle">open modal</span>
+                    <span className="social-card-handle">Say Hello</span>
                   </div>
                   <FiArrowUpRight size={13} className="social-card-arrow" />
                 </button>
