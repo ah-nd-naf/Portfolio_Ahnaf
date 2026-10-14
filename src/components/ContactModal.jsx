@@ -15,14 +15,38 @@ import {
   FiPhone,
   FiGithub,
   FiLinkedin,
-  FiFacebook
+  FiFacebook,
+  FiBriefcase,
+  FiCode,
+  FiUsers,
+  FiHelpCircle
 } from 'react-icons/fi';
 
 const SUBJECT_PRESETS = [
-  { label: '💼 Hiring / Job Role', value: 'Job Opportunity / Career Inquiry' },
-  { label: '🚀 Project / Freelance', value: 'New Project / Development Contract' },
-  { label: '🤝 Collaboration', value: 'Engineering Collaboration' },
-  { label: '☕ Quick Question', value: 'Quick Inquiry / Say Hello' }
+  { 
+    id: 'hiring',
+    label: 'Hiring / Job Role', 
+    value: 'Job Opportunity / Career Inquiry',
+    icon: FiBriefcase
+  },
+  { 
+    id: 'project',
+    label: 'Project / Freelance', 
+    value: 'New Project / Development Contract',
+    icon: FiCode
+  },
+  { 
+    id: 'collab',
+    label: 'Collaboration', 
+    value: 'Engineering Collaboration',
+    icon: FiUsers
+  },
+  { 
+    id: 'question',
+    label: 'Quick Question', 
+    value: 'Quick Inquiry / Say Hello',
+    icon: FiHelpCircle
+  }
 ];
 
 const ContactModal = ({ isOpen, onClose }) => {
@@ -327,16 +351,21 @@ const ContactModal = ({ isOpen, onClose }) => {
 
                     {/* Quick Preset Chips */}
                     <div className="contact-preset-chips" role="group" aria-label="Quick subject presets">
-                      {SUBJECT_PRESETS.map((preset, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          className={`contact-preset-chip ${formData.subject === preset.value ? 'chip-active' : ''}`}
-                          onClick={() => handleSelectPreset(preset.value)}
-                        >
-                          {preset.label}
-                        </button>
-                      ))}
+                      {SUBJECT_PRESETS.map((preset) => {
+                        const IconComponent = preset.icon;
+                        const isActive = formData.subject === preset.value;
+                        return (
+                          <button
+                            key={preset.id}
+                            type="button"
+                            className={`contact-preset-chip ${isActive ? 'chip-active' : ''}`}
+                            onClick={() => handleSelectPreset(preset.value)}
+                          >
+                            <IconComponent size={12} className="preset-chip-icon" />
+                            <span>{preset.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
 
                     <div className="contact-input-wrapper" style={{ marginTop: '0.45rem' }}>

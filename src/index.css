@@ -7191,28 +7191,49 @@ button.footer-nav-item {
 }
 
 .contact-preset-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 16px;
-  padding: 4px 10px;
-  font-size: 0.72rem;
+  padding: 5px 11px;
+  font-size: 0.74rem;
   font-family: var(--font-sans);
   color: var(--text-muted);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
+  line-height: 1;
+}
+
+.preset-chip-icon {
+  flex-shrink: 0;
+  color: var(--syn-cyan);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .contact-preset-chip:hover {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(0, 212, 245, 0.35);
+}
+
+.contact-preset-chip:hover .preset-chip-icon {
+  transform: scale(1.15);
+  color: #fff;
 }
 
 .contact-preset-chip.chip-active {
-  background: rgba(0, 212, 245, 0.12);
+  background: rgba(0, 212, 245, 0.14);
   border-color: var(--syn-cyan);
-  color: var(--syn-cyan);
+  color: #fff;
   font-weight: 500;
+  box-shadow: 0 0 14px rgba(0, 212, 245, 0.25);
+}
+
+.contact-preset-chip.chip-active .preset-chip-icon {
+  color: var(--syn-cyan);
+  transform: scale(1.1);
 }
 
 .contact-textarea {
