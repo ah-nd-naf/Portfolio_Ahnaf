@@ -243,10 +243,7 @@ function App() {
                     <FiMail size={15} className="social-card-icon" />
                   </div>
                   <div className="social-card-meta">
-                    <div className="social-card-title-row">
-                      <span className="social-card-title">Direct Msg</span>
-                      <span className="social-card-pulse-dot" />
-                    </div>
+                    <span className="social-card-title">Direct Msg</span>
                     <span className="social-card-handle">Say Hello</span>
                   </div>
                   <FiArrowUpRight size={13} className="social-card-arrow" />
