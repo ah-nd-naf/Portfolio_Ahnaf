@@ -1146,6 +1146,187 @@ section {
   font-weight: 600;
 }
 
+/* ============================================
+   PROJECTS — TECH STACK SUB-FILTER BAR
+   ============================================ */
+.projects-tech-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: -1.75rem auto 2.5rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-tech-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 95%;
+  padding: 5px 8px 5px 14px;
+  background: rgba(13, 17, 23, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.projects-tech-bar-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.projects-tech-bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.tech-bar-label-icon {
+  color: var(--syn-cyan);
+  opacity: 0.9;
+}
+
+.projects-tech-chips-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 0;
+}
+
+.projects-tech-chips-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-tech-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  user-select: none;
+}
+
+.projects-tech-filter-chip:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.projects-tech-filter-chip.dimmed {
+  opacity: 0.45;
+}
+
+.projects-tech-filter-chip.active {
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.18) 0%, rgba(99, 102, 241, 0.22) 100%);
+  border: 1px solid rgba(0, 212, 245, 0.55);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0, 212, 245, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+}
+
+.projects-tech-filter-chip .project-tech-icon {
+  color: var(--syn-cyan);
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.projects-tech-filter-chip.active .project-tech-icon {
+  color: #00d4f5;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.8));
+}
+
+.tech-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  transition: all 0.2s ease;
+}
+
+.projects-tech-filter-chip.active .tech-chip-count {
+  background: var(--syn-cyan);
+  color: #07090e;
+  box-shadow: 0 0 8px rgba(0, 212, 245, 0.7);
+}
+
+.projects-tech-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.3rem 0.7rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: 100px;
+  color: #f87171;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.projects-tech-reset-btn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+}
+
+.custom-chip .tech-chip-clear-icon {
+  margin-left: 2px;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.custom-chip:hover .tech-chip-clear-icon {
+  opacity: 1;
+}
+
+.projects-empty-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 212, 245, 0.08);
+  border: 1px solid rgba(0, 212, 245, 0.25);
+  margin-bottom: 0.5rem;
+}
+
 .projects-empty-state {
   text-align: center;
   padding: 4.5rem 2rem;
@@ -6207,8 +6388,11 @@ button.footer-social-card {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     padding: 0 !important;
-    margin: 0 auto 1.75rem auto !important;
-    gap: 1.25rem !important;
+    margin: 0 auto 1.1rem auto !important;
+    gap: 0.85rem !important;
+  }
+  .projects-toolbar-divider {
+    display: none !important;
   }
   .projects-filter-chips {
     display: flex !important;
@@ -6251,6 +6435,66 @@ button.footer-social-card {
     justify-content: center !important;
     padding: 0.45rem 1rem !important;
     font-size: 0.8rem !important;
+  }
+
+  /* Mobile Tech Stack Sub-Filter Rail */
+  .projects-tech-bar-container {
+    margin: 0 auto 1.5rem auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .projects-tech-bar-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 16px !important;
+    padding: 8px 10px !important;
+    background: rgba(13, 17, 23, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  }
+  .projects-tech-bar-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 2px !important;
+  }
+  .projects-tech-bar-label {
+    font-size: 0.68rem !important;
+    color: #94a3b8 !important;
+    letter-spacing: 0.06em !important;
+  }
+  .projects-tech-chips-scroll {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 2px 2px 6px 2px !important;
+    gap: 0.4rem !important;
+    width: 100% !important;
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  .projects-tech-filter-chip {
+    padding: 0.38rem 0.75rem !important;
+    font-size: 0.73rem !important;
+    background: rgba(22, 27, 34, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .projects-tech-filter-chip.active {
+    background: linear-gradient(135deg, rgba(0, 212, 245, 0.28) 0%, rgba(99, 102, 241, 0.28) 100%) !important;
+    border: 1px solid rgba(0, 212, 245, 0.7) !important;
+    color: #ffffff !important;
+  }
+  .projects-tech-reset-btn {
+    padding: 0.25rem 0.55rem !important;
+    font-size: 0.68rem !important;
   }
   .projects-slider-wrapper {
     margin-bottom: 1rem !important;

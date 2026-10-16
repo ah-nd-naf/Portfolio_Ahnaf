@@ -34,7 +34,9 @@ import {
   FiFileText,
   FiCpu,
   FiEye,
-  FiCode
+  FiCode,
+  FiX,
+  FiFilter
 } from 'react-icons/fi';
 
 const SLIDE_DURATION = 6000;
@@ -69,7 +71,8 @@ const PROJECT_TECH_ICONS = {
   'HTML5': <FaHtml5 size={11} className="project-tech-icon" />,
   'CSS': <FaCss3Alt size={11} className="project-tech-icon" />,
   'CSS3': <FaCss3Alt size={11} className="project-tech-icon" />,
-  'HTML/CSS': <FaHtml5 size={11} className="project-tech-icon" />
+  'HTML/CSS': <FaHtml5 size={11} className="project-tech-icon" />,
+  'AI / ML': <FaBrain size={11} className="project-tech-icon" />
 };
 
 export const projects = [
@@ -190,9 +193,41 @@ export const projects = [
 
 const CATEGORIES = ['All', 'Full-Stack', 'AI / ML', 'Frontend', 'Backend'];
 
+const TECH_FILTERS = [
+  { label: 'All Tech', value: 'All' },
+  { label: 'Next.js', value: 'Next.js' },
+  { label: 'React', value: 'React' },
+  { label: 'Python', value: 'Python' },
+  { label: 'FastAPI', value: 'FastAPI' },
+  { label: 'TypeScript', value: 'TypeScript' },
+  { label: 'Node.js', value: 'Node.js' },
+  { label: 'PostgreSQL', value: 'PostgreSQL' },
+  { label: 'MongoDB', value: 'MongoDB' },
+  { label: 'AI / ML', value: 'AI / ML' },
+  { label: 'Tailwind CSS', value: 'Tailwind CSS' },
+];
+
+const matchesTech = (project, techFilter) => {
+  if (!techFilter || techFilter === 'All') return true;
+  if (techFilter === 'AI / ML' || techFilter === 'AI / Deep Learning') {
+    const aiKeywords = ['deep learning', 'computer vision', 'cnn', 'medical ai', 'groq api', 'ai / ml'];
+    return (
+      project.categories?.includes('AI / ML') ||
+      project.tech.some(t => aiKeywords.includes(t.toLowerCase()))
+    );
+  }
+  return project.tech.some(t => t.toLowerCase() === techFilter.toLowerCase());
+};
+
+const matchesCategory = (project, categoryFilter) => {
+  if (!categoryFilter || categoryFilter === 'All') return true;
+  return project.categories?.includes(categoryFilter);
+};
+
 const Projects = () => {
   const [viewMode, setViewMode] = useState('carousel'); // 'carousel' | 'grid'
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedTech, setSelectedTech] = useState('All');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
@@ -201,14 +236,31 @@ const Projects = () => {
   const progressRef = useRef(null);
   const startTimeRef = useRef(null);
 
-  // Filter projects by category
+  // Filter projects by both Category and Tech Stack
   const filteredProjects = useMemo(() => {
-    if (selectedCategory === 'All') return projects;
-    return projects.filter(p => p.categories?.includes(selectedCategory));
+    return projects.filter(p => matchesCategory(p, selectedCategory) && matchesTech(p, selectedTech));
+  }, [selectedCategory, selectedTech]);
+
+  // Projects matching only the category (used for tech chip counts in active category)
+  const categoryMatchedProjects = useMemo(() => {
+    return projects.filter(p => matchesCategory(p, selectedCategory));
   }, [selectedCategory]);
+
+  const isCustomTechSelected = useMemo(() => {
+    if (selectedTech === 'All') return false;
+    return !TECH_FILTERS.some(tf => tf.value.toLowerCase() === selectedTech.toLowerCase());
+  }, [selectedTech]);
 
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
+    setCurrentIndex(0);
+    setProgress(0);
+    startTimeRef.current = Date.now();
+  };
+
+  const handleTechChange = (tech) => {
+    const newTech = selectedTech.toLowerCase() === tech.toLowerCase() ? 'All' : tech;
+    setSelectedTech(newTech);
     setCurrentIndex(0);
     setProgress(0);
     startTimeRef.current = Date.now();
@@ -359,20 +411,121 @@ const Projects = () => {
           </div>
         </motion.div>
 
+        {/* Secondary Tech Stack Filter Rail */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="projects-tech-bar-container"
+        >
+          <div className="projects-tech-bar-inner">
+            <div className="projects-tech-bar-header">
+              <div className="projects-tech-bar-label">
+                <FiCode size={13} className="tech-bar-label-icon" />
+                <span className="tech-bar-label-text">TECH STACK:</span>
+              </div>
+
+              {selectedTech !== 'All' && (
+                <button
+                  type="button"
+                  className="projects-tech-reset-btn"
+                  onClick={() => setSelectedTech('All')}
+                  title="Reset tech filter"
+                  aria-label="Reset tech filter"
+                >
+                  <FiX size={12} />
+                  <span>Clear Filter</span>
+                </button>
+              )}
+            </div>
+
+            <div className="projects-tech-chips-scroll" role="tablist" aria-label="Filter projects by tech stack">
+              {TECH_FILTERS.map((tf) => {
+                const isActive = selectedTech.toLowerCase() === tf.value.toLowerCase();
+                const count = tf.value === 'All' 
+                  ? categoryMatchedProjects.length 
+                  : categoryMatchedProjects.filter(p => matchesTech(p, tf.value)).length;
+                const totalCount = tf.value === 'All'
+                  ? projects.length
+                  : projects.filter(p => matchesTech(p, tf.value)).length;
+                const isDimmed = count === 0 && !isActive;
+
+                return (
+                  <button
+                    key={tf.value}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    className={`projects-tech-filter-chip ${isActive ? 'active' : ''} ${isDimmed ? 'dimmed' : ''}`}
+                    onClick={() => {
+                      if (count === 0 && selectedCategory !== 'All') {
+                        setSelectedCategory('All');
+                      }
+                      handleTechChange(tf.value);
+                    }}
+                    title={count === 0 && selectedCategory !== 'All' ? `${tf.label} (${totalCount} in All — click to view)` : `Filter by ${tf.label}`}
+                  >
+                    {PROJECT_TECH_ICONS[tf.label] || (tf.value === 'AI / ML' ? <FaBrain size={11} className="project-tech-icon" /> : null)}
+                    <span className="tech-chip-text">{tf.label}</span>
+                    <span className="tech-chip-count">{count === 0 && selectedCategory !== 'All' ? totalCount : count}</span>
+                  </button>
+                );
+              })}
+
+              {isCustomTechSelected && (
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={true}
+                  className="projects-tech-filter-chip active custom-chip"
+                  onClick={() => setSelectedTech('All')}
+                  title={`Filtered by ${selectedTech}. Click to clear.`}
+                >
+                  {PROJECT_TECH_ICONS[selectedTech] || <FiCode size={11} className="project-tech-icon" />}
+                  <span className="tech-chip-text">{selectedTech}</span>
+                  <span className="tech-chip-count">{filteredProjects.length}</span>
+                  <FiX size={12} className="tech-chip-clear-icon" />
+                </button>
+              )}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Dynamic Content Area: Carousel vs Grid */}
         {filteredProjects.length === 0 ? (
           <div className="projects-empty-state">
-            <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.95rem' }}>
-              No projects found matching category <strong style={{ color: 'var(--syn-cyan)' }}>"{selectedCategory}"</strong>.
+            <div className="projects-empty-icon-wrap">
+              <FiFilter size={30} style={{ color: 'var(--syn-cyan)', opacity: 0.8 }} />
+            </div>
+            <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.95rem', margin: '0.75rem 0 1.25rem' }}>
+              No projects found matching
+              {selectedCategory !== 'All' && <> category <strong style={{ color: 'var(--syn-cyan)' }}>"{selectedCategory}"</strong></>}
+              {selectedCategory !== 'All' && selectedTech !== 'All' && ' + '}
+              {selectedTech !== 'All' && <> tech <strong style={{ color: 'var(--syn-purple, #c792ea)' }}>"{selectedTech}"</strong></>}.
             </p>
-            <button
-              type="button"
-              className="projects-btn projects-btn-solid"
-              onClick={() => handleCategoryChange('All')}
-              style={{ '--accent': 'var(--syn-cyan)', marginTop: '1.25rem' }}
-            >
-              Reset to All Projects
-            </button>
+            <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              {selectedTech !== 'All' && selectedCategory !== 'All' && (
+                <button
+                  type="button"
+                  className="projects-btn projects-btn-solid"
+                  onClick={() => handleCategoryChange('All')}
+                  style={{ '--accent': 'var(--syn-cyan)' }}
+                >
+                  View all "{selectedTech}" projects
+                </button>
+              )}
+              <button
+                type="button"
+                className="projects-btn projects-btn-outline"
+                onClick={() => {
+                  handleCategoryChange('All');
+                  handleTechChange('All');
+                }}
+              >
+                Reset All Filters
+              </button>
+            </div>
           </div>
         ) : viewMode === 'carousel' ? (
           /* ===================================================
@@ -455,12 +608,25 @@ const Projects = () => {
 
                     {/* Tech Stack */}
                     <div className="projects-card-tech-list">
-                      {activeProject.tech.map((t) => (
-                        <span key={t} className="projects-tech-pill">
-                          {PROJECT_TECH_ICONS[t] || <FiCode size={11} className="project-tech-icon" />}
-                          <span>{t}</span>
-                        </span>
-                      ))}
+                      {activeProject.tech.map((t) => {
+                        const isPillActive = selectedTech.toLowerCase() === t.toLowerCase() || (selectedTech === 'AI / ML' && ['groq api', 'deep learning', 'computer vision', 'cnn', 'medical ai'].includes(t.toLowerCase()));
+                        return (
+                          <button
+                            key={t}
+                            type="button"
+                            className={`projects-tech-pill projects-tech-pill-btn ${isPillActive ? 'active' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleTechChange(t);
+                            }}
+                            title={`Filter projects by ${t}`}
+                            aria-label={`Filter projects by ${t}`}
+                          >
+                            {PROJECT_TECH_ICONS[t] || <FiCode size={11} className="project-tech-icon" />}
+                            <span>{t}</span>
+                          </button>
+                        );
+                      })}
                     </div>
 
                     {/* Action Buttons */}
@@ -677,12 +843,25 @@ const Projects = () => {
                     {/* Card Footer: Tech Stack & Actions Dock */}
                     <div className="projects-grid-footer">
                       <div className="projects-grid-tech-wrap">
-                        {proj.tech.map((t) => (
-                          <span key={t} className="projects-tech-pill">
-                            {PROJECT_TECH_ICONS[t] || <FiCode size={10} className="project-tech-icon" />}
-                            <span>{t}</span>
-                          </span>
-                        ))}
+                        {proj.tech.map((t) => {
+                          const isPillActive = selectedTech.toLowerCase() === t.toLowerCase() || (selectedTech === 'AI / ML' && ['groq api', 'deep learning', 'computer vision', 'cnn', 'medical ai'].includes(t.toLowerCase()));
+                          return (
+                            <button
+                              key={t}
+                              type="button"
+                              className={`projects-tech-pill projects-tech-pill-btn ${isPillActive ? 'active' : ''}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleTechChange(t);
+                              }}
+                              title={`Filter projects by ${t}`}
+                              aria-label={`Filter projects by ${t}`}
+                            >
+                              {PROJECT_TECH_ICONS[t] || <FiCode size={10} className="project-tech-icon" />}
+                              <span>{t}</span>
+                            </button>
+                          );
+                        })}
                       </div>
 
                       {/* Action Buttons */}
@@ -793,9 +972,13 @@ const Projects = () => {
           padding: 5px 12px;
           border-radius: 100px;
           font-weight: 500;
-          transition: all 0.2s ease;
-          cursor: default;
+          transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
           white-space: nowrap;
+          user-select: none;
+        }
+
+        .projects-tech-pill-btn {
+          cursor: pointer;
         }
 
         .projects-tech-pill .project-tech-icon {
@@ -805,16 +988,31 @@ const Projects = () => {
           flex-shrink: 0;
         }
 
-        .projects-tech-pill:hover {
-          background: rgba(0, 212, 245, 0.12);
-          border-color: rgba(0, 212, 245, 0.45);
-          box-shadow: 0 0 15px rgba(0, 212, 245, 0.18);
-          transform: translateY(-1px);
-          color: #fff;
+        .projects-tech-pill-btn:hover {
+          background: rgba(0, 212, 245, 0.15);
+          border-color: rgba(0, 212, 245, 0.5);
+          box-shadow: 0 0 16px rgba(0, 212, 245, 0.25);
+          transform: translateY(-2px);
+          color: #ffffff;
         }
 
-        .projects-tech-pill:hover .project-tech-icon {
+        .projects-tech-pill-btn:hover .project-tech-icon {
           opacity: 1;
+          filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.8));
+        }
+
+        .projects-tech-pill-btn.active {
+          background: linear-gradient(135deg, rgba(0, 212, 245, 0.25) 0%, rgba(99, 102, 241, 0.25) 100%);
+          border-color: var(--syn-cyan);
+          color: #ffffff;
+          box-shadow: 0 0 16px rgba(0, 212, 245, 0.4);
+          font-weight: 600;
+        }
+
+        .projects-tech-pill-btn.active .project-tech-icon {
+          color: var(--syn-cyan);
+          opacity: 1;
+          filter: drop-shadow(0 0 8px rgba(0, 212, 245, 0.9));
         }
 
         .projects-grid-tech-wrap .projects-tech-pill {
