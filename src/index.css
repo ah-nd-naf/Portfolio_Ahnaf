@@ -1160,23 +1160,26 @@ section {
 
 .projects-tech-bar-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  max-width: 95%;
-  padding: 5px 8px 5px 14px;
-  background: rgba(13, 17, 23, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 860px;
+  padding: 10px 16px 12px 16px;
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 100px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .projects-tech-bar-header {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .projects-tech-bar-label {
@@ -1199,16 +1202,12 @@ section {
 
 .projects-tech-chips-scroll {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.35rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 2px 0;
-}
-
-.projects-tech-chips-scroll::-webkit-scrollbar {
-  display: none;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  overflow: visible;
 }
 
 .projects-tech-filter-chip {
@@ -6473,13 +6472,18 @@ button.footer-social-card {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    padding: 2px 2px 6px 2px !important;
-    gap: 0.4rem !important;
+    padding: 3px 6px 6px 6px !important;
+    gap: 0.45rem !important;
     width: 100% !important;
+    scrollbar-width: none !important;
     mask-image: linear-gradient(to right, black 85%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+  .projects-tech-chips-scroll::-webkit-scrollbar {
+    display: none !important;
   }
   .projects-tech-filter-chip {
     padding: 0.38rem 0.75rem !important;

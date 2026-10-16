@@ -235,6 +235,36 @@ const Projects = () => {
   const intervalRef = useRef(null);
   const progressRef = useRef(null);
   const startTimeRef = useRef(null);
+  const techScrollRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+
+  const handleTechWheel = (e) => {
+    if (techScrollRef.current && e.deltaY !== 0) {
+      if (techScrollRef.current.scrollWidth > techScrollRef.current.clientWidth) {
+        techScrollRef.current.scrollLeft += e.deltaY * 0.9;
+      }
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    if (!techScrollRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - techScrollRef.current.offsetLeft;
+    scrollLeftRef.current = techScrollRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current || !techScrollRef.current) return;
+    const x = e.pageX - techScrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    techScrollRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
 
   // Filter projects by both Category and Tech Stack
   const filteredProjects = useMemo(() => {
@@ -440,7 +470,17 @@ const Projects = () => {
               )}
             </div>
 
-            <div className="projects-tech-chips-scroll" role="tablist" aria-label="Filter projects by tech stack">
+            <div
+              ref={techScrollRef}
+              className="projects-tech-chips-scroll"
+              role="tablist"
+              aria-label="Filter projects by tech stack"
+              onWheel={handleTechWheel}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
               {TECH_FILTERS.map((tf) => {
                 const isActive = selectedTech.toLowerCase() === tf.value.toLowerCase();
                 const count = tf.value === 'All' 
