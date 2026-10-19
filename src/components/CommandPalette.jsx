@@ -74,6 +74,15 @@ const NAV_ACTIONS = [
     shortcut: 'G P'
   },
   {
+    id: 'nav-activity',
+    title: 'Live GitHub Activity & Metrics',
+    subtitle: 'Annual contribution matrix, active repositories & language telemetry',
+    category: 'Navigation',
+    icon: FiActivity,
+    action: () => { document.getElementById('activity')?.scrollIntoView({ behavior: 'smooth' }); },
+    shortcut: 'G G'
+  },
+  {
     id: 'nav-research',
     title: 'Research & Publications',
     subtitle: 'Peer-reviewed IEEE paper on 3C-Net deep learning classifier',

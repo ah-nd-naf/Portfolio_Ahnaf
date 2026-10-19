@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import GithubStats from './components/GithubStats';
 import Research from './components/Research';
 import Skills from './components/Skills';
 import Qualification from './components/Qualification';
@@ -41,6 +42,7 @@ function App() {
           <About onOpenCV={() => setIsCVModalOpen(true)} />
           <Experience />
           <Projects />
+          <GithubStats />
           <Research />
           <Skills />
           <Qualification />
