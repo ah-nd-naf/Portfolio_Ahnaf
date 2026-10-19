@@ -175,14 +175,6 @@ const SOCIAL_ACTIONS = [
     action: () => { window.open('https://ieeexplore.ieee.org/document/11504298', '_blank'); }
   },
   {
-    id: 'act-gammify',
-    title: 'Gammify Platform',
-    subtitle: 'gammify.app · Digital gaming & gift card e-commerce platform',
-    category: 'Actions',
-    icon: FiExternalLink,
-    action: () => { window.open('https://gammify.app', '_blank'); }
-  },
-  {
     id: 'act-view-cv',
     title: 'Curriculum Vitae (CV / Resume)',
     subtitle: 'Preview & download official PDF CV (Ahnaf_Rasheed_CV.pdf)',
@@ -789,16 +781,6 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 title="Launch Server CAPI & Analytics Hub"
               >
                 <span>CAPI Analytics</span>
-                <FiExternalLink size={12} />
-              </a>
-              <a
-                href="https://gammify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cmd-pill-btn"
-                title="Launch Gammify Gaming Platform"
-              >
-                <span>Gammify App</span>
                 <FiExternalLink size={12} />
               </a>
               <button

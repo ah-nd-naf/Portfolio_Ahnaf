@@ -79,9 +79,7 @@ const EXPERIENCE_DATA = {
       title: 'Gammify (Online Gaming & Gift Card Platform)',
       description: 'Contributed to Gammify, an e-commerce platform for digital gaming cards, game top-ups, and gift cards. Executed UI/UX design implementation, component testing, stakeholder feedback reviews, and core technical workflows.',
       tags: ['Next.js', 'TypeScript', 'JavaScript', 'PostgreSQL', 'UI/UX & Testing'],
-      color: '#c792ea',
-      liveUrl: 'https://gammify.app',
-      liveLabel: 'gammify.app'
+      color: '#c792ea'
     },
     {
       id: 'client-projects',
