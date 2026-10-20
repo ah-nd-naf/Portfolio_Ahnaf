@@ -1,28 +1,36 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   FiFolder, 
   FiGitBranch, 
   FiGitCommit, 
-  FiExternalLink, 
   FiActivity, 
   FiCode, 
-  FiCalendar, 
   FiMapPin, 
   FiTerminal, 
-  FiLayers,
-  FiArrowUpRight,
-  FiRefreshCw,
+  FiArrowUpRight, 
   FiCheckCircle
 } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import { SiTypescript, SiJavascript, SiPython, SiHtml5 } from 'react-icons/si';
 
+// Curated project descriptions for repos when GitHub's description field is empty
+const REPO_FALLBACK_DESCRIPTIONS = {
+  'turf-management': 'Sports venue and turf booking platform featuring time-slot scheduling, reservation management, and automated booking workflows.',
+  'ByteSpace': 'Modern full-stack web application implementing modular services, responsive UI components, and scalable REST routing.',
+  'Rental-Management-Platform': 'Property and rental management platform with tenant tracking, lease records, and automated booking flows.',
+  'AI-Resume-Analyzer': 'AI-powered SaaS platform evaluating resumes against ATS algorithms and job descriptions with Groq Vision OCR.',
+  'Aurae-Ecommerce': 'Full-stack luxury fashion platform with OTP-based JWT authentication, SSLCommerz payment gateway, and Prisma PostgreSQL schema.',
+  'Authentication-System': 'Production-ready authentication system featuring secure JWT tokens, bcrypt encryption, and protected routes.',
+  'social-media-app': 'Interactive social networking application with user authentication, feed timeline, and nested comments.',
+  'Portfolio_Ahnaf': 'Personal portfolio website showcasing engineering track record, research publications, and open-source projects.'
+};
+
 // Static fallback data for instant zero-latency loading and rate-limit immunity
 const STATIC_REPOS = [
   {
     name: 'turf-management',
-    description: 'Comprehensive sports venue and turf booking platform featuring time-slot scheduling, reservation management, and automated booking workflows.',
+    description: REPO_FALLBACK_DESCRIPTIONS['turf-management'],
     language: 'Python',
     languageColor: '#4ec9b0',
     url: 'https://github.com/ah-nd-naf/turf-management',
@@ -30,27 +38,27 @@ const STATIC_REPOS = [
   },
   {
     name: 'AI-Resume-Analyzer',
-    description: 'AI-powered SaaS platform evaluating resumes against ATS algorithms and job descriptions. Features real-time scoring, Groq Vision OCR, and downloadable reports.',
+    description: REPO_FALLBACK_DESCRIPTIONS['AI-Resume-Analyzer'],
     language: 'TypeScript',
     languageColor: '#00d4f5',
     url: 'https://github.com/ah-nd-naf/AI-Resume-Analyzer',
     updatedAt: 'Active project'
   },
   {
-    name: 'Aurae-Ecommerce',
-    description: 'Full-stack luxury fashion platform with OTP-based JWT authentication, SSLCommerz payment gateway, verified reviews, and Prisma PostgreSQL schema.',
-    language: 'JavaScript',
-    languageColor: '#f8c555',
-    url: 'https://github.com/ah-nd-naf/Aurae-Ecommerce',
-    updatedAt: 'Production repo'
-  },
-  {
     name: 'ByteSpace',
-    description: 'Modern developer application architecture implementing modular services, responsive interface components, and scalable REST endpoint routing.',
+    description: REPO_FALLBACK_DESCRIPTIONS['ByteSpace'],
     language: 'JavaScript',
     languageColor: '#f8c555',
     url: 'https://github.com/ah-nd-naf/ByteSpace',
     updatedAt: 'Active codebase'
+  },
+  {
+    name: 'Aurae-Ecommerce',
+    description: REPO_FALLBACK_DESCRIPTIONS['Aurae-Ecommerce'],
+    language: 'JavaScript',
+    languageColor: '#f8c555',
+    url: 'https://github.com/ah-nd-naf/Aurae-Ecommerce',
+    updatedAt: 'Production repo'
   }
 ];
 
@@ -61,35 +69,9 @@ const LANGUAGE_STATS = [
   { name: 'HTML / CSS', percent: 10, color: '#c792ea', icon: SiHtml5 }
 ];
 
-// Fallback contribution matrix in case of network interruption
-const generateFallbackMatrix = () => {
-  const weeks = 52;
-  const days = 7;
-  const matrix = [];
-  for (let w = 0; w < weeks; w++) {
-    const week = [];
-    for (let d = 0; d < days; d++) {
-      const isWeekend = d === 5 || d === 6;
-      const seed = Math.sin(w * 0.45) * Math.cos(d * 0.8) + (w % 4 === 0 ? 0.3 : 0);
-      let level = 0;
-      if (seed > 0.45) level = 4;
-      else if (seed > 0.15) level = 3;
-      else if (seed > -0.15) level = 2;
-      else if (seed > -0.45 && !isWeekend) level = 1;
-      week.push({ level, count: level > 0 ? level * 2 : 0, date: '2026' });
-    }
-    matrix.push(week);
-  }
-  return matrix;
-};
-
-const FALLBACK_MATRIX = generateFallbackMatrix();
-const DEFAULT_MONTHS = ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
-
 const GithubStats = () => {
   const [repos, setRepos] = useState(STATIC_REPOS);
   const [repoCount, setRepoCount] = useState(15);
-  const [contributions, setContributions] = useState(null);
   const [totalContributions, setTotalContributions] = useState(473);
   const [isLive, setIsLive] = useState(false);
 
@@ -97,13 +79,12 @@ const GithubStats = () => {
     const fetchGitHubData = async () => {
       try {
         // Check sessionStorage cache first to avoid redundant API hits
-        const cached = sessionStorage.getItem('github_telemetry_ahnaf_v2');
+        const cached = sessionStorage.getItem('github_telemetry_ahnaf_opt1');
         if (cached) {
           const parsed = JSON.parse(cached);
-          if (parsed.repos && parsed.contributions) {
+          if (parsed.repos) {
             setRepos(parsed.repos);
             setRepoCount(parsed.repoCount || 15);
-            setContributions(parsed.contributions);
             setTotalContributions(parsed.totalContributions || 473);
             setIsLive(true);
             return;
@@ -112,13 +93,12 @@ const GithubStats = () => {
 
         const [userRes, reposRes, contribRes] = await Promise.all([
           fetch('https://api.github.com/users/ah-nd-naf'),
-          fetch('https://api.github.com/users/ah-nd-naf/repos?sort=pushed&per_page=6'),
+          fetch('https://api.github.com/users/ah-nd-naf/repos?sort=pushed&per_page=8'),
           fetch('https://github-contributions-api.jogruber.de/v4/ah-nd-naf?y=last')
         ]);
 
         let currentRepos = STATIC_REPOS;
         let currentRepoCount = 15;
-        let currentContribs = null;
         let currentTotal = 473;
 
         if (userRes.ok) {
@@ -132,39 +112,41 @@ const GithubStats = () => {
         if (reposRes.ok) {
           const reposData = await reposRes.json();
           if (Array.isArray(reposData) && reposData.length > 0) {
-            currentRepos = reposData.slice(0, 4).map(r => ({
-              name: r.name,
-              description: r.description || 'Public GitHub repository codebase.',
-              language: r.language || 'Code',
-              languageColor: r.language === 'TypeScript' ? '#00d4f5' : 
-                             r.language === 'Python' ? '#4ec9b0' : 
-                             r.language === 'JavaScript' ? '#f8c555' : '#c792ea',
-              url: r.html_url,
-              updatedAt: new Date(r.pushed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-            }));
-            setRepos(currentRepos);
+            // Filter out self-portfolio so visitors see actual applications
+            const filtered = reposData
+              .filter(r => r.name.toLowerCase() !== 'portfolio_ahnaf')
+              .slice(0, 4)
+              .map(r => ({
+                name: r.name,
+                description: r.description || REPO_FALLBACK_DESCRIPTIONS[r.name] || 'Public open-source repository on GitHub.',
+                language: r.language || 'Code',
+                languageColor: r.language === 'TypeScript' ? '#00d4f5' : 
+                               r.language === 'Python' ? '#4ec9b0' : 
+                               r.language === 'JavaScript' ? '#f8c555' : '#c792ea',
+                url: r.html_url,
+                updatedAt: new Date(r.pushed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+              }));
+
+            if (filtered.length > 0) {
+              currentRepos = filtered;
+              setRepos(currentRepos);
+            }
           }
         }
 
         if (contribRes.ok) {
           const contribData = await contribRes.json();
-          if (contribData.contributions && Array.isArray(contribData.contributions)) {
-            currentContribs = contribData.contributions;
-            setContributions(currentContribs);
-            
-            const totalKey = Object.keys(contribData.total || {})[0];
-            if (totalKey && contribData.total[totalKey]) {
-              currentTotal = contribData.total[totalKey];
-              setTotalContributions(currentTotal);
-            }
+          const totalKey = Object.keys(contribData.total || {})[0];
+          if (totalKey && contribData.total[totalKey]) {
+            currentTotal = contribData.total[totalKey];
+            setTotalContributions(currentTotal);
           }
         }
 
         setIsLive(true);
-        sessionStorage.setItem('github_telemetry_ahnaf_v2', JSON.stringify({
+        sessionStorage.setItem('github_telemetry_ahnaf_opt1', JSON.stringify({
           repos: currentRepos,
           repoCount: currentRepoCount,
-          contributions: currentContribs,
           totalContributions: currentTotal
         }));
       } catch {
@@ -175,50 +157,6 @@ const GithubStats = () => {
 
     fetchGitHubData();
   }, []);
-
-  // Compute 52+ week calendar grid from authentic contribution days
-  const weeks = useMemo(() => {
-    if (!contributions || contributions.length === 0) {
-      return FALLBACK_MATRIX;
-    }
-
-    const result = [];
-    let currentWeek = [];
-
-    contributions.forEach((day) => {
-      currentWeek.push(day);
-      if (currentWeek.length === 7) {
-        result.push(currentWeek);
-        currentWeek = [];
-      }
-    });
-
-    if (currentWeek.length > 0) {
-      result.push(currentWeek);
-    }
-
-    return result;
-  }, [contributions]);
-
-  // Dynamically compute month labels based on the first day of each week
-  const monthLabels = useMemo(() => {
-    if (!weeks || weeks.length === 0) return DEFAULT_MONTHS;
-    const labels = [];
-    let lastMonth = '';
-
-    weeks.forEach((week) => {
-      const firstDay = week[0];
-      if (firstDay && firstDay.date) {
-        const monthName = new Date(firstDay.date).toLocaleDateString('en-US', { month: 'short' });
-        if (monthName !== lastMonth) {
-          labels.push(monthName);
-          lastMonth = monthName;
-        }
-      }
-    });
-
-    return labels.length >= 8 ? labels : DEFAULT_MONTHS;
-  }, [weeks]);
 
   return (
     <section id="activity" className="gh-section">
@@ -250,7 +188,7 @@ const GithubStats = () => {
         >
           <div className="gh-section-badge">
             <span className="gh-pulse-dot" />
-            <span className="gh-badge-text">LIVE GITHUB ACTIVITY</span>
+            <span className="gh-badge-text">LIVE GITHUB TELEMETRY</span>
           </div>
 
           <h2 className="gh-title">
@@ -259,7 +197,7 @@ const GithubStats = () => {
           </h2>
 
           <p className="gh-subtitle">
-            Public repository telemetry, authentic 365-day commit history, and language distribution across GitHub.
+            Public repository telemetry, authentic commit frequency, and language distribution across GitHub.
           </p>
         </motion.div>
 
@@ -326,7 +264,7 @@ const GithubStats = () => {
             </div>
           </div>
 
-          {/* Key Metrics Grid (Authentic live values, Zero stars, Zero emojis) */}
+          {/* Key Metrics Grid (100% Authentic, High-Density, Zero Empty Gaps, Zero Stars, Zero Emojis) */}
           <div className="gh-metrics-grid">
             <div className="gh-metric-card">
               <div className="gh-metric-icon-wrap" style={{ borderColor: 'rgba(0, 212, 245, 0.3)', color: 'var(--syn-cyan)' }}>
@@ -369,68 +307,6 @@ const GithubStats = () => {
                 <span className="gh-metric-value">Active</span>
                 <span className="gh-metric-label">Commit Stream</span>
                 <span className="gh-metric-note">Continuous delivery</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Contribution Heatmap Container (100% Real API Data with Tooltips) */}
-          <div className="gh-heatmap-card">
-            <div className="gh-heatmap-header">
-              <div className="gh-heatmap-title-wrap">
-                <FiCalendar size={15} color="var(--syn-cyan)" />
-                <h4 className="gh-heatmap-title">Contribution Matrix</h4>
-                <span className="gh-heatmap-sub">365-Day Real Telemetry ({totalContributions} commits)</span>
-              </div>
-              <div className="gh-heatmap-legend">
-                <span className="gh-legend-label">Less</span>
-                <span className="gh-legend-box lvl-0" />
-                <span className="gh-legend-box lvl-1" />
-                <span className="gh-legend-box lvl-2" />
-                <span className="gh-legend-box lvl-3" />
-                <span className="gh-legend-box lvl-4" />
-                <span className="gh-legend-label">More</span>
-              </div>
-            </div>
-
-            {/* Mobile Scroll Indicator Banner */}
-            <div className="gh-mobile-scroll-hint">
-              <FiActivity size={12} />
-              <span>Scroll horizontally to inspect full timeline</span>
-            </div>
-
-            {/* Matrix Scroll Viewport */}
-            <div className="gh-matrix-scroll">
-              <div className="gh-matrix-inner">
-                {/* Dynamic Month labels row */}
-                <div className="gh-matrix-months">
-                  {monthLabels.map((m, idx) => (
-                    <span key={idx} className="gh-month-label">{m}</span>
-                  ))}
-                </div>
-
-                {/* Days matrix with real contribution data */}
-                <div className="gh-matrix-grid">
-                  {weeks.map((week, wIdx) => (
-                    <div key={wIdx} className="gh-matrix-col">
-                      {week.map((cell, dIdx) => {
-                        const dateFormatted = cell.date && cell.date !== '2026'
-                          ? new Date(cell.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                          : 'Contribution day';
-                        const countText = cell.count > 0 
-                          ? `${cell.count} contribution${cell.count === 1 ? '' : 's'}` 
-                          : 'No contributions';
-
-                        return (
-                          <div 
-                            key={dIdx} 
-                            className={`gh-matrix-cell lvl-${cell.level}`}
-                            title={`${countText} on ${dateFormatted}`}
-                          />
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -525,7 +401,7 @@ const GithubStats = () => {
       <style>{`
         .gh-section {
           position: relative;
-          padding: 90px 5vw 80px;
+          padding: 85px 5vw 75px;
           min-height: auto;
           display: flex;
           flex-direction: column;
@@ -810,143 +686,6 @@ const GithubStats = () => {
           text-overflow: ellipsis;
         }
 
-        /* Heatmap Section */
-        .gh-heatmap-card {
-          background: rgba(13, 17, 23, 0.65);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 18px;
-          padding: 1.5rem;
-          margin-bottom: 2rem;
-        }
-
-        .gh-heatmap-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-
-        .gh-heatmap-title-wrap {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .gh-heatmap-title {
-          margin: 0;
-          font-size: 0.95rem;
-          font-weight: 700;
-          color: var(--text-main);
-        }
-
-        .gh-heatmap-sub {
-          font-size: 0.75rem;
-          font-family: var(--font-mono);
-          color: var(--text-muted);
-          padding-left: 6px;
-        }
-
-        .gh-heatmap-legend {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-        }
-
-        .gh-legend-label {
-          font-size: 0.72rem;
-          font-family: var(--font-mono);
-          color: var(--text-muted);
-        }
-
-        .gh-legend-box {
-          width: 10px;
-          height: 10px;
-          border-radius: 2px;
-        }
-
-        .gh-mobile-scroll-hint {
-          display: none;
-          align-items: center;
-          gap: 6px;
-          font-size: 0.72rem;
-          color: var(--syn-cyan);
-          margin-bottom: 0.75rem;
-          font-family: var(--font-mono);
-          opacity: 0.85;
-        }
-
-        .gh-matrix-scroll {
-          width: 100%;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          padding-bottom: 6px;
-        }
-
-        .gh-matrix-scroll::-webkit-scrollbar {
-          height: 5px;
-        }
-
-        .gh-matrix-scroll::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 4px;
-        }
-
-        .gh-matrix-scroll::-webkit-scrollbar-thumb {
-          background: rgba(0, 212, 245, 0.2);
-          border-radius: 4px;
-        }
-
-        .gh-matrix-inner {
-          min-width: 720px;
-        }
-
-        .gh-matrix-months {
-          display: flex;
-          justify-content: space-between;
-          padding-left: 4px;
-          margin-bottom: 8px;
-        }
-
-        .gh-month-label {
-          font-size: 0.7rem;
-          font-family: var(--font-mono);
-          color: var(--text-muted);
-        }
-
-        .gh-matrix-grid {
-          display: flex;
-          gap: 4px;
-        }
-
-        .gh-matrix-col {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-          flex: 1;
-        }
-
-        .gh-matrix-cell {
-          width: 100%;
-          aspect-ratio: 1;
-          border-radius: 2.5px;
-          transition: transform 0.15s ease, filter 0.15s ease;
-          cursor: pointer;
-        }
-
-        .gh-matrix-cell:hover {
-          transform: scale(1.4);
-          filter: brightness(1.35);
-          z-index: 2;
-        }
-
-        .lvl-0 { background: rgba(255, 255, 255, 0.04); }
-        .lvl-1 { background: rgba(0, 212, 245, 0.25); }
-        .lvl-2 { background: rgba(0, 212, 245, 0.5); }
-        .lvl-3 { background: rgba(0, 212, 245, 0.75); }
-        .lvl-4 { background: #00d4f5; box-shadow: 0 0 6px rgba(0, 212, 245, 0.6); }
-
         /* Languages Section */
         .gh-languages-card {
           background: rgba(13, 17, 23, 0.65);
@@ -1200,14 +939,6 @@ const GithubStats = () => {
           .gh-repos-grid {
             grid-template-columns: 1fr;
           }
-
-          .gh-mobile-scroll-hint {
-            display: flex;
-          }
-
-          .gh-matrix-inner {
-            min-width: 660px;
-          }
         }
 
         @media (max-width: 520px) {
@@ -1237,7 +968,6 @@ const GithubStats = () => {
             gap: 6px;
           }
 
-          .gh-heatmap-card,
           .gh-languages-card {
             padding: 1.15rem;
           }
