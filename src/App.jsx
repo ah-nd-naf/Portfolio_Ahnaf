@@ -91,69 +91,84 @@ function App() {
               <div className="footer-col-header">
                 <span className="footer-header-symbol">#</span>
                 <span className="footer-header-title">directory</span>
+                <span className="footer-header-count">[8]</span>
               </div>
               <ul className="footer-nav-list">
                 <li>
                   <a href="#about" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">01.</span>
+                      <span className="footer-nav-idx">01</span>
                       <span className="footer-nav-label">About</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#experience" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">02.</span>
+                      <span className="footer-nav-idx">02</span>
                       <span className="footer-nav-label">Experience</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#projects" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">03.</span>
+                      <span className="footer-nav-idx">03</span>
                       <span className="footer-nav-label">Projects</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#research" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">04.</span>
+                      <span className="footer-nav-idx">04</span>
                       <span className="footer-nav-label">Research</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#skills" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">05.</span>
+                      <span className="footer-nav-idx">05</span>
                       <span className="footer-nav-label">Skills</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#qualification" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">06.</span>
+                      <span className="footer-nav-idx">06</span>
                       <span className="footer-nav-label">Education</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <a href="#contact" className="footer-nav-item">
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">07.</span>
+                      <span className="footer-nav-idx">07</span>
                       <span className="footer-nav-label">Contact</span>
                     </span>
-                    <FiChevronRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiChevronRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -164,10 +179,12 @@ function App() {
                     title="View & Download Resume / CV"
                   >
                     <span className="footer-nav-left">
-                      <span className="footer-nav-idx">08.</span>
+                      <span className="footer-nav-idx">08</span>
                       <span className="footer-nav-label">Resume / CV</span>
                     </span>
-                    <FiArrowUpRight size={11} className="footer-nav-arrow" />
+                    <span className="footer-nav-arrow-wrap">
+                      <FiArrowUpRight size={11} className="footer-nav-arrow" />
+                    </span>
                   </button>
                 </li>
               </ul>
