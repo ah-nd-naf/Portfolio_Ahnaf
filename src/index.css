@@ -2695,24 +2695,26 @@ section {
 .footer-nav-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 11px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(22, 27, 34, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 3px 12px rgba(0, 0, 0, 0.28);
+  gap: 9px;
+  padding: 7px 11px;
+  border-radius: 12px;
+  background: rgba(22, 27, 34, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 3px 12px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   text-decoration: none;
-  font-size: 0.78rem;
-  font-family: var(--font-mono);
-  color: var(--text-main);
-  transition: all 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
+}
+
+button.footer-nav-item {
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
 }
 
 /* Dynamic light sheen reflex */
@@ -2733,133 +2735,292 @@ section {
   left: 140%;
 }
 
-button.footer-nav-item {
-  cursor: pointer;
-  text-align: left;
+/* Icon Box */
+.nav-card-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-nav-left {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.nav-card-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+/* Meta Typography */
+.nav-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+  flex: 1;
   min-width: 0;
 }
 
-.footer-nav-idx {
-  color: var(--syn-cyan);
-  font-size: 0.62rem;
-  font-weight: 700;
-  font-family: var(--font-mono);
-  letter-spacing: 0.4px;
-  background: rgba(0, 212, 245, 0.07);
-  border: 1px solid rgba(0, 212, 245, 0.22);
-  padding: 2px 5.5px;
-  border-radius: 5px;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 6px rgba(0, 212, 245, 0.1);
-  transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+.nav-card-title {
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.15px;
+  transition: color 0.25s ease;
 }
 
-.footer-nav-label {
-  color: #c9d1d9;
-  font-weight: 500;
-  font-size: 0.76rem;
+.nav-card-path {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.61rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.2px;
-  transition: color 0.24s ease, transform 0.24s ease;
+  transition: color 0.25s ease;
 }
 
-.footer-nav-arrow-wrap {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  flex-shrink: 0;
-  transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+.nav-card-idx {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease;
 }
 
-.footer-nav-arrow {
+.nav-card-sep {
+  opacity: 0.4;
+}
+
+.nav-card-slug {
+  transition: color 0.25s ease;
+}
+
+/* Arrow */
+.nav-card-arrow {
   color: var(--text-dim);
-  opacity: 0.55;
-  transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.45;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover States */
+/* Global Card Hover */
 .footer-nav-item:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 245, 0.1) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(0, 212, 245, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px -3px rgba(0, 212, 245, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 0 12px rgba(0, 212, 245, 0.08);
+  transform: translateY(-2.5px);
 }
 
-.footer-nav-item:hover .footer-nav-idx {
-  background: rgba(0, 212, 245, 0.22);
-  border-color: rgba(0, 212, 245, 0.6);
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 212, 245, 0.45);
+.footer-nav-item:hover .nav-card-icon-box {
+  transform: scale(1.08);
 }
 
-.footer-nav-item:hover .footer-nav-label {
+.footer-nav-item:hover .nav-card-title {
   color: #ffffff;
-  transform: translateX(1px);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
-.footer-nav-item:hover .footer-nav-arrow-wrap {
-  background: rgba(0, 212, 245, 0.15);
-  border-color: rgba(0, 212, 245, 0.45);
-  transform: translateX(2px);
-  box-shadow: 0 0 8px rgba(0, 212, 245, 0.25);
-}
-
-.footer-nav-item:hover .footer-nav-arrow {
+.footer-nav-item:hover .nav-card-arrow {
   opacity: 1;
-  color: var(--syn-cyan);
+  transform: translateX(2px);
 }
 
-/* 08. Resume / CV special high-tech purple styling */
-.footer-nav-item.footer-nav-btn {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(22, 27, 34, 0.8) 100%);
-  border-color: rgba(168, 85, 247, 0.28);
+/* Themes per Category */
+
+/* 1. Cyan (About) */
+.nav-card-cyan .nav-card-icon-box {
+  background: rgba(0, 212, 245, 0.08);
+  border-color: rgba(0, 212, 245, 0.2);
+}
+.nav-card-cyan .nav-card-icon,
+.nav-card-cyan .nav-card-idx {
+  color: #00d4f5;
+}
+.nav-card-cyan:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(0, 212, 245, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(0, 212, 245, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-cyan:hover .nav-card-icon-box {
+  background: rgba(0, 212, 245, 0.22);
+  border-color: rgba(0, 212, 245, 0.6);
+  box-shadow: 0 0 10px rgba(0, 212, 245, 0.35);
+}
+.nav-card-cyan:hover .nav-card-slug,
+.nav-card-cyan:hover .nav-card-arrow {
+  color: #00d4f5;
 }
 
-.footer-nav-item.footer-nav-btn .footer-nav-idx {
-  color: var(--syn-purple);
-  background: rgba(168, 85, 247, 0.1);
-  border-color: rgba(168, 85, 247, 0.28);
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.15);
+/* 2. Emerald (Experience) */
+.nav-card-emerald .nav-card-icon-box {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.nav-card-emerald .nav-card-icon,
+.nav-card-emerald .nav-card-idx {
+  color: #10b981;
+}
+.nav-card-emerald:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-emerald:hover .nav-card-icon-box {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+.nav-card-emerald:hover .nav-card-slug,
+.nav-card-emerald:hover .nav-card-arrow {
+  color: #10b981;
 }
 
-.footer-nav-item.footer-nav-btn:hover {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.16) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 6px 20px -3px rgba(168, 85, 247, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 0 12px rgba(168, 85, 247, 0.12);
+/* 3. Blue (Projects) */
+.nav-card-blue .nav-card-icon-box {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+.nav-card-blue .nav-card-icon,
+.nav-card-blue .nav-card-idx {
+  color: #38bdf8;
+}
+.nav-card-blue:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-blue:hover .nav-card-icon-box {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+}
+.nav-card-blue:hover .nav-card-slug,
+.nav-card-blue:hover .nav-card-arrow {
+  color: #38bdf8;
 }
 
-.footer-nav-item.footer-nav-btn:hover .footer-nav-idx {
-  background: rgba(168, 85, 247, 0.28);
-  border-color: rgba(168, 85, 247, 0.65);
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+/* 4. Amber (Research) */
+.nav-card-amber .nav-card-icon-box {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.2);
+}
+.nav-card-amber .nav-card-icon,
+.nav-card-amber .nav-card-idx {
+  color: #fbbf24;
+}
+.nav-card-amber:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(251, 191, 36, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-amber:hover .nav-card-icon-box {
+  background: rgba(251, 191, 36, 0.22);
+  border-color: rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.35);
+}
+.nav-card-amber:hover .nav-card-slug,
+.nav-card-amber:hover .nav-card-arrow {
+  color: #fbbf24;
 }
 
-.footer-nav-item.footer-nav-btn:hover .footer-nav-arrow-wrap {
-  background: rgba(168, 85, 247, 0.18);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.3);
+/* 5. Teal (Skills) */
+.nav-card-teal .nav-card-icon-box {
+  background: rgba(45, 212, 191, 0.08);
+  border-color: rgba(45, 212, 191, 0.2);
+}
+.nav-card-teal .nav-card-icon,
+.nav-card-teal .nav-card-idx {
+  color: #2dd4bf;
+}
+.nav-card-teal:hover {
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(45, 212, 191, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-teal:hover .nav-card-icon-box {
+  background: rgba(45, 212, 191, 0.22);
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.35);
+}
+.nav-card-teal:hover .nav-card-slug,
+.nav-card-teal:hover .nav-card-arrow {
+  color: #2dd4bf;
 }
 
-.footer-nav-item.footer-nav-btn:hover .footer-nav-arrow {
-  color: var(--syn-purple);
+/* 6. Indigo (Education) */
+.nav-card-indigo .nav-card-icon-box {
+  background: rgba(129, 140, 248, 0.08);
+  border-color: rgba(129, 140, 248, 0.2);
+}
+.nav-card-indigo .nav-card-icon,
+.nav-card-indigo .nav-card-idx {
+  color: #818cf8;
+}
+.nav-card-indigo:hover {
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(129, 140, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-indigo:hover .nav-card-icon-box {
+  background: rgba(129, 140, 248, 0.22);
+  border-color: rgba(129, 140, 248, 0.6);
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.35);
+}
+.nav-card-indigo:hover .nav-card-slug,
+.nav-card-indigo:hover .nav-card-arrow {
+  color: #818cf8;
+}
+
+/* 7. Rose (Contact) */
+.nav-card-rose .nav-card-icon-box {
+  background: rgba(251, 113, 133, 0.08);
+  border-color: rgba(251, 113, 133, 0.2);
+}
+.nav-card-rose .nav-card-icon,
+.nav-card-rose .nav-card-idx {
+  color: #fb7185;
+}
+.nav-card-rose:hover {
+  background: linear-gradient(135deg, rgba(251, 113, 133, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(251, 113, 133, 0.5);
+  box-shadow: 0 8px 24px -4px rgba(251, 113, 133, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-rose:hover .nav-card-icon-box {
+  background: rgba(251, 113, 133, 0.22);
+  border-color: rgba(251, 113, 133, 0.6);
+  box-shadow: 0 0 10px rgba(251, 113, 133, 0.35);
+}
+.nav-card-rose:hover .nav-card-slug,
+.nav-card-rose:hover .nav-card-arrow {
+  color: #fb7185;
+}
+
+/* 8. Purple (Resume / CV) */
+.nav-card-purple .nav-card-icon-box {
+  background: rgba(192, 132, 252, 0.09);
+  border-color: rgba(192, 132, 252, 0.25);
+}
+.nav-card-purple .nav-card-icon,
+.nav-card-purple .nav-card-idx {
+  color: #c084fc;
+}
+.nav-card-purple:hover {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.15) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 8px 26px -4px rgba(192, 132, 252, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.nav-card-purple:hover .nav-card-icon-box {
+  background: rgba(192, 132, 252, 0.25);
+  border-color: rgba(192, 132, 252, 0.65);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+.nav-card-purple:hover .nav-card-slug,
+.nav-card-purple:hover .nav-card-arrow {
+  color: #c084fc;
 }
 
 /* Col 3: Social & Connect Network Grid */
