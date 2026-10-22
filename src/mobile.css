@@ -218,27 +218,27 @@
 
   .footer-nav-item {
     padding: 6px 8px !important;
-    gap: 7px !important;
-    border-radius: 10px !important;
+    gap: 6px !important;
+    border-radius: 8px !important;
   }
 
-  .nav-card-icon-box {
-    width: 26px !important;
-    height: 26px !important;
-    border-radius: 7px !important;
+  .footer-nav-content {
+    gap: 6px !important;
   }
 
-  .nav-card-title {
+  .footer-nav-tag {
+    font-size: 0.6rem !important;
+    padding: 1px 4.5px !important;
+  }
+
+  .footer-nav-name {
     font-size: 0.72rem !important;
   }
 
-  .nav-card-path {
-    font-size: 0.58rem !important;
-    gap: 2px !important;
-  }
-
-  .nav-card-arrow {
-    display: none !important;
+  .footer-nav-arrow-box {
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 4px !important;
   }
 
   .footer-social-grid {

@@ -14,21 +14,7 @@ import CommandPalette from './components/CommandPalette';
 import CVModal from './components/CVModal';
 import ContactModal from './components/ContactModal';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { 
-  FiMail, 
-  FiTerminal, 
-  FiArrowUp, 
-  FiArrowUpRight, 
-  FiChevronRight,
-  FiUser,
-  FiBriefcase,
-  FiCode,
-  FiBookOpen,
-  FiCpu,
-  FiAward,
-  FiSend,
-  FiFileText
-} from 'react-icons/fi';
+import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight, FiChevronRight } from 'react-icons/fi';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
@@ -105,140 +91,99 @@ function App() {
               <div className="footer-col-header">
                 <span className="footer-header-symbol">#</span>
                 <span className="footer-header-title">directory</span>
-                <span className="footer-header-count">[8]</span>
               </div>
               <ul className="footer-nav-list">
                 <li>
-                  <a href="#about" className="footer-nav-item nav-card-cyan" title="01 · ~/whoami">
-                    <div className="nav-card-icon-box">
-                      <FiUser size={13} className="nav-card-icon" />
+                  <a href="#about" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">01</span>
+                      <span className="footer-nav-name">About</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">About</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">01</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/whoami</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#experience" className="footer-nav-item nav-card-emerald" title="02 · ~/career">
-                    <div className="nav-card-icon-box">
-                      <FiBriefcase size={13} className="nav-card-icon" />
+                  <a href="#experience" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">02</span>
+                      <span className="footer-nav-name">Experience</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Experience</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">02</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/career</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="footer-nav-item nav-card-blue" title="03 · ~/work">
-                    <div className="nav-card-icon-box">
-                      <FiCode size={13} className="nav-card-icon" />
+                  <a href="#projects" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">03</span>
+                      <span className="footer-nav-name">Projects</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Projects</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">03</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/work</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#research" className="footer-nav-item nav-card-amber" title="04 · ~/papers">
-                    <div className="nav-card-icon-box">
-                      <FiBookOpen size={13} className="nav-card-icon" />
+                  <a href="#research" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">04</span>
+                      <span className="footer-nav-name">Research</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Research</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">04</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/papers</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" className="footer-nav-item nav-card-teal" title="05 · ~/stack">
-                    <div className="nav-card-icon-box">
-                      <FiCpu size={13} className="nav-card-icon" />
+                  <a href="#skills" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">05</span>
+                      <span className="footer-nav-name">Skills</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Skills</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">05</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/stack</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#qualification" className="footer-nav-item nav-card-indigo" title="06 · ~/academia">
-                    <div className="nav-card-icon-box">
-                      <FiAward size={13} className="nav-card-icon" />
+                  <a href="#qualification" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">06</span>
+                      <span className="footer-nav-name">Education</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Education</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">06</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/academia</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="footer-nav-item nav-card-rose" title="07 · ~/message">
-                    <div className="nav-card-icon-box">
-                      <FiSend size={13} className="nav-card-icon" />
+                  <a href="#contact" className="footer-nav-item">
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">07</span>
+                      <span className="footer-nav-name">Contact</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Contact</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">07</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/message</span>
-                      </span>
-                    </div>
-                    <FiChevronRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiChevronRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </a>
                 </li>
                 <li>
                   <button 
                     type="button" 
                     onClick={() => setIsCVModalOpen(true)}
-                    className="footer-nav-item nav-card-purple footer-nav-btn"
-                    title="08 · ~/resume.pdf (View & Download Resume / CV)"
+                    className="footer-nav-item footer-nav-cv"
+                    title="View & Download Resume / CV"
                   >
-                    <div className="nav-card-icon-box">
-                      <FiFileText size={13} className="nav-card-icon" />
+                    <div className="footer-nav-content">
+                      <span className="footer-nav-tag">08</span>
+                      <span className="footer-nav-name">Resume / CV</span>
                     </div>
-                    <div className="nav-card-meta">
-                      <span className="nav-card-title">Resume / CV</span>
-                      <span className="nav-card-path">
-                        <span className="nav-card-idx">08</span>
-                        <span className="nav-card-sep">·</span>
-                        <span className="nav-card-slug">~/resume.pdf</span>
-                      </span>
-                    </div>
-                    <FiArrowUpRight size={11} className="nav-card-arrow" />
+                    <span className="footer-nav-arrow-box">
+                      <FiArrowUpRight size={12} className="footer-nav-arrow" />
+                    </span>
                   </button>
                 </li>
               </ul>

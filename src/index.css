@@ -2673,14 +2673,7 @@ section {
 
 /* Col 2: Navigation Directory */
 .footer-col-nav {
-  padding-left: 0.5rem;
-}
-
-.footer-header-count {
-  font-size: 0.68rem;
-  color: var(--text-dim);
-  opacity: 0.6;
-  margin-left: 2px;
+  padding-left: 0.25rem;
 }
 
 .footer-nav-list {
@@ -2689,22 +2682,25 @@ section {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem 0.75rem;
+  gap: 0.55rem 0.65rem;
 }
 
 .footer-nav-item {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 7px 11px;
-  border-radius: 12px;
-  background: rgba(22, 27, 34, 0.75);
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  background: rgba(22, 27, 34, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 3px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   text-decoration: none;
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-mono);
+  color: var(--text-main);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -2717,310 +2713,148 @@ button.footer-nav-item {
   font-family: inherit;
 }
 
-/* Dynamic light sheen reflex */
+/* Subtle top sheen on hover */
 .footer-nav-item::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.6s ease;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 245, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
   pointer-events: none;
 }
 
-.footer-nav-item:hover::before {
-  left: 140%;
-}
-
-/* Icon Box */
-.nav-card-icon-box {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  display: flex;
+.footer-nav-content {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-card-icon {
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-
-/* Meta Typography */
-.nav-card-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5px;
-  flex: 1;
+  gap: 7px;
   min-width: 0;
 }
 
-.nav-card-title {
-  font-size: 0.77rem;
-  font-weight: 600;
-  color: #f0f6fc;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  letter-spacing: 0.15px;
-  transition: color 0.25s ease;
-}
-
-.nav-card-path {
+/* Micro Number Badge */
+.footer-nav-tag {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--syn-cyan);
+  background: rgba(0, 212, 245, 0.08);
+  border: 1px solid rgba(0, 212, 245, 0.2);
+  padding: 1.5px 5.5px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 0.61rem;
-  font-family: var(--font-mono);
-  color: var(--text-muted);
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+
+/* Crisp Label */
+.footer-nav-name {
+  color: #c9d1d9;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  letter-spacing: 0.2px;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease;
 }
 
-.nav-card-idx {
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  transition: color 0.25s ease;
-}
-
-.nav-card-sep {
-  opacity: 0.4;
-}
-
-.nav-card-slug {
-  transition: color 0.25s ease;
-}
-
-/* Arrow */
-.nav-card-arrow {
-  color: var(--text-dim);
-  opacity: 0.45;
+/* Micro Arrow Container */
+.footer-nav-arrow-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Global Card Hover */
+.footer-nav-arrow {
+  color: var(--text-dim);
+  opacity: 0.5;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover Physics */
 .footer-nav-item:hover {
-  transform: translateY(-2.5px);
+  background: linear-gradient(135deg, rgba(0, 212, 245, 0.08) 0%, rgba(22, 27, 34, 0.9) 100%);
+  border-color: rgba(0, 212, 245, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px -2px rgba(0, 212, 245, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.footer-nav-item:hover .nav-card-icon-box {
-  transform: scale(1.08);
-}
-
-.footer-nav-item:hover .nav-card-title {
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.footer-nav-item:hover .nav-card-arrow {
+.footer-nav-item:hover::before {
   opacity: 1;
-  transform: translateX(2px);
 }
 
-/* Themes per Category */
-
-/* 1. Cyan (About) */
-.nav-card-cyan .nav-card-icon-box {
-  background: rgba(0, 212, 245, 0.08);
-  border-color: rgba(0, 212, 245, 0.2);
-}
-.nav-card-cyan .nav-card-icon,
-.nav-card-cyan .nav-card-idx {
-  color: #00d4f5;
-}
-.nav-card-cyan:hover {
-  background: linear-gradient(135deg, rgba(0, 212, 245, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
+.footer-nav-item:hover .footer-nav-tag {
+  background: rgba(0, 212, 245, 0.2);
   border-color: rgba(0, 212, 245, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(0, 212, 245, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-cyan:hover .nav-card-icon-box {
-  background: rgba(0, 212, 245, 0.22);
-  border-color: rgba(0, 212, 245, 0.6);
-  box-shadow: 0 0 10px rgba(0, 212, 245, 0.35);
-}
-.nav-card-cyan:hover .nav-card-slug,
-.nav-card-cyan:hover .nav-card-arrow {
-  color: #00d4f5;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 212, 245, 0.4);
 }
 
-/* 2. Emerald (Experience) */
-.nav-card-emerald .nav-card-icon-box {
-  background: rgba(16, 185, 129, 0.08);
-  border-color: rgba(16, 185, 129, 0.2);
-}
-.nav-card-emerald .nav-card-icon,
-.nav-card-emerald .nav-card-idx {
-  color: #10b981;
-}
-.nav-card-emerald:hover {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-emerald:hover .nav-card-icon-box {
-  background: rgba(16, 185, 129, 0.22);
-  border-color: rgba(16, 185, 129, 0.6);
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
-}
-.nav-card-emerald:hover .nav-card-slug,
-.nav-card-emerald:hover .nav-card-arrow {
-  color: #10b981;
+.footer-nav-item:hover .footer-nav-name {
+  color: #ffffff;
 }
 
-/* 3. Blue (Projects) */
-.nav-card-blue .nav-card-icon-box {
-  background: rgba(56, 189, 248, 0.08);
-  border-color: rgba(56, 189, 248, 0.2);
-}
-.nav-card-blue .nav-card-icon,
-.nav-card-blue .nav-card-idx {
-  color: #38bdf8;
-}
-.nav-card-blue:hover {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-blue:hover .nav-card-icon-box {
-  background: rgba(56, 189, 248, 0.22);
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
-}
-.nav-card-blue:hover .nav-card-slug,
-.nav-card-blue:hover .nav-card-arrow {
-  color: #38bdf8;
+.footer-nav-item:hover .footer-nav-arrow-box {
+  background: rgba(0, 212, 245, 0.15);
+  border-color: rgba(0, 212, 245, 0.4);
+  transform: translateX(1.5px);
 }
 
-/* 4. Amber (Research) */
-.nav-card-amber .nav-card-icon-box {
-  background: rgba(251, 191, 36, 0.08);
-  border-color: rgba(251, 191, 36, 0.2);
-}
-.nav-card-amber .nav-card-icon,
-.nav-card-amber .nav-card-idx {
-  color: #fbbf24;
-}
-.nav-card-amber:hover {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(251, 191, 36, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(251, 191, 36, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-amber:hover .nav-card-icon-box {
-  background: rgba(251, 191, 36, 0.22);
-  border-color: rgba(251, 191, 36, 0.6);
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.35);
-}
-.nav-card-amber:hover .nav-card-slug,
-.nav-card-amber:hover .nav-card-arrow {
-  color: #fbbf24;
+.footer-nav-item:hover .footer-nav-arrow {
+  color: var(--syn-cyan);
+  opacity: 1;
 }
 
-/* 5. Teal (Skills) */
-.nav-card-teal .nav-card-icon-box {
-  background: rgba(45, 212, 191, 0.08);
-  border-color: rgba(45, 212, 191, 0.2);
-}
-.nav-card-teal .nav-card-icon,
-.nav-card-teal .nav-card-idx {
-  color: #2dd4bf;
-}
-.nav-card-teal:hover {
-  background: linear-gradient(135deg, rgba(45, 212, 191, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(45, 212, 191, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(45, 212, 191, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-teal:hover .nav-card-icon-box {
-  background: rgba(45, 212, 191, 0.22);
-  border-color: rgba(45, 212, 191, 0.6);
-  box-shadow: 0 0 10px rgba(45, 212, 191, 0.35);
-}
-.nav-card-teal:hover .nav-card-slug,
-.nav-card-teal:hover .nav-card-arrow {
-  color: #2dd4bf;
+/* 08. Resume / CV special accent */
+.footer-nav-item.footer-nav-cv {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(22, 27, 34, 0.75) 100%);
+  border-color: rgba(168, 85, 247, 0.2);
 }
 
-/* 6. Indigo (Education) */
-.nav-card-indigo .nav-card-icon-box {
-  background: rgba(129, 140, 248, 0.08);
-  border-color: rgba(129, 140, 248, 0.2);
-}
-.nav-card-indigo .nav-card-icon,
-.nav-card-indigo .nav-card-idx {
-  color: #818cf8;
-}
-.nav-card-indigo:hover {
-  background: linear-gradient(135deg, rgba(129, 140, 248, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(129, 140, 248, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(129, 140, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-indigo:hover .nav-card-icon-box {
-  background: rgba(129, 140, 248, 0.22);
-  border-color: rgba(129, 140, 248, 0.6);
-  box-shadow: 0 0 10px rgba(129, 140, 248, 0.35);
-}
-.nav-card-indigo:hover .nav-card-slug,
-.nav-card-indigo:hover .nav-card-arrow {
-  color: #818cf8;
+.footer-nav-item.footer-nav-cv .footer-nav-tag {
+  color: var(--syn-purple);
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.25);
 }
 
-/* 7. Rose (Contact) */
-.nav-card-rose .nav-card-icon-box {
-  background: rgba(251, 113, 133, 0.08);
-  border-color: rgba(251, 113, 133, 0.2);
-}
-.nav-card-rose .nav-card-icon,
-.nav-card-rose .nav-card-idx {
-  color: #fb7185;
-}
-.nav-card-rose:hover {
-  background: linear-gradient(135deg, rgba(251, 113, 133, 0.12) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(251, 113, 133, 0.5);
-  box-shadow: 0 8px 24px -4px rgba(251, 113, 133, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-.nav-card-rose:hover .nav-card-icon-box {
-  background: rgba(251, 113, 133, 0.22);
-  border-color: rgba(251, 113, 133, 0.6);
-  box-shadow: 0 0 10px rgba(251, 113, 133, 0.35);
-}
-.nav-card-rose:hover .nav-card-slug,
-.nav-card-rose:hover .nav-card-arrow {
-  color: #fb7185;
+.footer-nav-item.footer-nav-cv::before {
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.6), transparent);
 }
 
-/* 8. Purple (Resume / CV) */
-.nav-card-purple .nav-card-icon-box {
-  background: rgba(192, 132, 252, 0.09);
-  border-color: rgba(192, 132, 252, 0.25);
+.footer-nav-item.footer-nav-cv:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 5px 16px -2px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
-.nav-card-purple .nav-card-icon,
-.nav-card-purple .nav-card-idx {
-  color: #c084fc;
+
+.footer-nav-item.footer-nav-cv:hover .footer-nav-tag {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.45);
 }
-.nav-card-purple:hover {
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.15) 0%, rgba(22, 27, 34, 0.95) 100%);
-  border-color: rgba(192, 132, 252, 0.6);
-  box-shadow: 0 8px 26px -4px rgba(192, 132, 252, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+.footer-nav-item.footer-nav-cv:hover .footer-nav-arrow-box {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.45);
 }
-.nav-card-purple:hover .nav-card-icon-box {
-  background: rgba(192, 132, 252, 0.25);
-  border-color: rgba(192, 132, 252, 0.65);
-  box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
-}
-.nav-card-purple:hover .nav-card-slug,
-.nav-card-purple:hover .nav-card-arrow {
-  color: #c084fc;
+
+.footer-nav-item.footer-nav-cv:hover .footer-nav-arrow {
+  color: var(--syn-purple);
+  opacity: 1;
 }
 
 /* Col 3: Social & Connect Network Grid */
