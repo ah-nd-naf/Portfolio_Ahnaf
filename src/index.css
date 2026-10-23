@@ -752,8 +752,8 @@ section {
 
 .taglines-divider-line.fade {
   flex: 1;
-  max-width: 100px;
-  background: linear-gradient(90deg, rgba(199, 146, 234, 0.3), transparent);
+  max-width: 110px;
+  background: linear-gradient(90deg, rgba(249, 42, 173, 0.35), rgba(199, 146, 234, 0.2), transparent);
 }
 
 .taglines-divider-chip {

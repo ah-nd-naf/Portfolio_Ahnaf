@@ -15,11 +15,10 @@ const SyncedTypingEffect = ({
   const [displayedText2, setDisplayedText2] = useState('');
   const [phase, setPhase] = useState('waiting'); // 'waiting' | 'typing' | 'pausing' | 'deleting'
 
-  // Vibrant cyber neon colors per pair
-  // Pair 0: Line 1 = Cyber Violet (#c792ea), Line 2 = Cyber Cyan (#00d4f5)
-  // Pair 1: Line 1 = Neon Pink (#f92aad), Line 2 = Emerald Green (#2ed573)
-  // Pair 2: Line 1 = Multi-color, Line 2 = Multi-color
-  const colorsLine1 = ['#c792ea', '#f92aad', '#c792ea'];
+  // Perfect Cyber Triad (Distinct 1st Colors):
+  // Line 1: Crisp Ice White (#ffffff) </> [Pink #f92aad] </> Electric Lilac (#d8b4fe)
+  // Line 2: Electric Cyan (#00d4f5) </> [Pink #f92aad] </> Emerald Green (#2ed573)
+  const colorsLine1 = ['#ffffff', '#d8b4fe', '#ffffff'];
   const colorsLine2 = ['#00d4f5', '#2ed573', '#00d4f5'];
 
   useEffect(() => {
@@ -121,7 +120,7 @@ const SyncedTypingEffect = ({
       return (
         <>
           <span style={{ color: c1, textShadow: `0 0 15px ${c1}80` }}>{p1}</span>
-          <span style={{ color: cSep, textShadow: `0 0 15px ${cSep}80` }}>{pSep}</span>
+          <span style={{ color: cSep, textShadow: `0 0 10px ${cSep}70` }}>{pSep}</span>
         </>
       );
     }
@@ -131,7 +130,7 @@ const SyncedTypingEffect = ({
     return (
       <>
         <span style={{ color: c1, textShadow: `0 0 15px ${c1}80` }}>{p1}</span>
-        <span style={{ color: cSep, textShadow: `0 0 15px ${cSep}80` }}>{pSep}</span>
+        <span style={{ color: cSep, textShadow: `0 0 10px ${cSep}70` }}>{pSep}</span>
         <span style={{ color: c2, textShadow: `0 0 15px ${c2}80` }}>{p2}</span>
       </>
     );
@@ -140,22 +139,22 @@ const SyncedTypingEffect = ({
   const c1 = colorsLine1[pairIndex % colorsLine1.length];
   const c2 = colorsLine2[pairIndex % colorsLine2.length];
 
-  // Cursor color for line 1
+  // Dynamic Cursor color for line 1
   let cursor1Color = c1;
   const currentPair = pairs && pairs[pairIndex];
   if (currentPair && currentPair.role.includes('</>')) {
     const sIdx = currentPair.role.indexOf('</>');
-    if (displayedText1.length <= sIdx) cursor1Color = '#c792ea';
-    else if (displayedText1.length <= sIdx + 3) cursor1Color = '#00d4f5';
-    else cursor1Color = '#f92aad';
+    if (displayedText1.length <= sIdx) cursor1Color = '#ffffff';
+    else if (displayedText1.length <= sIdx + 3) cursor1Color = '#f92aad';
+    else cursor1Color = '#d8b4fe';
   }
 
-  // Cursor color for line 2
+  // Dynamic Cursor color for line 2
   let cursor2Color = c2;
   if (currentPair && currentPair.stack.includes('</>')) {
     const sIdx = currentPair.stack.indexOf('</>');
     if (displayedText2.length <= sIdx) cursor2Color = '#00d4f5';
-    else if (displayedText2.length <= sIdx + 3) cursor2Color = '#c792ea';
+    else if (displayedText2.length <= sIdx + 3) cursor2Color = '#f92aad';
     else cursor2Color = '#2ed573';
   }
 
@@ -166,7 +165,7 @@ const SyncedTypingEffect = ({
       <div className={className1}>
         <b>
           <span style={{ position: 'relative', display: 'inline-block' }}>
-            {renderText(displayedText1, c1, '#c792ea', '#00d4f5', '#f92aad')}
+            {renderText(displayedText1, c1, '#ffffff', '#f92aad', '#d8b4fe')}
             {isReady && (
               <span 
                 className="cursor-blink" 
@@ -193,7 +192,7 @@ const SyncedTypingEffect = ({
       <div className={className2}>
         <b>
           <span style={{ position: 'relative', display: 'inline-block' }}>
-            {renderText(displayedText2, c2, '#00d4f5', '#c792ea', '#2ed573')}
+            {renderText(displayedText2, c2, '#00d4f5', '#f92aad', '#2ed573')}
             {isReady && (
               <span 
                 className="cursor-blink" 
