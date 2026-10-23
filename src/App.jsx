@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,9 +10,11 @@ import Skills from './components/Skills';
 import Qualification from './components/Qualification';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
-import CommandPalette from './components/CommandPalette';
-import CVModal from './components/CVModal';
-import ContactModal from './components/ContactModal';
+
+// Lazy-loaded modals for optimal initial bundle size and instant load time
+const CommandPalette = lazy(() => import('./components/CommandPalette'));
+const CVModal = lazy(() => import('./components/CVModal'));
+const ContactModal = lazy(() => import('./components/ContactModal'));
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FiMail, FiTerminal, FiArrowUp, FiArrowUpRight, FiChevronRight } from 'react-icons/fi';
 
@@ -27,6 +29,20 @@ function App() {
       window.history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
+
+    // Global hotkey listener (Ctrl+K, Cmd+K, ~)
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      } else if (e.key === '`' && !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
@@ -49,21 +65,23 @@ function App() {
           <Contact onOpenContactModal={() => setIsContactModalOpen(true)} />
         </main>
 
-        <CommandPalette 
-          isOpen={isCommandPaletteOpen} 
-          setIsOpen={setIsCommandPaletteOpen} 
-          onOpenCV={() => setIsCVModalOpen(true)}
-        />
+        <Suspense fallback={null}>
+          <CommandPalette 
+            isOpen={isCommandPaletteOpen} 
+            setIsOpen={setIsCommandPaletteOpen} 
+            onOpenCV={() => setIsCVModalOpen(true)}
+          />
 
-        <CVModal 
-          isOpen={isCVModalOpen} 
-          onClose={() => setIsCVModalOpen(false)} 
-        />
+          <CVModal 
+            isOpen={isCVModalOpen} 
+            onClose={() => setIsCVModalOpen(false)} 
+          />
 
-        <ContactModal 
-          isOpen={isContactModalOpen} 
-          onClose={() => setIsContactModalOpen(false)} 
-        />
+          <ContactModal 
+            isOpen={isContactModalOpen} 
+            onClose={() => setIsContactModalOpen(false)} 
+          />
+        </Suspense>
 
         <footer className="site-footer">
           {/* Main 3-Column Modern Grid */}
