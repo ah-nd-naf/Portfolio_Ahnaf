@@ -63,7 +63,7 @@ const ContactModal = ({ isOpen, onClose }) => {
   const nameInputRef = useRef(null);
 
   const directEmail = 'ahnaf.rasheed.zaki@gmail.com';
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'e0300a9c-b21a-48cd-b1a7-8152cafd02a0';
 
   // Focus first input on open
   useEffect(() => {

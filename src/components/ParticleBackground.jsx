@@ -9,6 +9,12 @@ const ParticleBackground = () => {
     let animationId;
     let mouse = { x: null, y: null };
 
+    // Responsive configuration to ensure buttery smooth performance on mobile
+    const isMobile = window.innerWidth < 768;
+    const PARTICLE_COUNT = isMobile ? 42 : 85;
+    const MAX_DISTANCE = isMobile ? 100 : 135;
+    const MOUSE_RADIUS = isMobile ? 120 : 180;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -16,19 +22,18 @@ const ParticleBackground = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    window.addEventListener('mousemove', (e) => {
+    const handleMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-    });
-    window.addEventListener('mouseleave', () => {
+    };
+
+    const handleMouseLeave = () => {
       mouse.x = null;
       mouse.y = null;
-    });
+    };
 
-    // Particle config
-    const PARTICLE_COUNT = 90;
-    const MAX_DISTANCE = 140;
-    const MOUSE_RADIUS = 180;
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
 
     class Particle {
       constructor() {
@@ -136,6 +141,8 @@ const ParticleBackground = () => {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 

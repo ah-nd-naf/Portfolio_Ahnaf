@@ -326,7 +326,7 @@ function App() {
             </div>
 
             <div className="footer-status-center">
-              <span className="footer-credits-tag">// built with React 18 · Vite · CSS3</span>
+              <span className="footer-credits-tag">// built with React 19 · Vite · CSS3</span>
               <span className="footer-credits-sep">·</span>
               <span className="footer-credits-name">Ahnaf Rasheed</span>
               <span className="footer-credits-copy">© {new Date().getFullYear()}</span>
