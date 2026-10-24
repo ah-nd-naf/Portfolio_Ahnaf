@@ -152,7 +152,7 @@ export const projects = [
   {
     name: 'mern-project',
     label: 'Pet Rescue Platform',
-    description: 'A comprehensive Pet Rescue, Adoption & Care Platform built with the MERN stack featuring REST API integrations and full CRUD operations.',
+    description: 'A comprehensive Pet Rescue, Adoption & Care Platform built with the MERN stack (MongoDB, Express, React, Node.js). Features dynamic animal profiles, adoption application workflows, shelter management, and comprehensive RESTful CRUD APIs.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     categories: ['Full-Stack', 'Frontend', 'Backend'],
     github: 'https://github.com/ah-nd-naf/mern-project/tree/main/mern-project-main',
@@ -172,7 +172,7 @@ export const projects = [
   {
     name: 'Aesthetic-Restaurant',
     label: 'Aesthetic Restaurant',
-    description: 'Full-stack dining and culinary showcase platform featuring an immersive, responsive frontend integrated with Python backend services for reservation management and interactive menu exploration.',
+    description: 'Full-stack culinary showcase and dining reservation platform with a luxury dark aesthetic. Integrated with Python backend services for table booking workflows, dynamic gastronomy menus, and interactive customer inquiries.',
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Python'],
     categories: ['Full-Stack', 'Frontend', 'Backend'],
     github: 'https://github.com/ah-nd-naf/Aesthetic-Restaurant',
@@ -182,7 +182,7 @@ export const projects = [
   {
     name: 'Student-Management-System',
     label: 'Student Management System',
-    description: 'Full-stack academic management portal (ERP) for students, teachers, and admins featuring responsive management dashboards, attendance tracking, and secure JWT authentication.',
+    description: 'Full-stack academic enterprise portal (ERP) built for students, faculty, and administrators. Features responsive management dashboards, attendance tracking, semester GPA analytics, and role-based JWT authentication.',
     tech: ['JavaScript', 'HTML/CSS', 'Node.js', 'Express', 'MongoDB'],
     categories: ['Full-Stack', 'Backend'],
     github: 'https://github.com/ah-nd-naf/STD_MS',
@@ -622,10 +622,15 @@ const Projects = () => {
                         <span className="projects-live-dot" style={{ background: activeProject.accent, boxShadow: `0 0 8px ${activeProject.accent}` }} />
                         <span style={{ color: activeProject.accent, fontWeight: 700 }}>PRODUCTION SAAS</span>
                       </div>
-                    ) : activeProject.live !== '#' && (
+                    ) : activeProject.live !== '#' ? (
                       <div className="projects-live-badge">
                         <span className="projects-live-dot" />
                         <span>LIVE</span>
+                      </div>
+                    ) : (
+                      <div className="projects-live-badge" style={{ background: 'rgba(248, 197, 85, 0.12)', borderColor: 'rgba(248, 197, 85, 0.35)' }}>
+                        <span className="projects-live-dot" style={{ background: 'var(--syn-yellow)', boxShadow: '0 0 8px var(--syn-yellow)' }} />
+                        <span style={{ color: 'var(--syn-yellow)', fontWeight: 600 }}>SOURCE REPO</span>
                       </div>
                     )}
                   </div>
@@ -717,33 +722,46 @@ const Projects = () => {
                         </>
                       ) : (
                         <>
-                          {activeProject.github !== '#' && (
-                            <a 
-                              href={activeProject.github} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="projects-btn projects-btn-outline"
-                            >
-                              <FaGithub size={15} /> Source Code
-                            </a>
-                          )}
                           {activeProject.live !== '#' ? (
-                            <a 
-                              href={activeProject.live} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
-                              className="projects-btn projects-btn-solid"
-                            >
-                              <FiExternalLink size={15} /> Live Demo
-                            </a>
+                            <>
+                              {activeProject.github !== '#' && (
+                                <a 
+                                  href={activeProject.github} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="projects-btn projects-btn-outline"
+                                >
+                                  <FaGithub size={15} /> Source Code
+                                </a>
+                              )}
+                              <a 
+                                href={activeProject.live} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="projects-btn projects-btn-solid"
+                              >
+                                <FiExternalLink size={15} /> Live Demo
+                              </a>
+                            </>
                           ) : (
-                            <span 
-                              className="projects-btn-pending"
-                              title="Full-stack application available in repo; public deployment in progress"
-                            >
-                              <span className="projects-pending-dot" />
-                              <span>Demo Soon</span>
-                            </span>
+                            <>
+                              <a 
+                                href={activeProject.github} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="projects-btn projects-btn-solid"
+                                style={{ background: 'var(--syn-cyan)', color: '#0d1117', fontWeight: 600 }}
+                              >
+                                <FaGithub size={15} /> Explore Repository ↗
+                              </a>
+                              <span 
+                                className="projects-btn-pending"
+                                title="Full-stack application codebase available in GitHub repository; cloud deployment in progress"
+                              >
+                                <span className="projects-pending-dot" />
+                                <span>Demo Soon</span>
+                              </span>
+                            </>
                           )}
                         </>
                       )}
@@ -867,10 +885,15 @@ const Projects = () => {
                         <span className="projects-grid-live-dot" style={{ background: proj.accent, boxShadow: `0 0 8px ${proj.accent}` }} />
                         <span style={{ color: proj.accent, fontWeight: 700 }}>PRODUCTION</span>
                       </div>
-                    ) : proj.live !== '#' && (
+                    ) : proj.live !== '#' ? (
                       <div className="projects-grid-live-badge">
-                        <span className="projects-live-dot" />
+                        <span className="projects-grid-live-dot" />
                         <span>LIVE</span>
+                      </div>
+                    ) : (
+                      <div className="projects-grid-live-badge" style={{ background: 'rgba(248, 197, 85, 0.12)', borderColor: 'rgba(248, 197, 85, 0.35)' }}>
+                        <span className="projects-grid-live-dot" style={{ background: 'var(--syn-yellow)', boxShadow: '0 0 8px var(--syn-yellow)' }} />
+                        <span style={{ color: 'var(--syn-yellow)', fontWeight: 600 }}>SOURCE REPO</span>
                       </div>
                     )}
                   </div>
@@ -956,18 +979,19 @@ const Projects = () => {
                           </>
                         ) : (
                           <>
-                            {proj.github !== '#' && (
-                              <a
-                                href={proj.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="projects-btn projects-btn-outline"
-                                title="View Source Code"
-                              >
-                                <FaGithub size={14} /> Code
-                              </a>
-                            )}
-                            {proj.live !== '#' ? (
+                          {proj.live !== '#' ? (
+                            <>
+                              {proj.github !== '#' && (
+                                <a
+                                  href={proj.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="projects-btn projects-btn-outline"
+                                  title="View Source Code"
+                                >
+                                  <FaGithub size={14} /> Code
+                                </a>
+                              )}
                               <a
                                 href={proj.live}
                                 target="_blank"
@@ -977,7 +1001,19 @@ const Projects = () => {
                               >
                                 <FiExternalLink size={14} /> Launch Demo
                               </a>
-                            ) : (
+                            </>
+                          ) : (
+                            <>
+                              <a
+                                href={proj.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="projects-btn projects-btn-solid"
+                                title="Explore GitHub Repository"
+                                style={{ background: 'var(--syn-cyan)', color: '#0d1117', fontWeight: 600 }}
+                              >
+                                <FaGithub size={14} /> View Repo
+                              </a>
                               <span 
                                 className="projects-btn-pending"
                                 title="Full-stack application available in repo; public deployment in progress"
@@ -985,7 +1021,8 @@ const Projects = () => {
                                 <span className="projects-pending-dot" />
                                 <span>Demo Soon</span>
                               </span>
-                            )}
+                            </>
+                          )}
                           </>
                         )}
                       </div>
