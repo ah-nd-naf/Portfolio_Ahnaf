@@ -1,0 +1,68 @@
+.projects-tech-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          color: var(--text-main);
+          background: rgba(0, 212, 245, 0.05);
+          border: 1px solid rgba(0, 212, 245, 0.2);
+          padding: 5px 12px;
+          border-radius: 100px;
+          font-weight: 500;
+          transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+          white-space: nowrap;
+          user-select: none;
+        }
+
+        .projects-tech-pill-btn {
+          cursor: pointer;
+        }
+
+        .projects-tech-pill .project-tech-icon {
+          color: var(--syn-cyan);
+          opacity: 0.9;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+
+        .projects-tech-pill-btn:hover {
+          background: rgba(0, 212, 245, 0.15);
+          border-color: rgba(0, 212, 245, 0.5);
+          box-shadow: 0 0 16px rgba(0, 212, 245, 0.25);
+          transform: translateY(-2px);
+          color: #ffffff;
+        }
+
+        .projects-tech-pill-btn:hover .project-tech-icon {
+          opacity: 1;
+          filter: drop-shadow(0 0 6px rgba(0, 212, 245, 0.8));
+        }
+
+        .projects-tech-pill-btn.active {
+          background: linear-gradient(135deg, rgba(0, 212, 245, 0.25) 0%, rgba(99, 102, 241, 0.25) 100%);
+          border-color: var(--syn-cyan);
+          color: #ffffff;
+          box-shadow: 0 0 16px rgba(0, 212, 245, 0.4);
+          font-weight: 600;
+        }
+
+        .projects-tech-pill-btn.active .project-tech-icon {
+          color: var(--syn-cyan);
+          opacity: 1;
+          filter: drop-shadow(0 0 8px rgba(0, 212, 245, 0.9));
+        }
+
+        .projects-grid-tech-wrap .projects-tech-pill {
+          font-size: 0.73rem;
+          padding: 4px 10px;
+          gap: 5px;
+        }
+
+        @media (max-width: 640px) {
+          .projects-tech-pill {
+            font-size: 0.72rem !important;
+            padding: 4px 10px !important;
+            gap: 5px !important;
+          }
+        }

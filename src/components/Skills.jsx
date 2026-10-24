@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { FaJsSquare, FaPython, FaDatabase, FaReact, FaHtml5, FaNodeJs, FaServer, FaGitAlt, FaLinux, FaMobileAlt, FaLayerGroup, FaLock } from 'react-icons/fa';
 import { SiDjango, SiMongodb, SiMysql, SiExpress, SiVite, SiFramer, SiTailwindcss, SiPostgresql, SiPrisma, SiVercel, SiRender, SiJsonwebtokens, SiPostman, SiTypescript, SiSwagger, SiZod, SiFastapi, SiNextdotjs, SiClerk, SiDocker, SiRailway } from 'react-icons/si';

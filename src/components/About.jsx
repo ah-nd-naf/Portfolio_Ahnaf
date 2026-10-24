@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiFileText, FiDownload } from 'react-icons/fi';
 import GlitchText from './GlitchText';
@@ -256,15 +256,6 @@ const About = ({ onOpenCV }) => {
 
         </div>
       </div>
-      
-      {/* Inline styles for the grid */}
-      <style>{`
-        @media (min-width: 900px) {
-          .about-unique-layout {
-            grid-template-columns: 1.2fr 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };
