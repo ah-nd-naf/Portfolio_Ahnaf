@@ -21,11 +21,11 @@ const BIBTEX_CITATION = `@inproceedings{sawom20253cnet,
   title={3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques}, 
   year={2025},
   pages={1--6},
-  doi={10.1109/BECITHCON.2025.11504298},
+  doi={10.1109/BECITHCON69222.2025.11504298},
   publisher={IEEE}
 }`;
 
-const APA_CITATION = `Sawom, M. S. H., Khan, M. A., Zaki, M. A. R., Ronok, M. N. F., & Karim, D. Z. (2025). 3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques. In 2025 4th International Conference on Biomedical Engineering, Computer and Information Technology for Health (BECITHCON). IEEE. https://doi.org/10.1109/BECITHCON.2025.11504298`;
+const APA_CITATION = `Sawom, M. S. H., Khan, M. A., Zaki, M. A. R., Ronok, M. N. F., & Karim, D. Z. (2025). 3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques. In 2025 4th International Conference on Biomedical Engineering, Computer and Information Technology for Health (BECITHCON). IEEE. https://doi.org/10.1109/BECITHCON69222.2025.11504298`;
 
 const Research = () => {
   const [copiedBib, setCopiedBib] = useState(false);

@@ -88,7 +88,7 @@ A high-performance, developer-first portfolio built with **React 19**, **Vite 8*
 - Academic publication indexed in **IEEE Xplore**:
   - **Title**: *"3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques"*
   - **Conference**: 2025 4th International Conference on Biomedical Engineering, Computer and Information Technology for Health (**BECITHCON**)
-  - **DOI**: [10.1109/BECITHCON.2025.11504298](https://doi.org/10.1109/BECITHCON.2025.11504298)
+  - **DOI**: [10.1109/BECITHCON69222.2025.11504298](https://doi.org/10.1109/BECITHCON69222.2025.11504298)
   - **Interactive Drawer**: Built-in 1-click copy tools for **BibTeX** and **APA** citation formats.
 
 ### 7. Tech Arsenal & Skills (`#skills`)
