@@ -175,7 +175,7 @@ const Research = () => {
           <div className="research-grid-layout">
 
             {/* Left: Interactive Diagram, Architecture Highlights & Clinical Action Dock */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div className="research-grid-col" style={{ gap: '1.15rem' }}>
               {/* Image Preview Box */}
               <div style={{
                 position: 'relative',
@@ -213,22 +213,22 @@ const Research = () => {
               {/* Research Metrics Pills */}
               <div className="research-metrics-grid">
                 <div className="research-metric-card">
-                  <div className="research-metric-label focus">Focus</div>
-                  <div className="research-metric-val">Medical AI &amp; CV</div>
+                  <div className="research-metric-label focus">Accuracy</div>
+                  <div className="research-metric-val" style={{ color: 'var(--syn-cyan)' }}>98.25%</div>
                 </div>
 
                 <div className="research-metric-card">
-                  <div className="research-metric-label classes">Classes</div>
-                  <div className="research-metric-val">3-Class Cytology</div>
+                  <div className="research-metric-label classes">Parameters</div>
+                  <div className="research-metric-val" style={{ color: 'var(--syn-purple)' }}>~427K</div>
                 </div>
 
                 <div className="research-metric-card">
-                  <div className="research-metric-label design">Design</div>
-                  <div className="research-metric-val">Lightweight CNN</div>
+                  <div className="research-metric-label design">Screening</div>
+                  <div className="research-metric-val" style={{ color: 'var(--syn-green)' }}>3-Class</div>
                 </div>
               </div>
 
-              {/* Key Research Highlights Box (Positioned on Left to fully balance vertical space) */}
+              {/* Key Research Highlights Box */}
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -256,7 +256,7 @@ const Research = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
                   <span style={{ color: 'var(--syn-cyan)', fontWeight: 700 }}>▹</span>
-                  <span><strong style={{ color: 'var(--syn-cyan)' }}>Lightweight Edge CNN:</strong> Low-parameter model formulated for edge clinical diagnostic hardware.</span>
+                  <span><strong style={{ color: 'var(--syn-cyan)' }}>Lightweight Edge CNN:</strong> 427,012 parameters formulated for edge clinical diagnostic hardware.</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
                   <span style={{ color: 'var(--syn-purple)', fontWeight: 700 }}>▹</span>
@@ -264,17 +264,16 @@ const Research = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
                   <span style={{ color: 'var(--syn-green)', fontWeight: 700 }}>▹</span>
-                  <span><strong style={{ color: 'var(--syn-green)' }}>Dataset Validation:</strong> Benchmark tested and verified on the Mendeley Liquid-Based Cytology dataset.</span>
+                  <span><strong style={{ color: 'var(--syn-green)' }}>Explainable AI (XAI):</strong> Grad-CAM &amp; LIME heatmaps provide transparent decision validation for pathologists.</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: 'var(--text-main)', lineHeight: 1.5 }}>
+                  <span style={{ color: 'var(--syn-yellow)', fontWeight: 700 }}>▹</span>
+                  <span><strong style={{ color: 'var(--syn-yellow)' }}>Dataset Validation:</strong> Benchmark tested and verified on the Mendeley Liquid-Based Cytology dataset.</span>
                 </div>
               </div>
 
-              {/* Action Buttons Dock */}
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.8rem',
-                marginTop: '0.25rem'
-              }}>
+              {/* Action Buttons Dock (Anchored cleanly at bottom) */}
+              <div className="research-action-dock">
                 {/* Primary Button */}
                 <a
                   href="https://ieeexplore.ieee.org/document/11504298"
@@ -295,7 +294,8 @@ const Research = () => {
                     textDecoration: 'none',
                     boxShadow: '0 8px 25px rgba(0, 212, 245, 0.25)',
                     transition: 'all 0.3s ease',
-                    width: '100%'
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-2px)';
@@ -313,7 +313,9 @@ const Research = () => {
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: '1fr 1fr',
-                  gap: '0.75rem'
+                  gap: '0.75rem',
+                  width: '100%',
+                  boxSizing: 'border-box'
                 }}>
                   <button
                     type="button"
@@ -332,7 +334,8 @@ const Research = () => {
                       color: copiedBib ? 'var(--syn-green)' : 'var(--text-main)',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
-                      width: '100%'
+                      width: '100%',
+                      boxSizing: 'border-box'
                     }}
                   >
                     {copiedBib ? <FiCheck size={14} /> : <FiCopy size={14} />}
@@ -356,7 +359,8 @@ const Research = () => {
                       color: copiedApa ? 'var(--syn-green)' : 'var(--text-main)',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
-                      width: '100%'
+                      width: '100%',
+                      boxSizing: 'border-box'
                     }}
                   >
                     {copiedApa ? <FiCheck size={14} /> : <FiCopy size={14} />}
@@ -382,7 +386,8 @@ const Research = () => {
                     cursor: 'pointer',
                     fontFamily: 'var(--font-mono)',
                     transition: 'all 0.2s ease',
-                    width: '100%'
+                    width: '100%',
+                    boxSizing: 'border-box'
                   }}
                 >
                   <FiCode size={14} />
@@ -393,23 +398,23 @@ const Research = () => {
             </div>
 
             {/* Right: Paper Metadata, Authors Showcase & Findings */}
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            <div className="research-grid-col" style={{ justifyContent: 'flex-start' }}>
               <div>
                 {/* Paper Title */}
                 <h3 style={{
-                  fontSize: 'clamp(1.35rem, 2.4vw, 1.85rem)',
+                  fontSize: 'clamp(1.25rem, 2.2vw, 1.7rem)',
                   fontFamily: 'var(--font-sans)',
                   fontWeight: 800,
                   lineHeight: 1.3,
                   letterSpacing: '-0.5px',
                   color: 'var(--text-main)',
-                  marginBottom: '1.25rem'
+                  marginBottom: '1.1rem'
                 }}>
                   3C-Net: Cervical Cancer Cell Classification from Liquid-Based Cytology Pap Smear Images using Deep Learning Techniques
                 </h3>
 
                 {/* Authors Showcase Chips */}
-                <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ marginBottom: '1.25rem' }}>
                   <div style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -420,13 +425,13 @@ const Research = () => {
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
                     fontWeight: 600,
-                    marginBottom: '0.65rem'
+                    marginBottom: '0.6rem'
                   }}>
                     <FiUsers size={13} color="var(--syn-cyan)" />
                     <span>AUTHORS &amp; RESEARCHERS</span>
                   </div>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
                     {[
                       { name: 'Md. Safayet Hossain Sawom', isMe: false },
                       { name: 'Md. Adnan Khan', isMe: false },
@@ -441,7 +446,7 @@ const Research = () => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '7px',
-                            padding: '5px 14px',
+                            padding: '4px 12px',
                             borderRadius: '30px',
                             background: 'linear-gradient(135deg, rgba(0, 212, 245, 0.16) 0%, rgba(199, 146, 234, 0.16) 100%)',
                             border: '1px solid var(--syn-cyan)',
@@ -457,7 +462,7 @@ const Research = () => {
                           }} />
                           <span style={{
                             fontFamily: 'var(--font-sans)',
-                            fontSize: '0.88rem',
+                            fontSize: '0.86rem',
                             fontWeight: 700,
                             color: '#fff'
                           }}>
@@ -483,7 +488,7 @@ const Research = () => {
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '6px',
-                            padding: '5px 12px',
+                            padding: '4px 11px',
                             borderRadius: '30px',
                             background: 'rgba(22, 27, 34, 0.7)',
                             border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -501,7 +506,7 @@ const Research = () => {
                 </div>
 
                 {/* Redesigned Luxury Conference Credential Banner */}
-                <div className="research-conf-banner">
+                <div className="research-conf-banner" style={{ marginBottom: '1.25rem' }}>
                   {/* Glowing Conference Badge Emblem */}
                   <div className="research-conf-emblem">
                     <FiBookOpen size={20} />
@@ -527,11 +532,11 @@ const Research = () => {
 
                 {/* Editorial Abstract Callout Block */}
                 <div style={{
-                  padding: '1.2rem 1.4rem',
+                  padding: '1.1rem 1.25rem',
                   background: 'rgba(13, 17, 23, 0.6)',
                   borderLeft: '3px solid var(--syn-cyan)',
                   borderRadius: '0 12px 12px 0',
-                  marginBottom: '1.6rem'
+                  marginBottom: '1.25rem'
                 }}>
                   <div style={{
                     fontFamily: 'var(--font-mono)',
@@ -540,7 +545,7 @@ const Research = () => {
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
                     fontWeight: 600,
-                    marginBottom: '0.65rem',
+                    marginBottom: '0.55rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '6px'
@@ -551,17 +556,17 @@ const Research = () => {
 
                   <p style={{
                     fontFamily: 'var(--font-sans)',
-                    fontSize: '0.94rem',
-                    lineHeight: 1.75,
+                    fontSize: '0.91rem',
+                    lineHeight: 1.65,
                     color: 'var(--text-muted)',
-                    marginBottom: '0.75rem'
+                    marginBottom: '0.65rem'
                   }}>
                     Cervical cancer remains one of the leading causes of cancer mortality among women globally, where early cytological detection is paramount. This research introduces <strong style={{ color: 'var(--syn-cyan)' }}>3C-Net</strong>, a lightweight deep learning architecture formulated to accurately categorize cervical cytology images into three clinical diagnostic classes: <span style={{ color: 'var(--syn-green)', fontWeight: 600 }}>Normal</span>, <span style={{ color: 'var(--syn-yellow)', fontWeight: 600 }}>Precancerous</span>, and <span style={{ color: 'var(--syn-pink)', fontWeight: 600 }}>Cancerous</span>.
                   </p>
                   <p style={{
                     fontFamily: 'var(--font-sans)',
-                    fontSize: '0.94rem',
-                    lineHeight: 1.75,
+                    fontSize: '0.91rem',
+                    lineHeight: 1.65,
                     color: 'var(--text-muted)',
                     margin: 0
                   }}>
@@ -577,18 +582,18 @@ const Research = () => {
                     color: 'var(--text-dim)',
                     textTransform: 'uppercase',
                     letterSpacing: '1px',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.45rem'
                   }}>
                     INDEXED KEYWORDS
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
                     {['Deep Learning', 'Computer Vision', 'Medical AI', 'Convolutional Neural Networks', 'Cytology', 'Python', 'IEEE Xplore'].map((tag) => (
                       <span 
                         key={tag}
                         style={{
                           fontFamily: 'var(--font-mono)',
                           fontSize: '0.74rem',
-                          padding: '4px 10px',
+                          padding: '3px 9px',
                           borderRadius: '6px',
                           background: 'rgba(255, 255, 255, 0.03)',
                           border: '1px solid rgba(255, 255, 255, 0.08)',
