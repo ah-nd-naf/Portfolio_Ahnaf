@@ -62,7 +62,7 @@ const allSkills = skillset.flatMap(group => group.skills);
 const firstRow = allSkills.slice(0, Math.ceil(allSkills.length / 2));
 const secondRow = allSkills.slice(Math.ceil(allSkills.length / 2));
 
-const MarqueeRow = ({ items, direction = "left", speed = 40 }) => {
+const MarqueeRow = ({ items, direction = "left", speed = 30 }) => {
   return (
     <div style={{ overflow: 'hidden', display: 'flex', width: '100%', position: 'relative', padding: '0.5rem 0' }}>
       {/* Edge Fade Gradients */}
