@@ -755,7 +755,8 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <div className="badge-content">
                   <span className="badge-label">Status</span>
                   <div className="badge-tags">
-                    <span className="badge-tag cyan">Completed (Oct 31, 2026)</span>
+                    <span className="badge-tag green">Completed</span>
+                    <span className="badge-tag green">Oct 31, 2026</span>
                   </div>
                 </div>
               </div>
