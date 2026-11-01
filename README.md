@@ -15,7 +15,7 @@ A high-performance, developer-first portfolio built with **React 19**, **Vite 8*
 
 - 🖥️ **IDE-Themed UI & Design System**: A unique asymmetric layout inspired by modern code editors (VS Code / JetBrains) with custom syntax-highlighted color tokens and hardware-accelerated glassmorphism.
 - ⚡ **Interactive Command Palette & Cyber Terminal (`⌘K` / `Ctrl+K`)**: Universal spotlight search and interactive terminal shell modal with fuzzy searching, keyboard navigation (<kbd>↑</kbd> <kbd>↓</kbd> <kbd>↵</kbd>), and executable CLI commands (`help`, `projects`, `skills`, `whoami`, `neofetch`, `sudo hire`, `goto`).
-- 💼 **Enterprise Experience Showcase**: Dedicated enterprise role breakdown as a **Full-Stack Developer Intern at Periscale AI**, featuring detailed cards for production e-commerce platforms and server-side analytics engines.
+- 💼 **Enterprise Experience Showcase**: Dedicated enterprise role breakdown as a **Full-Stack Developer Intern at Periscale AI** (Aug 1, 2026 – Oct 31, 2026 · Completed), featuring detailed cards for production e-commerce platforms and server-side analytics engines.
 - 🔬 **IEEE-Published Research & Citation Drawer**: Dedicated academic showcase for peer-reviewed medical AI paper (**3C-Net** in IEEE Xplore) with 1-click **BibTeX** and **APA** citation copying drawers.
 - 📄 **Interactive In-Browser CV Modal**: Full-featured resume preview modal with direct PDF download (`Ahnaf_Rasheed_CV.pdf`), pop-out tab support, and <kbd>Esc</kbd> keyboard dismissal.
 - 🎡 **Dynamic Projects Showcase & Dual View**: 11-project filterable showcase with interactive carousel slider, grid matrix view, category chips, tech stack sub-filters, and verified live demos/repositories.
@@ -60,7 +60,7 @@ A high-performance, developer-first portfolio built with **React 19**, **Vite 8*
 - Stat highlights and direct CV inspection trigger.
 
 ### 3. Work Experience (`#experience`)
-- Highlights active enterprise work as **Full-Stack Developer Intern** at **Periscale AI**:
+- Highlights enterprise production engineering as **Full-Stack Developer Intern** at **Periscale AI** (August 1, 2026 – October 31, 2026 · Completed):
   - **Periscale E-Commerce Platform**: Multi-channel storefront with 60-second catalog builder, 1-click Daraz/Shopify synchronization, AI fraud protection, and bilingual EN/BN localization.
   - **Periscale Server CAPI & Analytics Hub**: First-party server-side tracking (Meta CAPI, TikTok CAPI, GA4 Server) recovering 100% ad signals with 8.5+ EMQ score and sub-0.02s latency.
   - **Gammify Platform**: Digital gaming cards and e-commerce UI/UX component architecture.

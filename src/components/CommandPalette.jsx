@@ -58,7 +58,7 @@ const NAV_ACTIONS = [
   {
     id: 'nav-experience',
     title: 'Work Experience / Periscale AI',
-    subtitle: 'Full-Stack Developer Intern · Multi-repo engineering (Gammify, Web, Clients)',
+    subtitle: 'Full-Stack Developer Intern (Aug 2026 – Oct 2026) · Multi-repo engineering',
     category: 'Navigation',
     icon: FiBriefcase,
     action: () => { document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); },
@@ -640,7 +640,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                   <span className="cmd-whoami-name">Curriculum Vitae (CV)</span>
                   <span className="cmd-whoami-alias">Ahnaf_Rasheed_CV.pdf</span>
                 </div>
-                <div className="cmd-whoami-role">Full-Stack Developer · Periscale AI Intern</div>
+                <div className="cmd-whoami-role">Full-Stack Developer · Ex-Periscale AI Intern</div>
               </div>
               <div className="cmd-whoami-status">
                 <span className="live-dot-pulse" style={{ background: 'var(--syn-purple)', boxShadow: '0 0 8px var(--syn-purple)' }}></span>
@@ -707,11 +707,11 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                   <span className="cmd-whoami-name">Periscale AI</span>
                   <span className="cmd-whoami-alias">periscale.ai</span>
                 </div>
-                <div className="cmd-whoami-role">Full-Stack Developer Intern · Aug 1, 2026 – Present</div>
+                <div className="cmd-whoami-role">Full-Stack Developer Intern · Aug 1, 2026 – Oct 31, 2026</div>
               </div>
               <div className="cmd-whoami-status">
-                <span className="live-dot-pulse"></span>
-                <span>ACTIVE INTERNSHIP</span>
+                <FiCheckCircle size={13} style={{ color: 'var(--syn-cyan)' }} />
+                <span style={{ color: 'var(--syn-cyan)' }}>COMPLETED INTERNSHIP</span>
               </div>
             </div>
 
@@ -723,7 +723,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
                   Multi-Repository Production Engineering
                 </strong>
-                Contributing as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI &amp; Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
+                Contributed as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI &amp; Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
               </div>
             </div>
 
@@ -755,7 +755,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <div className="badge-content">
                   <span className="badge-label">Status</span>
                   <div className="badge-tags">
-                    <span className="badge-tag green">Active / Ongoing</span>
+                    <span className="badge-tag cyan">Completed (Oct 31, 2026)</span>
                   </div>
                 </div>
               </div>

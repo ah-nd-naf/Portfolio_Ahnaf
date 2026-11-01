@@ -144,6 +144,15 @@
           text-transform: uppercase;
         }
 
+        .exp-status-badge.completed {
+          background: rgba(0, 212, 245, 0.08);
+          border: 1px solid rgba(0, 212, 245, 0.28);
+        }
+
+        .exp-status-badge.completed .exp-status-text {
+          color: var(--syn-cyan);
+        }
+
         .exp-period {
           font-family: var(--font-mono);
           font-size: 0.85rem;

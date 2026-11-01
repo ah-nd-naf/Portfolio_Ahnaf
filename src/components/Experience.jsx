@@ -8,7 +8,8 @@ import {
   FiArrowUpRight,
   FiExternalLink,
   FiCalendar,
-  FiMapPin
+  FiMapPin,
+  FiCheckCircle
 } from 'react-icons/fi';
 import { 
   SiNextdotjs, 
@@ -48,10 +49,10 @@ const EXPERIENCE_DATA = {
   companyUrl: 'https://www.periscale.ai/',
   logo: '/periscale-logo.png',
   role: 'Full-Stack Developer Intern',
-  period: 'August 1, 2026 – Present',
-  status: 'Active',
+  period: 'August 1, 2026 – October 31, 2026',
+  status: 'Completed',
   location: 'Dhaka, Bangladesh',
-  summary: 'Contributing as a core full-stack developer across multiple key repositories—engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
+  summary: 'Contributed as a core full-stack developer across multiple key repositories—engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
   repositories: [
     {
       id: 'periscale-ecom',
@@ -226,8 +227,12 @@ const Experience = () => {
                   </h3>
 
                   {/* Status Badge - Inlined in header for Mobile */}
-                  <div className="exp-status-badge exp-status-mobile">
-                    <span className="exp-status-dot" />
+                  <div className={`exp-status-badge ${EXPERIENCE_DATA.status === 'Completed' ? 'completed' : ''} exp-status-mobile`}>
+                    {EXPERIENCE_DATA.status === 'Completed' ? (
+                      <FiCheckCircle size={10} style={{ color: 'var(--syn-cyan)' }} />
+                    ) : (
+                      <span className="exp-status-dot" />
+                    )}
                     <span className="exp-status-text">{EXPERIENCE_DATA.status}</span>
                   </div>
                 </div>
@@ -251,8 +256,12 @@ const Experience = () => {
 
             {/* Status & Period Column - Desktop View */}
             <div className="exp-status-col-desktop">
-              <div className="exp-status-badge">
-                <span className="exp-status-dot" />
+              <div className={`exp-status-badge ${EXPERIENCE_DATA.status === 'Completed' ? 'completed' : ''}`}>
+                {EXPERIENCE_DATA.status === 'Completed' ? (
+                  <FiCheckCircle size={12} style={{ color: 'var(--syn-cyan)' }} />
+                ) : (
+                  <span className="exp-status-dot" />
+                )}
                 <span className="exp-status-text">{EXPERIENCE_DATA.status}</span>
               </div>
 
@@ -279,7 +288,7 @@ const Experience = () => {
               </a>
               <span className="exp-mobile-meta-item">
                 <FiCalendar size={12} style={{ color: 'var(--syn-cyan)', opacity: 0.85 }} />
-                <span>Aug 2026 – Present</span>
+                <span>Aug 2026 – Oct 2026</span>
               </span>
               <span className="exp-mobile-meta-item">
                 <FiMapPin size={12} style={{ color: 'var(--syn-purple)', opacity: 0.85 }} />
@@ -384,7 +393,7 @@ const Experience = () => {
           <div className="exp-stack-section">
             <div className="exp-stack-label">
               <FiTerminal size={16} color="var(--syn-green)" />
-              <span>Active Production Stack:</span>
+              <span>Production Tech Stack:</span>
             </div>
 
             <div className="exp-stack-list">
