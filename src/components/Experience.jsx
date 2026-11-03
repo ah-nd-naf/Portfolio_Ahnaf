@@ -52,7 +52,7 @@ const EXPERIENCE_DATA = {
   period: 'August 1, 2026 – October 31, 2026',
   status: 'Completed',
   location: 'Dhaka, Bangladesh',
-  summary: 'Contributed as a core full-stack developer across multiple key repositories—engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
+  summary: 'Contributed as a core full-stack developer across multiple key repositories - engineering high-performance frontends, resilient backend APIs, and scalable PostgreSQL database schemas for an AI-powered social commerce revenue engine.',
   repositories: [
     {
       id: 'periscale-ecom',
