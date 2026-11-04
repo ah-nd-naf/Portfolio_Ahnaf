@@ -60,9 +60,7 @@ const EXPERIENCE_DATA = {
       title: 'Periscale E-Commerce Platform',
       description: 'Engineered frontend modules and resilient API workflows for Periscale\'s multi-channel e-commerce engine. Built 60-second product catalogs, 1-click sync with Daraz & Shopify, AI fraud protection, bilingual EN/BN localization, and seamless checkout flows.',
       tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST APIs'],
-      color: '#ff5500',
-      liveUrl: 'https://www.periscale.ai/ecom',
-      liveLabel: '/ecom'
+      color: '#ff5500'
     },
     {
       id: 'periscale-analytics',
@@ -70,9 +68,7 @@ const EXPERIENCE_DATA = {
       title: 'First-Party CAPI & Deep Behavioral Analytics',
       description: 'Architected first-party Server-Side Conversions API (CAPI) relay preserving 100% ad signals past iOS 14+ / ad-blockers with 8.5+ Meta EMQ. Formulated real-time 0.018s latency signal streams, interactive injector testing, and behavioral session replays.',
       tags: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
-      color: '#00d4f5',
-      liveUrl: 'https://www.periscale.ai/analytics',
-      liveLabel: '/analytics'
+      color: '#00d4f5'
     },
     {
       id: 'gammify',

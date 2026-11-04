@@ -770,27 +770,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 className="cmd-pill-btn primary"
                 title="Visit periscale.ai (opens in new tab)"
               >
-                <span>periscale.ai</span>
-                <FiExternalLink size={12} />
-              </a>
-              <a
-                href="https://www.periscale.ai/ecom"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cmd-pill-btn"
-                title="Launch Periscale E-Commerce Platform"
-              >
-                <span>E-Commerce Engine</span>
-                <FiExternalLink size={12} />
-              </a>
-              <a
-                href="https://www.periscale.ai/analytics"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cmd-pill-btn"
-                title="Launch Server CAPI & Analytics Hub"
-              >
-                <span>CAPI Analytics</span>
+                <span>Visit periscale.ai</span>
                 <FiExternalLink size={12} />
               </a>
               <button

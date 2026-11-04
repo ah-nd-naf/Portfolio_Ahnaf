@@ -94,7 +94,7 @@ export const projects = [
     tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Framer Motion', 'REST APIs'],
     categories: ['Full-Stack', 'Frontend', 'Backend'],
     github: '#',
-    live: 'https://www.periscale.ai/ecom',
+    live: '#',
     accent: '#ff4d00',
     isCommercial: true,
   },
@@ -105,7 +105,7 @@ export const projects = [
     tech: ['Next.js', 'TypeScript', 'Meta CAPI', 'TikTok CAPI', 'GA4 Server', 'PostgreSQL'],
     categories: ['Full-Stack', 'Backend', 'Frontend'],
     github: '#',
-    live: 'https://www.periscale.ai/analytics',
+    live: '#',
     accent: '#06b6d4',
     isCommercial: true,
   },
@@ -702,23 +702,16 @@ const Projects = () => {
                       ) : activeProject.isCommercial ? (
                         <>
                           <a 
-                            href={activeProject.live} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                            href="#experience" 
                             className="projects-btn projects-btn-solid"
                             style={{ background: activeProject.accent, color: '#ffffff', fontWeight: 700, boxShadow: `0 0 16px ${activeProject.accent}40` }}
-                          >
-                            <FiExternalLink size={15} /> Live Platform ↗
-                          </a>
-                          <a 
-                            href="#experience" 
-                            className="projects-btn projects-btn-outline"
                             onClick={(e) => {
                               e.preventDefault();
+                              setIsModalOpen(false);
                               document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                           >
-                            <FiLayers size={15} /> Periscale Role
+                            <FiLayers size={15} /> View Internship Role ↗
                           </a>
                         </>
                       ) : (
@@ -957,25 +950,16 @@ const Projects = () => {
                         ) : proj.isCommercial ? (
                           <>
                             <a
-                              href={proj.live}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="projects-btn projects-btn-solid"
-                              title="Launch Live Platform"
-                              style={{ background: proj.accent, color: '#ffffff', fontWeight: 700 }}
-                            >
-                              <FiExternalLink size={14} /> Live SaaS
-                            </a>
-                            <a
                               href="#experience"
-                              className="projects-btn projects-btn-outline"
+                              className="projects-btn projects-btn-solid"
                               title="View Periscale AI Internship Role"
+                              style={{ background: proj.accent, color: '#ffffff', fontWeight: 700 }}
                               onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
                               }}
                             >
-                              <FiLayers size={14} /> Role
+                              <FiLayers size={14} /> Internship Role ↗
                             </a>
                           </>
                         ) : (
