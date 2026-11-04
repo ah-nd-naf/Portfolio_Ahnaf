@@ -707,7 +707,6 @@ const Projects = () => {
                             style={{ background: activeProject.accent, color: '#ffffff', fontWeight: 700, boxShadow: `0 0 16px ${activeProject.accent}40` }}
                             onClick={(e) => {
                               e.preventDefault();
-                              setIsModalOpen(false);
                               document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
                             }}
                           >
