@@ -62,7 +62,7 @@ const allSkills = skillset.flatMap(group => group.skills);
 const firstRow = allSkills.slice(0, Math.ceil(allSkills.length / 2));
 const secondRow = allSkills.slice(Math.ceil(allSkills.length / 2));
 
-const MarqueeRow = ({ items, direction = "left", speed = 30 }) => {
+const MarqueeRow = ({ items, direction = "left", speed = 35 }) => {
   return (
     <div style={{ overflow: 'hidden', display: 'flex', width: '100%', position: 'relative', padding: '0.5rem 0' }}>
       {/* Edge Fade Gradients */}
@@ -72,41 +72,58 @@ const MarqueeRow = ({ items, direction = "left", speed = 30 }) => {
       <motion.div
         animate={{ x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
         transition={{ repeat: Infinity, duration: speed, ease: "linear" }}
-        style={{ display: 'flex', gap: '2rem', width: 'max-content' }}
+        style={{ 
+          display: 'flex', 
+          width: 'max-content',
+          willChange: 'transform',
+          transform: 'translateZ(0)'
+        }}
       >
-        {/* We duplicate the array 4 times to ensure seamless infinite scrolling regardless of screen width */}
-        {[...items, ...items, ...items, ...items].map((s, i) => (
-          <div 
-            key={i} 
-            className="marquee-skill-card"
+        {/* Two identical groups so -50% translation matches the exact boundary perfectly */}
+        {[0, 1].map((copyIndex) => (
+          <div
+            key={copyIndex}
             style={{
               display: 'flex',
-              alignItems: 'center',
-              gap: '1rem',
-              padding: '1.25rem 2.5rem',
-              background: 'rgba(22, 27, 34, 0.4)',
-              border: '1px solid rgba(255, 255, 255, 0.05)',
-              borderRadius: '100px',
-              whiteSpace: 'nowrap',
-              backdropFilter: 'blur(10px)',
-              transition: 'all 0.3s ease',
-              cursor: 'default'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(22, 27, 34, 0.9)';
-              e.currentTarget.style.borderColor = 'var(--syn-cyan)';
-              e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 245, 0.15)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(22, 27, 34, 0.4)';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
-              e.currentTarget.style.boxShadow = 'none';
-              e.currentTarget.style.transform = 'none';
+              gap: '2rem',
+              paddingRight: '2rem'
             }}
           >
-            <span className="skill-icon" style={{ fontSize: '1.6rem', display: 'flex' }}>{s.icon}</span>
-            <span className="skill-name" style={{ fontFamily: 'var(--font-sans)', fontSize: '1.1rem', fontWeight: 500, color: 'var(--text-main)' }}>{s.name}</span>
+            {items.map((s, i) => (
+              <div 
+                key={i} 
+                className="marquee-skill-card"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  padding: '1.25rem 2.5rem',
+                  background: 'rgba(22, 27, 34, 0.4)',
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  borderRadius: '100px',
+                  whiteSpace: 'nowrap',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease',
+                  cursor: 'default',
+                  flexShrink: 0
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(22, 27, 34, 0.9)';
+                  e.currentTarget.style.borderColor = 'var(--syn-cyan)';
+                  e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 245, 0.15)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(22, 27, 34, 0.4)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'none';
+                }}
+              >
+                <span className="skill-icon" style={{ fontSize: '1.6rem', display: 'flex' }}>{s.icon}</span>
+                <span className="skill-name" style={{ fontFamily: 'var(--font-sans)', fontSize: '1.1rem', fontWeight: 500, color: 'var(--text-main)' }}>{s.name}</span>
+              </div>
+            ))}
           </div>
         ))}
       </motion.div>
