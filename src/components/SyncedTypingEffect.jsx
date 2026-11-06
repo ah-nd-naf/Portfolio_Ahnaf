@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const SyncedTypingEffect = ({
   pairs,
-  typingSpeed = 65,
-  deletingSpeed = 35,
-  delay = 2200,
-  startDelay = 350,
+  typingSpeed = 95,
+  deletingSpeed = 45,
+  delay = 2400,
+  startDelay = 500,
   isStarted = true,
   className1 = "hero-tagline",
   className2 = "hero-tagline hero-stack-tagline",
