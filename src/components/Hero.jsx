@@ -88,9 +88,13 @@ const Hero = ({ onOpenCV }) => {
 
         {/* Right-side Image Container */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={nameComplete ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85 }}
-          transition={{ duration: 0.7, delay: 0.05, type: 'spring', bounce: 0.25 }}
+          initial={{ opacity: 0, scale: 0.9, y: 15 }}
+          animate={nameComplete ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 15 }}
+          transition={{ 
+            duration: 1.1, 
+            delay: 0.2, 
+            ease: [0.16, 1, 0.3, 1]
+          }}
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', height: '100%' }}
         >
           <div style={{ position: 'relative', width: 'clamp(280px, 30vw, 400px)', height: 'clamp(320px, 35vw, 450px)' }}>
