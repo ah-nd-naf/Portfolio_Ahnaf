@@ -441,6 +441,89 @@ section {
   }
 }
 
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(46, 213, 115, 0.08);
+  border: 1px solid rgba(46, 213, 115, 0.28);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #e6edf3;
+  margin-bottom: 1.1rem;
+  width: fit-content;
+  max-width: 100%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 0 12px rgba(46, 213, 115, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.hero-status-pill:hover {
+  background: rgba(46, 213, 115, 0.13);
+  border-color: rgba(46, 213, 115, 0.45);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(46, 213, 115, 0.15);
+  transform: translateY(-1px);
+}
+
+.status-ping-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+}
+
+.status-ping-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #2ed573;
+  opacity: 0.75;
+  animation: ping-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.status-ping-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ed573;
+  box-shadow: 0 0 8px #2ed573;
+}
+
+@keyframes ping-pulse {
+  75%, 100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.status-text-main {
+  font-weight: 600;
+  color: #2ed573;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.status-sep {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.status-text-sub {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
 .hero-path-prefix {
   font-family: var(--font-mono);
   font-size: clamp(1rem, 2.5vw, 1.4rem);
@@ -3377,6 +3460,17 @@ button.footer-social-card {
 }
 
 @media (max-width: 480px) {
+  .hero-status-pill {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.65rem;
+    gap: 0.4rem;
+  }
+  .status-text-sub {
+    display: none;
+  }
+  .status-sep {
+    display: none;
+  }
   .site-footer {
     padding: 2.2rem 1rem 1rem;
   }
@@ -6456,6 +6550,12 @@ button.footer-social-card {
     grid-template-columns: 1fr !important;
     gap: 3.25rem !important;
     text-align: left !important;
+  }
+  .hero-status-pill {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 0.85rem;
+    max-width: 100%;
   }
   .hero-path-prefix {
     margin-bottom: 0.85rem !important;

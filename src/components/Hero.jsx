@@ -27,6 +27,21 @@ const Hero = ({ onOpenCV }) => {
     <section id="hero" className="hero-section">
       <div className="hero-layout">
         <div style={{ position: 'relative', zIndex: 10 }}>
+          <motion.div
+            className="hero-status-pill"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <span className="status-ping-wrap">
+              <span className="status-ping-ring"></span>
+              <span className="status-ping-dot"></span>
+            </span>
+            <span className="status-text-main">Available for Work</span>
+            <span className="status-sep">•</span>
+            <span className="status-text-sub">Full-time / Contract</span>
+          </motion.div>
+
           <motion.p
             className="hero-path-prefix"
             initial={{ opacity: 0, x: -20 }}
