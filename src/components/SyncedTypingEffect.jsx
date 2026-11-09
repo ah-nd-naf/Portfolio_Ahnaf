@@ -16,9 +16,9 @@ const SyncedTypingEffect = ({
   const [phase, setPhase] = useState('waiting'); // 'waiting' | 'typing' | 'pausing' | 'deleting'
 
   // Distinct Cyber Palette:
-  // Line 1: Warm Amber / Gold (#f8c555) </> [Pink #f92aad] </> Electric Lilac / Lavender (#d8b4fe)
+  // Line 1: Electric Lilac / Purple (#c792ea) </> [Pink #f92aad] </> Sky / Ice Blue (#38bdf8)
   // Line 2: Electric Cyan (#00d4f5) </> [Pink #f92aad] </> Emerald Green (#2ed573)
-  const colorsLine1 = ['#f8c555', '#d8b4fe', '#f8c555'];
+  const colorsLine1 = ['#c792ea', '#38bdf8', '#c792ea'];
   const colorsLine2 = ['#00d4f5', '#2ed573', '#00d4f5'];
 
   useEffect(() => {
@@ -144,9 +144,9 @@ const SyncedTypingEffect = ({
   const currentPair = pairs && pairs[pairIndex];
   if (currentPair && currentPair.role.includes('</>')) {
     const sIdx = currentPair.role.indexOf('</>');
-    if (displayedText1.length <= sIdx) cursor1Color = '#f8c555';
+    if (displayedText1.length <= sIdx) cursor1Color = '#c792ea';
     else if (displayedText1.length <= sIdx + 3) cursor1Color = '#f92aad';
-    else cursor1Color = '#d8b4fe';
+    else cursor1Color = '#38bdf8';
   }
 
   // Dynamic Cursor color for line 2
@@ -165,7 +165,7 @@ const SyncedTypingEffect = ({
       <div className={className1}>
         <b>
           <span style={{ position: 'relative', display: 'inline-block' }}>
-            {renderText(displayedText1, c1, '#f8c555', '#f92aad', '#d8b4fe')}
+            {renderText(displayedText1, c1, '#c792ea', '#f92aad', '#38bdf8')}
             {isReady && (
               <span 
                 className="cursor-blink" 
