@@ -37,8 +37,8 @@ const Hero = ({ onOpenCV }) => {
           <motion.div
             className="hero-status-pill"
             initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            animate={nameComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
           >
             <span className="status-ping-wrap">
               <span className="status-ping-ring"></span>
