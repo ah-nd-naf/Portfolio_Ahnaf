@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import TypingEffect from './TypingEffect';
 import SyncedTypingEffect from './SyncedTypingEffect';
 import { FaGithub } from 'react-icons/fa';
-import { FiMail, FiFileText } from 'react-icons/fi';
+import { FiMail, FiFileText, FiCopy, FiCheck } from 'react-icons/fi';
 
 const HERO_PAIRS = [
   {
@@ -22,6 +22,13 @@ const HERO_PAIRS = [
 
 const Hero = ({ onOpenCV }) => {
   const [nameComplete, setNameComplete] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('ahnaf.rasheed.zaki@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
 
   return (
     <section id="hero" className="hero-section">
@@ -98,6 +105,17 @@ const Hero = ({ onOpenCV }) => {
             <a href="#contact" className="btn btn-secondary" id="btn-contact">
               <FiMail /> Get In Touch
             </a>
+            <button
+              type="button"
+              className={`btn btn-copy-email ${copied ? 'copied' : ''}`}
+              id="btn-copy-email"
+              onClick={handleCopyEmail}
+              title="Copy ahnaf.rasheed.zaki@gmail.com to clipboard"
+              aria-label="Copy email address to clipboard"
+            >
+              {copied ? <FiCheck className="copy-icon check" /> : <FiCopy className="copy-icon" />}
+              <span>{copied ? 'Email Copied!' : 'Copy Email'}</span>
+            </button>
           </motion.div>
         </div>
 
