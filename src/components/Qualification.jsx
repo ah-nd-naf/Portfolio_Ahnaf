@@ -86,7 +86,7 @@ const qualifications = [
       'const sscRecord = {',
       '  institution: "BN School & College, Khulna",',
       '  group: "Science",',
-      '  skills: ["Foundational Science", "Analytical Math"]',
+      '  skills: ["Physics", "Higher Math"]',
       '};'
     ]
   }
