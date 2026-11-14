@@ -16,7 +16,8 @@ import {
   SiTypescript, 
   SiPostgresql, 
   SiTailwindcss,
-  SiFigma
+  SiFigma,
+  SiDjango
 } from 'react-icons/si';
 import { 
   FaReact, 
@@ -40,6 +41,7 @@ const TECH_ICONS = {
   'TikTok CAPI': <FaServer size={10} className="exp-icon" />,
   'GA4 Server': <FaServer size={10} className="exp-icon" />,
   'Tailwind CSS': <SiTailwindcss size={11} className="exp-icon" />,
+  'Django': <SiDjango size={11} className="exp-icon" />,
   'Git & GitHub': <FaGitAlt size={11} className="exp-icon" />,
   'UI/UX & Testing': <SiFigma size={11} className="exp-icon" />
 };
@@ -93,6 +95,7 @@ const EXPERIENCE_DATA = {
     'JavaScript',
     'PostgreSQL',
     'Node.js',
+    'Django',
     'REST APIs',
     'Tailwind CSS',
     'Git & GitHub'
