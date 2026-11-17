@@ -165,7 +165,7 @@ const Skills = () => (
         style={{ display: 'flex', flexDirection: 'column', gap: '2rem', overflow: 'hidden' }}
       >
         <MarqueeRow items={firstRow} direction="left" speed={39} />
-        <MarqueeRow items={secondRow} direction="right" speed={43} />
+        <MarqueeRow items={secondRow} direction="right" speed={42} />
       </motion.div>
 
     </div>
