@@ -164,7 +164,7 @@ const Skills = () => (
         transition={{ duration: 0.8, delay: 0.2 }}
         style={{ display: 'flex', flexDirection: 'column', gap: '2rem', overflow: 'hidden' }}
       >
-        <MarqueeRow items={firstRow} direction="left" speed={38} />
+        <MarqueeRow items={firstRow} direction="left" speed={39} />
         <MarqueeRow items={secondRow} direction="right" speed={42} />
       </motion.div>
 
