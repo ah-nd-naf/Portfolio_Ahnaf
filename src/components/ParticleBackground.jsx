@@ -129,12 +129,22 @@ const ParticleBackground = () => {
       }
     };
 
+    let isPaused = false;
+
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      drawConnections();
+      if (!isPaused) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        drawConnections();
+      }
       animationId = requestAnimationFrame(animate);
     };
+
+    const handleVisibilityChange = () => {
+      isPaused = document.hidden;
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     animate();
 
@@ -143,6 +153,7 @@ const ParticleBackground = () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
