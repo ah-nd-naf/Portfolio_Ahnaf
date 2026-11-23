@@ -153,6 +153,26 @@
           color: var(--syn-cyan);
         }
 
+        .exp-status-badge.present {
+          background: rgba(46, 213, 115, 0.1);
+          border: 1px solid rgba(46, 213, 115, 0.35);
+        }
+
+        .exp-status-badge.present .exp-status-text {
+          color: #2ed573;
+        }
+
+        .live-dot-pulse {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          display: inline-block;
+          background: #2ed573;
+          box-shadow: 0 0 8px #2ed573;
+          animation: pulse 2s infinite;
+          flex-shrink: 0;
+        }
+
         .exp-period {
           font-family: var(--font-mono);
           font-size: 0.85rem;

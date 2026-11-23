@@ -57,8 +57,8 @@ const NAV_ACTIONS = [
   },
   {
     id: 'nav-experience',
-    title: 'Work Experience / Periscale AI',
-    subtitle: 'Full-Stack Developer Intern (Aug 2026 – Oct 2026) · Multi-repo engineering',
+    title: 'Work Experience / Career Track',
+    subtitle: 'Software Engineer at Peace Systems Limited · Ex-Periscale AI',
     category: 'Navigation',
     icon: FiBriefcase,
     action: () => { document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' }); },
@@ -530,7 +530,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                   <span className="cmd-whoami-name">Ahnaf Rasheed</span>
                   <span className="cmd-whoami-alias">@ah-nd-naf</span>
                 </div>
-                <div className="cmd-whoami-role">Full-Stack Web Developer & AI Integrator</div>
+                <div className="cmd-whoami-role">Software Engineer at Peace Systems Limited · Ex-Periscale AI</div>
               </div>
               <div className="cmd-whoami-status">
                 <span className="live-dot-pulse"></span>
@@ -640,7 +640,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                   <span className="cmd-whoami-name">Curriculum Vitae (CV)</span>
                   <span className="cmd-whoami-alias">Ahnaf_Rasheed_CV.pdf</span>
                 </div>
-                <div className="cmd-whoami-role">Full-Stack Developer · Ex-Periscale AI Intern</div>
+                <div className="cmd-whoami-role">Software Engineer · Ex-Periscale AI</div>
               </div>
               <div className="cmd-whoami-status">
                 <span className="live-dot-pulse" style={{ background: 'var(--syn-purple)', boxShadow: '0 0 8px var(--syn-purple)' }}></span>
@@ -691,99 +691,184 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
           </div>
         )
       });
-    } else if (['experience', 'work', 'periscale', 'internship', 'intern', 'job'].includes(lowerCmd)) {
+    } else if (['experience', 'work', 'peace', 'peacesystems', 'periscale', 'internship', 'intern', 'job', 'career'].includes(lowerCmd)) {
       newHistory.push({
         type: 'custom',
         render: (
-          <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid var(--syn-cyan)' }}>
-            <div className="cmd-whoami-header">
-              <div className="cmd-whoami-avatar-glow">
-                <div className="cmd-whoami-avatar" style={{ background: 'rgba(0, 212, 245, 0.15)', color: 'var(--syn-cyan)', padding: '5px' }}>
-                  <img src="/periscale-logo.png" alt="Periscale AI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', width: '100%' }}>
+            {/* 1. Present Role: Peace Systems Limited */}
+            <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid #2ed573' }}>
+              <div className="cmd-whoami-header">
+                <div className="cmd-whoami-avatar-glow">
+                  <div className="cmd-whoami-avatar" style={{ background: 'rgba(46, 213, 115, 0.15)', color: '#2ed573', padding: '5px' }}>
+                    <img src="/peace-systems-logo.png" alt="Peace Systems Limited" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </div>
+                </div>
+                <div className="cmd-whoami-meta">
+                  <div className="cmd-whoami-name-row">
+                    <span className="cmd-whoami-name">Peace Systems Limited</span>
+                    <span className="cmd-whoami-alias">psl.solutions</span>
+                  </div>
+                  <div className="cmd-whoami-role">Software Engineer · February 2026 – Present</div>
+                </div>
+                <div className="cmd-whoami-status">
+                  <span className="live-dot-pulse" style={{ background: '#2ed573', boxShadow: '0 0 8px #2ed573' }}></span>
+                  <span style={{ color: '#2ed573' }}>ACTIVE ROLE</span>
                 </div>
               </div>
-              <div className="cmd-whoami-meta">
-                <div className="cmd-whoami-name-row">
-                  <span className="cmd-whoami-name">Periscale AI</span>
-                  <span className="cmd-whoami-alias">periscale.ai</span>
+
+              <div className="cmd-whoami-bio-card">
+                <div className="cmd-whoami-bio-quote-icon">
+                  <FiBriefcase size={14} />
                 </div>
-                <div className="cmd-whoami-role">Full-Stack Developer Intern · Aug 1, 2026 – Oct 31, 2026</div>
+                <div className="cmd-whoami-bio-text">
+                  <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+                    Enterprise Software &amp; Scalable Web Architecture
+                  </strong>
+                  Engineering robust full-stack systems and production web solutions across healthcare, telecoms, fintech, and logistics domains using React, Next.js, Node.js, Python, Django Rest Framework (DRF), FastAPI, and PostgreSQL.
+                </div>
               </div>
-              <div className="cmd-whoami-status">
-                <FiCheckCircle size={13} style={{ color: 'var(--syn-cyan)' }} />
-                <span style={{ color: 'var(--syn-cyan)' }}>COMPLETED INTERNSHIP</span>
-              </div>
-            </div>
 
-            <div className="cmd-whoami-bio-card">
-              <div className="cmd-whoami-bio-quote-icon">
-                <FiBriefcase size={14} />
-              </div>
-              <div className="cmd-whoami-bio-text">
-                <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
-                  Multi-Repository Production Engineering
-                </strong>
-                Contributed as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI &amp; Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
-              </div>
-            </div>
-
-            <div className="cmd-whoami-badges-grid">
-              <div className="cmd-whoami-badge-item badge-location">
-                <FiLayers className="badge-icon" size={14} />
-                <div className="badge-content">
-                  <span className="badge-label">Key Repositories</span>
-                  <div className="badge-tags">
-                    <span className="badge-tag cyan">E-Commerce</span>
-                    <span className="badge-tag cyan">CAPI Hub</span>
-                    <span className="badge-tag cyan">Gammify</span>
+              <div className="cmd-whoami-badges-grid">
+                <div className="cmd-whoami-badge-item badge-location">
+                  <FiLayers className="badge-icon" size={14} />
+                  <div className="badge-content">
+                    <span className="badge-label">Core Focus</span>
+                    <div className="badge-tags">
+                      <span className="badge-tag cyan">Enterprise Web</span>
+                      <span className="badge-tag cyan">Full-Stack Solutions</span>
+                      <span className="badge-tag cyan">REST APIs</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="cmd-whoami-badge-item badge-stack">
+                  <FiZap className="badge-icon" size={14} />
+                  <div className="badge-content">
+                    <span className="badge-label">Tech Stack</span>
+                    <div className="badge-tags">
+                      <span className="badge-tag purple">React &amp; Next.js</span>
+                      <span className="badge-tag purple">Python &amp; DRF</span>
+                      <span className="badge-tag purple">PostgreSQL</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="cmd-whoami-badge-item badge-stack">
-                <FiZap className="badge-icon" size={14} />
-                <div className="badge-content">
-                  <span className="badge-label">Tech Stack</span>
-                  <div className="badge-tags">
-                    <span className="badge-tag purple">Next.js</span>
-                    <span className="badge-tag purple">TypeScript</span>
-                    <span className="badge-tag purple">PostgreSQL</span>
-                  </div>
-                </div>
-              </div>
-              <div className="cmd-whoami-badge-item badge-status">
-                <FiCheckCircle className="badge-icon" size={14} />
-                <div className="badge-content">
-                  <span className="badge-label">Status</span>
-                  <div className="badge-tags">
-                    <span className="badge-tag green">Completed</span>
-                    <span className="badge-tag green">Oct 31, 2026</span>
-                  </div>
-                </div>
+
+              <div className="cmd-whoami-actions">
+                <a
+                  href="https://psl.solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cmd-pill-btn primary"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <FiExternalLink size={12} />
+                  <span>Visit psl.solutions</span>
+                </a>
+                <button
+                  className="cmd-pill-btn"
+                  onClick={() => {
+                    setIsOpen(false);
+                    document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <FiArrowRight size={12} />
+                  <span>View in Timeline</span>
+                </button>
               </div>
             </div>
 
-            <div className="cmd-whoami-actions">
-              <a
-                href="https://www.periscale.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cmd-pill-btn primary"
-                title="Visit periscale.ai (opens in new tab)"
-              >
-                <span>Visit periscale.ai</span>
-                <FiExternalLink size={12} />
-              </a>
-              <button
-                className="cmd-pill-btn secondary"
-                onClick={() => {
-                  setIsOpen(false);
-                  document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                title="Scroll down to Experience section on page"
-              >
-                <span>Jump to Section</span>
-                <FiArrowRight size={12} />
-              </button>
+            {/* 2. Previous Role: Periscale AI */}
+            <div className="cmd-rich-whoami" style={{ borderLeft: '3px solid var(--syn-cyan)' }}>
+              <div className="cmd-whoami-header">
+                <div className="cmd-whoami-avatar-glow">
+                  <div className="cmd-whoami-avatar" style={{ background: 'rgba(0, 212, 245, 0.15)', color: 'var(--syn-cyan)', padding: '5px' }}>
+                    <img src="/periscale-logo.png" alt="Periscale AI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </div>
+                </div>
+                <div className="cmd-whoami-meta">
+                  <div className="cmd-whoami-name-row">
+                    <span className="cmd-whoami-name">Periscale AI</span>
+                    <span className="cmd-whoami-alias">periscale.ai</span>
+                  </div>
+                  <div className="cmd-whoami-role">Full-Stack Developer Intern · Aug 1, 2026 – Oct 31, 2026</div>
+                </div>
+                <div className="cmd-whoami-status">
+                  <FiCheckCircle size={13} style={{ color: 'var(--syn-cyan)' }} />
+                  <span style={{ color: 'var(--syn-cyan)' }}>COMPLETED INTERNSHIP</span>
+                </div>
+              </div>
+
+              <div className="cmd-whoami-bio-card">
+                <div className="cmd-whoami-bio-quote-icon">
+                  <FiBriefcase size={14} />
+                </div>
+                <div className="cmd-whoami-bio-text">
+                  <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
+                    Multi-Repository Production Engineering
+                  </strong>
+                  Contributed as a core full-stack developer across Periscale's production E-Commerce Engine, first-party Server CAPI &amp; Analytics Hub, the Gammify gaming platform, and bespoke client solutions using Next.js, TypeScript, PostgreSQL, and high-throughput APIs.
+                </div>
+              </div>
+
+              <div className="cmd-whoami-badges-grid">
+                <div className="cmd-whoami-badge-item badge-location">
+                  <FiLayers className="badge-icon" size={14} />
+                  <div className="badge-content">
+                    <span className="badge-label">Key Repositories</span>
+                    <div className="badge-tags">
+                      <span className="badge-tag cyan">E-Commerce</span>
+                      <span className="badge-tag cyan">CAPI Hub</span>
+                      <span className="badge-tag cyan">Gammify</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="cmd-whoami-badge-item badge-stack">
+                  <FiZap className="badge-icon" size={14} />
+                  <div className="badge-content">
+                    <span className="badge-label">Tech Stack</span>
+                    <div className="badge-tags">
+                      <span className="badge-tag purple">Next.js</span>
+                      <span className="badge-tag purple">TypeScript</span>
+                      <span className="badge-tag purple">PostgreSQL</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="cmd-whoami-badge-item badge-status">
+                  <FiCheckCircle className="badge-icon" size={14} />
+                  <div className="badge-content">
+                    <span className="badge-label">Status</span>
+                    <div className="badge-tags">
+                      <span className="badge-tag green">Completed</span>
+                      <span className="badge-tag green">Oct 31, 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="cmd-whoami-actions">
+                <a
+                  href="https://www.periscale.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cmd-pill-btn primary"
+                  title="Visit periscale.ai (opens in new tab)"
+                >
+                  <span>Visit periscale.ai</span>
+                  <FiExternalLink size={12} />
+                </a>
+                <button
+                  className="cmd-pill-btn secondary"
+                  onClick={() => {
+                    setIsOpen(false);
+                    document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  title="Scroll down to Experience section on page"
+                >
+                  <span>Jump to Section</span>
+                  <FiArrowRight size={12} />
+                </button>
+              </div>
             </div>
           </div>
         )
