@@ -71,14 +71,27 @@ const Navbar = ({ onOpenCommandPalette, onOpenCV }) => {
         </a>
       </nav>
 
-      {/* Mobile Toggle Button */}
-      <button 
-        className="mobile-menu-btn"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle mobile menu"
-      >
-        {isMobileMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
-      </button>
+      {/* Mobile Right Action Area (Terminal quick trigger + Hamburger menu) */}
+      <div className="mobile-actions-group">
+        <button
+          type="button"
+          className="mobile-term-nav-btn"
+          onClick={onOpenCommandPalette}
+          title="Open Terminal / Quick Search"
+          aria-label="Open Terminal / Quick Search"
+        >
+          <FiTerminal size={15} className="mobile-term-icon" />
+          <span className="mobile-term-label">term</span>
+        </button>
+
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
+        </button>
+      </div>
 
       {/* Mobile Dropdown Navigation */}
       <AnimatePresence>
