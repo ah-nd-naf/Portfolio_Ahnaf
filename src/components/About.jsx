@@ -4,19 +4,20 @@ import { FiFileText, FiDownload } from 'react-icons/fi';
 import GlitchText from './GlitchText';
 
 const codeLines = [
-  { num: 1, content: <><span className="syn-keyword">const</span> <span className="syn-fn">developer</span> <span style={{color:'var(--text-muted)'}}>= {'{'}</span></> },
-  { num: 2, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">name</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Ahnaf Rasheed"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 3, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">role</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Software Engineer"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 4, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">company</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Peace Systems Limited"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 5, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">location</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Dhaka, Bangladesh 🇧🇩"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 6, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">skills</span><span style={{color:'var(--text-muted)'}}>:</span> <span style={{color:'var(--text-muted)'}}>[</span></span></> },
-  { num: 7, content: <><span style={{paddingLeft:'3rem'}}><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-cyan">React</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-purple">Next.js</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-green">Node.js</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">Express</span><span style={{color:'var(--text-muted)'}}>',</span></span></> },
-  { num: 8, content: <><span style={{paddingLeft:'3rem'}}><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-green">MongoDB</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">Python</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-cyan">Django REST</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">FastAPI</span><span style={{color:'var(--text-muted)'}}>',</span></span></> },
-  { num: 9, content: <><span style={{paddingLeft:'3rem'}}><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-purple">PostgreSQL</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-cyan">TypeScript</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">REST APIs</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">Git</span><span style={{color:'var(--text-muted)'}}>',</span></span></> },
-  { num: 10, content: <><span style={{paddingLeft:'1.5rem'}}><span style={{color:'var(--text-muted)'}}>],</span></span></> },
-  { num: 11, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">previousInternship</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Periscale AI (Completed)"</span><span style={{color:'var(--text-muted)'}}>,</span></span></> },
-  { num: 12, content: <><span style={{paddingLeft:'1.5rem'}}><span className="syn-prop">status</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Active & Engineering"</span></span></> },
-  { num: 13, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
+  { num: 1, indent: 0, content: <><span className="syn-keyword">const</span> <span className="syn-fn">developer</span> <span style={{color:'var(--text-muted)'}}>= {'{'}</span></> },
+  { num: 2, indent: '1.25rem', content: <><span className="syn-prop">name</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Ahnaf Rasheed"</span><span style={{color:'var(--text-muted)'}}>,</span></> },
+  { num: 3, indent: '1.25rem', content: <><span className="syn-prop">role</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Software Engineer"</span><span style={{color:'var(--text-muted)'}}>,</span></> },
+  { num: 4, indent: '1.25rem', content: <><span className="syn-prop">company</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Peace Systems Limited"</span><span style={{color:'var(--text-muted)'}}>,</span></> },
+  { num: 5, indent: '1.25rem', content: <><span className="syn-prop">location</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Dhaka, Bangladesh"</span><span style={{color:'var(--text-muted)'}}>,</span></> },
+  { num: 6, indent: '1.25rem', content: <><span className="syn-prop">skills</span><span style={{color:'var(--text-muted)'}}>:</span> <span style={{color:'var(--text-muted)'}}>[</span></> },
+  { num: 7, indent: '2.5rem', content: <><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-cyan">React</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-purple">Next.js</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-green">Node.js</span><span style={{color:'var(--text-muted)'}}>',</span></> },
+  { num: 8, indent: '2.5rem', content: <><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-yellow">Express</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-green">MongoDB</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">Python</span><span style={{color:'var(--text-muted)'}}>',</span></> },
+  { num: 9, indent: '2.5rem', content: <><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-cyan">Django REST</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">FastAPI</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-purple">PostgreSQL</span><span style={{color:'var(--text-muted)'}}>',</span></> },
+  { num: 10, indent: '2.5rem', content: <><span style={{color:'var(--text-muted)'}}>'</span><span className="syn-cyan">TypeScript</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-pink">REST APIs</span><span style={{color:'var(--text-muted)'}}>', '</span><span className="syn-yellow">Git</span><span style={{color:'var(--text-muted)'}}>',</span></> },
+  { num: 11, indent: '1.25rem', content: <><span style={{color:'var(--text-muted)'}}>],</span></> },
+  { num: 12, indent: '1.25rem', content: <><span className="syn-prop">internship</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Periscale AI (Completed)"</span><span style={{color:'var(--text-muted)'}}>,</span></> },
+  { num: 13, indent: '1.25rem', content: <><span className="syn-prop">status</span><span style={{color:'var(--text-muted)'}}>:</span> <span className="syn-string">"Active & Engineering"</span></> },
+  { num: 14, indent: 0, content: <span style={{color:'var(--text-muted)'}}>{'}'}</span> },
 ];
 
 const About = ({ onOpenCV }) => {
@@ -219,29 +220,29 @@ const About = ({ onOpenCV }) => {
               <div className="premium-code-content">
                 <div style={{ 
                   fontFamily: 'var(--font-mono)', 
-                  fontSize: '1rem', 
-                  lineHeight: 1.8,
+                  fontSize: 'clamp(0.78rem, 1.05vw, 0.92rem)', 
+                  lineHeight: 1.85,
                 }}>
                   {codeLines.map((line, index) => (
                     <div
                       key={line.num}
                       style={{
                         display: 'flex',
-                        gap: '1.25rem',
+                        gap: '1rem',
                         opacity: index < visibleLines ? 1 : 0,
                         transform: index < visibleLines ? 'translateY(0)' : 'translateY(10px)',
                         transition: 'opacity 0.3s ease, transform 0.3s ease',
                       }}
                     >
-                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '2ch', textAlign: 'right', flexShrink: 0 }}>
                         {line.num}
                       </span>
-                      <span style={{ flex: 1 }}>{line.content}</span>
+                      <span style={{ flex: 1, minWidth: 0, paddingLeft: line.indent || 0 }}>{line.content}</span>
                     </div>
                   ))}
                   {visibleLines < codeLines.length && (
-                    <div style={{ display: 'flex', gap: '1.25rem' }}>
-                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '1.5ch', textAlign: 'right' }}>
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                      <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '2ch', textAlign: 'right', flexShrink: 0 }}>
                         {visibleLines + 1}
                       </span>
                       <span style={{ flex: 1 }}>
