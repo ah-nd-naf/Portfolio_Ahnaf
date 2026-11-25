@@ -220,7 +220,7 @@ const About = ({ onOpenCV }) => {
               <div className="premium-code-content">
                 <div style={{ 
                   fontFamily: 'var(--font-mono)', 
-                  fontSize: 'clamp(0.78rem, 1.05vw, 0.92rem)', 
+                  fontSize: 'clamp(0.84rem, 1.15vw, 1rem)', 
                   lineHeight: 1.85,
                 }}>
                   {codeLines.map((line, index) => (
@@ -228,7 +228,7 @@ const About = ({ onOpenCV }) => {
                       key={line.num}
                       style={{
                         display: 'flex',
-                        gap: '1rem',
+                        gap: '1.25rem',
                         opacity: index < visibleLines ? 1 : 0,
                         transform: index < visibleLines ? 'translateY(0)' : 'translateY(10px)',
                         transition: 'opacity 0.3s ease, transform 0.3s ease',
@@ -241,7 +241,7 @@ const About = ({ onOpenCV }) => {
                     </div>
                   ))}
                   {visibleLines < codeLines.length && (
-                    <div style={{ display: 'flex', gap: '1rem' }}>
+                    <div style={{ display: 'flex', gap: '1.25rem' }}>
                       <span style={{ color: 'rgba(255,255,255,0.2)', userSelect: 'none', minWidth: '2ch', textAlign: 'right', flexShrink: 0 }}>
                         {visibleLines + 1}
                       </span>
