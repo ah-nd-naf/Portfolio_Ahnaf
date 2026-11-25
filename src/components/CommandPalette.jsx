@@ -723,9 +723,9 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 </div>
                 <div className="cmd-whoami-bio-text">
                   <strong style={{ color: 'var(--text-main)', display: 'block', marginBottom: '6px' }}>
-                    Enterprise Software &amp; Scalable Web Architecture
+                    Full-Stack Software Engineering
                   </strong>
-                  Engineering robust full-stack systems and production web solutions across healthcare, telecoms, fintech, and logistics domains using React, Next.js, Node.js, Python, Django Rest Framework (DRF), FastAPI, and PostgreSQL.
+                  Contributing to modern web applications and scalable digital solutions with React, Next.js, Node.js, Python, and PostgreSQL.
                 </div>
               </div>
 
@@ -733,10 +733,10 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                 <div className="cmd-whoami-badge-item badge-location">
                   <FiLayers className="badge-icon" size={14} />
                   <div className="badge-content">
-                    <span className="badge-label">Core Focus</span>
+                    <span className="badge-label">Role Focus</span>
                     <div className="badge-tags">
-                      <span className="badge-tag cyan">Enterprise Web</span>
-                      <span className="badge-tag cyan">Full-Stack Solutions</span>
+                      <span className="badge-tag cyan">Full-Stack Web</span>
+                      <span className="badge-tag cyan">Modern Architectures</span>
                       <span className="badge-tag cyan">REST APIs</span>
                     </div>
                   </div>
@@ -747,7 +747,7 @@ const CommandPalette = ({ isOpen, setIsOpen, onOpenCV }) => {
                     <span className="badge-label">Tech Stack</span>
                     <div className="badge-tags">
                       <span className="badge-tag purple">React &amp; Next.js</span>
-                      <span className="badge-tag purple">Python &amp; DRF</span>
+                      <span className="badge-tag purple">Node.js &amp; Python</span>
                       <span className="badge-tag purple">PostgreSQL</span>
                     </div>
                   </div>

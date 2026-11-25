@@ -66,33 +66,8 @@ const EXPERIENCES = [
     status: 'Present',
     location: 'Dhaka, Bangladesh',
     accentColor: '#2ed573',
-    summary: 'Driving enterprise software engineering and scalable digital solutions for high-impact commercial clients. Architecting performant web frontends, secure backend REST APIs, and resilient data models across diverse industries including healthcare, telecoms, logistics, and fintech.',
-    repositories: [
-      {
-        id: 'psl-enterprise-core',
-        badge: 'Enterprise Architecture',
-        title: 'Production Web Systems & Microservices',
-        description: 'Building end-to-end full-stack architectures and mission-critical web applications with Next.js, React, and robust backend integrations to scale with international quality benchmarks.',
-        tags: ['React', 'Next.js', 'Node.js', 'TypeScript', 'REST APIs'],
-        color: '#2ed573'
-      },
-      {
-        id: 'psl-backend-drf',
-        badge: 'Backend & High-Throughput APIs',
-        title: 'Scalable REST APIs & Data Schemas',
-        description: 'Engineering secure, well-documented REST APIs using Python, Django REST Framework (DRF), and FastAPI backed by optimized relational schemas on PostgreSQL for high concurrency.',
-        tags: ['Python', 'Django REST', 'FastAPI', 'PostgreSQL', 'Custom APIs'],
-        color: '#00d4f5'
-      },
-      {
-        id: 'psl-client-engineering',
-        badge: 'Client Deliverables & Modules',
-        title: 'Full-Cycle Enterprise Client Solutions',
-        description: 'Executing end-to-end engineering deliverables, component testing, schema migrations, and cross-functional client integrations under rigorous production timelines.',
-        tags: ['Next.js', 'PostgreSQL', 'Tailwind CSS', 'Git & GitHub'],
-        color: '#c792ea'
-      }
-    ],
+    summary: 'Software Engineer contributing to full-stack web development and scalable digital solutions. Building with modern web technologies including React, Next.js, Node.js, Python, and PostgreSQL.',
+    repositories: [],
     stack: [
       'React',
       'Next.js',
@@ -380,90 +355,93 @@ const Experience = () => {
                 </p>
               </div>
 
-              {/* Section Divider: Repositories & Sub-projects */}
-              <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <FiLayers size={18} color="var(--syn-purple)" />
-                <h4 style={{ 
-                  margin: 0, 
-                  fontSize: '1.2rem', 
-                  fontWeight: 700, 
-                  color: 'var(--text-main)', 
-                  letterSpacing: '-0.3px' 
-                }}>
-                  {exp.id === 'peace-systems' ? 'Engineering Initiatives & Systems' : 'Multi-Repository Engineering & Deliverables'}
-                </h4>
-              </div>
+              {/* Repositories & Sub-projects (rendered only if available) */}
+              {exp.repositories && exp.repositories.length > 0 && (
+                <>
+                  <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <FiLayers size={18} color="var(--syn-purple)" />
+                    <h4 style={{ 
+                      margin: 0, 
+                      fontSize: '1.2rem', 
+                      fontWeight: 700, 
+                      color: 'var(--text-main)', 
+                      letterSpacing: '-0.3px' 
+                    }}>
+                      Multi-Repository Engineering &amp; Deliverables
+                    </h4>
+                  </div>
 
-              {/* Repositories / Work Items Grid */}
-              <div className="exp-repos-grid">
-                {exp.repositories.map((repo) => (
-                  <motion.div
-                    key={repo.id}
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.2 }}
-                    className="exp-card"
-                    style={{
-                      border: `1px solid ${repo.color}30`,
-                      boxShadow: `0 8px 24px -10px ${repo.color}20`
-                    }}
-                  >
-                    {/* Card Top / Badge */}
-                    <div className="exp-card-top">
-                      <span 
-                        className="exp-card-badge"
+                  <div className="exp-repos-grid">
+                    {exp.repositories.map((repo) => (
+                      <motion.div
+                        key={repo.id}
+                        whileHover={{ y: -4 }}
+                        transition={{ duration: 0.2 }}
+                        className="exp-card"
                         style={{
-                          background: `${repo.color}15`,
-                          color: repo.color,
-                          border: `1px solid ${repo.color}35`,
+                          border: `1px solid ${repo.color}30`,
+                          boxShadow: `0 8px 24px -10px ${repo.color}20`
                         }}
                       >
-                        {repo.badge}
-                      </span>
-                      {repo.liveUrl ? (
-                        <a
-                          href={repo.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="exp-repo-live-btn"
-                          title={`Launch ${repo.title} in new tab`}
-                          style={{
-                            borderColor: `${repo.color}40`,
-                            color: repo.color
-                          }}
-                        >
-                          <span>{repo.liveLabel || 'Live Launch'}</span>
-                          <FiExternalLink size={11} />
-                        </a>
-                      ) : (
-                        <FiGitCommit size={14} color={repo.color} opacity={0.8} />
-                      )}
-                    </div>
+                        {/* Card Top / Badge */}
+                        <div className="exp-card-top">
+                          <span 
+                            className="exp-card-badge"
+                            style={{
+                              background: `${repo.color}15`,
+                              color: repo.color,
+                              border: `1px solid ${repo.color}35`,
+                            }}
+                          >
+                            {repo.badge}
+                          </span>
+                          {repo.liveUrl ? (
+                            <a
+                              href={repo.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="exp-repo-live-btn"
+                              title={`Launch ${repo.title} in new tab`}
+                              style={{
+                                borderColor: `${repo.color}40`,
+                                color: repo.color
+                              }}
+                            >
+                              <span>{repo.liveLabel || 'Live Launch'}</span>
+                              <FiExternalLink size={11} />
+                            </a>
+                          ) : (
+                            <FiGitCommit size={14} color={repo.color} opacity={0.8} />
+                          )}
+                        </div>
 
-                    {/* Card Title */}
-                    <h5 className="exp-card-title">
-                      {repo.title}
-                    </h5>
+                        {/* Card Title */}
+                        <h5 className="exp-card-title">
+                          {repo.title}
+                        </h5>
 
-                    {/* Card Description */}
-                    <p className="exp-card-desc">
-                      {repo.description}
-                    </p>
+                        {/* Card Description */}
+                        <p className="exp-card-desc">
+                          {repo.description}
+                        </p>
 
-                    {/* Tech Badges */}
-                    <div className="exp-card-tags">
-                      {repo.tags.map((tag, tIdx) => (
-                        <span 
-                          key={tIdx} 
-                          className="exp-tech-chip"
-                        >
-                          {TECH_ICONS[tag]}
-                          <span>{tag}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                        {/* Tech Badges */}
+                        <div className="exp-card-tags">
+                          {repo.tags.map((tag, tIdx) => (
+                            <span 
+                              key={tIdx} 
+                              className="exp-tech-chip"
+                            >
+                              {TECH_ICONS[tag]}
+                              <span>{tag}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {/* Section Divider: Tech Stack Arsenal */}
               <div className="exp-stack-section">
