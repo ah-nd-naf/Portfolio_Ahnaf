@@ -220,7 +220,7 @@ const About = ({ onOpenCV }) => {
               <div className="premium-code-content">
                 <div style={{ 
                   fontFamily: 'var(--font-mono)', 
-                  fontSize: 'clamp(0.84rem, 1.15vw, 1rem)', 
+                  fontSize: 'clamp(0.88rem, 1.35vw, 1.05rem)', 
                   lineHeight: 1.85,
                 }}>
                   {codeLines.map((line, index) => (
