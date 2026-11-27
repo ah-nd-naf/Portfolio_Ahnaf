@@ -62,7 +62,7 @@ const EXPERIENCES = [
     domainLabel: 'psl.solutions',
     logo: '/peace-systems-logo.png',
     role: 'Software Engineer',
-    period: 'February 2026 – Present',
+    period: 'November 2026 – Present',
     status: 'Present',
     location: 'Dhaka, Bangladesh',
     accentColor: '#2ed573',
